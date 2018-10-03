@@ -1,0 +1,25 @@
+{
+  "name": "learningwebpack",
+  "version": "1.0.0",
+  "description": "React simple CLI template",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiangWeixian/LearningWebpack.git"
+  },
+  "author": "jiangwei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/LearningWebpack/issues"
+  },
+  "homepage": "https://github.com/JiangWeixian/LearningWebpack#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.4.14",
+    "react": "^16.5.2",
+    "webpack": "^4.20.2"
+  }
+}
