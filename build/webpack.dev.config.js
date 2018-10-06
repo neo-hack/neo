@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 const config = {
   context: path.resolve(__dirname, '../'),
@@ -18,7 +19,6 @@ const config = {
     }
   },
   devServer: {
-    hot: false,
     port: 8080,
     contentBase: false,
     open: true,
@@ -32,6 +32,7 @@ const config = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
+          { loader: 'babel-loader'},
           { loader: 'ts-loader' }
         ]
       },
