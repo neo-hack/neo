@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require('webpack')
 
 const config = {
@@ -25,6 +26,7 @@ const config = {
     overlay: true,
     compress: true,
     clientLogLevel: 'none',
+    quiet: true,
   },
   module: {
     rules: [
@@ -58,6 +60,17 @@ const config = {
       filename: 'index.html',
       template: 'index.html',
       inject: true,
+    }),
+    new webpack.NamedModulesPlugin(),
+    new FriendlyErrorsPlugin({
+      compilationSuccessInfo: {
+        messages: ['Running here http://localhost:8080'],
+        notes: ['Some additionnal notes to be displayed unpon successful compilation']
+      },
+      onErrors: function (severity, errors) {
+        // You can listen to errors transformed and prioritized by the plugin
+        // severity can be 'error' or 'warning'
+      },
     })
   ]
 }
