@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { splitReact } = require('./utils')
 
 const config = {
@@ -102,6 +104,7 @@ const config = {
   },
   plugins: [
     new CleanWebpackPlugin([path.join(__dirname, '../dist')], { root: path.join(__dirname, '../') }),
+    new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -115,7 +118,10 @@ const config = {
     new MiniCSSExtractPlugin({
       filename: path.posix.join('static', 'css/[name].[contenthasn].css'),
       chunkFilename: path.posix.join('static', 'css/[id].[contenthash].css'),
-    })
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ]
 }
 
