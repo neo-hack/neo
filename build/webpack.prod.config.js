@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { splitReact } = require('./utils')
 
 const config = {
@@ -100,6 +101,7 @@ const config = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin([path.join(__dirname, '../dist')], { root: path.join(__dirname, '../') }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
