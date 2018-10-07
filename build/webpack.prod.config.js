@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const webpack = require('webpack')
+const { splitReact } = require('./utils')
 
 const config = {
   context: path.resolve(__dirname, '../'),
@@ -31,19 +31,31 @@ const config = {
   },
   optimization: {
     splitChunks: {
-      cacheGroup: {
+      cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: function (module) {
+            return (
+              module.resource &&
+              /\.js$/.test(module.resource) &&
+              !splitReact(module.resource)
+            )
+          },
           chunks: 'all',
           name: 'vendors',
         },
         commons: {
           name: 'commons',
-          chunks: 'initals',
+          chunks: 'initial',
           minChunks: 2,
         },
         reactVendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          test: function (module) {
+            return (
+              module.resource &&
+              /\.js$/.test(module.resource) &&
+              splitReact(module.resource)
+            )
+          },
           name: 'reactVendor',
           chunks: 'all',
         },
@@ -53,6 +65,9 @@ const config = {
           minChunks: 2,
         }
       }
+    },
+    runtimeChunk: {
+      name: 'mainfest'
     },
   },
   module: {
@@ -95,10 +110,9 @@ const config = {
         removeEmptyAttributes: true,
       },
     }),
-    new webpack.optimize.UglifyJsPlugin(),
     new MiniCSSExtractPlugin({
-      filename: path.posix.path('static', 'css/[name].[contenthasn].css'),
-      chunkFilename: path.posix.path('static', 'css/[id].[contenthash].css'),
+      filename: path.posix.join('static', 'css/[name].[contenthasn].css'),
+      chunkFilename: path.posix.join('static', 'css/[id].[contenthash].css'),
     })
   ]
 }
