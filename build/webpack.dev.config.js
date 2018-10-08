@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require('webpack')
 
+process.env.NODE_ENV = 'development'
+
 const config = {
   context: path.resolve(__dirname, '../'),
   devtool: 'cheap-module-eval-source-map',

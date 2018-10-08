@@ -25,9 +25,7 @@
     "postcss-js": "^2.0.0",
     "postcss-url": "^8.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "react-dom": "^16.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -53,6 +51,8 @@
     "react-hot-loader": "^4.3.11",
     "style-loader": "^0.23.0",
     "stylint": "^1.5.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",
     "tslint-eslint-rules": "^5.4.0",

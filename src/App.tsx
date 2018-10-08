@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Home from '@/components/Home'
-import { hot } from 'react-hot-loader'
 import '@/assets/stylus/App.styl'
 
 class App extends React.Component {
@@ -14,4 +13,11 @@ class App extends React.Component {
   }
 }
 
-export default hot(module)(App)
+let AppContainer = App
+
+if (process.env.NODE_ENV === 'development') {
+  const { hot } = require('react-hot-loader')
+  AppContainer = hot(module)(App)
+}
+
+export default AppContainer
