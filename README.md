@@ -1,13 +1,12 @@
-# Learning Webpack
-> (🚧WIP)创造适合自己的 CLI 模板；以分支进行区分不同模板
+# Template: react-simple-ts
+![webpackv4](https://img.shields.io/badge/webpack-V4-blue.svg?longCache=true&style=for-the-badge)
 
-## Vue
-> 基于前端框架是 Vue 的 Webpack 从零开始构建过程
+## Feature
 
-**基础版本**
-> 没有进行性能相关优化
+* [x] - typescript
+* [x] - stylus
+    > linter for typescript and stylus
+* [x] - react
+    > support react-hot-loader
 
-* [Vue基础版本](https://github.com/JiangWeixian/tf-mobilenet-vue/tree/webpack-stage-eval/build) / 包含`dev`模式以及`prod`模式
-
-## React
-> (🚧WIP)
+**NO redux and react-router**    
