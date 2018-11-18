@@ -9,4 +9,4 @@
 * [x] - react
     > support react-hot-loader
 
-**NO redux and react-router**    
+**NO redux and react-router**
