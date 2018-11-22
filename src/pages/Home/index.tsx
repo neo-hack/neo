@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Test from './test'
+import Test from '../../components/test'
 
 class Home extends React.Component {
   render () {

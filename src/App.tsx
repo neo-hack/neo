@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Home from '@/components/Home'
+import Home from '@/pages/Home'
 import '@/assets/stylus/App.styl'
 
 class App extends React.Component {
