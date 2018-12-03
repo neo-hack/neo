@@ -1,8 +1,5 @@
-import * as React from 'react'
-import PageLazyLoad from '@/components/Pages/LazyLoad'
+import LazyLoad from '@/components/LazyLoad'
 import { Redirect } from 'react-router-dom'
-
-const Home = React.lazy(() => import('@/pages/Home'))
 
 export interface RoutesConfigSchema {
   path: string
@@ -19,6 +16,6 @@ export const routesConfig: RoutesConfigSchema[] = [
   // },
   {
     path: '/home',
-    component: (props) => PageLazyLoad(props, Home),
+    component: (props) => LazyLoad(props, () => import('@/pages/Home')),
   },
 ]
