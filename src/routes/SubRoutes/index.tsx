@@ -8,6 +8,7 @@ function SubRoutes (route: RoutesConfigSchema) {
       path={ route.path }
       render={ props => {
         // pass the sub-routes down to keep nesting
+        // if (route.redirect) return <Redirect from={ route.path } to={ route.redirect } />
         return (
           <route.component
             { ...props }

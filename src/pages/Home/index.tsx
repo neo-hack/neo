@@ -3,6 +3,7 @@ import Test from '../../components/test'
 
 class Home extends React.Component {
   render () {
+    console.log(this.props)
     return (
       <div>
         this is new home page
