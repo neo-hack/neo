@@ -1,17 +1,20 @@
 import * as React from 'react'
 import { RoutesConfigSchema } from '../config'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
-function SubRoutes(route: RoutesConfigSchema) {
+function SubRoutes (route: RoutesConfigSchema) {
   return (
     <Route
       path={ route.path }
-      render={ props => (
+      render={ props => {
         // pass the sub-routes down to keep nesting
-        <route.component
-          { ...props } routes={ route.children }
-        />
-      )}
+        return (
+          <route.component
+            { ...props }
+            routes={ route.children }
+          />
+        )
+      }}
     />
   )
 }

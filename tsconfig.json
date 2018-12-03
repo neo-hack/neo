@@ -17,8 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "pages/*": ["./src/pages/*"],
-      "routes/*": ["./src/routes/*"],
     }
   },
   "exclude": [

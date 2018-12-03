@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Home from '@/pages/Home'
+import RouterViewer from '@/routes'
 import '@/assets/stylus/App.styl'
 
 class App extends React.Component {
@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <div className='app'>
         this is react-simple webpack template
-        <Home />
+        <RouterViewer />
       </div>
     )
   }
