@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "noEmitOnError": true,
     "noImplicitReturns": true,
+    "noImplicitThis": false,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JiangWeixian/LearningWebpack#readme",
   "dependencies": {
+    "@rematch/core": "^1.0.6",
     "@types/react-dom": "^16.0.8",
     "classnames": "^2.2.6",
     "postcss-cssnext": "^3.1.0",
