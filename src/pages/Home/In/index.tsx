@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-class Test extends React.Component {
+class In extends React.Component {
   render () {
     return (
       <div>
-        this is home page
+        this is in page
       </div>
     )
   }
 }
 
-export default Test
+export default In

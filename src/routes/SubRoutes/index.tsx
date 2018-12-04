@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom'
 
 function SubRoutes (route: RoutesConfigSchema, index?: any) {
   if (route.redirect) {
-    return <Redirect exact from={ route.path } to={ route.redirect } />
+    return <Redirect key={ index } exact from={ route.path } to={ route.redirect } />
   }
   return (
     <Route

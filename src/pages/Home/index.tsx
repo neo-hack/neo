@@ -1,13 +1,24 @@
 import * as React from 'react'
-import Test from '../../components/test'
+import SubRoutes from '@/routes/SubRoutes'
+import { Switch } from 'react-router-dom'
 
-class Home extends React.Component {
+interface PageProps {
+  routes?: any
+}
+
+class Home extends React.Component <PageProps> {
   render () {
-    console.log(this.props)
+    const { routes } = this.props
     return (
       <div>
         this is new home page
-        <Test />
+        <Switch>
+          {
+            routes.map((route, i) => {
+              return SubRoutes(route, i)
+            })
+          }
+        </Switch>
       </div>
     )
   }

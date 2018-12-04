@@ -13,10 +13,15 @@ export const routesConfig: RoutesConfigSchema[] = [
   {
     path: '/',
     redirect: '/home',
-    // component: (props) => <Redirect to='/home' />,
   },
   {
     path: '/home',
     component: (props) => LazyLoad(props, () => import('@/pages/Home')),
+    children: [
+      {
+        path: '/home/in',
+        component: (props) => LazyLoad(props, () => import('@/pages/Home/In')),
+      },
+    ]
   },
 ]
