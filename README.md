@@ -10,3 +10,8 @@
     > support react-hot-loader
 
 **NO redux and react-router**
+
+## TODO
+
+* how-to-listen-route-inreact
+    * [ref-不使用react-router-redux](https://div.io/topic/2073)
