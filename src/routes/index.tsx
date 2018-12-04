@@ -8,12 +8,10 @@ const RouterViewer = () => {
   return (
     <HashRouter>
       <Switch>
-        {/* <Redirect exact from='/' to='/home' /> */}
         {
-          routesConfig.map((route, i) => (
-              <SubRoutes key={i} {...route} />
-            )
-          )
+          routesConfig.map((route, i) => {
+            return SubRoutes(route, i)
+          })
         }
       </Switch>
     </HashRouter>
