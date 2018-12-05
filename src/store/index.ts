@@ -1,10 +1,9 @@
 import { init } from '@rematch/core'
-import test from './modules'
+import models from './models'
+console.log(typeof models)
 
-// const store = init({
-  
-// })
+const store = init({
+  models
+})
 
-console.log(test)
-
-export default test
+export default store

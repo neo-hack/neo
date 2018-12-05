@@ -29,6 +29,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.5.2",
     "react-loadable": "^5.5.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "require-context": "^1.1.0"
   },
@@ -46,6 +47,7 @@
     "@types/react": "^16.7.11",
     "@types/react-hot-loader": "^4.1.0",
     "@types/react-loadable": "^5.4.1",
+    "@types/react-redux": "^6.0.10",
     "@types/react-router-dom": "^4.3.1",
     "@types/webpack": "^4.4.14",
     "@types/webpack-bundle-analyzer": "^2.13.0",

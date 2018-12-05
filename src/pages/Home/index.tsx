@@ -1,4 +1,5 @@
 import * as React from 'react'
+import ExampleCount from '@/components/Examples/Count'
 import SubRoutes from '@/routes/SubRoutes'
 import { Switch } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ class Home extends React.Component <PageProps> {
     return (
       <div>
         this is new home page
+        <ExampleCount />
         <Switch>
           {
             routes.map((route, i) => {
