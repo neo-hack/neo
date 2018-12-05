@@ -29,7 +29,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.5.2",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "require-context": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
