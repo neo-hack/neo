@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { HashRouter, Switch, Route } from 'react-router-dom'
-import { routesConfig } from './config'
 import SubRoutes from './SubRoutes'
-import { Redirect } from 'react-router-dom'
+import history from '@/watcher/history'
+import { HashRouter, Switch, Router } from 'react-router-dom'
+import { routesConfig } from './config'
 
 const RouterViewer = () => {
   return (
-    <HashRouter>
+    <Router history={ history }>
       <Switch>
         {
           routesConfig.map((route, i) => {
@@ -14,7 +14,7 @@ const RouterViewer = () => {
           })
         }
       </Switch>
-    </HashRouter>
+    </Router>
   )
 }
 
