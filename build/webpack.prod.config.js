@@ -1,4 +1,5 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -72,6 +73,12 @@ const config = {
     runtimeChunk: {
       name: 'mainfest'
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+        extractComments: false,
+      })
+    ]
   },
   module: {
     rules: [
@@ -120,7 +127,7 @@ const config = {
       chunkFilename: path.posix.join('static', 'css/[id].[contenthash].css'),
     }),
     new BundleAnalyzerPlugin({
-      openAnalyzer: false,
+      openAnalyzer: true,
     }),
   ]
 }
