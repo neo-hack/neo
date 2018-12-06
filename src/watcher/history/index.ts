@@ -30,7 +30,7 @@ interface AddListenerSchema {
 }
 
 export const addHistoryListener = ({ pathname, callback, id }: AddListenerSchema) => {
-  if (currentPathname !== $GLOBAL && currentPathname !== pathname) return null
+  if (pathname !== $GLOBAL && currentPathname !== $GLOBAL && currentPathname !== pathname) return null
   if (!listeners[pathname]) {
     listeners[pathname] = {
       ids: [ id ],
