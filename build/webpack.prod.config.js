@@ -5,7 +5,6 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const { splitReact } = require('./utils')
 
 const config = {
   context: path.resolve(__dirname, '../'),
@@ -40,12 +39,12 @@ const config = {
           test: function (module) {
             return (
               module.resource &&
-              /\.js$/.test(module.resource) &&
-              !splitReact(module.resource)
+              /\.js$/.test(module.resource)
             )
           },
           chunks: 'all',
           name: 'vendors',
+          priority: -10,
         },
         commons: {
           name: 'commons',
@@ -56,12 +55,12 @@ const config = {
           test: function (module) {
             return (
               module.resource &&
-              /\.js$/.test(module.resource) &&
-              splitReact(module.resource)
+              /react/.test(module.resource)
             )
           },
           name: 'reactVendor',
           chunks: 'all',
+          priority: 10
         },
         async: {
           chunks: 'async',
@@ -77,6 +76,11 @@ const config = {
       new UglifyJsPlugin({
         parallel: true,
         extractComments: false,
+        uglifyOptions: {
+          compress: {
+            warnings: false
+          }
+        },
       })
     ]
   },
