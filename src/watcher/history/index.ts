@@ -1,16 +1,19 @@
 import createHashHistory from 'history/createHashHistory'
 import { parse } from 'query-string'
 
-const isArray = require('lodash/isArray') 
+const isArray = require('lodash/isArray')
 
 // Watchers
 interface ListenerSchema {
-  force?: boolean
-  listener: (val: any) => any
+  id: string
+  callback: (val: any) => any
 }
 
 interface ListenersSchema {
-  [x: string]: ListenerSchema[]
+  [x: string]: {
+    ids: string[],
+    callbacks: ListenerSchema[],
+  },
 }
 const listeners: ListenersSchema = {}
 
@@ -21,24 +24,40 @@ interface AddListenerSchema {
   force?: boolean
 }
 
-export const addHistoryListener = ({ location, listener, force }: AddListenerSchema) => {
-  if (isArray(listeners[location])) {
+// export const addHistoryListener = ({ location, listener, force }: AddListenerSchema) => {
+//   if (isArray(listeners[location])) {
 
-  } else {
-    listeners[location] = [
-      {
-        force,
-        listener: listener
-      },
-    ]
-  }
-}
+//   } else {
+//     listeners[location] = [
+//       {
+//         force,
+//         listener: listener
+//       },
+//     ]
+//   }
+// }
 
-const addForceListener = ({ listener }: { listener: (val?: any) => any }) => {
+// const addForceListener = ({ listener }: { listener: (val?: any) => any }) => {
   
-}
+// }
 
-const addNormalListener = ({ location, listener }) => {}
+export const addNormalListener = ({ location, func, id }) => {
+  listeners[location] = {
+    ids: [ '1' ],
+    callbacks: [func]
+  }
+  // if (!listeners[location]) {
+
+  // }
+  // if (isArray(listeners[location])) {
+  //   const listener = {
+  //     listener: func,
+  //   }
+  //   listeners[location].push(listener)
+  // } else {
+  //   listeners[location] = [ { listener: func } ]
+  // }
+}
 
 // Entry
 const history = createHashHistory()

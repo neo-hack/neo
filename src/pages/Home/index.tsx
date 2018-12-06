@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ExampleCount from '@/components/Examples/Count'
 import SubRoutes from '@/routes/SubRoutes'
+import history from '@/watcher/history'
 import { Switch } from 'react-router-dom'
 
 interface PageProps {
