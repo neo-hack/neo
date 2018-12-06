@@ -31,6 +31,7 @@
     "react-dom": "^16.5.2",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.0",
     "require-context": "^1.1.0",
     "tslib": "^1.9.3"
   },

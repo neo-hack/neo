@@ -8,8 +8,18 @@
     > linter for typescript and stylus
 * [x] - react
     > support react-hot-loader
+    * [x] - `redux` / react-redux 
+        > use `rematch` in easy way
+    * [x] - react-router
+    * [x] - react-router-transition
+        > just add it! not test
+    * [x] - history watcher
+        > maybe we don't need react-router-redux
 
-**NO redux and react-router**
+
+## Reiview
+
+* [ ] - is css autoprefixer work?
 
 ## TODO
 
@@ -19,6 +29,5 @@
 * [x] - subscripes history change
 
 **Mini the build size**
-* [ ] - mini the lodash [@how-to-shake-lodash](https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd)
-    
-    1.  
+* [x] - ~~mini the lodash~~ [@how-to-shake-lodash](https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd) / 当前方式已经够用
+* [x] - mini css/js size by webpack plugin
