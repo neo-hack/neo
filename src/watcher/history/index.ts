@@ -3,6 +3,9 @@ import { parse } from 'query-string'
 
 const isArray = require('lodash/isArray')
 
+const $GLOBAL = 'global'
+let currentPathname = $GLOBAL
+
 // Watchers
 interface ListenerSchema {
   id: string
@@ -12,56 +15,49 @@ interface ListenerSchema {
 interface ListenersSchema {
   [x: string]: {
     ids: string[],
-    callbacks: ListenerSchema[],
+    callbacks: {
+      [x: string]: ListenerSchema
+    },
   },
 }
-const listeners: ListenersSchema = {}
+export const listeners: ListenersSchema = {}
 
 // Method
 interface AddListenerSchema {
-  location: string
-  listener: (val: any) => any
-  force?: boolean
+  pathname: string
+  callback: (val: any) => any
+  id: string,
 }
 
-// export const addHistoryListener = ({ location, listener, force }: AddListenerSchema) => {
-//   if (isArray(listeners[location])) {
-
-//   } else {
-//     listeners[location] = [
-//       {
-//         force,
-//         listener: listener
-//       },
-//     ]
-//   }
-// }
-
-// const addForceListener = ({ listener }: { listener: (val?: any) => any }) => {
-  
-// }
-
-export const addNormalListener = ({ location, func, id }) => {
-  listeners[location] = {
-    ids: [ '1' ],
-    callbacks: [func]
+export const addHistoryListener = ({ pathname, callback, id }: AddListenerSchema) => {
+  if (currentPathname !== $GLOBAL && currentPathname !== pathname) return null
+  if (!listeners[pathname]) {
+    listeners[pathname] = {
+      ids: [ id ],
+      callbacks: {
+        [ id ]: {
+          callback,
+          id,
+        }
+      },
+    }
+  } else {
+    let { callbacks } = listeners[pathname]
+    callbacks[id] = {
+      callback,
+      id,
+    }
+    listeners[pathname].ids = Object.keys(callbacks)
   }
-  // if (!listeners[location]) {
-
-  // }
-  // if (isArray(listeners[location])) {
-  //   const listener = {
-  //     listener: func,
-  //   }
-  //   listeners[location].push(listener)
-  // } else {
-  //   listeners[location] = [ { listener: func } ]
-  // }
 }
 
 // Entry
 const history = createHashHistory()
 
-history.listen((val) => console.log(val))
+history.listen((val) => {
+  const { pathname } = val
+  currentPathname = pathname
+  console.log(listeners)
+})
 
 export default history

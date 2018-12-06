@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ExampleCount from '@/components/Examples/Count'
 import SubRoutes from '@/routes/SubRoutes'
-import history from '@/watcher/history'
+import history, { addHistoryListener } from '@/watcher/history'
 import { Switch } from 'react-router-dom'
 
 interface PageProps {
@@ -11,6 +11,7 @@ interface PageProps {
 class Home extends React.Component <PageProps> {
   render () {
     const { routes } = this.props
+    addHistoryListener({ pathname: '/home', callback: () => console.log('home'), id: 'home' })
     return (
       <div>
         this is new home page
