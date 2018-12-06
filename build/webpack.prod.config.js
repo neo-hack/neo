@@ -1,4 +1,5 @@
 const path = require('path')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
@@ -78,10 +79,18 @@ const config = {
         extractComments: false,
         uglifyOptions: {
           compress: {
-            warnings: false
+            warnings: false,
+            drop_console: true,
           }
         },
-      })
+      }),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          safe: true,
+          autoprefixer: { disable: true },
+          discardComments: { removeAll: true },
+        }
+      }),
     ]
   },
   module: {
