@@ -107,7 +107,14 @@ const config = {
         test: /\.css$/,
         use: [
           { loader: MiniCSSExtractPlugin.loader, options: { sourceMap: true } },
-          { loader: 'css-loader', options: { sourceMap: true } },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
+          },
           { loader: 'postcss-loader', options: { sourceMap: true } },
         ]
       },
@@ -115,7 +122,14 @@ const config = {
         test: /(\.styl$|\.stylus$)/,
         use: [
           { loader: MiniCSSExtractPlugin.loader, options: { sourceMap: true } },
-          { loader: 'css-loader', options: { sourceMap: true } },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
+          },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'stylus-loader', options: { sourceMap: true } }
         ]
