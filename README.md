@@ -23,11 +23,17 @@
 
 ## TODO
 
-* [ ] - 是否有必要加入`immer`而不是使用`spread`语法。
+* [x] - 是否有必要加入`immer`而不是使用`spread`语法。
+    > 好像没有必要。`spread`方法够用了，解决的也是类似的问题。
 * [x] - how-to-listen-route-inreact
     * [ref-不使用react-router-redux](https://div.io/topic/2073)
 * [x] - 类如`watch`钩子函数好像不需要实现，应该可以通过`shouldComponentUpdate`监听state变化然后做出相应的改变。而 **watch函数最想要的不触发`render`，可以通过对应的在该生命周期中返回`false`实现。**
 * [x] - subscripes history change
+* [ ] - css-modules
+
+**Add test**
+
+* [ ] - Jest
 
 **Mini the build size**
 * [x] - ~~mini the lodash~~ [@how-to-shake-lodash](https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd) / 当前方式已经够用
