@@ -29,7 +29,10 @@
     * [ref-不使用react-router-redux](https://div.io/topic/2073)
 * [x] - 类如`watch`钩子函数好像不需要实现，应该可以通过`shouldComponentUpdate`监听state变化然后做出相应的改变。而 **watch函数最想要的不触发`render`，可以通过对应的在该生命周期中返回`false`实现。**
 * [x] - subscripes history change
-* [ ] - css-modules
+* [x] - css-modules
+* [x] - redux promise / 好像本身就是支持的2
+* [ ] - react-cli
+* [ ] - add test folder 
 
 **Add test**
 
