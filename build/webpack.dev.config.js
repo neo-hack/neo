@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const webpack = require('webpack')
 
 process.env.NODE_ENV = 'development'
@@ -78,6 +79,9 @@ const config = {
       inject: true,
     }),
     new webpack.NamedModulesPlugin(),
+    new ProgressBarPlugin({
+      format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)'
+    }),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: ['Running here http://localhost:8080'],

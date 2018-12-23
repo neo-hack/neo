@@ -1,5 +1,6 @@
 const path = require('path')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
@@ -148,6 +149,9 @@ const config = {
         removeComments: true,
         removeEmptyAttributes: true,
       },
+    }),
+    new ProgressBarPlugin({
+      format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)'
     }),
     new MiniCSSExtractPlugin({
       filename: path.posix.join('static', 'css/[name].[contenthash].css'),

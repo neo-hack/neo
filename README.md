@@ -34,6 +34,18 @@
 * [ ] - react-cli
 * [ ] - add test folder 
 
+
+**spead the pack**
+
+* [ ] - happypack
+* [ ] - dll
+
+参考：
+
+* [vue-with happypack&dll](https://juejin.im/post/5a922e776fb9a06337575031)
+* [happypack with ts](https://github.com/amireh/happypack) / 有个example
+* [happypack with webpack4](https://juejin.im/post/5ab7c222f265da237f1e4434)
+
 **Add test**
 
 * [ ] - Jest
