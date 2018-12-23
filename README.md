@@ -32,13 +32,12 @@
 * [x] - css-modules
 * [x] - redux promise / 好像本身就是支持的2
 * [ ] - react-cli
-* [ ] - add test folder 
 
 
 **spead the pack**
 
-* [ ] - happypack
-* [ ] - dll
+* [x] - happypack - 时间怎么还变长了，等文件变多了再看看把（狗头
+* [x] - ~~dll~~ - 好像没有必要
 
 参考：
 

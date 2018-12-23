@@ -4,6 +4,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const HappyPack = require('happypack')
+const os = require('os')
+const threads = os.cpus().length / 2
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -148,6 +152,22 @@ const config = {
         removeComments: true,
         removeEmptyAttributes: true,
       },
+    }),
+    new HappyPack({
+      id: 'ts',
+      threads: threads,
+      use: [
+        {
+          path: 'ts-loader',
+          query: {
+            happyPackMode: true,
+            configFile: path.resolve(__dirname, '../', 'tsconfig.json'),
+          }
+        }
+      ]
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
     }),
     new MiniCSSExtractPlugin({
       filename: path.posix.join('static', 'css/[name].[contenthash].css'),

@@ -4,7 +4,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HappyPack = require('happypack')
 const os = require('os')
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+const threads = os.cpus().length / 2
 const webpack = require('webpack')
 
 process.env.NODE_ENV = 'development'
@@ -41,8 +41,12 @@ const config = {
         exclude: /node_modules/,
         use: [
           { loader: 'babel-loader'},
-          { loader: 'ts-loader' }
         ]
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: `happypack/loader?id=ts`
       },
       {
         test: /\.css$/,
@@ -82,6 +86,19 @@ const config = {
       inject: true,
     }),
     new webpack.NamedModulesPlugin(),
+    new HappyPack({
+      id: 'ts',
+      threads: threads,
+      use: [
+        {
+          path: 'ts-loader',
+          query: {
+            happyPackMode: true,
+            configFile: path.resolve(__dirname, '../', 'tsconfig.json'),
+          }
+        }
+      ]
+    }),
     new ForkTsCheckerWebpackPlugin({
       tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
     }),
