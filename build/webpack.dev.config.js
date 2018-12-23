@@ -1,8 +1,11 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const HappyPack = require('happypack')
+const os = require('os')
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 const webpack = require('webpack')
-const chalk = require('chalk')
 
 process.env.NODE_ENV = 'development'
 
@@ -79,10 +82,13 @@ const config = {
       inject: true,
     }),
     new webpack.NamedModulesPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
+    }),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: ['Running here http://localhost:8080'],
-        notes: ['Some additionnal notes to be displayed unpon successful compilation']
+        notes: ['Happy coding']
       },
       onErrors: function (severity, errors) {
         // You can listen to errors transformed and prioritized by the plugin
