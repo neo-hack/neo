@@ -31,6 +31,7 @@
 * [x] - subscripes history change
 * [x] - css-modules
 * [x] - redux promise / 好像本身就是支持的2
+* [ ] - redux-dev-tools
 * [ ] - react-cli
 
 
