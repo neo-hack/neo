@@ -52,8 +52,11 @@
 
 参考:
 
-* [jest enzyme react测试](https://juejin.im/post/59019ac8b123db260cc6ae91)
 * [jest enzyme work with ts](https://medium.com/@mateuszsokola/configuring-react-16-jest-enzyme-typescript-7122e1a1e6e8)
+* [use ts-jest examples](https://github.com/MeCKodo/wechat-colorpicker/blob/master/__test__/jest.conf.js)
+* [ts-jest another example](https://medium.com/@mtiller/debugging-with-typescript-jest-ts-jest-and-visual-studio-code-ef9ca8644132)
+* [how to config jest](https://jestjs.io/docs/en/configuration#rootdir-string)
+    > mock setup files是需要下载的
 
 **Mini the build size**
 * [x] - ~~mini the lodash~~ [@how-to-shake-lodash](https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd) / 当前方式已经够用
