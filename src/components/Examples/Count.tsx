@@ -21,7 +21,7 @@ const mapState = (state: any) => {
 const mapDispatch = (dispatch: any) => {
   return ({
     increment: () => dispatch.common.increment(1),
-    incrementAsync: dispatch.common.incrementAsync,
+    incrementAsync: () => dispatch.common.incrementAsync(1),
   })
 }
 
