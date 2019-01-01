@@ -1,4 +1,5 @@
 # React-Router-Store-Typescript
+![webpackv4](https://img.shields.io/badge/webpack-V4-blue.svg?longCache=true&style=for-the-badge)
 
 ## Pre install
 
