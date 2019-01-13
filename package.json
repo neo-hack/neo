@@ -86,6 +86,7 @@
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "ts-import-plugin": "^1.5.5",
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",

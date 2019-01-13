@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const TSImportPluginFactory = require('ts-import-plugin')
 const HappyPack = require('happypack')
 const os = require('os')
 const threads = os.cpus().length / 2
@@ -103,22 +104,27 @@ const config = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader'},
-          { loader: 'ts-loader' }
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              getCustomTransformers: () => ({
+                before: [ TSImportPluginFactory({
+                  libraryDirectory: 'es',
+                  libraryName: 'antd',
+                  style: 'css',
+                }) ]
+              }),
+            },
+          }
         ]
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           { loader: MiniCSSExtractPlugin.loader, options: { sourceMap: true } },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              modules: true,
-              localIdentName: "[local]___[hash:base64:5]"
-            }
-          },
+          { loader: "css-loader", options: { sourceMap: true } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
         ]
       },
