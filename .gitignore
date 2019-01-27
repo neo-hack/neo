@@ -2,4 +2,4 @@
 /dist/*
 .DS_store
 .vscode/*
-/converge/*
+/coverage/*
