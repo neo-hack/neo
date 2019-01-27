@@ -41,20 +41,9 @@ const config = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-              getCustomTransformers: () => ({
-                before: [ TSImportPluginFactory({
-                  libraryDirectory: 'es',
-                  libraryName: 'antd',
-                  style: 'css',
-                }) ]
-              }),
-            },
-          },
-        ],
+          { loader: 'babel-loader'},
+          { loader: 'ts-loader' }
+        ]
       },
       {
         test: /\.tsx?$/,
