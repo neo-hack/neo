@@ -3,17 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const TSImportPluginFactory = require('ts-import-plugin')
+const CopyWebpakcPlugin = require('copy-webpack-plugin')
 const HappyPack = require('happypack')
 const os = require('os')
 const threads = os.cpus().length / 2
 const webpack = require('webpack')
 
-process.env.NODE_ENV = 'development'
+const webpackConfig = require('./config')
+
+process.env.NODE_ENV = webpackConfig.dev.mode
 
 const config = {
   context: path.resolve(__dirname, '../'),
   devtool: 'cheap-module-eval-source-map',
-  mode: 'development',
+  mode: webpackConfig.dev.mode,
   entry: ['./src/index.tsx'],
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
@@ -23,7 +26,9 @@ const config = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'jsx'],
     alias: {
-      '@': path.resolve(__dirname, '../', 'src')
+      '@': path.resolve(__dirname, '../', 'src'),
+      'assets': path.resolve(__dirname, '../', 'src/assets'),
+      'static': path.resolve(__dirname, '../', 'static'),
     }
   },
   devServer: {
@@ -80,6 +85,12 @@ const config = {
       template: 'index.html',
       inject: true,
     }),
+    new CopyWebpakcPlugin([
+      {
+        from: path.resolve(__dirname, '../', 'static'),
+        to: webpackConfig.dev.staticFolder,
+      }
+    ]),
     new webpack.NamedModulesPlugin(),
     new HappyPack({
       id: 'ts',
