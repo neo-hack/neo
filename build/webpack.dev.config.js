@@ -1,38 +1,23 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const TSImportPluginFactory = require('ts-import-plugin')
-const CopyWebpakcPlugin = require('copy-webpack-plugin')
-const HappyPack = require('happypack')
-const os = require('os')
-const threads = os.cpus().length / 2
+const MergeWebpack = require('webpack-merge')
 const webpack = require('webpack')
 
-const webpackConfig = require('./config')
+const configs = require('./config').dev
+const commonWebpackConfig = require('./webpack.common.config')
 
-process.env.NODE_ENV = webpackConfig.dev.mode
+process.env.NODE_ENV = configs.mode
 
-const config = {
-  context: path.resolve(__dirname, '../'),
+const devWebpackConfig = {
   devtool: 'cheap-module-eval-source-map',
-  mode: webpackConfig.dev.mode,
-  entry: ['./src/index.tsx'],
+  mode: configs.mode,
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
+    path: configs.distPath,
     filename: '[name].js',
     publicPath: '/',
   },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx'],
-    alias: {
-      '@': path.resolve(__dirname, '../', 'src'),
-      'assets': path.resolve(__dirname, '../', 'src/assets'),
-      'static': path.resolve(__dirname, '../', 'static'),
-    }
-  },
   devServer: {
-    port: 8080,
+    port: configs.port,
     contentBase: false,
     open: true,
     overlay: true,
@@ -42,19 +27,6 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader'},
-          { loader: 'ts-loader' }
-        ]
-      },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: `happypack/loader?id=ts`
-      },
       {
         test: /\.css$/,
         use: [
@@ -85,32 +57,10 @@ const config = {
       template: 'index.html',
       inject: true,
     }),
-    new CopyWebpakcPlugin([
-      {
-        from: path.resolve(__dirname, '../', 'static'),
-        to: webpackConfig.dev.staticFolder,
-      }
-    ]),
     new webpack.NamedModulesPlugin(),
-    new HappyPack({
-      id: 'ts',
-      threads: threads,
-      use: [
-        {
-          path: 'ts-loader',
-          query: {
-            happyPackMode: true,
-            configFile: path.resolve(__dirname, '../', 'tsconfig.json'),
-          }
-        }
-      ]
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
-    }),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-        messages: ['Running here http://localhost:8080'],
+        messages: ['Running here http://localhost:' + configs.port],
         notes: ['Happy coding']
       },
       onErrors: function (severity, errors) {
@@ -121,4 +71,5 @@ const config = {
   ]
 }
 
-module.exports = config
+console.log(MergeWebpack(commonWebpackConfig, devWebpackConfig))
+module.exports = MergeWebpack(commonWebpackConfig, devWebpackConfig)

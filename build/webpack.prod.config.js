@@ -4,49 +4,27 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const TSImportPluginFactory = require('ts-import-plugin')
-const CopyWebpakcPlugin = require('copy-webpack-plugin')
-const HappyPack = require('happypack')
-const os = require('os')
-const threads = os.cpus().length / 2
+const MergeWebpack = require('webpack-merge')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const webpackConfig = require('./config')
+const configs = require('./config').prod
+const baseWebpackConfig = require('./webpack.common.config')
 
-process.env.NODE_ENV = webpackConfig.prod.mode
+process.env.NODE_ENV = configs.mode
 
-const config = {
-  context: path.resolve(__dirname, '../'),
+const prodWebpackConfig = {
   devtool: 'source-map',
-  mode: webpackConfig.prod.mode,
-  entry: ['./src/index.tsx'],
+  mode: configs.mode,
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
-    filename: path.posix.join('static', 'js/[name].[chunkhash].js'),
-    chunkFilename: path.posix.join('static', 'js/[id].[chunkhash].js'),
-    publicPath: './',
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx'],
-    alias: {
-      '@': path.resolve(__dirname, '../', 'src'),
-      'assets': path.resolve(__dirname, '../', 'src/assets'),
-      'static': path.resolve(__dirname, '../', 'static'),
-    }
-  },
-  devServer: {
-    port: 8080,
-    contentBase: false,
-    open: true,
-    overlay: true,
-    compress: true,
-    clientLogLevel: 'none',
-    quiet: true,
+    path: configs.distPath,
+    filename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
+    chunkFilename: path.posix.join(configs.staticFolder, 'js/[id].[chunkhash].js'),
+    publicPath: configs.publicPath,
   },
   optimization: {
     splitChunks: {
+      maxSize: 244000,
       cacheGroups: {
         vendors: {
           test: function (module) {
@@ -108,14 +86,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader'},
-          { loader: 'ts-loader' }
-        ]
-      },
-      {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
@@ -143,13 +113,7 @@ const config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([path.join(__dirname, '../dist')], { root: path.join(__dirname, '../') }),
-    new CopyWebpakcPlugin([
-      {
-        from: path.resolve(__dirname, '../', 'static'),
-        to: webpackConfig.prod.staticFolder,
-      }
-    ]),
+    new CleanWebpackPlugin([ configs.distPath ], { root: configs.rootPath }),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -161,22 +125,6 @@ const config = {
         removeEmptyAttributes: true,
       },
     }),
-    new HappyPack({
-      id: 'ts',
-      threads: threads,
-      use: [
-        {
-          path: 'ts-loader',
-          query: {
-            happyPackMode: true,
-            configFile: path.resolve(__dirname, '../', 'tsconfig.json'),
-          }
-        }
-      ]
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.resolve(__dirname, '../', 'tsconfig.json'),
-    }),
     new MiniCSSExtractPlugin({
       filename: path.posix.join('static', 'css/[name].[contenthash].css'),
       chunkFilename: path.posix.join('static', 'css/[id].[contenthash].css'),
@@ -187,4 +135,4 @@ const config = {
   ]
 }
 
-module.exports = config
+module.exports = MergeWebpack(baseWebpackConfig, prodWebpackConfig)

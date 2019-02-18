@@ -7,7 +7,7 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "noEmitOnError": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": false,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
