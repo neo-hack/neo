@@ -126,8 +126,8 @@ const prodWebpackConfig = {
       },
     }),
     new MiniCSSExtractPlugin({
-      filename: path.posix.join('static', 'css/[name].[contenthash].css'),
-      chunkFilename: path.posix.join('static', 'css/[id].[contenthash].css'),
+      filename: path.posix.join(configs.staticFolder, 'css/[name].[contenthash].css'),
+      chunkFilename: path.posix.join(configs.staticFolder, 'css/[id].[contenthash].css'),
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
