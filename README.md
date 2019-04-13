@@ -10,8 +10,8 @@
   * react-css-translation
   * typescript
   * router
-* [React-simple-ts](https://github.com/JiangWeixian/LearningWebpack/tree/react-simple-TS) / only react with typescript
+* [React-simple-ts@Deprecated](https://github.com/JiangWeixian/LearningWebpack/tree/react-simple-TS) / only react with typescript
 
-## TODO
+## Docs
 
-* [ ] - react-cli / 某种原因，暂时好像没有必要实现这个功能。**看心情**
+* vuepress / 在此基础上加入了`siderbar`路径以及`homepage md file`生成。
