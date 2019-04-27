@@ -1,7 +1,12 @@
 # Template: react-simple-ts
 ![webpackv4](https://img.shields.io/badge/webpack-V4-blue.svg?longCache=true&style=for-the-badge)
 
-## Feature
+## 2019-04-27
+
+* 设置项目`NPM`源淘宝源
+* `PROD`模式下，开启为`CSS-ClassName`添加文件名前缀
+
+## Init
 
 * [x] - typescript
 * [x] - stylus
@@ -42,9 +47,3 @@
 **Mini the build size**
 * [x] - ~~mini the lodash~~ [@how-to-shake-lodash](https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd) / 当前方式已经够用
 * [x] - mini css/js size by webpack plugin
-
-**batch**
-
-> maybe is chained dispatch
-
-* [ ] - 添加`chain dispatch examples`

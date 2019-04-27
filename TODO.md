@@ -14,3 +14,4 @@
   * 或许你需要了解`webpack`是如何解析依赖的（指的是是否可以利用它的第三方库）
   * 如果不需要利用第三方库，那么是否可以通过`webpack.config`排除那些跳过不需要的文件。
 * [ ] - ~~react-cli~~
+* [ ] - 添加`chain dispatch examples`

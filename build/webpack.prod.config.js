@@ -103,7 +103,7 @@ const prodWebpackConfig = {
             options: {
               sourceMap: true,
               modules: true,
-              localIdentName: "[local]___[hash:base64:5]"
+              localIdentName: "[name]_[local]___[hash:base64:5]"
             }
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
