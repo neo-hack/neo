@@ -1,6 +1,6 @@
 {
   "blocks": false,
-  "brackets": false,
+  "brackets": "never",
   "colons": "never",
   "colors": {
     "expect": "always"
