@@ -1,6 +1,10 @@
 # Template: react-simple-ts
 ![webpackv4](https://img.shields.io/badge/webpack-V4-blue.svg?longCache=true&style=for-the-badge)
 
+## 20190503
+
+* use husky
+
 ## 2019-04-27
 
 * 设置项目`NPM`源淘宝源

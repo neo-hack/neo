@@ -15,3 +15,5 @@
   * 如果不需要利用第三方库，那么是否可以通过`webpack.config`排除那些跳过不需要的文件。
 * [ ] - ~~react-cli~~
 * [ ] - 添加`chain dispatch examples`
+* [ ] - optimze webpack in mutiple pages
+* [ ] - add react-transition example
