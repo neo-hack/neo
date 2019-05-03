@@ -1,3 +1,4 @@
+*.styl
 .*ignore
 .npmrc
 .DS_Store

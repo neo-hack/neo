@@ -20,7 +20,7 @@
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
     }
   },
   "dependencies": {
@@ -93,10 +93,10 @@
     "react-hot-loader": "^4.3.11",
     "style-loader": "^0.23.0",
     "stylelint-config-prettier": "^5.1.0",
-    "stylelint-prettier": "^1.0.6",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "stylus-supremacy": "^2.12.7",
     "ts-import-plugin": "^1.5.5",
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.2.1",

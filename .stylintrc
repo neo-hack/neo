@@ -1,5 +1,4 @@
 {
-  "extends": ["stylelint-prettier/recommended"],
   "blocks": false,
   "brackets": false,
   "colons": "never",
