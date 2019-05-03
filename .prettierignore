@@ -1,0 +1,12 @@
+*.styl
+.*ignore
+.npmrc
+.DS_Store
+CODEOWNERS
+*.ejs
+src/assets
+!.*.js
+dist/
+nginx.conf
+*.png
+*.xml
