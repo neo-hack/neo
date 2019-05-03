@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
-    "pre-commit": "prettier-quick --staged"
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "dependencies": {
     "@rematch/core": "^1.0.6",

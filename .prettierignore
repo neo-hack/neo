@@ -10,3 +10,7 @@ dist/
 nginx.conf
 *.png
 *.xml
+package.json
+package-lock.json
+yarn.lock
+*.md
