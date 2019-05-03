@@ -92,6 +92,8 @@
     "prettier": "1.17.0",
     "react-hot-loader": "^4.3.11",
     "style-loader": "^0.23.0",
+    "stylelint-config-prettier": "^5.1.0",
+    "stylelint-prettier": "^1.0.6",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
