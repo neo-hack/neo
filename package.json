@@ -1,5 +1,5 @@
 {
-  "name": "learningwebpack",
+  "name": "templates",
   "version": "1.0.0",
   "description": "React simple CLI template",
   "main": "index.js",
@@ -10,14 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JiangWeixian/LearningWebpack.git"
+    "url": "git+https://github.com/JiangWeixian/templates.git"
   },
   "author": "jiangwei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JiangWeixian/LearningWebpack/issues"
+    "url": "https://github.com/JiangWeixian/templates/issues"
   },
-  "homepage": "https://github.com/JiangWeixian/LearningWebpack#readme",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "husky": {
+    "pre-commit": "prettier-quick --staged"
+  },
   "dependencies": {
     "@rematch/core": "^1.0.6",
     "classnames": "^2.2.6",
@@ -94,7 +97,9 @@
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
     "typescript": "^3.1.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
