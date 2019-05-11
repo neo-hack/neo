@@ -5,12 +5,12 @@ import { Switch } from "react-router-dom";
 import { RoutesConfigSchema } from "@/routes/config";
 
 interface PageProps {
-  routes: RoutesConfigSchema[];
+  routes?: RoutesConfigSchema[];
 }
 
 class Home extends React.Component<PageProps> {
   render() {
-    const { routes } = this.props;
+    const { routes = [] } = this.props;
     return (
       <div>
         this is new home page

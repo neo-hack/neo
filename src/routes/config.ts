@@ -4,7 +4,7 @@ import { Props } from "@/types/component";
 export interface RoutesConfigSchema {
   path: string;
   redirect?: string;
-  component?: <T extends { routes: RoutesConfigSchema[] }>(
+  component?: <T extends { routes?: RoutesConfigSchema[] }>(
     props: Props<T>
   ) => JSX.Element;
   children?: RoutesConfigSchema[];
