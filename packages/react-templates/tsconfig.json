@@ -18,7 +18,7 @@
     "noUnusedLocals": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["react-templates/src/*"]
+      "@/*": ["../react-templates/src/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

@@ -1,4 +1,4 @@
-import models from 'react-templates/src/store/models'
+import models from '@/store/models'
 import { RematchStore, RematchDispatch, RematchRootState } from '@rematch/core'
 
 type Models = typeof models
