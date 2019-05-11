@@ -9,7 +9,7 @@
 * [x] - css-modules
 * [x] - redux promise / 好像本身就是支持的2
 * [x] - redux-dev-tools / 默认就是带的devtools支持
-* [ ] - add filename as prefix in css-classname
+* [x] - add filename as prefix in css-classname
 * [ ] - 优化webpack加载速度通过设置`entry`。
   * 或许你需要了解`webpack`是如何解析依赖的（指的是是否可以利用它的第三方库）
   * 如果不需要利用第三方库，那么是否可以通过`webpack.config`排除那些跳过不需要的文件。
@@ -17,3 +17,4 @@
 * [ ] - 添加`chain dispatch examples`
 * [ ] - optimze webpack in mutiple pages
 * [ ] - add react-transition example
+* [ ] - add docz
