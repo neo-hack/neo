@@ -5,8 +5,7 @@
       {
         "targets": {
           "browsers": [ "> 1%" ]
-        },
-        "useBuiltIns": "usage"
+        }
       }
     ],
     "@babel/preset-typescript",
