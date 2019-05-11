@@ -5,6 +5,7 @@
     "tslint-config-prettier"
   ],
   "rules": {
+    "semicolon": false,
     "prettier": true,
     "no-floating-promises": false,
     "no-any": true,
@@ -16,7 +17,6 @@
     "promise-must-complete": false,
     "no-use-before-declare": false,
     "no-namespace": false,
-    "jsx-key": false,
-    "semicolon": true
+    "jsx-key": false
   }
 }
