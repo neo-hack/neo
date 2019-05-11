@@ -34,11 +34,11 @@ const devWebpackConfig = {
           {
             loader: "typings-for-css-modules-loader",
             options: {
-              // sourceMap: true,
+              sourceMap: true,
               modules: true,
               localIdentName: "[name]_[local]___[hash:base64:5]",
-              namedExport: true
-              // silent: true
+              namedExport: true,
+              silent: true
             }
           }
         ]

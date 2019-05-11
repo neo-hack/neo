@@ -1,22 +1,19 @@
-const path = require('path')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const CopyWebpakcPlugin = require('copy-webpack-plugin')
-const HappyPack = require('happypack')
-const os = require('os')
-const threads = os.cpus().length / 2
+const path = require("path");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const CopyWebpakcPlugin = require("copy-webpack-plugin");
 
-const webpackConfig = require('./config').common
+const webpackConfig = require("./config").common;
 
 const config = {
   context: webpackConfig.rootPath,
-  entry: ['./src/index.tsx'],
+  entry: ["./src/index.tsx"],
   output: {
     path: webpackConfig.distPath,
-    filename: '[name].js',
+    filename: "[name].js"
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx'],
-    alias: webpackConfig.alias,
+    extensions: [".ts", ".tsx", ".js", "jsx"],
+    alias: webpackConfig.alias
   },
   module: {
     rules: [
@@ -24,52 +21,49 @@ const config = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader'},
-          { loader: 'ts-loader' }
+          { loader: "cache-loader" },
+          {
+            loader: "thread-loader",
+            options: {
+              // there should be 1 cpu for the fork-ts-checker-webpack-plugin
+              workers: require("os").cpus().length - 1,
+              poolTimeout: Infinity // set this to Infinity in watch mode - see https://github.com/webpack-contrib/thread-loader
+            }
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+            }
+          },
+          { loader: "babel-loader" }
         ]
-      },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: `happypack/loader?id=ts`
       },
       {
         test: /\.(png|jpg|gif)$/i,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
-              name: '[path][name].[ext]',
+              name: "[path][name].[ext]"
             }
           }
         ]
-      },
+      }
     ]
   },
   plugins: [
     new CopyWebpakcPlugin([
       {
-        from: path.resolve(__dirname, '../', 'static'),
-        to: webpackConfig.staticFolder,
+        from: path.resolve(__dirname, "../", "static"),
+        to: webpackConfig.staticFolder
       }
     ]),
-    new HappyPack({
-      id: 'ts',
-      threads: threads,
-      use: [
-        {
-          path: 'ts-loader',
-          query: {
-            happyPackMode: true,
-            configFile: webpackConfig.tsConfigPath,
-          }
-        }
-      ]
-    }),
     new ForkTsCheckerWebpackPlugin({
       tsconfig: webpackConfig.tsConfigPath,
-    }),
+      checkSyntacticErrors: true
+    })
   ]
-}
+};
 
-module.exports = config
+module.exports = config;

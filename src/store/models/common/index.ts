@@ -2,18 +2,18 @@ const common = {
   state: 0, // initial state
   reducers: {
     // handle state changes with pure functions
-    increment(state, payload) {
-      return state + payload
+    increment(state, payload: number) {
+      return state + payload;
     }
   },
-  effects: (dispatch) => ({
+  effects: dispatch => ({
     // handle state changes with impure functions.
     // use async/await for async actions
-    async incrementAsync(payload, rootState) {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      dispatch.common.increment(payload)
+    async incrementAsync(payload: number, rootState) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      dispatch.common.increment(payload);
     }
   })
-}
+};
 
-export default common
+export default common;
