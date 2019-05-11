@@ -2,9 +2,10 @@ import * as React from "react";
 import ExampleCount from "@/components/Examples/Count";
 import SubRoutes from "@/routes/SubRoutes";
 import { Switch } from "react-router-dom";
+import { RoutesConfigSchema } from "@/routes/config";
 
 interface PageProps {
-  routes?: any;
+  routes: RoutesConfigSchema[];
 }
 
 class Home extends React.Component<PageProps> {

@@ -1,14 +1,23 @@
-import * as React from 'react'
+import * as React from "react";
 
-const { Suspense, lazy } = React
+const { Suspense, lazy } = React;
 
-const LazyLoad = (props, func: () => any) => {
-  const OtherComponent = lazy(func)
+type Props<T> =
+  | (JSX.IntrinsicAttributes &
+      React.PropsWithoutRef<T> &
+      React.RefAttributes<React.Component<T, any, any>>)
+  | (JSX.IntrinsicAttributes & React.PropsWithRef<React.PropsWithChildren<T>>);
+
+function LazyLoad<T>(
+  props: Props<T>,
+  func: () => Promise<{ default: React.ComponentType<T> }>
+) {
+  const OtherComponent = lazy(func);
   return (
-    <Suspense fallback={ <div>Loading...</div> }>
-      <OtherComponent { ...props } />
+    <Suspense fallback={<div>Loading...</div>}>
+      <OtherComponent {...props} />
     </Suspense>
-  )
+  );
 }
 
-export default LazyLoad
+export default LazyLoad;
