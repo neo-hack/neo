@@ -1,13 +1,13 @@
 module.exports = {
-  'plugins': {
+  plugins: {
     'postcss-import': {},
     'postcss-url': {},
     'postcss-cssnext': {
-      'browsers': [ '> 1%' ]
+      browsers: ['> 1%'],
     },
-    'cssnano': {
-      'preset': 'advanced',
-      'autoprefixer': false,
-    }
-  }
+    cssnano: {
+      preset: 'advanced',
+      autoprefixer: false,
+    },
+  },
 }

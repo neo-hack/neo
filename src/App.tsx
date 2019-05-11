@@ -1,6 +1,6 @@
-import * as React from "react";
-import RouterViewer from "@/routes";
-import "@/assets/stylus/App.styl";
+import * as React from 'react'
+import RouterViewer from '@/routes'
+import '@/assets/stylus/App.styl'
 
 class App extends React.Component {
   render() {
@@ -9,15 +9,15 @@ class App extends React.Component {
         this is react-simple webpack templatedsdsds
         <RouterViewer />
       </div>
-    );
+    )
   }
 }
 
-let AppContainer = App;
+let AppContainer = App
 
-if (process.env.NODE_ENV === "development") {
-  const { hot } = require("react-hot-loader");
-  AppContainer = hot(module)(App);
+if (process.env.NODE_ENV === 'development') {
+  const { hot } = require('react-hot-loader')
+  AppContainer = hot(module)(App)
 }
 
-export default AppContainer;
+export default AppContainer

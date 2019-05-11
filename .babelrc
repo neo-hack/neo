@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": [ "> 1%" ]
+          "browsers": ["> 1%"]
         },
         "useBuiltIns": "usage",
         "corejs": 3,
@@ -12,10 +12,7 @@
       }
     ],
     "@babel/preset-typescript",
-    "@babel/preset-react",
+    "@babel/preset-react"
   ],
-  "plugins": [
-    "react-hot-loader/babel",
-    "@babel/plugin-syntax-dynamic-import"
-  ]
+  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-dynamic-import"]
 }

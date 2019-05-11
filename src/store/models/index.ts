@@ -1,10 +1,10 @@
-const files = require["context"](".", true, /[a-zA-Z]\/index\.(ts|js)$/);
-const modules: { [key: string]: any } = {};
+const files = require['context']('.', true, /[a-zA-Z]\/index\.(ts|js)$/)
+const modules: { [key: string]: any } = {}
 
 files.keys().forEach(element => {
-  if (element === "./index.ts") return;
-  const name = element.replace(/(\.\/|\/index\.(ts|js))/g, "");
-  modules[name] = files(element).default;
-});
+  if (element === './index.ts') return
+  const name = element.replace(/(\.\/|\/index\.(ts|js))/g, '')
+  modules[name] = files(element).default
+})
 
-export default modules;
+export default modules

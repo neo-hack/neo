@@ -27,11 +27,8 @@ const prodWebpackConfig = {
       maxSize: 244000,
       cacheGroups: {
         vendors: {
-          test: function (module) {
-            return (
-              module.resource &&
-              /\.js$/.test(module.resource)
-            )
+          test: function(module) {
+            return module.resource && /\.js$/.test(module.resource)
           },
           chunks: 'all',
           name: 'vendors',
@@ -43,25 +40,22 @@ const prodWebpackConfig = {
           minChunks: 2,
         },
         reactVendor: {
-          test: function (module) {
-            return (
-              module.resource &&
-              /react/.test(module.resource)
-            )
+          test: function(module) {
+            return module.resource && /react/.test(module.resource)
           },
           name: 'reactVendor',
           chunks: 'all',
-          priority: 10
+          priority: 10,
         },
         async: {
           chunks: 'async',
           name: 'async',
           minChunks: 2,
-        }
-      }
+        },
+      },
     },
     runtimeChunk: {
-      name: 'mainfest'
+      name: 'mainfest',
     },
     minimizer: [
       new UglifyJsPlugin({
@@ -71,7 +65,7 @@ const prodWebpackConfig = {
           compress: {
             warnings: false,
             drop_console: true,
-          }
+          },
         },
       }),
       new OptimizeCssAssetsPlugin({
@@ -79,9 +73,9 @@ const prodWebpackConfig = {
           safe: true,
           autoprefixer: { disable: true },
           discardComments: { removeAll: true },
-        }
+        },
       }),
-    ]
+    ],
   },
   module: {
     rules: [
@@ -90,30 +84,30 @@ const prodWebpackConfig = {
         exclude: /node_modules/,
         use: [
           { loader: MiniCSSExtractPlugin.loader, options: { sourceMap: true } },
-          { loader: "css-loader", options: { sourceMap: true } },
+          { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-        ]
+        ],
       },
       {
         test: /(\.styl$|\.stylus$)/,
         use: [
           { loader: MiniCSSExtractPlugin.loader, options: { sourceMap: true } },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true,
               modules: true,
-              localIdentName: "[name]_[local]___[hash:base64:5]"
-            }
+              localIdentName: '[name]_[local]___[hash:base64:5]',
+            },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'stylus-loader', options: { sourceMap: true } }
-        ]
-      }
-    ]
+          { loader: 'stylus-loader', options: { sourceMap: true } },
+        ],
+      },
+    ],
   },
   plugins: [
-    new CleanWebpackPlugin([ configs.distPath ], { root: configs.rootPath }),
+    new CleanWebpackPlugin([configs.distPath], { root: configs.rootPath }),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -132,7 +126,7 @@ const prodWebpackConfig = {
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
     }),
-  ]
+  ],
 }
 
 module.exports = MergeWebpack(baseWebpackConfig, prodWebpackConfig)

@@ -20,7 +20,7 @@
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+      "pre-commit": "prettier --config .prettierrc --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
     }
   },
   "dependencies": {

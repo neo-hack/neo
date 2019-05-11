@@ -7,9 +7,9 @@ import ExampleJest from '@/components/Examples/Jest'
 describe('example jest & enzyme with ts', () => {
   it('simple component test', () => {
     const props = {
-      content: 'jest'
+      content: 'jest',
     }
-    const wrapper = shallow(<ExampleJest { ...props }/>)
+    const wrapper = shallow(<ExampleJest {...props} />)
     expect(wrapper.find('div').text()).equal(props.content)
   })
 })
