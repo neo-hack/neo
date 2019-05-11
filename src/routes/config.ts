@@ -21,8 +21,7 @@ export const routesConfig: RoutesConfigSchema[] = [
     children: [
       {
         path: "/home/in",
-        component: (props: any) =>
-          LazyLoad(props, () => import("@/pages/Home/In"))
+        component: props => LazyLoad(props, () => import("@/pages/Home/In"))
       }
     ]
   }
