@@ -19,9 +19,9 @@ const mapDispatch = (dispatch: Dispatch) => {
   }
 }
 
-type Props = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
+type CountProps = Partial<ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>>
 
-const Count = (props: Props) => (
+const Count = (props: CountProps) => (
   <div>
     The count is {props.common}
     <button onClick={props.increment}>increment</button>
@@ -29,10 +29,7 @@ const Count = (props: Props) => (
   </div>
 )
 
-
-const CountContainer = connect(
+export default connect(
   mapState,
   mapDispatch,
 )(Count)
-
-export default CountContainer
