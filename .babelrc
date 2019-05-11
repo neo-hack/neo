@@ -5,7 +5,10 @@
       {
         "targets": {
           "browsers": [ "> 1%" ]
-        }
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "modules": "commonjs"
       }
     ],
     "@babel/preset-typescript",
