@@ -8,6 +8,7 @@ const common = {
       return state + payload
     },
   },
+  // tslint:disable-next-line
   effects: (dispatch: any) => ({
     // handle state changes with impure functions.
     // use async/await for async actions

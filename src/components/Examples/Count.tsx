@@ -4,7 +4,24 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-const Count = (props: any) => (
+import { RootState, Dispatch } from '@/types/rematch'
+
+const mapState = (state: RootState) => {
+  return {
+    common: state.common,
+  }
+}
+
+const mapDispatch = (dispatch: Dispatch) => {
+  return {
+    increment: () => dispatch.common.increment(1),
+    incrementAsync: () => dispatch.common.incrementAsync(1),
+  }
+}
+
+type Props = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
+
+const Count = (props: Props) => (
   <div>
     The count is {props.common}
     <button onClick={props.increment}>increment</button>
@@ -12,18 +29,6 @@ const Count = (props: any) => (
   </div>
 )
 
-const mapState = (state: any) => {
-  return {
-    common: state.common,
-  }
-}
-
-const mapDispatch = (dispatch: any) => {
-  return {
-    increment: () => dispatch.common.increment(1),
-    incrementAsync: () => dispatch.common.incrementAsync(1),
-  }
-}
 
 const CountContainer = connect(
   mapState,
