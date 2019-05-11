@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import SubRoutes from './SubRoutes'
 import { createHashHistory } from 'history'
 import { Switch, Router } from 'react-router-dom'

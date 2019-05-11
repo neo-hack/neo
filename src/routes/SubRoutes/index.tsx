@@ -1,8 +1,8 @@
 import React from 'react'
-import { RoutesConfigSchema } from '../config'
+import { Routes } from '@/types/component'
 import { Route, Redirect } from 'react-router-dom'
 
-function SubRoutes(route: RoutesConfigSchema, index?: string | number) {
+function SubRoutes(route: Routes, index?: string | number) {
   const { component } = route
   if (route.redirect) {
     return <Redirect key={index} exact={true} from={route.path} to={route.redirect} />
