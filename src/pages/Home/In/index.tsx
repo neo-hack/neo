@@ -1,15 +1,11 @@
-import * as React from 'react'
+import * as React from "react";
 
-const styles = require('./index.styl')
+import styles from "./index.styl";
 
 class In extends React.Component {
-  render () {
-    return (
-      <div className={ styles.in }>
-        this is in page
-      </div>
-    )
+  render() {
+    return <div className={styles.page}>this is in page</div>;
   }
 }
 
-export default In
+export default In;

@@ -31,7 +31,16 @@ const devWebpackConfig = {
         test: /\.css$/,
         use: [
           { loader: "style-loader", options: { sourceMap: true } },
-          { loader: "css-loader", options: { sourceMap: true } }
+          {
+            loader: "typings-for-css-modules-loader",
+            options: {
+              // sourceMap: true,
+              modules: true,
+              localIdentName: "[name]_[local]___[hash:base64:5]",
+              namedExport: true
+              // silent: true
+            }
+          }
         ]
       },
       {
@@ -43,9 +52,9 @@ const devWebpackConfig = {
             options: {
               sourceMap: true,
               modules: true,
+              localIdentName: "[name]_[local]___[hash:base64:5]",
               namedExport: true,
-              localIdentName: "[name]_[local]___[hash:base64:5]"
-              // silent: true
+              silent: true
             }
           },
           { loader: "stylus-loader", options: { sourceMap: true } }
