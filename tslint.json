@@ -8,15 +8,15 @@
   "rules": {
     "no-floating-promises": false,
     "no-any": true,
-    "ordered-imports": true,
+    "ordered-imports": false,
     "file-name-casing": false,
-    "no-implicit-dependencies": [true, "dev", ["~"]],
+    "no-implicit-dependencies": [true, "dev", ["@"]],
     "jsx-no-lambda": false,
     "react-this-binding-issue": false,
     "promise-must-complete": false,
     "no-use-before-declare": false,
     "no-namespace": false,
     "jsx-key": false,
-    "semicolon": false
+    "semicolon": true
   }
 }
