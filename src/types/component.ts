@@ -5,7 +5,6 @@ export type Props<T> =
       React.RefAttributes<React.Component<T, any, any>>)
   | (JSX.IntrinsicAttributes & React.PropsWithRef<React.PropsWithChildren<T>>)
 
-
 export interface Routes {
   path: string
   redirect?: string

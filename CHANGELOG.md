@@ -5,6 +5,8 @@
 
 * add types for css-moduels(类名不要有 js 关键字)
 * [use thread-load](https://github.com/TypeStrong/ts-loader/blob/master/examples/thread-loader/webpack.config.js) - 不再使用`happypack`
+* update prettier 以及更强的类型校验
+* create 4 folders in components
 
 ## 20190503
 

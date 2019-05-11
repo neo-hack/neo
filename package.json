@@ -29,7 +29,6 @@
     "core-js": "^3.0.1",
     "history": "^4.9.0",
     "immer": "^1.8.0",
-    "pretty-quick": "^1.10.0",
     "query-string": "^6.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.5.2",
@@ -41,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "pretty-quick": "^1.10.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
