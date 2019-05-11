@@ -3,7 +3,7 @@ import LazyLoad from "@/components/LazyLoad";
 export interface RoutesConfigSchema {
   path: string;
   redirect?: string;
-  component?: any;
+  component?: React.FunctionComponent<any>;
   children?: RoutesConfigSchema[];
 }
 
