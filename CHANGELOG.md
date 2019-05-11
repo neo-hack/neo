@@ -3,7 +3,8 @@
 
 ## 20190503
 
-* use husky
+* use husky - pre-commit
+* use preiite
 
 ## 2019-04-27
 
