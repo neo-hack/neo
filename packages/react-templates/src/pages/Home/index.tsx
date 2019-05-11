@@ -1,8 +1,8 @@
 import React from 'react'
-import ExampleCount from '@/components/Examples/Count'
-import SubRoutes from '@/routes/SubRoutes'
+import ExampleCount from 'react-templates/src/components/Examples/Count'
+import SubRoutes from 'react-templates/src/routes/SubRoutes'
 import { Switch } from 'react-router-dom'
-import { Routes } from '@/types/component'
+import { Routes } from 'react-templates/src/types/component'
 
 interface PageProps {
   routes?: Routes[]

@@ -4,7 +4,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, Dispatch } from '@/types/rematch'
+import { RootState, Dispatch } from 'react-templates/src/types/rematch'
 
 const mapState = (state: RootState) => {
   return {
