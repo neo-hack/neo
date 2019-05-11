@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { RoutesConfigSchema } from '../config'
 import { Route, Redirect } from 'react-router-dom'
 
