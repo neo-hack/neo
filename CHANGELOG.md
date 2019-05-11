@@ -1,6 +1,10 @@
 # Template: react-simple-ts
 ![webpackv4](https://img.shields.io/badge/webpack-V4-blue.svg?longCache=true&style=for-the-badge)
 
+## 20190510
+
+* add types for css-moduels(类名不要有 js 关键字)
+
 ## 20190503
 
 * use husky - pre-commit
