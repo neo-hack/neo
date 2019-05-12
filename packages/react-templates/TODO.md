@@ -18,3 +18,4 @@
 * [ ] - optimze webpack in mutiple pages
 * [ ] - add react-transition example
 * [ ] - add docz
+* [ ] - fix tslint-warning
