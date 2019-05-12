@@ -5,11 +5,13 @@
   "main": "index.js",
   "devDependencies": {
     "lerna": "^3.13.4",
-    "npm-check-updates": "^3.1.9"
+    "npm-check-updates": "^3.1.9",
+    "depcheck": "^0.8.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lerna bootstrap --hoist",
+    "check:react": "depcheck ./packages/react-templates",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json"
