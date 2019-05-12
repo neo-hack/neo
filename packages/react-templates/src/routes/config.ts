@@ -1,5 +1,5 @@
-import LazyLoad from 'react-templates/src/components/shared/LazyLoad'
-import { Routes } from 'react-templates/src/types/component'
+import LazyLoad from '@/components/shared/LazyLoad'
+import { Routes } from '@/types/component'
 
 export const routesConfig: Routes[] = [
   {
@@ -8,11 +8,11 @@ export const routesConfig: Routes[] = [
   },
   {
     path: '/home',
-    component: props => LazyLoad(props, () => import('react-templates/src/pages/Home')),
+    component: props => LazyLoad(props, () => import('@/pages/Home')),
     children: [
       {
         path: '/home/in',
-        component: props => LazyLoad(props, () => import('react-templates/src/pages/Home/In')),
+        component: props => LazyLoad(props, () => import('@/pages/Home/In')),
       },
     ],
   },

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import RouterViewer from 'react-templates/src/routes'
+import RouterViewer from '@/routes'
 import '@/assets/stylus/App.styl'
 
 class App extends React.Component {
