@@ -12,10 +12,10 @@ const mapState = (state: RootState) => {
   }
 }
 
-const mapDispatch = (dispatch: Dispatch) => {
+const mapDispatch = ({ common }: Dispatch) => {
   return {
-    increment: () => dispatch.common.increment(1),
-    incrementAsync: () => dispatch.common.incrementAsync(1),
+    increment: () =>common.increment(1),
+    incrementAsync: () => common.incrementAsync(1),
   }
 }
 

@@ -1,0 +1,8 @@
+{
+  "upgrade": true,
+  "interactive": true,
+  "reject": [
+    "@types/react-redux",
+    "css-loader"
+  ]
+}
