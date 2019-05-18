@@ -1,4 +1,4 @@
-# rollup-starter-lib
+# rollup-templates
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/rollup/rollup-starter-lib.svg)](https://greenkeeper.io/)
 
