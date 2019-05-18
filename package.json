@@ -5,6 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "lerna": "^3.13.4",
+    "np": "^5.0.1",
     "npm-check-updates": "^3.1.9"
   },
   "scripts": {
@@ -12,7 +13,8 @@
     "start": "lerna bootstrap --hoist",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
-    "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json"
+    "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish"
   },
   "repository": {
     "type": "git",
