@@ -1,0 +1,33 @@
+{
+  "name": "templates",
+  "version": "0.0.1",
+  "description": "templates",
+  "main": "index.js",
+  "devDependencies": {
+    "lerna": "^3.13.4",
+    "npm-check-updates": "^3.1.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lerna bootstrap --hoist",
+    "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
+    "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
+    "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiangWeixian/templates.git"
+  },
+  "keywords": [
+    "templates"
+  ],
+  "files": [
+    "packages"
+  ],
+  "author": "jiangweixian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues"
+  },
+  "homepage": "https://github.com/JiangWeixian/templates#readme"
+}

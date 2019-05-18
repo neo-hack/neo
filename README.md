@@ -1,17 +1,17 @@
-# react-template
-> 己用`react-template`
+# templates
 
-## React
+## Use
 
-* [React-state-route-ts](https://github.com/JiangWeixian/LearningWebpack/tree/react-router-state-ts)
-  * jest + enzyme
-  * stylus / css-modules
-  * rematch / redux-dev-tools
-  * react-css-translation
-  * typescript
-  * router
-* [React-simple-ts@Deprecated](https://github.com/JiangWeixian/LearningWebpack/tree/react-simple-TS) / only react with typescript
+目前只支持复制`packages`文件夹下`*-templates`作为开发项目初始启动。
 
-## Docs
+## DEV
 
-* vuepress / 在此基础上加入了`siderbar`路径以及`homepage md file`生成。
+> **WARNING** never use lerna link convert
+
+**`for dev`**
+
+```bash
+npm run start // 提取`packages`下面公用包。
+npm run upgrade:* // upgrade deps
+```
+
