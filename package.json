@@ -23,6 +23,9 @@
   "keywords": [
     "templates"
   ],
+  "files": [
+    "packages"
+  ],
   "author": "jiangweixian",
   "license": "MIT",
   "bugs": {
