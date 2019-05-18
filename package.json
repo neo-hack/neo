@@ -32,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/JiangWeixian/templates/issues"
   },
-  "homepage": "https://github.com/JiangWeixian/templates#readme"
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "dependencies": {}
 }
