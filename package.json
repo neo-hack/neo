@@ -11,6 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lerna bootstrap --hoist",
+    "build": "echo build",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
