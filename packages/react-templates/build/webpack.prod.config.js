@@ -60,8 +60,8 @@ const prodWebpackConfig = {
         parallel: true,
         extractComments: false,
         uglifyOptions: {
+          warnings: false,
           compress: {
-            warnings: false,
             drop_console: true,
           },
         },
