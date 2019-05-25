@@ -33,7 +33,8 @@ const config = {
           {
             loader: 'ts-loader',
             options: {
-              happyPackMode: true, // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+              // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+              happyPackMode: true,
             },
           },
           { loader: 'babel-loader' },
