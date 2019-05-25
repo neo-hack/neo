@@ -11,8 +11,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const configs = require('./config').prod
 const baseWebpackConfig = require('./webpack.common.config')
 
-process.env.NODE_ENV = configs.mode
-
 const prodWebpackConfig = {
   devtool: 'source-map',
   mode: configs.mode,

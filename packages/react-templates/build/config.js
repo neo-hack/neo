@@ -11,6 +11,16 @@ var common = {
   distPath: path.resolve(__dirname, '../', 'dist'),
   rootPath: path.resolve(__dirname, '../'),
   tsConfigPath: path.resolve(__dirname, '../', 'tsconfig.json'),
+  // refs: https://github.com/webpack-contrib/thread-loader/blob/master/example/webpack.config.js
+  workerPool: {
+    workers: require('os').cpus().length - 1,
+    poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000
+  },
+  tsLoaderOptions: {
+    // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+    transpileOnly: process.env.NODE_ENV === 'development',
+    happyPackMode: process.env.NODE_ENV === 'development',
+  }
 }
 
 module.exports = {
@@ -21,6 +31,7 @@ module.exports = {
     publicPath: '/',
     cssSourceMap: true,
     port: 8080,
+    
   },
   prod: {
     ...common,
