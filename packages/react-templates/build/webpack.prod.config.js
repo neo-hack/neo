@@ -105,7 +105,7 @@ const prodWebpackConfig = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([configs.distPath], { root: configs.rootPath }),
+    new CleanWebpackPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',

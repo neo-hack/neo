@@ -18,8 +18,8 @@ var common = {
   },
   tsLoaderOptions: {
     // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-    transpileOnly: process.env.NODE_ENV === 'development',
-    happyPackMode: process.env.NODE_ENV === 'development',
+    transpileOnly: true,
+    happyPackMode: true,
   },
 }
 
