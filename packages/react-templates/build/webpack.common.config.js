@@ -5,10 +5,7 @@ const ThreadLoader = require('thread-loader')
 
 const webpackConfig = require('./config')
 
-ThreadLoader.warmup(
-  webpackConfig.common.workerPool,
-  ['ts-loader', 'babel-loader']
-)
+ThreadLoader.warmup(webpackConfig.common.workerPool, ['ts-loader', 'babel-loader'])
 
 const config = {
   context: webpackConfig.common.rootPath,

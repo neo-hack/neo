@@ -14,7 +14,7 @@ const mapState = (state: RootState) => {
 
 const mapDispatch = ({ common }: Dispatch) => {
   return {
-    increment: () =>common.increment(1),
+    increment: () => common.increment(1),
     incrementAsync: () => common.incrementAsync(1),
   }
 }
