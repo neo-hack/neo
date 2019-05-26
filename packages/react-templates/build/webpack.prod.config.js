@@ -11,8 +11,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const configs = require('./config').prod
 const baseWebpackConfig = require('./webpack.common.config')
 
-process.env.NODE_ENV = configs.mode
-
 const prodWebpackConfig = {
   devtool: 'source-map',
   mode: configs.mode,
@@ -62,8 +60,8 @@ const prodWebpackConfig = {
         parallel: true,
         extractComments: false,
         uglifyOptions: {
+          warnings: false,
           compress: {
-            warnings: false,
             drop_console: true,
           },
         },
@@ -107,7 +105,7 @@ const prodWebpackConfig = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([configs.distPath], { root: configs.rootPath }),
+    new CleanWebpackPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',

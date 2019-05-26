@@ -1,19 +1,22 @@
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpakcPlugin = require('copy-webpack-plugin')
+const ThreadLoader = require('thread-loader')
 
-const webpackConfig = require('./config').common
+const webpackConfig = require('./config')
+
+ThreadLoader.warmup(webpackConfig.common.workerPool, ['ts-loader', 'babel-loader'])
 
 const config = {
-  context: webpackConfig.rootPath,
+  context: webpackConfig.common.rootPath,
   entry: ['./src/index.tsx'],
   output: {
-    path: webpackConfig.distPath,
+    path: webpackConfig.common.distPath,
     filename: '[name].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'jsx'],
-    alias: webpackConfig.alias,
+    alias: webpackConfig.common.alias,
   },
   module: {
     rules: [
@@ -24,17 +27,11 @@ const config = {
           { loader: 'cache-loader' },
           {
             loader: 'thread-loader',
-            options: {
-              // there should be 1 cpu for the fork-ts-checker-webpack-plugin
-              workers: require('os').cpus().length - 1,
-              poolTimeout: Infinity, // set this to Infinity in watch mode - see https://github.com/webpack-contrib/thread-loader
-            },
+            options: webpackConfig.common.workerPool,
           },
           {
             loader: 'ts-loader',
-            options: {
-              happyPackMode: true, // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-            },
+            options: webpackConfig.common.tsLoaderOptions,
           },
           { loader: 'babel-loader' },
         ],
@@ -56,11 +53,11 @@ const config = {
     new CopyWebpakcPlugin([
       {
         from: path.resolve(__dirname, '../', 'static'),
-        to: webpackConfig.staticFolder,
+        to: webpackConfig.common.staticFolder,
       },
     ]),
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: webpackConfig.tsConfigPath,
+      tsconfig: webpackConfig.common.tsConfigPath,
       checkSyntacticErrors: true,
     }),
   ],

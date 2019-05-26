@@ -6,8 +6,6 @@ const webpack = require('webpack')
 const configs = require('./config').dev
 const commonWebpackConfig = require('./webpack.common.config')
 
-process.env.NODE_ENV = configs.mode
-
 const devWebpackConfig = {
   devtool: 'cheap-module-eval-source-map',
   mode: configs.mode,

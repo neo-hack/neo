@@ -4,7 +4,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, Dispatch } from '@/types/rematch'
+import { RootState, Dispatch } from 'src/typings/rematch'
 
 const mapState = (state: RootState) => {
   return {
@@ -14,7 +14,7 @@ const mapState = (state: RootState) => {
 
 const mapDispatch = ({ common }: Dispatch) => {
   return {
-    increment: () =>common.increment(1),
+    increment: () => common.increment(1),
     incrementAsync: () => common.incrementAsync(1),
   }
 }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --config ./test/jest.config.js",
-    "dev": "webpack-dev-server --config build/webpack.dev.config.js --hot --progress",
-    "build": "webpack --config build/webpack.prod.config.js --progress"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --hot --progress",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js --progress"
   },
   "repository": {
     "type": "git",
@@ -71,6 +71,7 @@
     "chai": "^4.2.0",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.3",
+    "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
@@ -79,7 +80,7 @@
     "fork-ts-checker-webpack-plugin": "^1.3.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "jest": "^24.8.0",
     "jest-css-modules": "^2.0.0",
     "jest-localstorage-mock": "^2.4.0",
