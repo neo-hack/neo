@@ -18,7 +18,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "tsc -p tsconfig.json && node docs/Menus/generator.js && node -r tsconfig-paths/register docs/.vuepress/config.js",
     "dev": "npm run prebuild && npx vuepress dev docs",
-    "build": "npm run prebuild && npx vuepress build docs"
+    "build": "npm run prebuild && npx vuepress build docs",
+    "update": "npm update && npm update --save-dev",
+    "check": "npm outdated && npm outdated --save-dev"
   },
   "repository": {
     "type": "git",
