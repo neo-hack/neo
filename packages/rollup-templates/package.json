@@ -15,7 +15,10 @@
     "rollup-plugin-typescript": "^1.0.1",
     "ts-node": "^8.1.0",
     "tslib": "^1.9.3",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "husky": "^3.0.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
   },
   "scripts": {
     "build": "rollup -c",
@@ -27,5 +30,10 @@
   },
   "files": [
     "lib"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
