@@ -6,7 +6,9 @@
   "devDependencies": {
     "lerna": "^3.13.4",
     "np": "^5.0.1",
-    "npm-check-updates": "^3.1.9"
+    "npm-check-updates": "^3.1.9",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +17,8 @@
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
-    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish"
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish",
+    "prettier": "prettier --config .prettierrc --write '**/*'"
   },
   "repository": {
     "type": "git",
@@ -33,5 +36,10 @@
     "url": "https://github.com/JiangWeixian/templates/issues"
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
