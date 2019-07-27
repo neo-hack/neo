@@ -1,0 +1,45 @@
+{
+  "name": "letters-live",
+  "version": "1.0.0",
+  "description": "letters-live",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "clean": "npx rimraf dist",
+    "prettier": "prettier --config .prettierrc --write '**/*'",
+    "update": "npm update && npm update --save-dev",
+    "check": "npm outdated && npm outdated --save-dev"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chibat/letters-live.git"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "moment": "~2.24.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.86",
+    "@types/jquery": "^3.3.30",
+    "copy-webpack-plugin": "^5.0.3",
+    "@types/node": "^12.6.8",
+    "husky": "^3.0.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^5.4.5",
+    "typescript": "~3.4.5",
+    "webpack": "~4.17.2",
+    "webpack-cli": "~3.1.0",
+    "webpack-merge": "~4.2.1",
+    "crx-hotreload": "^1.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
