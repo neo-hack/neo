@@ -1,7 +1,5 @@
 # Chrome Extension TypeScript Starter
 
-[![Build Status](https://travis-ci.org/chibat/chrome-extension-typescript-starter.svg?branch=master)](https://travis-ci.org/chibat/chrome-extension-typescript-starter)
-
 Chrome Extension, TypeScript and Visual Studio Code
 
 ## Prerequisites
@@ -84,4 +82,14 @@ npm run build
         console.log(res)
       })
   })
+  ```
+* How to inject css to with content scripts ? - **See it in manifest.json**
+
+* How to use third-party `.css` or `.js` files in popup.html
+
+  ```json
+  {
+    // ...other config in manifes.json
+    "content_security_policy": "script-src 'self' https://code.getmdl.io/1.3.0/material.min.js 'self'; object-src 'self'",
+  }
   ```
