@@ -4,6 +4,7 @@
   "description": "chrome-extenstion-template",
   "main": "index.js",
   "scripts": {
+    "start": "npm ci",
     "dev": "webpack --config webpack/webpack.dev.js --watch",
     "build": "webpack --config webpack/webpack.prod.js",
     "clean": "npx rimraf dist",
@@ -18,10 +19,11 @@
     "url": "https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
     "axios": "^0.19.0",
+    "jquery": "^3.4.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@types/chrome": "0.0.86",
