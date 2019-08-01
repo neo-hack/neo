@@ -1,10 +1,12 @@
 {
-  "name": "templates-core",
+  "name": "neo",
   "version": "1.0.0",
-  "description": "templates core cli",
-  "main": "lib/templates-core.cjs.js",
-  "module": "lib/templates-core.esm.js",
-  "browser": "lib/templates-core.umd.js",
+  "description": "templates cli",
+  "main": "lib/neo.cjs.js",
+  "module": "lib/neo.esm.js",
+  "bin": {
+    "neo": "./src"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
@@ -15,17 +17,30 @@
   },
   "author": "JW",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "inquirer": "^6.5.0",
+    "ora": "^3.4.0",
+    "rimraf": "^2.6.3",
+    "tildify": "^2.0.0",
+    "user-home": "^2.0.0"
+  },
   "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.6.8",
+    "@types/rimraf": "^2.0.2",
+    "@types/user-home": "^2.0.0",
     "husky": "^3.0.2",
     "prettier": "1.17.0",
     "pretty-quick": "^1.10.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "rollup": "^1.12.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
-    "rollup-plugin-typescript": "^1.0.1"
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
   }
 }
