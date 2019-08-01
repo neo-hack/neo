@@ -1,6 +1,5 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
 import ora from 'ora'
-const program = require('commander')
 import inquirer from 'inquirer'
 import chalk from 'chalk'
 import { exec, ExecException } from 'child_process'
@@ -9,6 +8,8 @@ import { existsSync, renameSync } from 'fs'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, REPO_AUTHOR, REPO_NAME, PACKAGES_FOLDER } from './utils/constants'
+
+const program = require('commander')
 
 /**
  * Usage.
