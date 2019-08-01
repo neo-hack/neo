@@ -18,9 +18,8 @@ Chrome Extension, TypeScript and Visual Studio Code
 
 ## Includes the following
 
-> No React part for building .html files
-
 * TypeScript
+* React
 * axios
 * Webpack
 * Moment.js
