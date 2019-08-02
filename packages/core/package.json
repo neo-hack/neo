@@ -5,7 +5,7 @@
   "main": "lib/neo.cjs.js",
   "module": "lib/neo.esm.js",
   "bin": {
-    "neo": "lib/neo.esm.js"
+    "neo": "lib/neo.cjs.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
