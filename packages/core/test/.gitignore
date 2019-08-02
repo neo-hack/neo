@@ -1,7 +1,0 @@
-/node_modules/*
-/dist/*
-.DS_store
-.vscode/*
-/coverage/*
-/~/
-/**/*.styl.d.ts
