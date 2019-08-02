@@ -1,5 +1,5 @@
 {
-  "name": "neo",
+  "name": "@aiou/neo",
   "version": "1.0.0",
   "description": "templates cli",
   "main": "lib/neo.cjs.js",
