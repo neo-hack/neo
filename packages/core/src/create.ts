@@ -3,8 +3,9 @@ import ora from 'ora'
 import program from 'commander'
 import chalk from 'chalk'
 import inquirer from 'inquirer'
-import { exec, ExecException } from 'child_process'
-import { existsSync, renameSync } from 'fs'
+import path from 'path'
+import { exec } from 'child_process'
+import { existsSync, rename, mkdir } from 'fs'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, REPO_AUTHOR, REPO_NAME, PACKAGES_FOLDER } from './utils/constants'
@@ -47,12 +48,16 @@ const donwload = ({ template }: { template: string }): Promise<boolean> => {
   const downloadCommand = `curl -s https://codeload.github.com/${REPO_AUTHOR}/${REPO_NAME}/tar.gz/master | \
   tar -xz --strip=2 ${REPO_NAME}-master/${PACKAGES_FOLDER}/${template}`
   return new Promise((resolve, reject) => {
-    exec(downloadCommand, err => {
+    const child = exec(downloadCommand, err => {
       if (err) {
+        console.log()
+        logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
         return reject(err)
       }
     })
-    return resolve(true)
+    child.on('exit', () => {
+      resolve(true)
+    })
   })
 }
 
@@ -62,13 +67,23 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
   spinner.start()
   donwload({ template })
     .then(() => {
-      spinner.stop()
-      renameSync(template, dest)
-      logger.success('Generated!')
+      mkdir(path.join(process.cwd(), dest), err => {
+        if (err) {
+          logger.fatal(`Failed create ${dest}: ${err.message.trim()}`)
+          return
+        }
+        rename(path.join(process.cwd(), template), path.join(process.cwd(), dest), err => {
+          if (err) {
+            console.log()
+            logger.fatal(`Failed download ${template} to ${dest}: ${err.message.trim()}`)
+          }
+          spinner.stop()
+          logger.success(`template ${template} Generated!`)
+        })
+      })
     })
-    .catch((e: ExecException) => {
+    .catch(() => {
       spinner.stop()
-      logger.fatal('Failed to download template ' + template + ': ' + e.message.trim())
     })
 }
 
