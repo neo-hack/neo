@@ -15,7 +15,7 @@ const rm = require('rimraf').sync
  * Usage.
  */
 
-program.usage('<template-name> [project-name]')
+program.usage('<template-name> [project-name]').option('-h, --help', 'show helpers')
 
 /**
  * Help.
@@ -38,56 +38,9 @@ process.on('exit', () => {
   console.log()
 })
 
-let template: string
-let projName: string
-
-const run = () => {
-  // template did't exit
-  if (!validateTemplates(template)) {
-    logger.fatal(`Failed locate ${template}`)
-    return
-  }
-  // project name is required
-  if (!projName) {
-    logger.fatal(`<project-name> is required`)
-    return
-  }
-  downloadAndGenerate({ template, dest: projName })
-}
-
-inquirer
-  .prompt<{ template: TEMPLATES; projName: string }>([
-    {
-      type: 'checkbox',
-      name: 'template',
-      message: 'Please pick a template',
-      choices: Object.keys(templates).map(k => {
-        return {
-          name: k,
-          value: k,
-          checked: k === 'react-template' ? true : false,
-        }
-      }),
-    },
-    {
-      type: 'input',
-      name: 'projName',
-      message: 'Please enter a project name',
-    },
-  ])
-  .then(answers => {
-    template = answers.template
-    projName = answers.projName
-    run()
-  })
-  .catch(logger.fatal)
-
-const validateTemplates = (template: string) => {
-  if (!template) {
-    return
-  }
-  return Object.keys(templates).findIndex(v => v === template) > -1
-}
+program.parse(process.argv)
+let template = program.args && program.args[0]
+let projName = program.args && program.args[1]
 
 // refs https://stackoverflow.com/a/44109535/11868008
 const donwload = ({ template }: { template: string }): Promise<boolean> => {
@@ -119,4 +72,53 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
     })
 }
 
-export default downloadAndGenerate
+const validateTemplates = (template: string) => {
+  if (!template) {
+    return
+  }
+  return Object.keys(templates).findIndex(v => v === template) > -1
+}
+
+const run = () => {
+  // template did't exit
+  if (!validateTemplates(template)) {
+    logger.fatal(`Failed locate ${template}`)
+    return
+  }
+  // project name is required
+  if (!projName) {
+    logger.fatal(`<project-name> is required`)
+    return
+  }
+  downloadAndGenerate({ template, dest: projName })
+}
+
+if (template && projName) {
+  run()
+} else
+  inquirer
+    .prompt<{ template: TEMPLATES; projName: string }>([
+      {
+        type: 'checkbox',
+        name: 'template',
+        message: 'Please pick a template',
+        choices: Object.keys(templates).map(k => {
+          return {
+            name: k,
+            value: k,
+            checked: k === 'react-template' ? true : false,
+          }
+        }),
+      },
+      {
+        type: 'input',
+        name: 'projName',
+        message: 'Please enter a project name',
+      },
+    ])
+    .then(answers => {
+      template = answers.template
+      projName = answers.projName
+      run()
+    })
+    .catch(logger.fatal)

@@ -23,14 +23,12 @@
     "inquirer": "^6.5.0",
     "ora": "^3.4.0",
     "rimraf": "^2.6.3",
-    "tildify": "^2.0.0",
-    "user-home": "^2.0.0"
+    "tildify": "^2.0.0"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.6.8",
     "@types/rimraf": "^2.0.2",
-    "@types/user-home": "^2.0.0",
     "builtin-modules": "^3.1.0",
     "husky": "^3.0.2",
     "prettier": "1.17.0",
@@ -38,8 +36,6 @@
     "rollup": "^1.12.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-typescript": "^1.0.1",
     "tslint-config-prettier": "^1.18.0",
