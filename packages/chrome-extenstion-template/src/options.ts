@@ -1,4 +1,4 @@
-import * as $ from 'jquery'
+import $ from 'jquery'
 
 // Saves options to chrome.storage.sync.
 function save_options() {
