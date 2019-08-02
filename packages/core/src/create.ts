@@ -1,15 +1,15 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
 import ora from 'ora'
-import inquirer from 'inquirer'
+import program from 'commander'
 import chalk from 'chalk'
+import inquirer from 'inquirer'
 import { exec, ExecException } from 'child_process'
-import { sync as rm } from 'rimraf'
 import { existsSync, renameSync } from 'fs'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, REPO_AUTHOR, REPO_NAME, PACKAGES_FOLDER } from './utils/constants'
 
-const program = require('commander')
+const rm = require('rimraf').sync
 
 /**
  * Usage.
@@ -30,17 +30,6 @@ program.on('--help', () => {
 })
 
 /**
- * Help.
- */
-
-const help = () => {
-  program.parse(process.argv)
-  if (program.args.length < 1) return program.help()
-  return
-}
-help()
-
-/**
  * Padding.
  */
 
@@ -49,8 +38,8 @@ process.on('exit', () => {
   console.log()
 })
 
-let template = program.args[0]
-let projName = program.args[1]
+let template: string
+let projName: string
 
 const run = () => {
   // template did't exit

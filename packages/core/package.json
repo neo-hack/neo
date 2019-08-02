@@ -5,7 +5,7 @@
   "main": "lib/neo.cjs.js",
   "module": "lib/neo.esm.js",
   "bin": {
-    "neo": "./src"
+    "neo": "./lib/neo.esm.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,11 +31,15 @@
     "@types/node": "^12.6.8",
     "@types/rimraf": "^2.0.2",
     "@types/user-home": "^2.0.0",
+    "builtin-modules": "^3.1.0",
     "husky": "^3.0.2",
     "prettier": "1.17.0",
     "pretty-quick": "^1.10.0",
     "rollup": "^1.12.2",
     "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-typescript": "^1.0.1",
     "tslint-config-prettier": "^1.18.0",

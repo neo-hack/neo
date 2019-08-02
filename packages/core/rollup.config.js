@@ -1,5 +1,18 @@
+import commonjs from 'rollup-plugin-commonjs'
+import resolve from 'rollup-plugin-node-resolve'
 import typescript from 'rollup-plugin-typescript'
+import json from 'rollup-plugin-json'
+import builtins from 'builtin-modules'
 import pkg from './package.json'
+
+const plugins = [
+  json(),
+  typescript(),
+  commonjs(),
+  resolve({
+    preferBuiltins: false,
+  }),
+]
 
 export default [
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -10,9 +23,26 @@ export default [
   // `file` and `format` for each target)
   {
     input: 'src/index.ts',
-    plugins: [
-      typescript(), // so Rollup can convert TypeScript to JavaScript
-    ],
+    plugins,
+    external: builtins,
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
+  },
+  {
+    input: 'src/create.ts',
+    plugins,
+    external: builtins,
+    output: [
+      { file: pkg.main.replace('.js', '-create.js'), format: 'cjs' },
+      { file: pkg.module.replace('.js', '-create.js'), format: 'es' },
+    ],
+  },
+  {
+    input: 'src/create.ts',
+    plugins,
+    external: builtins,
+    output: [
+      { file: pkg.main.replace('.js', '-list.js'), format: 'cjs' },
+      { file: pkg.module.replace('.js', '-list.js'), format: 'es' },
+    ],
   },
 ]

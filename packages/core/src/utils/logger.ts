@@ -1,7 +1,6 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/lib/logger.js
-
-import chalk from 'chalk'
 import { format } from 'util'
+import chalk from 'chalk'
 
 /**
  * Prefix.

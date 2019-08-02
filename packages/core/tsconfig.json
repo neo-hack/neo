@@ -5,7 +5,6 @@
     "lib": ["es2016"],
     "moduleResolution": "node",
     "importHelpers": true,
-    "esModuleInterop": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
