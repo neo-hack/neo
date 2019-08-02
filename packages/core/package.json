@@ -13,7 +13,8 @@
     "dev": "rollup -c -w",
     "pretest": "npm run build",
     "update": "npm update && npm update --save-dev",
-    "check": "npm outdated && npm outdated --save-dev"
+    "check": "npm outdated && npm outdated --save-dev",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish"
   },
   "author": "JW",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "inquirer": "^6.5.0",
     "ora": "^3.4.0",
     "rimraf": "^2.6.3",
-    "tildify": "^2.0.0"
+    "tildify": "^2.0.0",
+    "np": "^5.0.1"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
