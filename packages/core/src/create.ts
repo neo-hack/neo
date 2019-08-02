@@ -1,7 +1,6 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
 import ora from 'ora'
 import program from 'commander'
-import chalk from 'chalk'
 import inquirer from 'inquirer'
 import path from 'path'
 import { exec } from 'child_process'
@@ -16,19 +15,7 @@ const rm = require('rimraf').sync
  * Usage.
  */
 
-program.usage('<template-name> [project-name]').option('-h, --help', 'show helpers')
-
-/**
- * Help.
- */
-
-program.on('--help', () => {
-  console.log('  Examples:')
-  console.log()
-  console.log(chalk.gray('    # create a new project with an official template'))
-  console.log('    $ neo init rollup-template my-project')
-  console.log()
-})
+program.usage('<template-name> [project-name]')
 
 /**
  * Padding.

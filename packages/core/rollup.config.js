@@ -37,7 +37,7 @@ export default [
     ],
   },
   {
-    input: 'src/create.ts',
+    input: 'src/list.ts',
     plugins,
     external: builtins,
     output: [
