@@ -1,6 +1,6 @@
 {
   "name": "@aiou/docs-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vuepress template",
   "main": "docs/index.ts",
   "dependencies": {
