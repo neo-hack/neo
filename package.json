@@ -19,7 +19,7 @@
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
     "prettier": "prettier --config .prettierrc --write '**/*'",
-    "publish": "npx lerna publish --ignore-scripts"
+    "publish": "npx lerna publish --ignore-scripts from-package"
   },
   "repository": {
     "type": "git",
