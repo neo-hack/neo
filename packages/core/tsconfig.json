@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "outDir": "lib"
+    "outDir": ".lib"
   },
   "exclude": ["node_modules", "lib"]
 }
