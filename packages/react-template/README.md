@@ -1,18 +1,16 @@
 # react-template
 
-## Before Use
+## Note
 
-### Plugins
+- maybe need to custom `prepublishOnly script` in package.json and other package info
+- need reconfig `baseUrl and paths` in `tsconfig.json`
+
+## Options
 
 * IDE - VSCode
   * install `plugin` - stylint
   * install `plugin` - tslint
 * install redux-dev-tools in **Chrome Store**
-
-### Tips
-
-- maybe need to custom `prepublishOnly script` in package.json and other package info
-- need reconfig `baseUrl and paths` in `tsconfig.json`
 
 ## Deps
 
