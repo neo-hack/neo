@@ -1,6 +1,6 @@
 {
   "name": "@aiou/neo",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "templates cli",
   "main": "lib/neo.cjs.js",
   "module": "lib/neo.esm.js",
