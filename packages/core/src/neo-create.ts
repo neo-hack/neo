@@ -1,10 +1,10 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
 
-import ora from 'ora'
-import program from 'commander'
-import inquirer from 'inquirer'
-import path from 'path'
-import download from 'download'
+import * as ora from 'ora'
+import * as program from 'commander'
+import * as inquirer from 'inquirer'
+import * as path from 'path'
+import * as download from 'download'
 import { exec } from 'child_process'
 import { existsSync } from 'fs'
 
@@ -115,7 +115,7 @@ if (template && projName) {
       },
     ])
     .then(answers => {
-      template = answers.template
+      template = answers.template[0]
       projName = answers.projName
       run()
     })
