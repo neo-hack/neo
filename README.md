@@ -1,3 +1,3 @@
-# aiou
-
 ![logo](./docs/logo.jpg)
+
+# @aiou
