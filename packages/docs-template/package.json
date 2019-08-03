@@ -1,5 +1,5 @@
 {
-  "name": "@aiou/docs-templates",
+  "name": "@aiou/docs-template",
   "version": "1.0.0",
   "description": "vuepress template",
   "main": "docs/index.ts",

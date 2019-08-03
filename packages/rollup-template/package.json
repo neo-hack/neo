@@ -1,5 +1,5 @@
 {
-  "name": "@aiou/rollup-templates",
+  "name": "@aiou/rollup-template",
   "version": "1.0.0",
   "main": "lib/how-long-till-lunch.cjs.js",
   "module": "lib/how-long-till-lunch.esm.js",
@@ -28,9 +28,6 @@
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev"
   },
-  "files": [
-    "lib"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"

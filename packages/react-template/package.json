@@ -1,14 +1,15 @@
 {
-  "name": "@aiou/react-templates",
+  "name": "@aiou/react-template",
   "version": "1.0.0",
-  "description": "React simple template",
-  "main": "index.js",
+  "description": "React template",
+  "main": "src/index.tsx",
   "scripts": {
     "test": "jest --config ./test/jest.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --hot --progress",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js --progress",
     "update": "npm update && npm update --save-dev",
-    "check": "npm outdated && npm outdated --save-dev"
+    "check": "npm outdated && npm outdated --save-dev",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/JiangWeixian/templates/issues"
   },
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "homepage": "https://github.com/JiangWeixian/templates/packages/react-template/#readme",
   "husky": {
     "hooks": {
       "pre-commit": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
@@ -87,6 +88,7 @@
     "jest-css-modules": "^2.0.0",
     "jest-localstorage-mock": "^2.4.0",
     "mini-css-extract-plugin": "^0.6.0",
+    "np": "^5.0.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^12.0.1",

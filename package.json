@@ -13,14 +13,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lerna bootstrap --hoist --nohoist=husky",
-    "build": "npm run build --prefix packages/core",
-    "check": "lerna run check",
+    "start": "npx lerna bootstrap --hoist --nohoist=husky",
+    "check": "npx lerna run check",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
-    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish",
-    "prettier": "prettier --config .prettierrc --write '**/*'"
+    "prettier": "prettier --config .prettierrc --write '**/*'",
+    "publish": "npx lerna publish --ignore-scripts"
   },
   "repository": {
     "type": "git",

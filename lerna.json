@@ -2,5 +2,9 @@
   "packages": [
     "packages/*"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.org"
+  },
   "version": "0.0.0"
 }
