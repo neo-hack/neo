@@ -2,6 +2,11 @@
 
 Chrome Extension, TypeScript and Visual Studio Code
 
+## Note
+
+- maybe need to custom `prepublishOnly script` in package.json and other package info
+- need reconfig `baseUrl and paths` in `tsconfig.json`
+
 ## Prerequisites
 
 * [node + npm](https://nodejs.org/) (Current Version)
