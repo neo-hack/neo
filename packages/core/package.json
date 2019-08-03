@@ -11,9 +11,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rollup -c",
+    "prebuild": "tsc",
     "build": "npm run prebuild && node scripts/build.js",
-    "dev": "rollup -c -w",
     "pretest": "npm run build",
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",
