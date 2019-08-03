@@ -5,9 +5,9 @@
   "main": ".lib/neo.cjs.js",
   "module": ".lib/neo.esm.js",
   "bin": {
-    "neo": "lib/neo.cjs",
-    "neo-create": "lib/neo.cjs-create",
-    "neo-list": "lib/neo.cjs-list"
+    "neo": "lib/neo",
+    "neo-create": "lib/neo-create",
+    "neo-list": "lib/neo-list"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,17 +24,20 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
+    "download": "^7.1.0",
     "inquirer": "^6.5.0",
     "ora": "^3.4.0",
     "rimraf": "^2.6.3",
-    "tildify": "^2.0.0"
+    "tildify": "^2.0.0",
+    "fs-extra": "^8.1.0"
   },
   "devDependencies": {
+    "@types/download": "^6.2.4",
+    "@types/fs-extra": "^8.0.0",
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.6.8",
     "@types/rimraf": "^2.0.2",
     "builtin-modules": "^3.1.0",
-    "fs-extra": "^8.1.0",
     "husky": "^3.0.2",
     "np": "^5.0.3",
     "prettier": "1.17.0",

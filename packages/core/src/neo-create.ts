@@ -4,13 +4,15 @@ import ora from 'ora'
 import program from 'commander'
 import inquirer from 'inquirer'
 import path from 'path'
+import download from 'download'
 import { exec } from 'child_process'
-import { existsSync, rename, mkdir } from 'fs'
+import { existsSync } from 'fs'
 
 import logger from './utils/logger'
-import { templates, TEMPLATES, REPO_AUTHOR, REPO_NAME, PACKAGES_FOLDER } from './utils/constants'
+import { templates, TEMPLATES, SCOPE } from './utils/constants'
 
 const rm = require('rimraf').sync
+const fsExtra = require('fs-extra')
 
 /**
  * Usage.
@@ -31,20 +33,19 @@ program.parse(process.argv)
 let template = program.args && program.args[0]
 let projName = program.args && program.args[1]
 
-// refs https://stackoverflow.com/a/44109535/11868008
-const donwload = ({ template }: { template: string }): Promise<boolean> => {
-  const downloadCommand = `curl -s https://codeload.github.com/${REPO_AUTHOR}/${REPO_NAME}/tar.gz/master | \
-  tar -xz --strip=2 ${REPO_NAME}-master/${PACKAGES_FOLDER}/${template}`
+const donwloadNPM = ({ template }: { template: string }): Promise<boolean> => {
   return new Promise((resolve, reject) => {
-    const child = exec(downloadCommand, err => {
+    exec(`npm v @${SCOPE}/${template} dist.tarball`, (err, stdout) => {
       if (err) {
         console.log()
         logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
         return reject(err)
       }
-    })
-    child.on('exit', () => {
-      resolve(true)
+      download(stdout, path.join(process.cwd(), '.neo'), {
+        extract: true,
+      }).then(() => {
+        return resolve(true)
+      })
     })
   })
 }
@@ -53,25 +54,19 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
   if (existsSync(template)) rm(template)
   const spinner = ora('downloading template')
   spinner.start()
-  donwload({ template })
+  donwloadNPM({ template })
     .then(() => {
-      mkdir(path.join(process.cwd(), dest), err => {
-        if (err) {
-          logger.fatal(`Failed create ${dest}: ${err.message.trim()}`)
-          return
-        }
-        rename(path.join(process.cwd(), template), path.join(process.cwd(), dest), err => {
-          if (err) {
-            console.log()
-            logger.fatal(`Failed download ${template} to ${dest}: ${err.message.trim()}`)
-          }
+      fsExtra
+        .copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
+        .then(() => {
+          fsExtra.remove(path.join(process.cwd(), '.neo'))
           spinner.stop()
-          logger.success(`template ${template} Generated!`)
+          logger.success(`🎉 ${template} Generated 🎉!`)
         })
-      })
     })
-    .catch(() => {
+    .catch(err => {
       spinner.stop()
+      logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
     })
 }
 

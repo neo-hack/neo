@@ -5,14 +5,7 @@ import json from 'rollup-plugin-json'
 import builtins from 'builtin-modules'
 import pkg from './package.json'
 
-const plugins = [
-  json(),
-  typescript(),
-  commonjs(),
-  resolve({
-    preferBuiltins: false,
-  }),
-]
+const plugins = [json(), typescript(), commonjs(), resolve()]
 
 export default [
   // CommonJS (for Node) and ES module (for bundlers) build.

@@ -2,9 +2,11 @@ const fs = require('fs-extra')
 const path = require('path')
 
 const commands = ['create', 'list', '']
-const formats = ['neo.cjs', 'neo.esm']
+const formats = ['neo']
 const fakelib = path.resolve(__dirname, '../.lib')
 const reallib = path.resolve(__dirname, '../lib')
+
+fs.copySync(path.join(fakelib, '/utils'), path.join(reallib, '/utils'))
 
 formats.forEach(f => {
   commands.forEach(c => {
