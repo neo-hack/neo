@@ -1,7 +1,5 @@
 # Chrome Extension TypeScript Starter
 
-[![Build Status](https://travis-ci.org/chibat/chrome-extension-typescript-starter.svg?branch=master)](https://travis-ci.org/chibat/chrome-extension-typescript-starter)
-
 Chrome Extension, TypeScript and Visual Studio Code
 
 ## Prerequisites
@@ -12,11 +10,16 @@ Chrome Extension, TypeScript and Visual Studio Code
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
+## Feature
+
+* support hot reload
+
 ## Includes the following
 
 * TypeScript
+* React
+* axios
 * Webpack
-* Moment.js
 * jQuery
 * Example Code
     * Chrome Storage
@@ -32,15 +35,16 @@ Chrome Extension, TypeScript and Visual Studio Code
 * dist: Chrome Extension directory
 * dist/js: Generated JavaScript files
 
+# Dev
+
 ## Setup
 
 ```
 npm install
+npm run dev
 ```
 
-## Import as Visual Studio Code project
-
-...
+> see how load extension to chrome in Guide part
 
 ## Build
 
@@ -48,21 +52,43 @@ npm install
 npm run build
 ```
 
-## Build in watch mode
+# Guide
 
-### terminal
+* How to Load extension to chrome?
 
-```
-npm run watch
-```
+  Open `Setting->Extenstion->Load unpack extenstion`
 
-### Visual Studio Code
+  Then, Load `dist` directory
 
-Run watch mode.
+  or Check this [video](https://www.notion.so/Chrome-Extentions-23d3afc128644457bfb08022713fe2b1#20aadfedc6cc4b32b6979decbea644ea)
 
-type `Ctrl + Shift + B`
+* How to management dom?
 
-## Load extension to chrome
+  ```js
+  const main = document.querySelector('#main')
+  const p = document.createElement('p')
+  p.innerText = 'this is p'
+  main.appendChild(p)
+  ```
 
-Load `dist` directory
+* How to use axios in chrome-extenstion
 
+  ```js
+  // in content.ts
+  document.addEventListener('click', (e: any) => {
+    axios.get('https://www.google.com')
+      .then(res => {
+        console.log(res)
+      })
+  })
+  ```
+* How to inject css to with content scripts ? - **See it in manifest.json**
+
+* How to use third-party `.css` or `.js` files in popup.html
+
+  ```json
+  {
+    // ...other config in manifes.json
+    "content_security_policy": "script-src 'self' https://code.getmdl.io/1.3.0/material.min.js 'self'; object-src 'self'",
+  }
+  ```

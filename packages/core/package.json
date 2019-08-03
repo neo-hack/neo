@@ -1,0 +1,52 @@
+{
+  "name": "@aiou/neo",
+  "version": "1.0.8",
+  "description": "templates cli",
+  "main": ".lib/neo.cjs.js",
+  "module": ".lib/neo.esm.js",
+  "bin": {
+    "neo": "lib/neo.cjs",
+    "neo-create": "lib/neo.cjs-create",
+    "neo-list": "lib/neo.cjs-list"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rollup -c",
+    "build": "npm run prebuild && node scripts/build.js",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build",
+    "update": "npm update && npm update --save-dev",
+    "check": "npm outdated && npm outdated --save-dev",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "author": "JW",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "inquirer": "^6.5.0",
+    "ora": "^3.4.0",
+    "rimraf": "^2.6.3",
+    "tildify": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.6.8",
+    "@types/rimraf": "^2.0.2",
+    "builtin-modules": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "husky": "^3.0.2",
+    "np": "^5.0.3",
+    "prettier": "1.17.0",
+    "pretty-quick": "^1.10.0",
+    "rollup": "^1.12.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  }
+}

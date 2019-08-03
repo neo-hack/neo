@@ -2,7 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
+    "jsx": "react",
     "noImplicitAny": false,
+    "esModuleInterop": true,
     "sourceMap": false,
     "rootDir": "src",
     "outDir": "dist/js",

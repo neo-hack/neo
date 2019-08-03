@@ -1,5 +1,5 @@
 {
-  "name": "@jiangweixian/templates",
+  "name": "aiou",
   "version": "0.1.5",
   "description": "templates",
   "main": "index.js",
@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lerna bootstrap --hoist --nohoist=husky",
-    "build": "echo build",
+    "build": "npm run build --prefix packages/core",
     "check": "lerna run check",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
@@ -27,10 +27,11 @@
     "url": "git+https://github.com/JiangWeixian/templates.git"
   },
   "keywords": [
-    "templates"
+    "templates",
+    "neo"
   ],
   "files": [
-    "packages"
+    "packages/core"
   ],
   "author": "jiangweixian",
   "license": "MIT",

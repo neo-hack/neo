@@ -1,7 +1,7 @@
 {
-  "name": "templates",
+  "name": "@aiou/react-templates",
   "version": "1.0.0",
-  "description": "React simple CLI template",
+  "description": "React simple template",
   "main": "index.js",
   "scripts": {
     "test": "jest --config ./test/jest.config.js",
