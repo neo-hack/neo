@@ -1,6 +1,6 @@
 {
   "name": "@aiou/chrome-extenstion-template",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "chrome-extenstion-template",
   "main": "index.js",
   "scripts": {
