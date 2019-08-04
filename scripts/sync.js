@@ -3,7 +3,7 @@ const path = require('path')
 
 const files = [
   '.prettierignore',
-  '.pretterrc',
+  '.prettierrc',
   'tslint.json',
   '.gitignore'
 ]
