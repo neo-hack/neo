@@ -1,3 +1,7 @@
+## 20190804
+
+* sync config files
+
 ## 20190801
 
 * publish template as npm
