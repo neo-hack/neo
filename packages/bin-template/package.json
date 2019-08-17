@@ -1,0 +1,49 @@
+{
+  "name": "@aiou/bin-template",
+  "version": "1.0.0",
+  "description": "templates for command project",
+  "main": ".lib/bin-template.cjs.js",
+  "module": ".lib/bin-template.esm.js",
+  "bin": {
+    "bin-template": "lib/bin-template",
+    "bin-template-create": "lib/bin-template-create",
+    "bin-template-list": "lib/bin-template-list"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "tsc",
+    "build": "npm run prebuild && node scripts/build.js",
+    "pretest": "npm run build",
+    "update": "npm update && npm update --save-dev",
+    "check": "npm outdated && npm outdated --save-dev",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "author": "JW",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "download": "^7.1.0",
+    "inquirer": "^6.5.0",
+    "ora": "^3.4.0",
+    "rimraf": "^2.6.3",
+    "tildify": "^2.0.0",
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/download": "^6.2.4",
+    "@types/fs-extra": "^8.0.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.6.8",
+    "@types/rimraf": "^2.0.2",
+    "builtin-modules": "^3.1.0",
+    "husky": "^3.0.2",
+    "np": "^5.0.3",
+    "prettier": "1.17.0",
+    "pretty-quick": "^1.10.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  }
+}
