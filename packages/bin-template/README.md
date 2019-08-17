@@ -1,6 +1,10 @@
 # @aiou/bin-template
 > template for command project
 
+### Useage
+
+1. remove `bin-template` in project by your own command
+
 ### Keywords
 
 1. key is the bin file in `package.json`。
