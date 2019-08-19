@@ -18,3 +18,7 @@ lerna-debug.log
 
 # types
 **/*.styl.d.ts
+
+# bin-template
+lib
+.lib
