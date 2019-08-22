@@ -58,7 +58,7 @@ npm run dev
 npm run build
 ```
 
-# Guide
+# Q&A
 
 * How to Load extension to chrome?
 

@@ -1,4 +1,7 @@
-# react-template
+# @aiou/react-template
+> spa react template
+
+[![npm](https://img.shields.io/npm/v/@aiou/react-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template)
 
 ## Note
 
@@ -26,15 +29,3 @@
 * test
   * jest
 * webpack v4
-  - **`.png|jpg etc files`**
-
-    `url-loader`并没有限制`require assets/img`图片大小。**但是如果图片过大，建议还是放在`static folder`中。并且不通过`require`导入，而是`file path`**
-
-  - **`classname`**
-
-    在`dev and prd`模式下都开启了`filename`添加到`classname-prefix`（可以选择在去掉配置文件中`css-loader or stylus-loader`相关配置）。**并不影响在`tsx`文件下的使用。**
-
-    所以尽量避免在`.styl`文件书写`xx`作为模块名前缀。这一部分`webpack`已经帮你配置配置了。同时书写模块应注意以下原则：
-
-    * 避免`index.styl`，除非是`root page styles`
-    * 尽量书写`模块名.styl`

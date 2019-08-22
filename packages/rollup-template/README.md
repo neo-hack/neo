@@ -1,4 +1,7 @@
 # rollup-template
+> rollup-template for single lib
+
+[![npm](https://img.shields.io/npm/v/@aiou/rollup-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
 
 ## Note
 
@@ -17,14 +20,6 @@ console.log('it will be lunchtime in ' + howLongTillLunch());
 
 ## Getting started
 
-Clone this repository and install its dependencies:
-
-```bash
-git clone https://github.com/rollup/rollup-starter-lib
-cd rollup-starter-lib
-npm install
-```
-
 `npm run build` builds the library to `dist`, generating three files:
 
 * `dist/how-long-till-lunch.cjs.js`
@@ -38,14 +33,6 @@ npm install
 
 `npm test` builds the library, then tests it.
 
-## Variations
+# Q&A
 
-* [babel](https://github.com/rollup/rollup-starter-lib/tree/babel) — illustrates writing the source code in ES2015 and transpiling it for older environments with [Babel](https://babeljs.io/)
-* [buble](https://github.com/rollup/rollup-starter-lib/tree/buble) — similar, but using [Bublé](https://buble.surge.sh/) which is a faster alternative with less configuration
-* [TypeScript](https://github.com/rollup/rollup-starter-lib/tree/typescript) — uses [TypeScript](https://www.typescriptlang.org/) for type-safe code and transpiling
-
-
-
-## License
-
-[MIT](LICENSE).
+1. rollup is not recommended, if project that contains builtin node module
