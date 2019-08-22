@@ -1,6 +1,7 @@
-# Chrome Extension TypeScript Starter
+#@aiou/chrome-extenstion-template
+> Chrome Extension, TypeScript and Visual Studio Code
 
-Chrome Extension, TypeScript and Visual Studio Code
+[![npm](https://img.shields.io/npm/v/@aiou/chrome-extenstion-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
 
 ## Note
 
@@ -97,3 +98,5 @@ npm run build
     "content_security_policy": "script-src 'self' https://code.getmdl.io/1.3.0/material.min.js 'self'; object-src 'self'",
   }
   ```
+
+* How to publish - see this [video](https://www.youtube.com/watch?v=DpdYTAhDWbs)
