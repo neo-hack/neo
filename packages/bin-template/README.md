@@ -1,12 +1,12 @@
-# @aiou/bin-template
-> template for command project
+#@aiou/bin-template
+> npm global command template
 
-### Useage
+[![npm](https://img.shields.io/npm/v/@aiou/bin-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template)
 
-1. remove `bin-template` in project by your own command
+### Usage
 
-### Keywords
+1. support command listed in src folder, same name as filename
 
-1. key is the bin file in `package.json`。
-2. `scripts/build` will add `#!/usr/bin/env node` at the top of `file`
-3. each file in src-rootpath is a command
+# Q&A
+
+1. `#!/usr/bin/env node` ahead of file is the key
