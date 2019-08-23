@@ -8,8 +8,6 @@
 - maybe need to custom `prepublishOnly script` in package.json and other package info
 - need reconfig `baseUrl and paths` in `tsconfig.json`
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/rollup/rollup-starter-lib.svg)](https://greenkeeper.io/)
-
 This repo contains a bare-bones example of how to create a library using Rollup, including importing a module from `node_modules` and converting it from CommonJS.
 
 We're creating a library called `how-long-till-lunch`, which usefully tells us how long we have to wait until lunch, using the [ms](https://github.com/zeit/ms) package:
