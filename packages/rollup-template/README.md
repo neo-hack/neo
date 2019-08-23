@@ -1,4 +1,4 @@
-# rollup-template
+# @aiou/rollup-template
 > rollup-template for single lib
 
 [![npm](https://img.shields.io/npm/v/@aiou/rollup-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
@@ -7,8 +7,6 @@
 
 - maybe need to custom `prepublishOnly script` in package.json and other package info
 - need reconfig `baseUrl and paths` in `tsconfig.json`
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/rollup/rollup-starter-lib.svg)](https://greenkeeper.io/)
 
 This repo contains a bare-bones example of how to create a library using Rollup, including importing a module from `node_modules` and converting it from CommonJS.
 
