@@ -1,7 +1,7 @@
 # @aiou
 > all templates you need in one
 
-[![npm](https://img.shields.io/npm/v/@aiou/neo?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
+[![npm](https://img.shields.io/npm/v/@aiou/neo?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
 
 ## Install
 
