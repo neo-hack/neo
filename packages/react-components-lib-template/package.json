@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "npm update && npm update --save-dev"
+    "update": "npm update && npm update --save-dev",
+    "clean": "npx rimraf es && npx rimraf lib",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp compile"
   },
   "author": "JW",
   "license": "MIT",
@@ -14,7 +16,6 @@
     "@babel/plugin-transform-typescript": "7.4.5",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
-    "@ruguoapp/antd-stylus-plugin": "0.2.1",
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
     "@types/react-redux": "7.0.7",
@@ -50,5 +51,10 @@
     "gulp-postcss": "8.0.0",
     "lodash": "4.17.11",
     "postcss-modules": "1.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+    }
   }
 }

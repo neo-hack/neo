@@ -15,17 +15,7 @@ const config = require('./build/gulp.config')
 function compileStylus(modules) {
   return gulp
     .src(['components/**/*.styl'])
-    .pipe(
-      stylus({
-        import: [
-          path.resolve(__dirname, 'components/style/colors.styl'),
-          path.resolve(
-            __dirname,
-            './node_modules/@ruguoapp/antd-stylus-plugin/lib/style/themes/index.styl',
-          ),
-        ],
-      }),
-    )
+    .pipe(stylus())
     .pipe(postcss([config.postcssPlugins.autoprefixer, config.postcssPlugins.cssmodules]))
     .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
 }
