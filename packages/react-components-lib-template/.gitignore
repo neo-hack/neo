@@ -1,0 +1,24 @@
+# common
+node_modules
+
+# editor
+.DS_Store
+.vscode
+
+# test
+converage
+
+# build
+dist
+lib
+.lib
+
+# log
+lerna-debug.log
+
+# types
+**/*.styl.d.ts
+
+# bin-template
+lib
+.lib
