@@ -2,7 +2,8 @@
   "name": "react-components-lib-template",
   "version": "0.0.1",
   "description": "react components template",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "npm update && npm update --save-dev",
@@ -11,6 +12,7 @@
   },
   "author": "JW",
   "license": "MIT",
+  "typings": "lib/index.d.ts",
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/plugin-transform-typescript": "7.4.5",
