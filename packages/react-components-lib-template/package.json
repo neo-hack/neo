@@ -1,5 +1,5 @@
 {
-  "name": "react-components-lib-template",
+  "name": "@aiou/react-components-lib-template",
   "version": "0.0.1",
   "description": "react components template",
   "main": "lib/index.js",
