@@ -1,5 +1,6 @@
 import React from 'react'
+import styles from './style/demo.css.json'
 
 export const Demo = () => {
-  return <div>this is ReactComponentsLib Demo</div>
+  return <div className={styles.demo}>this is ReactComponentsLib Demo</div>
 }
