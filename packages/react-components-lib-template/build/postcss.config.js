@@ -1,8 +1,9 @@
 const autoprefixer = require('autoprefixer')
 const cssnano = require('gulp-cssnano')
 const fs = require('fs-extra')
+const pkg = require('../package.json')
 const cssmodules = require('postcss-modules')({
-  generateScopedName: 'acfun_[name]_[local]',
+  generateScopedName: `${pkg.prefix}_[name]_[local]`,
   getJSON: function(cssFileName, json, outputFileName) {
     var path = require('path')
     var cssName = path.basename(cssFileName, '.css')
