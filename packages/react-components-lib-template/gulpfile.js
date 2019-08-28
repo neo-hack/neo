@@ -5,6 +5,7 @@ const babel = require('gulp-babel')
 const rimraf = require('rimraf')
 const merge2 = require('merge2')
 const gulp = require('gulp')
+const sourcemaps = require('gulp-sourcemaps')
 const stylus = require('gulp-stylus')
 const postcss = require('gulp-postcss')
 const tsDefaultReporter = ts.reporter.defaultReporter()
@@ -17,18 +18,24 @@ function compileStylus(modules) {
     .src(['components/**/*.styl'])
     .pipe(stylus())
     .pipe(postcss([config.postcssPlugins.autoprefixer, config.postcssPlugins.cssmodules]))
+    .pipe(gulp.dest(config.dirs.components))
     .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
 }
 
 function babelify(js, modules) {
   const babelConfig = config.getBabelConfig(modules)
   delete babelConfig.cacheDirectory
-  let stream = js.pipe(babel(babelConfig)).pipe(
-    through2.obj(function z(file, encoding, next) {
-      this.push(file.clone())
-      next()
-    }),
-  )
+  let stream = js
+    .pipe(sourcemaps.init())
+    .pipe(babel(babelConfig))
+    .pipe(
+      through2
+        .obj(function z(file, encoding, next) {
+          this.push(file.clone())
+          next()
+        })
+        .pipe(sourcemaps.write('.')),
+    )
   return stream.pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
 }
 

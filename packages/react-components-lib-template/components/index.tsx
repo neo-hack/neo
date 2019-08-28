@@ -1,3 +1,1 @@
-import ReactComponentsLib from './ReactComponentsLib'
-
-export { ReactComponentsLib }
+export { Demo } from './demo'
