@@ -22,3 +22,6 @@ lerna-debug.log
 # bin-template
 lib
 .lib
+
+# react-components-lib-tempate
+es
