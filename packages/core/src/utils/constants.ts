@@ -6,6 +6,7 @@ export const enum TEMPLATES {
   BLOG_STARTER = 'docs-templates',
   CHROME_EXTENSTION_STARTER = 'chrome-extenstion-template',
   BIN_TEMPLATE = 'bin-template',
+  REACT_COMPONENTS_LIB_TEMPLATE = 'react-components-lib-template',
 }
 
 export const templates = {
@@ -14,4 +15,6 @@ export const templates = {
   [TEMPLATES.BLOG_STARTER]: 'blog stater base on vuepress',
   [TEMPLATES.CHROME_EXTENSTION_STARTER]: 'chrome-extenstion starter base ts rxjs react',
   [TEMPLATES.BIN_TEMPLATE]: 'bin template',
+  [TEMPLATES.REACT_COMPONENTS_LIB_TEMPLATE]:
+    'react components lib starter, work fine with single component or mutiple components',
 }
