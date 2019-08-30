@@ -6,7 +6,7 @@ import pkg from './package.json';
 export default [
 	// browser-friendly UMD build
 	{
-		input: 'src/main.ts',
+		input: 'src/index.ts',
 		output: {
 			name: 'howLongUntilLunch',
 			file: pkg.browser,
@@ -26,7 +26,7 @@ export default [
 	// an array for the `output` option, where we can specify 
 	// `file` and `format` for each target)
 	{
-		input: 'src/main.ts',
+		input: 'src/index.ts',
 		external: ['ms'],
 		plugins: [
 			typescript() // so Rollup can convert TypeScript to JavaScript
