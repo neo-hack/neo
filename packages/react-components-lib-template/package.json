@@ -15,10 +15,6 @@
   "repository": {
     "url": "https://github.com/JiangWeixian/templates/packages/react-components-lib-template"
   },
-  "files": [
-    "es",
-    "lib"
-  ],
   "typings": "lib/index.d.ts",
   "keywords": [
     "react",
