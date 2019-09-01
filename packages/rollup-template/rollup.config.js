@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
+import alias from 'rollup-plugin-alias'
 import pkg from './package.json'
 
 export default [
@@ -18,6 +19,10 @@ export default [
       typescript({
         typescript: require('typescript'),
       }), // so Rollup can convert TypeScript to JavaScript
+      alias({
+        resolve: ['.ts', '.js', '.tsx', '.jsx'],
+        entries: [{ find: '@/', replacement: './src/' }],
+      }),
     ],
   },
 
@@ -32,6 +37,10 @@ export default [
     external: ['ms'],
     plugins: [
       typescript(), // so Rollup can convert TypeScript to JavaScript
+      alias({
+        resolve: ['.ts', '.js', '.tsx', '.jsx'],
+        entries: [{ find: '@/', replacement: './src/' }],
+      }),
     ],
     output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
   },
