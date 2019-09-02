@@ -1,6 +1,6 @@
 {
   "name": "@aiou/rollup-template",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "lib/how-long-till-lunch.cjs.js",
   "module": "lib/how-long-till-lunch.esm.js",
   "browser": "lib/how-long-till-lunch.umd.js",
@@ -9,17 +9,20 @@
     "ms": "2.1.1"
   },
   "devDependencies": {
+    "@types/jest": "24.0.18",
     "@types/ms": "0.7.30",
     "husky": "3.0.1",
+    "jest": "24.9.0",
     "np": "5.0.3",
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
     "rimraf": "3.0.0",
     "rollup": "1.12.2",
-    "rollup-plugin-alias": "^2.0.0",
+    "rollup-plugin-alias": "2.0.0",
     "rollup-plugin-commonjs": "10.0.0",
     "rollup-plugin-node-resolve": "5.0.0",
     "rollup-plugin-typescript2": "0.24.0",
+    "ts-jest": "24.0.2",
     "ts-node": "8.1.0",
     "tslib": "1.9.3",
     "typescript": "3.4.5"
