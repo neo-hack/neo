@@ -1,7 +1,7 @@
 {
   "name": "@aiou/react-components-lib-template",
   "prefix": "aiou",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "react-components-lib-template",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -15,10 +15,6 @@
   "repository": {
     "url": "https://github.com/JiangWeixian/templates/packages/react-components-lib-template"
   },
-  "files": [
-    "es",
-    "lib"
-  ],
   "typings": "lib/index.d.ts",
   "keywords": [
     "react",
