@@ -12,6 +12,9 @@ module.exports = {
       diagnostics: false,
     },
   },
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1',
+  },
   roots: ['<rootDir>/test'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   testRegex: '/test/.+\\.test\\.tsx?$',
