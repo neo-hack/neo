@@ -1,18 +1,19 @@
 {
-  "name": "@aiou/webpack-purejs-loader-template",
+  "name": "@aiou/webpack-loader-template",
   "version": "0.0.0",
-  "description": "a starter for webpack purejs",
+  "description": "a starter for webpack-loader",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "url": "https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template"
+  },
   "keywords": [
     "webpack",
     "loader",
-    "purejs",
     "template"
   ],
   "author": "JW",
   "license": "MIT",
-  "gitHead": "0092f492263a32a182eca8fa4a46fbeb6ea1482d"
 }
