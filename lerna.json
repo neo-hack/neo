@@ -3,7 +3,8 @@
     "packages/*"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "version": "0.0.0"
 }
