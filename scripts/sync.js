@@ -6,7 +6,7 @@ const files = ['.prettierignore', '.prettierrc', 'tslint.json', '.gitignore', 'L
 const excludes = ['core']
 
 /**
- * sync confiles to each target folder
+ * sync config files to each target folder
  * @param {string} package target folder name
  * @param {string[]} files sync files
  */
@@ -19,11 +19,19 @@ const syncConfigs = (package, files) => {
   })
 }
 
+const syncGithub = () => {
+  fs.copySync(
+    path.resolve(__dirname, `../.github`),
+    path.resolve(__dirname, `../packages/${package}/.github`),
+  )
+}
+
 fs.readdir(path.resolve(__dirname, '../packages')).then(packages => {
   const _packages = packages.filter(f => {
     return excludes.findIndex(e => e === f) < 0
   })
   _packages.forEach(p => {
     syncConfigs(p, files)
+    syncGithub()
   })
 })
