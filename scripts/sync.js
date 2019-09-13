@@ -19,7 +19,7 @@ const syncConfigs = (package, files) => {
   })
 }
 
-const syncGithub = () => {
+const syncGithub = package => {
   fs.copySync(
     path.resolve(__dirname, `../.github`),
     path.resolve(__dirname, `../packages/${package}/.github`),
@@ -32,6 +32,6 @@ fs.readdir(path.resolve(__dirname, '../packages')).then(packages => {
   })
   _packages.forEach(p => {
     syncConfigs(p, files)
-    syncGithub()
+    syncGithub(p)
   })
 })
