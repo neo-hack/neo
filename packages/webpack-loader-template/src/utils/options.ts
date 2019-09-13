@@ -15,10 +15,6 @@ const schema = {
       type: 'array',
       description: 'include these files in webpack build',
     },
-    presets: {
-      type: 'array',
-      description: 'the way of how this webpack work',
-    },
   },
 }
 
