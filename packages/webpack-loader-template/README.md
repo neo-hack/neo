@@ -1,7 +1,7 @@
 # @aiou/webpack-loader-template
 > webpack loader starter
 
-[![npm](https://img.shields.io/npm/v/@aiou/wepack-loader-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/wepack-loader-template)
+[![npm](https://img.shields.io/npm/v/@aiou/webpack-loader-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
 
 ## Note
 
