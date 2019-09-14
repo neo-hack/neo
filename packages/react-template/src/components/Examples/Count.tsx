@@ -1,10 +1,10 @@
 /**
  * Examples for rematch commmon
  */
-import * as React from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, Dispatch } from 'src/typings/rematch'
+import { RootState, Dispatch } from '@/typings/rematch'
 
 const mapState = (state: RootState) => {
   return {

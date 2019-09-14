@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 // import ExampleJest from '../../../src/components/Examples/Jest'
