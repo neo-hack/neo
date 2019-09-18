@@ -97,16 +97,21 @@ if (template && projName) {
   inquirer
     .prompt<{ template: TEMPLATES; projName: string }>([
       {
-        type: 'checkbox',
+        type: 'list',
         name: 'template',
         message: 'Please pick a template',
         choices: Object.keys(templates).map(k => {
           return {
             name: k,
-            value: k,
-            checked: k === 'react-template' ? true : false,
           }
         }),
+        default: 'react-template',
+        validate: function(answer) {
+          if (!answer) {
+            return 'You must choose at least one template.'
+          }
+          return true
+        },
       },
       {
         type: 'input',
@@ -115,7 +120,7 @@ if (template && projName) {
       },
     ])
     .then(answers => {
-      template = answers.template[0]
+      template = answers.template
       projName = answers.projName
       run()
     })
