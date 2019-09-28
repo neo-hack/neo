@@ -19,11 +19,28 @@ const syncConfigs = (package, files) => {
   })
 }
 
+/**
+ * sync .github folder
+ * @param {string} package package in packages folder
+ */
 const syncGithub = package => {
   fs.copySync(
     path.resolve(__dirname, `../.github`),
     path.resolve(__dirname, `../packages/${package}/.github`),
   )
+}
+
+/**
+ *
+ * @param {string[]} files
+ */
+const syncTemplate = (files = []) => {
+  files.forEach(f => {
+    fs.copySync(
+      path.resolve(__dirname, `../${f}`),
+      path.resolve(__dirname, `../packages/core/template/${f}.tpl`),
+    )
+  })
 }
 
 fs.readdir(path.resolve(__dirname, '../packages')).then(packages => {
@@ -33,5 +50,6 @@ fs.readdir(path.resolve(__dirname, '../packages')).then(packages => {
   _packages.forEach(p => {
     syncConfigs(p, files)
     syncGithub(p)
+    syncTemplate(files)
   })
 })
