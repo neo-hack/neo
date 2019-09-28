@@ -7,6 +7,8 @@ export const enum TEMPLATES {
   CHROME_EXTENSTION_STARTER = 'chrome-extenstion-template',
   BIN_TEMPLATE = 'bin-template',
   REACT_COMPONENTS_LIB_TEMPLATE = 'react-components-lib-template',
+  TS_LIB_TEMPLATE = 'ts-lib-template',
+  WEBPACK_LOADER_TEMPLATE = 'webpack-loader-template',
 }
 
 export const templates = {
@@ -17,4 +19,6 @@ export const templates = {
   [TEMPLATES.BIN_TEMPLATE]: 'bin template',
   [TEMPLATES.REACT_COMPONENTS_LIB_TEMPLATE]:
     'react components lib starter, work fine with single component or mutiple components',
+  [TEMPLATES.WEBPACK_LOADER_TEMPLATE]: 'webapck-loader starter',
+  [TEMPLATES.TS_LIB_TEMPLATE]: 'typescript lib',
 }

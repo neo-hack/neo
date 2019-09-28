@@ -1,0 +1,63 @@
+{
+  "name": "@aiou/ts-lib-template",
+  "version": "0.0.2",
+  "description": "a starter for typesciprt lib",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "template"
+  ],
+  "watch": {
+    "run_dev": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 1000,
+      "runOnChangeOnly": false
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/lodash.isempty": "4.4.6",
+    "husky": "3.0.1",
+    "jest": "24.9.0",
+    "np": "5.0.3",
+    "npm-watch": "0.6.0",
+    "prettier": "1.18.2",
+    "pretty-quick": "1.11.1",
+    "rimraf": "3.0.0",
+    "ts-jest": "24.0.2",
+    "ts-node": "8.1.0",
+    "tslib": "1.9.3",
+    "typescript": "3.4.5"
+  },
+  "dependencies": {
+    "loader-utils": "1.2.3",
+    "lodash.isempty": "4.4.0"
+  },
+  "author": "JW",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf lib && tsc",
+    "run_dev": "rimraf lib && tsc",
+    "dev": "npm-watch run_dev",
+    "test": "jest",
+    "pretest": "npm run build",
+    "update": "npm update && npm update --save-dev",
+    "check": "npm outdated && npm outdated --save-dev",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
