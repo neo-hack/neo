@@ -34,11 +34,11 @@ const syncGithub = package => {
  *
  * @param {string[]} files
  */
-const syncTemplate = (files = []) => {
+const syncTemplate = (package, files = []) => {
   files.forEach(f => {
     fs.copySync(
       path.resolve(__dirname, `../${f}`),
-      path.resolve(__dirname, `../packages/core/template/${f}.tpl`),
+      path.resolve(__dirname, `../packages/${package}/template/${f}.tpl`),
     )
   })
 }
@@ -50,6 +50,6 @@ fs.readdir(path.resolve(__dirname, '../packages')).then(packages => {
   _packages.forEach(p => {
     syncConfigs(p, files)
     syncGithub(p)
-    syncTemplate(files)
+    syncTemplate(p, files)
   })
 })
