@@ -66,8 +66,8 @@ const generate = ({ dest }: { dest: string }) => {
       return true
     })
     .then(() => {
-      // generate config files from neo.template folder
-      fsExtra.copySync(path.resolve('../template'), path.resolve('../template'))
+      // generate config files from dest.template folder
+      fsExtra.copySync(path.join(process.cwd(), dest, 'template'), path.join(process.cwd(), dest))
     })
     .then(() => {
       spinner.stop()
