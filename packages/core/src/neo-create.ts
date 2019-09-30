@@ -68,16 +68,19 @@ const generate = ({ dest }: { dest: string }) => {
     })
     .then(() => {
       // generate config files from dest.template folder
+      const tplPath = path.join(process.cwd(), dest, 'template')
       const tpls = globby.sync('*.tpl', {
-        cwd: path.join(process.cwd(), dest, 'template'),
+        cwd: tplPath,
         dot: true,
       })
       tpls.forEach(f => {
         fsExtra.copySync(
-          path.join(process.cwd(), dest, 'template', f),
+          path.join(tplPath, f),
           path.join(process.cwd(), dest, f.replace('.tpl', '')),
         )
       })
+      // remove template folder
+      fsExtra.removeSync(tplPath)
     })
     .then(() => {
       spinner.stop()
