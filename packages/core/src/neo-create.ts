@@ -74,7 +74,7 @@ const generate = ({ dest }: { dest: string }) => {
       })
       tpls.forEach(f => {
         fsExtra.copySync(
-          path.join(process.cwd(), dest),
+          path.join(process.cwd(), dest, f),
           path.join(process.cwd(), dest, f.replace('.tpl', '')),
         )
       })
