@@ -15,8 +15,6 @@ module.exports = function(modules) {
         require.resolve('@babel/preset-env'),
         {
           modules,
-          useBuiltIns: 'usage',
-          corejs: 3,
           targets: {
             browsers: [
               'last 2 versions',

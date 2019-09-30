@@ -5,6 +5,7 @@ import * as program from 'commander'
 import * as inquirer from 'inquirer'
 import * as path from 'path'
 import * as download from 'download'
+import * as globby from 'globby'
 import { exec } from 'child_process'
 import { existsSync } from 'fs'
 
@@ -32,7 +33,11 @@ process.on('exit', () => {
 program.parse(process.argv)
 let template = program.args && program.args[0]
 let projName = program.args && program.args[1]
+const spinner = ora('downloading template')
 
+/**
+ * download template .neo folder
+ */
 const donwloadNPM = ({ template }: { template: string }): Promise<boolean> => {
   return new Promise((resolve, reject) => {
     exec(`npm v @${SCOPE}/${template} dist.tarball`, (err, stdout) => {
@@ -50,19 +55,48 @@ const donwloadNPM = ({ template }: { template: string }): Promise<boolean> => {
   })
 }
 
+/**
+ * generate template files
+ */
+const generate = ({ dest }: { dest: string }) => {
+  fsExtra
+    .copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
+    .then(() => {
+      // remove cache files
+      fsExtra.remove(path.join(process.cwd(), '.neo'))
+      return true
+    })
+    .then(() => {
+      // generate config files from dest.template folder
+      const tplPath = path.join(process.cwd(), dest, 'template')
+      const tpls = globby.sync('*.tpl', {
+        cwd: tplPath,
+        dot: true,
+      })
+      tpls.forEach(f => {
+        fsExtra.copySync(
+          path.join(tplPath, f),
+          path.join(process.cwd(), dest, f.replace('.tpl', '')),
+        )
+      })
+      // remove template folder
+      fsExtra.removeSync(tplPath)
+    })
+    .then(() => {
+      spinner.stop()
+      logger.success(`🎉 ${template} Generated 🎉!`)
+    })
+}
+
+/**
+ * copy donwloaded npm package to <projName> folder
+ */
 const downloadAndGenerate = ({ template, dest }: { template: string; dest: string }) => {
   if (existsSync(template)) rm(template)
-  const spinner = ora('downloading template')
   spinner.start()
   donwloadNPM({ template })
     .then(() => {
-      fsExtra
-        .copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
-        .then(() => {
-          fsExtra.remove(path.join(process.cwd(), '.neo'))
-          spinner.stop()
-          logger.success(`🎉 ${template} Generated 🎉!`)
-        })
+      generate({ dest })
     })
     .catch(err => {
       spinner.stop()
