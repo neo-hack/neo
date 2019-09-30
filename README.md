@@ -26,3 +26,4 @@
 - [chrome-extenstion-template](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
 - [react-components-lib-template](https://github.com/JiangWeixian/templates/tree/master/packages/react-components-lib-template)
 - [webpack-loader-template](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
+- [ts-lib-template](https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template)
