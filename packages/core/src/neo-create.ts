@@ -5,6 +5,7 @@ import * as program from 'commander'
 import * as inquirer from 'inquirer'
 import * as path from 'path'
 import * as download from 'download'
+import * as globby from 'globby'
 import { exec } from 'child_process'
 import { existsSync } from 'fs'
 
@@ -67,7 +68,16 @@ const generate = ({ dest }: { dest: string }) => {
     })
     .then(() => {
       // generate config files from dest.template folder
-      fsExtra.copySync(path.join(process.cwd(), dest, 'template'), path.join(process.cwd(), dest))
+      const tpls = globby.sync('*.tpl', {
+        cwd: path.join(process.cwd(), dest, 'template'),
+        dot: true,
+      })
+      tpls.forEach(f => {
+        fsExtra.copySync(
+          path.join(process.cwd(), dest),
+          path.join(process.cwd(), dest, f.replace('.tpl', '')),
+        )
+      })
     })
     .then(() => {
       spinner.stop()
