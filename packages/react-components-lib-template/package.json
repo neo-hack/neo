@@ -1,7 +1,7 @@
 {
   "name": "@aiou/react-components-lib-template",
   "prefix": "aiou",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "react-components-lib-template",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "npm update && npm update --save-dev",
     "clean": "npx rimraf es && npx rimraf lib",
+    "dev": "npm run clean && cross-env NODE_ENV=devlopment gulp watch",
     "build": "npm run clean && cross-env NODE_ENV=production gulp compile",
     "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
@@ -33,7 +34,6 @@
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
     "@types/react-redux": "7.0.7",
-    "@types/react-sortable-tree": "0.3.8",
     "autoprefixer": "9.6.0",
     "babel-plugin-import": "1.12.0",
     "core-js": "3.1.4",
@@ -54,8 +54,8 @@
     "np": "5.0.3",
     "postcss-modules": "1.4.1",
     "poststylus": "1.0.0",
-    "prettier": "1.18.2",
-    "pretty-quick": "1.11.1",
+    "prettier": "1.19.1",
+    "pretty-quick": "2.0.1",
     "rimraf": "2.6.3",
     "stylus-supremacy": "2.12.7",
     "through2": "3.0.1",
@@ -64,7 +64,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.2"
+    "typescript": "3.7.2"
   },
   "dependencies": {
     "classnames": "2.2.6",
@@ -72,7 +72,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
     }
   }
 }
