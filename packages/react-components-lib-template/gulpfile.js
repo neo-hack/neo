@@ -12,6 +12,7 @@ const tsDefaultReporter = ts.reporter.defaultReporter()
 
 // config
 const config = require('./build/gulp.config')
+const source = ['components/**/*.tsx', 'components/**/*.ts', 'typings/**/*.d.ts']
 
 function compileStylus(modules) {
   return gulp
@@ -46,7 +47,6 @@ function compile(modules) {
     .src(['./components/**/*.@(png|svg)'])
     .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
   let error = 0
-  const source = ['components/**/*.tsx', 'components/**/*.ts', 'typings/**/*.d.ts']
   // allow jsx file in src/xxx/
   if (config.tsConfig.allowJs) {
     source.unshift('components/**/*.jsx')
@@ -90,3 +90,7 @@ gulp.task('styles', done => {
 })
 
 gulp.task('compile', gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib')))
+
+gulp.task('watch', () => {
+  gulp.watch(source, gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib')))
+})
