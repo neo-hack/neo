@@ -73,7 +73,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
     }
   }
 }
