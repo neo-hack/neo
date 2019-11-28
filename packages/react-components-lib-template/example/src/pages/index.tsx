@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.css';
+import {} from '@components/demo';
 
 export default function() {
   return (
