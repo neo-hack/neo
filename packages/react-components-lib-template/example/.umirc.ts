@@ -33,6 +33,13 @@ const config: IConfig = {
       },
     ],
   ],
+  proxy: {
+    '/proxy': {
+      target: 'http://localhost:8081/',
+      changeOrigin: true,
+      pathRewrite: { '^/proxy': '' },
+    },
+  },
   chainWebpack(config) {
     config.node.set('module', 'empty');
     config.module.rule('exclude').exclude.add(/\.styl/);
