@@ -7,10 +7,10 @@
     "jsx": "react",
     "esModuleInterop": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "..",
     "strict": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@components/*": ["components/*"]
     },
     "allowSyntheticDefaultImports": true
   }
