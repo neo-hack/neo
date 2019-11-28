@@ -3,12 +3,10 @@
   "version": "0.4.2",
   "private": true,
   "scripts": {
-    "start": "umi dev",
+    "dev": "PORT=8081 umi dev",
     "build": "umi build",
     "test": "umi test",
-    "lint:es": "eslint --ext .js src mock tests",
-    "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "precommit": "lint-staged"
+    "mock:only": "PORT=8081 umi-serve"
   },
   "dependencies": {
     "react": "16.8.6",
@@ -35,17 +33,8 @@
     "tslint-react": "3.6.0",
     "umi": "2.7.0",
     "umi-plugin-react": "1.8.0",
+    "umi-serve": "^1.9.3",
     "umi-types": "0.3.0"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "tslint --fix",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "engines": {
     "node": ">=8.0.0"

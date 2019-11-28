@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.css';
+import { Demo } from '@components/demo/Demo';
 
 export default function() {
   return (
@@ -9,6 +10,7 @@ export default function() {
         <li>
           To get started, edit <code>src/pages/index.js</code> and save to reload.
         </li>
+        <Demo />
         <li>
           <a href="https://umijs.org/guide/getting-started.html">Getting Started</a>
         </li>

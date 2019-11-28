@@ -1,4 +1,5 @@
 import { IConfig } from 'umi-types';
+import { resolve } from 'path';
 
 // ref: https://umijs.org/config/
 const config: IConfig = {
@@ -20,15 +21,25 @@ const config: IConfig = {
       },
     ],
   ],
+  alias: {
+    '@components': resolve(__dirname, '../components'),
+  },
   extraBabelPlugins: [
     [
       'import',
       {
-        libraryName: 'xxx',
+        libraryName: '@aiou/react-components-lib-template',
         style: 'css',
       },
     ],
   ],
+  proxy: {
+    '/proxy': {
+      target: 'http://localhost:8081/',
+      changeOrigin: true,
+      pathRewrite: { '^/proxy': '' },
+    },
+  },
   chainWebpack(config) {
     config.node.set('module', 'empty');
     config.module.rule('exclude').exclude.add(/\.styl/);
