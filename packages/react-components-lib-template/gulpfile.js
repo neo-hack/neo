@@ -8,6 +8,7 @@ const gulp = require('gulp')
 const sourcemaps = require('gulp-sourcemaps')
 const stylus = require('gulp-stylus')
 const postcss = require('gulp-postcss')
+const replace = require('gulp-replace')
 const tsDefaultReporter = ts.reporter.defaultReporter()
 
 // config
@@ -51,15 +52,18 @@ function compile(modules) {
   if (config.tsConfig.allowJs) {
     source.unshift('components/**/*.jsx')
   }
-  const tsResult = gulp.src(source).pipe(
-    ts(config.tsConfig, {
-      error(e) {
-        tsDefaultReporter.error(e)
-        error = 1
-      },
-      finish: tsDefaultReporter.finish,
-    }),
-  )
+  const tsResult = gulp
+    .src(source)
+    .pipe(replace(/(styl)'/g, "css.json'"))
+    .pipe(
+      ts(config.tsConfig, {
+        error(e) {
+          tsDefaultReporter.error(e)
+          error = 1
+        },
+        finish: tsDefaultReporter.finish,
+      }),
+    )
 
   function check() {
     if (error && !argv['ignore-error']) {
@@ -90,7 +94,6 @@ gulp.task('styles', done => {
 })
 
 gulp.task('compile', gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib')))
-
 gulp.task('watch', () => {
   gulp.watch(source, gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib')))
 })
