@@ -64,3 +64,5 @@
   )
   
   ```
+
+  - 修改`css-name`。这部分是通过配置`build/postcss.config.js`中`css-modules`

@@ -3,10 +3,10 @@
   "version": "0.4.2",
   "private": true,
   "scripts": {
-    "dev": "PORT=8080 umi dev",
+    "dev": "PORT=8081 umi dev",
     "build": "umi build",
     "test": "umi test",
-    "mock:only": "PORT=8080 umi-serve"
+    "mock:only": "PORT=8081 umi-serve"
   },
   "dependencies": {
     "react": "16.8.6",
