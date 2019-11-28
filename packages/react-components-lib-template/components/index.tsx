@@ -1,1 +1,3 @@
-export { Demo } from './demo'
+import Demo from './demo'
+
+export { Demo }

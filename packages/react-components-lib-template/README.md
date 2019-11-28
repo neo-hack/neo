@@ -34,6 +34,17 @@
 
 ## For Dev
 
+
+- `npm run build`会通过`glupfile.js`进行组件库打包。
+- `npm run dev`开启`dev`模式
+  - 组件的在线预览是通过在`src/pages/*.tsx`引入`components`文件实现的
+- 如何测试
+  - 建议在组件下新建`__test__`文件夹
+  - `test`的`setupTests.ts`是为了`set config for jest`
+  - 如何给`react hooks`测试。建议使用[@testing-library/react-hooks]()
+- 如何组件命名
+  - `Demo`组件对应`components/demo`
+  - `DemoView`组件对应`components/demo-view`
 - 如何导入外部的`stylus lib`
   
   ```js
