@@ -13,7 +13,7 @@ class Home extends React.Component<PageProps> {
     const { routes = [] } = this.props
     return (
       <div>
-        this is new home page
+        this is new home page reload
         <ExampleCount />
         <Switch>
           {routes.map((route, i) => {

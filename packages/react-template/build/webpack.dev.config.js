@@ -17,7 +17,7 @@ const devWebpackConfig = {
   devServer: {
     port: configs.port,
     contentBase: false,
-    open: true,
+    open: false,
     overlay: true,
     compress: true,
     clientLogLevel: 'none',
