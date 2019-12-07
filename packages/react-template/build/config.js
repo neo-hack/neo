@@ -1,5 +1,6 @@
 // NOTE: dont move this file
 const path = require('path')
+const Rupture = require('rupture')
 
 var common = {
   staticFolder: 'static',
@@ -21,6 +22,7 @@ var common = {
     transpileOnly: true,
     happyPackMode: true,
   },
+  stylusPlugins: [Rupture()],
 }
 
 module.exports = {

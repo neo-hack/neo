@@ -55,7 +55,14 @@ const devWebpackConfig = {
               silent: true,
             },
           },
-          { loader: 'stylus-loader', options: { sourceMap: true } },
+          { loader: 'postcss-loader', options: { sourceMap: true } },
+          {
+            loader: 'stylus-loader',
+            options: {
+              sourceMap: true,
+              use: configs.stylusPlugins,
+            },
+          },
         ],
       },
     ],
