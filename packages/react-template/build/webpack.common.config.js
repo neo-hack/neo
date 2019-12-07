@@ -29,11 +29,11 @@ const config = {
             loader: 'thread-loader',
             options: webpackConfig.common.workerPool,
           },
+          { loader: 'babel-loader' },
           {
             loader: 'ts-loader',
             options: webpackConfig.common.tsLoaderOptions,
           },
-          { loader: 'babel-loader' },
         ],
       },
       {
