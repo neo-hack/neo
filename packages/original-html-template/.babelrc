@@ -10,7 +10,7 @@
         "corejs": 3,
         "modules": "commonjs"
       }
-    ],
+    ]
   ],
-  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-dynamic-import"]
+  "plugins": ["@babel/plugin-syntax-dynamic-import"]
 }
