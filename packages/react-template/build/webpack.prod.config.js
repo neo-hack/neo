@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MergeWebpack = require('webpack-merge')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -107,9 +108,13 @@ const prodWebpackConfig = {
         removeEmptyAttributes: true,
       },
     }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      include: ['vendors', 'main'],
+    }),
     new MiniCSSExtractPlugin({
       filename: path.posix.join(configs.staticFolder, 'css/[name].[contenthash].css'),
-      chunkFilename: path.posix.join(configs.staticFolder, 'css/[id].[contenthash].css'),
+      chunkFilename: path.posix.join(configs.staticFolder, 'css/[name].[contenthash].async.css'),
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
