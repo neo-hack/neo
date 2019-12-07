@@ -8,7 +8,6 @@
     "checkJs": false,
     "module": "esnext",
     "target": "es5",
-    "jsx": "react",
     "moduleResolution": "node",
     "lib": ["es6", "dom"],
     "importHelpers": true,

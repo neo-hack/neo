@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["> 1%"]
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "modules": "commonjs"
+      }
+    ],
+  ],
+  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-dynamic-import"]
+}
