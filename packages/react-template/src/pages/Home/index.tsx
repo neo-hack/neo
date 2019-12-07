@@ -1,5 +1,5 @@
 import React from 'react'
-import ExampleCount from '@/components/Examples/Count'
+import ExampleCount from '@/components/Counter/Count'
 import SubRoutes from '@/routes/SubRoutes'
 import { Switch } from 'react-router-dom'
 import { Routes } from '@/typings/component'

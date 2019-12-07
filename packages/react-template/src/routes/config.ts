@@ -1,4 +1,4 @@
-import LazyLoad from '@/components/shared/LazyLoad'
+import LazyLoad from '@/components/LazyLoad'
 import { Routes } from '@/typings/component'
 
 export const routesConfig: Routes[] = [

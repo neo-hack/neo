@@ -1,5 +1,5 @@
 import React from 'react'
-import { Props } from 'src/typings/component'
+import { Props } from '@/typings/component'
 
 const { Suspense, lazy } = React
 

@@ -29,7 +29,4 @@ const Count = (props: CountProps) => (
   </div>
 )
 
-export default connect(
-  mapState,
-  mapDispatch,
-)(Count)
+export default connect(mapState, mapDispatch)(Count)
