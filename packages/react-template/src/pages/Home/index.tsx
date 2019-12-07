@@ -2,7 +2,7 @@ import React from 'react'
 import ExampleCount from '@/components/Examples/Count'
 import SubRoutes from '@/routes/SubRoutes'
 import { Switch } from 'react-router-dom'
-import { Routes } from 'src/typings/component'
+import { Routes } from '@/typings/component'
 
 interface PageProps {
   routes?: Routes[]

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes } from 'src/typings/component'
+import { Routes } from '@/typings/component'
 import { Route, Redirect } from 'react-router-dom'
 
 function SubRoutes(route: Routes, index?: string | number) {
