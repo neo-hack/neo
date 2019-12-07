@@ -17,7 +17,7 @@ const prodWebpackConfig = {
   output: {
     path: configs.distPath,
     filename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
-    chunkFilename: path.posix.join(configs.staticFolder, 'js/[id].[chunkhash].js'),
+    chunkFilename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
     publicPath: configs.publicPath,
   },
   optimization: {
