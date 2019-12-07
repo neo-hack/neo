@@ -17,43 +17,27 @@ const prodWebpackConfig = {
   output: {
     path: configs.distPath,
     filename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
-    chunkFilename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
+    chunkFilename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].async.js'),
     publicPath: configs.publicPath,
   },
   optimization: {
     splitChunks: {
-      maxSize: 244000,
       cacheGroups: {
         vendors: {
           test: function(module) {
-            return module.resource && /\.js$/.test(module.resource)
+            return module.resource && /react/.test(module.resource)
           },
-          chunks: 'all',
           name: 'vendors',
+          chunks: 'all',
           priority: -10,
         },
         commons: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2,
-        },
-        reactVendor: {
-          test: function(module) {
-            return module.resource && /react/.test(module.resource)
-          },
-          name: 'reactVendor',
-          chunks: 'all',
-          priority: 10,
-        },
-        async: {
           chunks: 'async',
           name: 'async',
           minChunks: 2,
+          minSize: 0,
         },
       },
-    },
-    runtimeChunk: {
-      name: 'mainfest',
     },
     minimizer: [
       new UglifyJsPlugin({

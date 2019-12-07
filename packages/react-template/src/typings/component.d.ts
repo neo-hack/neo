@@ -8,6 +8,6 @@ export type Props<T> =
 export interface Routes {
   path: string
   redirect?: string
-  component?: <T extends { routes?: Routes[] }>(props: Props<T>) => JSX.Element
+  component?: any
   children?: Routes[]
 }
