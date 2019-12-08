@@ -25,7 +25,7 @@ const devWebpackConfig = {
     compress: true,
     clientLogLevel: 'none',
     quiet: true,
-    watchContentBase: true
+    watchContentBase: true,
   },
   module: {
     rules: [
