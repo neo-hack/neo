@@ -1,8 +1,11 @@
 import anime from 'animejs'
+import ready from 'document-ready'
 import './index.styl'
 
-anime({
-  targets: '.target',
-  translateX: 250,
-  duration: 3000,
+ready(() => {
+  anime({
+    targets: '.anime',
+    translateX: 250,
+    duration: 3000,
+  })
 })
