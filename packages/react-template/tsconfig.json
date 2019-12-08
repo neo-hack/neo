@@ -4,7 +4,7 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "allowJs": false,
+    "allowJs": true,
     "checkJs": false,
     "module": "esnext",
     "target": "es5",

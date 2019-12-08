@@ -6,6 +6,9 @@ const webpack = require('webpack')
 const configs = require('./config').dev
 const commonWebpackConfig = require('./webpack.common.config')
 
+/**
+ * @type import('webpack').Configuration
+ */
 const devWebpackConfig = {
   devtool: 'cheap-module-eval-source-map',
   mode: configs.mode,

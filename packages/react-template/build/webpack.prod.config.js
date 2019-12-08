@@ -12,6 +12,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const configs = require('./config').prod
 const baseWebpackConfig = require('./webpack.common.config')
 
+/**
+ * @type import('webpack').Configuration
+ */
 const prodWebpackConfig = {
   devtool: 'source-map',
   mode: configs.mode,

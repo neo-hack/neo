@@ -7,6 +7,9 @@ const webpackConfig = require('./config')
 
 ThreadLoader.warmup(webpackConfig.common.workerPool, ['ts-loader', 'babel-loader'])
 
+/**
+ * @type import('webpack').Configuration
+ */
 const config = {
   context: webpackConfig.common.rootPath,
   entry: ['./src/index.tsx'],
