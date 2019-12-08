@@ -6,6 +6,9 @@ const webpack = require('webpack')
 const configs = require('./config').dev
 const commonWebpackConfig = require('./webpack.common.config')
 
+/**
+ * @type import('webpack').Configuration
+ */
 const devWebpackConfig = {
   devtool: 'cheap-module-eval-source-map',
   mode: configs.mode,
@@ -16,12 +19,13 @@ const devWebpackConfig = {
   },
   devServer: {
     port: configs.port,
-    contentBase: false,
+    contentBase: '..',
     open: false,
     overlay: true,
     compress: true,
     clientLogLevel: 'none',
     quiet: true,
+    watchContentBase: true
   },
   module: {
     rules: [
@@ -49,8 +53,7 @@ const devWebpackConfig = {
             loader: 'typings-for-css-modules-loader',
             options: {
               sourceMap: true,
-              modules: true,
-              localIdentName: '[name]_[local]___[hash:base64:5]',
+              modules: false,
               namedExport: true,
               silent: true,
             },
