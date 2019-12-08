@@ -1,7 +1,7 @@
-# @aiou/origial-html-template
-> origial-html-template; No React; Just JS files and original html file self
+# @aiou/original-html-template
+> original-html-template; No React; Just JS files and original html file self
 
-[![npm](https://img.shields.io/npm/v/@aiou/origial-html-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/origial-html-template)
+[![npm](https://img.shields.io/npm/v/@aiou/original-html-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/original-html-template)
 
 ## Note
 
