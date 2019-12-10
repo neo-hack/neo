@@ -7,12 +7,14 @@
   - [Features](#features)
   - [Dependencies](#dependencies)
   - [For Devlopers](#for-devlopers)
+  - [Refs](#refs)
 
 ## Features
 
 1. use webpack
 2. support ts
 3. `<link />` 会加上`preload`
+4. 在移动端可以通过`http:<ip>:port`方式访问
 
 ## Dependencies
 
@@ -42,3 +44,7 @@
 4. 使用`rematch`作为`redux framework`。
    - 如要使用`redux-observable`，我也封装了一个`rematch-observable`。
    - 如有`data request`。推荐使用`swr`进行`api`的缓存
+
+## Refs
+
+- [如何让webpack-devserver开启移动端的访问](https://stackoverflow.com/questions/35412137/how-to-get-access-to-webpack-dev-server-from-devices-in-local-network)
