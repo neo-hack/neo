@@ -4,7 +4,7 @@
   "description": "original html template",
   "main": "src/index.tsx",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --hot --progress",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --hot --progress --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js --progress",
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",

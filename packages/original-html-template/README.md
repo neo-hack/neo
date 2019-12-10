@@ -9,12 +9,14 @@
   - [Features](#features)
   - [Dependencies](#dependencies)
   - [For Devlopers](#for-devlopers)
+  - [Refs](#refs)
 
 ## Features
 
 1. use webpack
 2. support ts
 3. `<link />` 会加上`preload`
+4. 在移动端可以通过`http:<ip>:8080`访问网页
 
 ## Dependencies
 
@@ -38,3 +40,7 @@
    * install redux-dev-tools in **Chrome Store**
 
 2. **可以使用Rucksack和Rupture** 加速`stylus`开发。分别封装了一些好用`postcss mixins`和`stylus mixins for media query`
+
+## Refs
+
+- [如何让webpack-devserver开启移动端的访问](https://stackoverflow.com/questions/35412137/how-to-get-access-to-webpack-dev-server-from-devices-in-local-network)
