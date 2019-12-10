@@ -1,6 +1,6 @@
 {
   "name": "@aiou/react-template",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "React template",
   "main": "src/index.tsx",
   "scripts": {
