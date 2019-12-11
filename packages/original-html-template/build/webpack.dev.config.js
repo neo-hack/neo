@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MergeWebpack = require('webpack-merge')
 const webpack = require('webpack')
+const path = require('path')
 
 const configs = require('./config').dev
 const commonWebpackConfig = require('./webpack.common.config')
@@ -19,7 +20,7 @@ const devWebpackConfig = {
   },
   devServer: {
     port: configs.port,
-    contentBase: '..',
+    contentBase: path.resolve(__dirname, '../src'),
     open: false,
     overlay: true,
     compress: true,
