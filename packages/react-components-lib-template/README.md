@@ -1,6 +1,8 @@
 # @aiou/react-components-lib-template
 > a template of react components lib, insipred by [antd-tools](https://github.com/ant-design/antd-tools)
 
+> **@aiou/react-components-lib-template**应该替换为真实的`npm package name`
+
 [![npm](https://img.shields.io/npm/v/@aiou/react-components-lib-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/react-components-lib-template)
 
 - [@aiou/react-components-lib-template](#aioureact-components-lib-template)
@@ -21,6 +23,21 @@
       {
         libraryName: '@aiou/react-components-lib-template',
         style: 'css',
+      },
+    ],
+  ]
+  ```
+
+  适配程度更好的方式
+
+  1. 删除`.pipe(replace(/(styl)'/g, "css.json'"))`
+  
+  ```js
+  extraBabelPlugins: [
+    [
+      'import',
+      {
+        libraryName: '@aiou/react-components-lib-template',
       },
     ],
   ]
