@@ -9,7 +9,8 @@ export const enum TEMPLATES {
   REACT_COMPONENTS_LIB_TEMPLATE = 'react-components-lib-template',
   TS_LIB_TEMPLATE = 'ts-lib-template',
   WEBPACK_LOADER_TEMPLATE = 'webpack-loader-template',
-  ORIGINAL_HTML_TEMPLATE = 'original-html-template'
+  ORIGINAL_HTML_TEMPLATE = 'original-html-template',
+  PREACT_MOBILE_SPA_TEMPLATE = 'preact-template'
 }
 
 export const templates = {
@@ -22,5 +23,6 @@ export const templates = {
     'react components lib starter, work fine with single component or mutiple components',
   [TEMPLATES.WEBPACK_LOADER_TEMPLATE]: 'webapck-loader starter',
   [TEMPLATES.TS_LIB_TEMPLATE]: 'typescript lib',
-  [TEMPLATES.ORIGINAL_HTML_TEMPLATE]: 'original html without fe framework'
+  [TEMPLATES.ORIGINAL_HTML_TEMPLATE]: 'original html without fe framework',
+  [TEMPLATES.PREACT_MOBILE_SPA_TEMPLATE]: 'preact template, maybe for moblie'
 }
