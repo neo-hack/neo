@@ -1,9 +1,9 @@
-# @aiou/react-template
-> spa react template
+# @aiou/preact-template
+> spa preact template(maybe use in mobile)
 
-[![npm](https://img.shields.io/npm/v/@aiou/react-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template)
+[![npm](https://img.shields.io/npm/v/@aiou/preact-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/preact-template)
 
-- [@aiou/react-template](#aioureact-template)
+- [@aiou/preact-template](#aioupreact-template)
   - [Features](#features)
   - [Dependencies](#dependencies)
   - [For Devlopers](#for-devlopers)

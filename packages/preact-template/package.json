@@ -1,7 +1,7 @@
 {
   "name": "@aiou/preact-template",
-  "version": "1.6.0",
-  "description": "React template",
+  "version": "1.0.0",
+  "description": "preact template",
   "main": "src/index.tsx",
   "scripts": {
     "test": "echo test",
