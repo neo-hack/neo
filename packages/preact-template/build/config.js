@@ -8,8 +8,8 @@ var common = {
     '@': path.resolve(__dirname, '../', 'src'),
     assets: path.resolve(__dirname, '../', 'src/assets'),
     static: path.resolve(__dirname, '../', 'static'),
-    "react": "preact/compat",
-    "react-dom": "preact/compat"
+    react: 'preact/compat',
+    'react-dom': 'preact/compat',
   },
   distPath: path.resolve(__dirname, '../', 'dist'),
   rootPath: path.resolve(__dirname, '../'),
