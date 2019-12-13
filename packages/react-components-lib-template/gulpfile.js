@@ -18,6 +18,7 @@ const source = ['components/**/*.tsx', 'components/**/*.ts', 'typings/**/*.d.ts'
 function compileStylus(modules) {
   return gulp
     .src(['components/**/*.styl'])
+    .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
     .pipe(stylus())
     .pipe(postcss([config.postcssPlugins.autoprefixer, config.postcssPlugins.cssmodules]))
     .pipe(gulp.dest(config.dirs.components))

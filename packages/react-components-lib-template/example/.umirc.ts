@@ -29,7 +29,6 @@ const config: IConfig = {
       'import',
       {
         libraryName: '@aiou/react-components-lib-template',
-        style: 'css',
       },
     ],
   ],
