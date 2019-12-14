@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Switch } from 'react-router-dom'
+import useSWR from 'swr'
 
 import ExampleCount from '@/components/Counter/Count'
 import SubRoutes from '@/routes/SubRoutes'
@@ -12,14 +13,7 @@ interface PageProps {
 
 const Home = (props: PageProps) => {
   const { routes = [] } = props
-  const [data, setData] = useState<number[]>()
-  useEffect(() => {
-    const fetch = async () => {
-      const res = await api.fake.list(10, 10)
-      setData(res)
-    }
-    fetch()
-  }, [])
+  const { data } = useSWR('fake-data', api.fake.list, { refreshInterval: 1000 })
   return (
     <div>
       this is new home page reload
