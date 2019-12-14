@@ -25,6 +25,14 @@ const devWebpackConfig = {
     compress: true,
     clientLogLevel: 'none',
     quiet: true,
+    proxy: {
+      '/api': {
+        target: `http://localhost:8081`,
+        pathRewrite: {
+          '^api/': '',
+        }
+      }
+    },
   },
   module: {
     rules: [
