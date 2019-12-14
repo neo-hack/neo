@@ -8,7 +8,7 @@ const MergeWebpack = require('webpack-merge')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+const CompressionPlugin = require('compression-webpack-plugin')
 const configs = require('./config').prod
 const baseWebpackConfig = require('./webpack.common.config')
 
@@ -122,7 +122,7 @@ const prodWebpackConfig = {
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
     }),
-  ],
+  ].concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
 module.exports = MergeWebpack(baseWebpackConfig, prodWebpackConfig)

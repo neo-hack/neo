@@ -2,7 +2,7 @@
 > spa preact template(maybe use in mobile)
 
 [![npm](https://img.shields.io/npm/v/@aiou/preact-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/preact-template)
-
+[![GitHub issues by-label](https://img.shields.io/github/issues/jiangweixian/templates/preact-template?color=red&logo=react&style=for-the-badge)](https://github.com/JiangWeixian/templates/issues/43)
 - [@aiou/preact-template](#aioupreact-template)
   - [Features](#features)
   - [Dependencies](#dependencies)
