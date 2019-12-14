@@ -30,8 +30,8 @@ const devWebpackConfig = {
         target: `http://localhost:8081`,
         pathRewrite: {
           '^api/': '',
-        }
-      }
+        },
+      },
     },
   },
   module: {

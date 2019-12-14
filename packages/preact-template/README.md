@@ -1,5 +1,8 @@
 # @aiou/preact-template
-> spa preact template(maybe use in mobile)
+> spa preact template(maybe use in mobile)。
+
+> 比较了一下在未`gzip`情况下的`bundle size`。`react`是`~200kb`左右，`preact`是`~67kb`。开启了`gzip`之后，`react`是`~67kb`。体积比较还是很明显的。一般来说`vue`是移动端`site`的选择，`vue`在`gzip`情况下体积是`40kb`。`react`和`vue`区别好像没有那么明显了。
+> 至于是否选择`preact`还是`react`见仁见智。因为使用`based on react`的第三方库，兼容性很不错特别是那些`high star repo`。但是其他多多少少会有一点小问题的。
 
 [![npm](https://img.shields.io/npm/v/@aiou/preact-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/preact-template)
 [![GitHub issues by-label](https://img.shields.io/github/issues/jiangweixian/templates/preact-template?color=red&logo=react&style=for-the-badge)](https://github.com/JiangWeixian/templates/issues/43)
