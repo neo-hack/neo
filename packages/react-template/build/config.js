@@ -39,6 +39,6 @@ module.exports = {
     mode: 'production',
     publicPath: './',
     cssSourceMap: true,
-    gzip: true,
+    gzip: false,
   },
 }
