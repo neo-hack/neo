@@ -26,11 +26,9 @@ const devWebpackConfig = {
     clientLogLevel: 'none',
     quiet: true,
     proxy: {
-      '/api': {
-        target: `http://localhost:8081`,
-        pathRewrite: {
-          '^api/': '',
-        },
+      '/proxy': {
+        target: 'http://localhost:3000/',
+        changeOrigin: true,
       },
     },
   },

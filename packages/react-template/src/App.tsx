@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        this is react-simple webpack templatedsdsds
+        this is react-simple webpack template
         <RouterViewer />
       </div>
     )

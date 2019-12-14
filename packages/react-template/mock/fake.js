@@ -1,8 +1,9 @@
 const proxy = {
-  'GET /fake': {
-    data: Array(10)
+  'GET /proxy/fake': (req, res) => {
+    res.json(Array(10)
       .fill(0)
       .map((_v, i) => i),
+    )
   },
 }
 

@@ -1,15 +1,16 @@
-import fetch from 'unfetch'
+import axios from 'axios'
 
-export const get = <T, Q>(path: string, params: Q) => {
-  return fetch(
-    path,
-    {
-      method: 'GET',
-      credentials: true,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(params),
-    },
-  ).then(res => res.json())
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = '/proxy'
+
+export const get = async <T, Q extends object>(path: string, params: Q): Promise<T> => {
+  return axios
+    .get(path, {
+      params,
+    })
+    .then(res => res.data)
+}
+
+export const post = async <T, Q>(path: string, params: Q): Promise<T> => {
+  return axios.post(path, params).then(res => res.data)
 }

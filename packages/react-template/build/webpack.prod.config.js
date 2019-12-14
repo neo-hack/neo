@@ -123,9 +123,7 @@ const prodWebpackConfig = {
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
     }),
-  ].concat(
-    configs.gzip ? [new CompressionPlugin()] : []
-  ),
+  ].concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
 module.exports = MergeWebpack(baseWebpackConfig, prodWebpackConfig)
