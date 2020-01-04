@@ -11,11 +11,4 @@ const App = () => {
   )
 }
 
-let AppContainer = App
-
-if (process.env.NODE_ENV === 'development') {
-  const { hot } = require('react-hot-loader')
-  AppContainer = hot(module)(App)
-}
-
-export default AppContainer
+export default App

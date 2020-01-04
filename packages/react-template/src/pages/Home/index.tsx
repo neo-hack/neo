@@ -16,7 +16,7 @@ const Home = (props: PageProps) => {
   const { data } = useSWR('fake-data', api.fake.list, { refreshInterval: 1000 })
   return (
     <div>
-      this is new home page reload
+      this is new home page reload1
       {data?.map(v => (
         <span key={v}>{v}-1</span>
       ))}

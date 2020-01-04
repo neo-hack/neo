@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MergeWebpack = require('webpack-merge')
 const webpack = require('webpack')
+const path = require('path')
 
 const configs = require('./config').dev
 const commonWebpackConfig = require('./webpack.common.config')
@@ -19,12 +20,15 @@ const devWebpackConfig = {
   },
   devServer: {
     port: configs.port,
-    contentBase: false,
-    open: false,
+    watchContentBase: true,
+    contentBase: path.resolve(__dirname, '../public'),
+    hot: true,
+    inline: true,
     overlay: true,
     compress: true,
     clientLogLevel: 'none',
     quiet: true,
+    public: 'http://localhost:' + configs.port,
     proxy: {
       '/proxy': {
         target: 'http://localhost:3000/',
@@ -79,9 +83,10 @@ const devWebpackConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: 'public/index.html',
       inject: true,
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
