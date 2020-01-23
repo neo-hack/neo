@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-rematch2-template",
+  "name": "@aiou/nextjs-rematch2-template",
   "version": "1.0.0",
   "scripts": {
     "dev": "next -p 3001",
