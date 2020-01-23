@@ -10,7 +10,8 @@ export const enum TEMPLATES {
   TS_LIB_TEMPLATE = 'ts-lib-template',
   WEBPACK_LOADER_TEMPLATE = 'webpack-loader-template',
   ORIGINAL_HTML_TEMPLATE = 'original-html-template',
-  PREACT_MOBILE_SPA_TEMPLATE = 'preact-template'
+  PREACT_MOBILE_SPA_TEMPLATE = 'preact-template',
+  NEXTJS_REMATCH2_TEMPLATE = 'nextjs-rematch2-template',
 }
 
 export const templates = {
@@ -24,5 +25,6 @@ export const templates = {
   [TEMPLATES.WEBPACK_LOADER_TEMPLATE]: 'webapck-loader starter',
   [TEMPLATES.TS_LIB_TEMPLATE]: 'typescript lib',
   [TEMPLATES.ORIGINAL_HTML_TEMPLATE]: 'original html without fe framework',
-  [TEMPLATES.PREACT_MOBILE_SPA_TEMPLATE]: 'preact template, maybe for moblie'
+  [TEMPLATES.PREACT_MOBILE_SPA_TEMPLATE]: 'preact template, maybe for moblie',
+  [TEMPLATES.NEXTJS_REMATCH2_TEMPLATE]: 'nextjs and rematch2 quick start',
 }
