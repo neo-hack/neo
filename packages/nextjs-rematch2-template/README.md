@@ -1,5 +1,7 @@
-# @aiou/nextjs-rematch2-typescript
-> 
+# @aiou/nextjs-rematch2-template
+> nextjs quick start
+
+[![npm](https://img.shields.io/npm/v/@aiou/nextjs-rematch2-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/nextjs-rematch2-template)
 
 ## For Stater
 > i am a stater

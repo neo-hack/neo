@@ -7,6 +7,7 @@
     "start": "next start",
     "type-check": "tsc",
     "prettier": "pretty-quick --staged",
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch",
     "mock": "PORT=8080 umi-serve",
     "watch_mock": "npm-watch mock"
   },
@@ -37,6 +38,7 @@
     "@types/react-redux": "^7.1.1",
     "cross-env": "^6.0.3",
     "husky": "3.1.0",
+    "np": "^5.2.1",
     "npm-watch": "^0.6.0",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
