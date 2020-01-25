@@ -30,7 +30,6 @@ WithInitialProps.getInitialProps = async ({ pathname }) => {
   // Example for including initial props in a Next.js function component page.
   // Don't forget to include the respective types for any props passed into
   // the component.
-  console.log('client')
   const items: Users.Item[] = await api.users.list()
   return { items, pathname }
 }

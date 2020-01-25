@@ -1,18 +1,18 @@
 import { createModel } from '@rematch2/core'
 
-const counter = createModel({
+const user = createModel({
   state: 0, // initial state
   reducers: {
-    increment(state, payload) {
-      return state + payload
+    increment(state) {
+      return state + 1
     },
   },
   effects: {
-    async incrementAsync(payload) {
+    async incrementAsync() {
       await new Promise(resolve => setTimeout(resolve, 1000))
-      this.increment(payload)
+      this.increment()
     },
   },
 })
 
-export default counter
+export default user
