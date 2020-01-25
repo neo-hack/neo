@@ -20,10 +20,11 @@
 
 ## Templates
 
-- [rollup-template](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
-- [react-template](https://github.com/JiangWeixian/templates/tree/master/packages/react-template)
-- [bin-template](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template)
-- [chrome-extenstion-template](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
-- [react-components-lib-template](https://github.com/JiangWeixian/templates/tree/master/packages/react-components-lib-template)
-- [webpack-loader-template](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
-- [ts-lib-template](https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template)
+- [rollup-template](/packages/rollup-template)
+- [react-template](/packages/react-template)
+- [bin-template](/packages/bin-template)
+- [chrome-extenstion-template](/packages/chrome-extenstion-template)
+- [react-components-lib-template](/react-components-lib-template)
+- [webpack-loader-template](/webpack-loader-template)
+- [ts-lib-template](/packages/ts-lib-template)
+- [nextjs-rematch2-template](/packages/nextjs-rematch2-template)
