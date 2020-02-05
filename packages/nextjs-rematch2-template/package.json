@@ -22,13 +22,15 @@
   },
   "dependencies": {
     "@rematch2/core": "0.2.0-alpha.0",
+    "@zeit/next-stylus": "^1.0.1",
     "axios": "0.19.0",
     "isomorphic-unfetch": "3.0.0",
     "next": "latest",
     "react": "16.10.1",
     "react-dom": "16.10.1",
     "react-redux": "7.1.0",
-    "redux": "4.0.5"
+    "redux": "4.0.5",
+    "stylus": "^0.54.7"
   },
   "devDependencies": {
     "@types/node": "12.7.8",
@@ -36,14 +38,20 @@
     "@types/react-dom": "16.9.1",
     "@types/react-redux": "7.1.1",
     "cross-env": "6.0.3",
+    "cssnano": "4.1.10",
+    "cssnano-preset-advanced": "4.0.7",
     "husky": "3.1.0",
     "np": "5.2.1",
     "npm-watch": "0.6.0",
+    "postcss-preset-env": "6.7.0",
+    "postcss-url": "8.0.0",
+    "postcss-write-svg": "3.0.1",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
+    "rucksack-css": "^1.0.2",
     "tslint-config-prettier": "1.18.0",
-    "tslint-plugin-prettier": "^2.1.0",
-    "tslint-react": "^4.2.0",
+    "tslint-plugin-prettier": "2.1.0",
+    "tslint-react": "4.2.0",
     "typescript": "3.7.2",
     "umi-serve": "1.9.3"
   },
@@ -52,5 +60,9 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
