@@ -7,7 +7,6 @@ const users = [
 
 const proxy = {
   'GET /api/users': (req, res) => {
-    console.log('call in mock')
     res.status(200).json(users)
   },
   'GET /api/users/101': (req, res) => {
