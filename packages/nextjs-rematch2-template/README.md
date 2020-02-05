@@ -58,3 +58,4 @@
     ```
 
 5. 移动端适配 - https://github.com/JiangWeixian/templates/issues/49
+6. `nextjs router transition` - https://codesandbox.io/s/0x07m12xl0。使用的是`react-spring`作为动画`lib`
