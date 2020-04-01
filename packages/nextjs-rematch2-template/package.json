@@ -28,7 +28,8 @@
     "react": "16.10.1",
     "react-dom": "16.10.1",
     "react-redux": "7.1.0",
-    "redux": "4.0.5"
+    "redux": "4.0.5",
+    "styled-webgradients": "^1.0.0-1"
   },
   "devDependencies": {
     "@types/node": "12.7.8",
