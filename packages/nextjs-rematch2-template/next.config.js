@@ -1,6 +1,7 @@
 const path = require('path')
+const withImages = require('next-images')
 
-module.exports = {
+module.exports = withImages({
   webpack: config => {
     config.resolve.alias['~'] = path.resolve(__dirname, '')
     config.resolve.alias['@'] = path.resolve(__dirname, 'pages')
@@ -9,4 +10,4 @@ module.exports = {
   env: {
     IS_MOCK: true,
   },
-}
+})
