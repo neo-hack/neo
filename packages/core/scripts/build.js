@@ -22,3 +22,5 @@ formats.forEach(f => {
     })
   })
 })
+
+fs.copySync(path.resolve(__dirname, '../src/assets'), path.join(reallib, './assets'))

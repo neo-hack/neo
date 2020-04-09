@@ -1,6 +1,6 @@
 {
   "name": "@aiou/neo",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "templates cli",
   "main": ".lib/neo.cjs.js",
   "module": ".lib/neo.esm.js",
@@ -11,12 +11,12 @@
     "neo-whoami": "lib/neo-whoami"
   },
   "files": [
-    "lib",
-    "assets"
+    "lib"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "tsc",
+    "clean": "rimraf .lib lib",
+    "prebuild": "npm run clean && tsc",
     "build": "npm run prebuild && node scripts/build.js",
     "pretest": "npm run build",
     "update": "npm update && npm update --save-dev",
@@ -33,7 +33,6 @@
     "globby": "10.0.1",
     "inquirer": "6.5.0",
     "ora": "3.4.0",
-    "rimraf": "2.6.3",
     "terminal-image": "0.2.0",
     "tildify": "2.0.0"
   },
@@ -48,6 +47,7 @@
     "np": "5.0.3",
     "prettier": "1.17.0",
     "pretty-quick": "1.10.0",
+    "rimraf": "^2.6.3",
     "ts-node": "8.8.2",
     "tslint-config-prettier": "1.18.0",
     "tslint-eslint-rules": "5.4.0",
