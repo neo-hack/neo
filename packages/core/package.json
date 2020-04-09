@@ -1,14 +1,19 @@
 {
   "name": "@aiou/neo",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "templates cli",
   "main": ".lib/neo.cjs.js",
   "module": ".lib/neo.esm.js",
   "bin": {
     "neo": "lib/neo",
     "neo-create": "lib/neo-create",
-    "neo-list": "lib/neo-list"
+    "neo-list": "lib/neo-list",
+    "neo-whoami": "lib/neo-whoami"
   },
+  "files": [
+    "lib",
+    "assets"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "tsc",
