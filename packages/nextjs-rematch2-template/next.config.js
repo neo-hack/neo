@@ -1,10 +1,10 @@
 const path = require('path')
-const withStylus = require('@zeit/next-stylus')
+const withImages = require('next-images')
 
-module.exports = withStylus({
+module.exports = withImages({
   webpack: config => {
-    config.resolve.alias['~'] = path.resolve(__dirname, '')
-    config.resolve.alias['@'] = path.resolve(__dirname, 'pages')
+    config.resolve.alias['~'] = path.join(__dirname, '')
+    config.resolve.alias['@'] = path.join(__dirname, 'pages')
     return config
   },
   cssModules: true,

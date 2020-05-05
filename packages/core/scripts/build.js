@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-const commands = ['create', 'list', '']
+const commands = ['create', 'list', 'whoami', '']
 const formats = ['neo']
 const fakelib = path.resolve(__dirname, '../.lib')
 const reallib = path.resolve(__dirname, '../lib')
@@ -22,3 +22,5 @@ formats.forEach(f => {
     })
   })
 })
+
+fs.copySync(path.resolve(__dirname, '../src/assets'), path.join(reallib, './assets'))

@@ -1,24 +1,31 @@
-# @aiou
-> all templates you need in one
+<div align="center">
 
-[![npm](https://img.shields.io/npm/v/@aiou/neo?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
+![logo](/docs/logo.png)
 
-- [@aiou](#aiou)
-  - [Install](#install)
-  - [Commands](#commands)
-  - [Templates](#templates)
+*the one - neo*
 
-## Install
+[![npm](https://img.shields.io/npm/v/@aiou/neo?style=flat-square)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=flat-square)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
+
+</div>
+
+## table of contents
+
+- [table of contents](#table-of-contents)
+- [install](#install)
+- [commands](#commands)
+- [templates](#templates)
+
+## install
 
 `npm installl @aiou/neo -g`
 
-## Commands
+## commands
 
 1. `neo list` - list all templates
 
 2. `neo create <template-name> [project-name]` - create [project-name] from [template-name]
 
-## Templates
+## templates
 
 - [rollup-template](/packages/rollup-template)
 - [react-template](/packages/react-template)

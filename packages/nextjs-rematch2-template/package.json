@@ -1,6 +1,6 @@
 {
   "name": "@aiou/nextjs-rematch2-template",
-  "version": "1.0.2-0",
+  "version": "1.1.1",
   "scripts": {
     "dev": "next -p 3001",
     "build": "next build",
@@ -30,17 +30,20 @@
     "react-dom": "16.10.1",
     "react-redux": "7.1.0",
     "redux": "4.0.5",
-    "stylus": "^0.54.7"
+    "styled-components": "5.1.0",
+    "styled-webgradients": "1.0.0-1"
   },
   "devDependencies": {
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
     "@types/react-redux": "7.1.1",
+    "@types/styled-components": "5.0.1",
     "cross-env": "6.0.3",
     "cssnano": "4.1.10",
     "cssnano-preset-advanced": "4.0.7",
     "husky": "3.1.0",
+    "next-images": "1.4.0",
     "np": "5.2.1",
     "npm-watch": "0.6.0",
     "postcss-preset-env": "6.7.0",
