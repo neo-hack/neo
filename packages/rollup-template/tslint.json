@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-react", "tslint-plugin-prettier", "tslint-config-prettier"],
+  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
     "prettier": true,
     "semicolon": false,
@@ -7,7 +7,7 @@
     "no-any": true,
     "ordered-imports": false,
     "file-name-casing": false,
-    "no-implicit-dependencies": [true, ["react-hot-loader", "@"]],
+    "no-implicit-dependencies": [true, ["@"]],
     "jsx-no-lambda": false,
     "react-this-binding-issue": false,
     "promise-must-complete": false,
