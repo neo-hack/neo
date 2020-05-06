@@ -7,6 +7,11 @@ module.exports = withImages({
     config.resolve.alias['@'] = path.join(__dirname, 'pages')
     return config
   },
+  cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: '[name]_[local]_[hash:base64:5]',
+  },
   env: {
     IS_MOCK: true,
   },
