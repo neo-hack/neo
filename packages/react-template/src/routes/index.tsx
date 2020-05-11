@@ -1,15 +1,31 @@
 import React from 'react'
-import SubRoutes from './SubRoutes'
-import { Switch, HashRouter } from 'react-router-dom'
-import { routesConfig } from './config'
+import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
+import Loadable from 'react-loadable'
+
+const Home = Loadable({
+  loader: () => import(/* webpackChunkName: "Home" */ '@/pages/Home'),
+  loading: () => <div>loading</div>,
+})
+
+const In = Loadable({
+  loader: () => import(/* webpackChunkName: "In" */ '@/pages/Home/In'),
+  loading: () => <div>loading</div>,
+})
 
 const RouterViewer = () => {
   return (
     <HashRouter>
       <Switch>
-        {routesConfig.map((route, i) => {
-          return SubRoutes(route, i)
-        })}
+        <Redirect to="/home" exact={true} from="/" />
+        <Route path="/home">
+          <Home>
+            <Switch>
+              <Route path="/home/in">
+                <In />
+              </Route>
+            </Switch>
+          </Home>
+        </Route>
       </Switch>
     </HashRouter>
   )
