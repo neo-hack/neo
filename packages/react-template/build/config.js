@@ -7,7 +7,7 @@ var common = {
   alias: {
     '@': path.resolve(__dirname, '../', 'src'),
     assets: path.resolve(__dirname, '../', 'src/assets'),
-    static: path.resolve(__dirname, '../', 'static'),
+    static: path.resolve(__dirname, '../', 'static')
   },
   distPath: path.resolve(__dirname, '../', 'dist'),
   rootPath: path.resolve(__dirname, '../'),

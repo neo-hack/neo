@@ -12,7 +12,7 @@ ThreadLoader.warmup(webpackConfig.common.workerPool, ['ts-loader', 'babel-loader
  */
 const config = {
   context: webpackConfig.common.rootPath,
-  entry: ['./src/index.tsx'],
+  entry: ['react-hot-loader/patch', './src/index.tsx'],
   output: {
     path: webpackConfig.common.distPath,
     filename: '[name].js',

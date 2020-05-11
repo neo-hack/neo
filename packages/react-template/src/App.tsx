@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import RouterViewer from '@/routes'
 import './App.styl'
 
@@ -11,4 +12,4 @@ const App = () => {
   )
 }
 
-export default App
+export default hot(App)
