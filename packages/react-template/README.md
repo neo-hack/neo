@@ -19,32 +19,28 @@
 
 ## dependencies
 
-* typescripts
+
+* typescript
 * css
   * stylus
   * post-css
+  * rucksack - useful postcss mixins
+  * rupture - useful media query
 * react
-  * typescript
-* webpack v4
+* react-hot-loader
+* rematch
+* swr
 
 ## dev
 
-- custom `prepublishOnly script` in package.json and other package info
-
-1. **推荐使用VSCODE IDE**
-
-   * IDE - VSCode
-     * install `plugin` - stylint
-     * install `plugin` - tslint
-   * install redux-dev-tools in **Chrome Store**
-
-2. **可以使用Rucksack和Rupture** 加速`stylus`开发。分别封装了一些好用`postcss mixins`和`stylus mixins for media query`
-
-3. 路由使用了`react-router docs`里面的`router config`的方式，是否合理见仁见智
-
-4. 使用`rematch`作为`redux framework`。
-   - 如要使用`redux-observable`，我也封装了一个`rematch-observable`。
-   - 如有`data request`。推荐使用`swr`进行`api`的缓存
+*  custom
+   * `prepublishOnly script`
+   * package name
+   * version 
+* vscode
+  * install `tslint` and `stylint` first
+* chrome
+  * devtools
 
 ## refs
 
