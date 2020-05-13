@@ -11,12 +11,12 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CompressionPlugin = require('compression-webpack-plugin')
 
 const configs = require('./config').prod
-const baseWebpackConfig = require('./webpack.common.config')
+const base = require('./webpack.common.config')
 
 /**
  * @type import('webpack').Configuration
  */
-const prodWebpackConfig = {
+const prod = {
   devtool: 'source-map',
   mode: configs.mode,
   output: {
@@ -126,4 +126,4 @@ const prodWebpackConfig = {
   ].concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
-module.exports = MergeWebpack(baseWebpackConfig, prodWebpackConfig)
+module.exports = MergeWebpack(base, prod)

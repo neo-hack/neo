@@ -5,12 +5,12 @@ const webpack = require('webpack')
 const path = require('path')
 
 const configs = require('./config').dev
-const commonWebpackConfig = require('./webpack.common.config')
+const base = require('./webpack.common.config')
 
 /**
  * @type import('webpack').Configuration
  */
-const devWebpackConfig = {
+const dev = {
   devtool: 'cheap-module-eval-source-map',
   mode: configs.mode,
   output: {
@@ -101,4 +101,4 @@ const devWebpackConfig = {
   ],
 }
 
-module.exports = MergeWebpack(commonWebpackConfig, devWebpackConfig)
+module.exports = MergeWebpack(base, dev)
