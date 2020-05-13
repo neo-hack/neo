@@ -18,10 +18,10 @@ const common = {
     output,
     context,
     public,
-    tsconfig: path.resolve(context, 'tsconfig.json')
+    tsconfig: path.resolve(context, 'tsconfig.json'),
   },
   stylus: {
-    plugins: [Rupture()]
+    plugins: [Rupture()],
   },
   gzip: false,
 }
