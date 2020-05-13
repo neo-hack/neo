@@ -3,23 +3,32 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpakcPlugin = require('copy-webpack-plugin')
 const ThreadLoader = require('thread-loader')
 
-const webpackConfig = require('./config')
+const configs = require('./config')
 
-ThreadLoader.warmup(webpackConfig.common.workerPool, ['ts-loader', 'babel-loader'])
+const workerpool = {
+  workers: require('os').cpus().length - 1,
+  poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
+}
+
+ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
 
 /**
  * @type import('webpack').Configuration
  */
-const config = {
-  context: webpackConfig.common.rootPath,
+const common = {
+  context: configs.path.context,
   entry: ['react-hot-loader/patch', './src/index.tsx'],
   output: {
-    path: webpackConfig.common.distPath,
+    path: configs.path.output,
     filename: '[name].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'jsx'],
-    alias: webpackConfig.common.alias,
+    alias: {
+      '@': configs.path.project,
+      assets: configs.path.assets,
+      static: configs.path.static,
+    },
   },
   module: {
     rules: [
@@ -30,12 +39,16 @@ const config = {
           { loader: 'cache-loader' },
           {
             loader: 'thread-loader',
-            options: webpackConfig.common.workerPool,
+            options: workerpool,
           },
           { loader: 'babel-loader' },
           {
             loader: 'ts-loader',
-            options: webpackConfig.common.tsLoaderOptions,
+            options: {
+              // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+              transpileOnly: true,
+              happyPackMode: true,
+            },
           },
         ],
       },
@@ -55,15 +68,15 @@ const config = {
   plugins: [
     new CopyWebpakcPlugin([
       {
-        from: path.resolve(__dirname, '../', 'static'),
-        to: webpackConfig.common.staticFolder,
+        from: configs.path.static,
+        to: 'static',
       },
     ]),
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: webpackConfig.common.tsConfigPath,
+      tsconfig: configs.path.tsconfig,
       checkSyntacticErrors: true,
     }),
   ],
 }
 
-module.exports = config
+module.exports = common

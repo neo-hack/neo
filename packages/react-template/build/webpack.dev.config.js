@@ -2,33 +2,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MergeWebpack = require('webpack-merge')
 const webpack = require('webpack')
-const path = require('path')
 
-const configs = require('./config').dev
-const base = require('./webpack.common.config')
+const configs = require('./config')
+const common = require('./webpack.common.config')
+const port = 8080
 
 /**
  * @type import('webpack').Configuration
  */
 const dev = {
   devtool: 'cheap-module-eval-source-map',
-  mode: configs.mode,
+  mode: 'development',
   output: {
-    path: configs.distPath,
+    path: configs.path.output,
     filename: '[name].js',
     publicPath: '/',
   },
   devServer: {
-    port: configs.port,
+    port,
     watchContentBase: true,
-    contentBase: path.resolve(__dirname, '../public'),
+    contentBase: configs.path.public,
     hot: true,
     inline: true,
     overlay: true,
     compress: true,
     clientLogLevel: 'none',
     quiet: true,
-    public: 'http://localhost:' + configs.port,
+    public: `http://localhost:${port}`,
     proxy: {
       '/proxy': {
         target: 'http://localhost:3000/',
@@ -73,7 +73,7 @@ const dev = {
             loader: 'stylus-loader',
             options: {
               sourceMap: true,
-              use: configs.stylusPlugins,
+              use: configs.stylus.plugins,
             },
           },
         ],
@@ -90,7 +90,7 @@ const dev = {
     new webpack.NamedModulesPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-        messages: ['Running here http://localhost:' + configs.port],
+        messages: [`Running here http://localhost:${port}`],
         notes: ['Happy coding'],
       },
       onErrors: function(severity, errors) {
@@ -101,4 +101,4 @@ const dev = {
   ],
 }
 
-module.exports = MergeWebpack(base, dev)
+module.exports = MergeWebpack(common, dev)

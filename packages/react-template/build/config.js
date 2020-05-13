@@ -2,43 +2,28 @@
 const path = require('path')
 const Rupture = require('rupture')
 
-var common = {
-  staticFolder: 'static',
-  alias: {
-    '@': path.resolve(__dirname, '../', 'src'),
-    assets: path.resolve(__dirname, '../', 'src/assets'),
-    static: path.resolve(__dirname, '../', 'static'),
+// path
+const context = path.resolve(__dirname, '../')
+const assets = path.resolve(context, 'src/assets')
+const project = path.resolve(context, 'src')
+const static = path.resolve('context', 'static')
+const output = path.resolve(context, 'dist')
+const public = path.resolve(context, 'public')
+
+const common = {
+  path: {
+    static,
+    assets,
+    project,
+    output,
+    context,
+    public,
+    tsconfig: path.resolve(context, 'tsconfig.json')
   },
-  distPath: path.resolve(__dirname, '../', 'dist'),
-  rootPath: path.resolve(__dirname, '../'),
-  tsConfigPath: path.resolve(__dirname, '../', 'tsconfig.json'),
-  // refs: https://github.com/webpack-contrib/thread-loader/blob/master/example/webpack.config.js
-  workerPool: {
-    workers: require('os').cpus().length - 1,
-    poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
+  stylus: {
+    plugins: [Rupture()]
   },
-  tsLoaderOptions: {
-    // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-    transpileOnly: true,
-    happyPackMode: true,
-  },
-  stylusPlugins: [Rupture()],
+  gzip: false,
 }
 
-module.exports = {
-  common,
-  dev: {
-    ...common,
-    mode: 'development',
-    publicPath: '/',
-    cssSourceMap: true,
-    port: 8080,
-  },
-  prod: {
-    ...common,
-    mode: 'production',
-    publicPath: './',
-    cssSourceMap: true,
-    gzip: false,
-  },
-}
+module.exports = common

@@ -10,20 +10,20 @@ const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CompressionPlugin = require('compression-webpack-plugin')
 
-const configs = require('./config').prod
-const base = require('./webpack.common.config')
+const configs = require('./config')
+const common = require('./webpack.common.config')
 
 /**
  * @type import('webpack').Configuration
  */
 const prod = {
   devtool: 'source-map',
-  mode: configs.mode,
+  mode: 'production',
   output: {
-    path: configs.distPath,
-    filename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].js'),
-    chunkFilename: path.posix.join(configs.staticFolder, 'js/[name].[chunkhash].async.js'),
-    publicPath: configs.publicPath,
+    path: configs.path.output,
+    filename: path.posix.join('static', 'js/[name].[chunkhash].js'),
+    chunkFilename: path.posix.join('static', 'js/[name].[chunkhash].async.js'),
+    publicPath: './',
   },
   optimization: {
     splitChunks: {
@@ -92,7 +92,7 @@ const prod = {
             loader: 'stylus-loader',
             options: {
               sourceMap: true,
-              use: configs.stylusPlugins,
+              use: configs.stylus.plugins,
             },
           },
         ],
@@ -117,8 +117,8 @@ const prod = {
       include: ['vendors', 'main'],
     }),
     new MiniCSSExtractPlugin({
-      filename: path.posix.join(configs.staticFolder, 'css/[name].[contenthash].css'),
-      chunkFilename: path.posix.join(configs.staticFolder, 'css/[name].[contenthash].async.css'),
+      filename: path.posix.join('static', 'css/[name].[contenthash].css'),
+      chunkFilename: path.posix.join('static', 'css/[name].[contenthash].async.css'),
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: true,
@@ -126,4 +126,4 @@ const prod = {
   ].concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
-module.exports = MergeWebpack(base, prod)
+module.exports = MergeWebpack(common, prod)
