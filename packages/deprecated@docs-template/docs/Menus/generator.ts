@@ -28,24 +28,23 @@ class Menus {
     fs.writeFileSync(`${__dirname}/${fileName}`, data)
   }
   createMenus = () => {
-    const menus: MenusSchema[] = Object.keys(Router.routes)
-      .map(k => {
-        return {
-          url: k,
-          text: k.replace(/\//g, ''),
-        }
-      })
-    const lis = menus.map(e => {
+    const menus: MenusSchema[] = Object.keys(Router.routes).map((k) => {
+      return {
+        url: k,
+        text: k.replace(/\//g, ''),
+      }
+    })
+    const lis = menus.map((e) => {
       return this.createLink(e.url, e.text)
     })
     return this.createUL(lis)
   }
-  createUL = (
-    lis: string[]
-  ) => {
-    return lis.map(e => {
-      return this.createLI(e)
-    }).join('\n')
+  createUL = (lis: string[]) => {
+    return lis
+      .map((e) => {
+        return this.createLI(e)
+      })
+      .join('\n')
   }
   createLink = (url: string, text: string) => {
     return `[${text}](${url})`

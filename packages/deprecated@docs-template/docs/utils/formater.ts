@@ -18,10 +18,10 @@ export const replaceInvalidCharter = (str: string): string => {
 export const rename = (
   fileNames: string[],
   folderName: string,
-  callback = replaceInvalidCharter
+  callback = replaceInvalidCharter,
 ) => {
   const newFileNames: string[] = []
-  fileNames.forEach(fileName => {
+  fileNames.forEach((fileName) => {
     const newFileName = callback(fileName)
     fs.renameSync(`${folderName}/${fileName}`, `${folderName}/${newFileName}`)
     newFileNames.push(newFileName)

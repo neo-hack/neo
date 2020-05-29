@@ -5,9 +5,7 @@ module.exports = {
   title: 'JS-Tips',
   base: REPO_NAME ? `/${REPO_NAME}/` : undefined,
   description: 'Please input Description',
-  head: [
-    [ 'link', { rel: 'icon', href: '/favicon.png', type: 'image/x-icon' } ],
-  ],
+  head: [['link', { rel: 'icon', href: '/favicon.png', type: 'image/x-icon' }]],
   themeConfig: {
     nav: [
       { text: 'HomePage', link: '/' },
@@ -29,6 +27,6 @@ module.exports = {
   markdown: {
     config: (md: any) => {
       md.use(require('markdown-it-task-checkbox'))
-    }
-  }
+    },
+  },
 }

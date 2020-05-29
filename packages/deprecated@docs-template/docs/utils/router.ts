@@ -29,12 +29,12 @@ class RouterGenerator extends FolderGenerator {
     return this.isRoute(fileName) && basename(fileName).toLowerCase() === 'readme.md'
   }
   protected getNormalRoute = (route: string) => {
-    return route.replace(/\/([\S\s\/]+)\.md/ig, (_, p1) => {
+    return route.replace(/\/([\S\s\/]+)\.md/gi, (_, p1) => {
       return p1
     })
   }
   protected getIndexRoute = (route: string) => {
-    return route.replace(/([\S\s]*)\/readme\.md/i, (match, p1: string,) => {
+    return route.replace(/([\S\s]*)\/readme\.md/i, (match, p1: string) => {
       const _p1 = p1.startsWith('/') ? p1.slice(1) : p1
       return p1 ? _p1 : ''
     })
@@ -52,7 +52,7 @@ class RouterGenerator extends FolderGenerator {
     } else {
       const key = Object.keys(folder)[0]
       const values = folder[key]
-      values.forEach(v => {
+      values.forEach((v) => {
         childRoutes = childRoutes.concat(this.getChildRoutes(v, absPath))
       })
     }
@@ -64,7 +64,7 @@ class RouterGenerator extends FolderGenerator {
     }
     const folders = this.getFolders()
     const routes: Routes = {}
-    folders.forEach(f => {
+    folders.forEach((f) => {
       const hasChildRoutes = this.hasChildRoutes(f)
       if (!hasChildRoutes) {
         // do nothing

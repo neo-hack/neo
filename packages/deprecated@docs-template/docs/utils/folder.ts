@@ -64,10 +64,10 @@ class FolderGenerator {
   protected getFolder = (baseName: string, isDir = false): Folder => {
     const key = `${this.folderPath}/${baseName}`
     return isDir ? { [key]: [] } : key
-  } 
+  }
   private isDir = (baseName: string): boolean => {
     const _value = `${this.folderPath}/${baseName}`
-    return !!(_value &&　fs.lstatSync(_value).isDirectory())
+    return !!(_value && fs.lstatSync(_value).isDirectory())
   }
 }
 
