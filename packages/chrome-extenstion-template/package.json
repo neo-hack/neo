@@ -42,6 +42,8 @@
     "pretty-quick": "1.11.1",
     "rimraf": "2.6.3",
     "ts-loader": "5.4.5",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
     "tslint-react": "^5.0.0",
     "typescript": "3.9.3",
     "webpack": "~4.17.2",
