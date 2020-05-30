@@ -24,6 +24,7 @@ const common = {
     plugins: [Rupture()],
   },
   gzip: false,
+  analyzer: true,
 }
 
 module.exports = common

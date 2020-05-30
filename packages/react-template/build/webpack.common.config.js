@@ -1,4 +1,3 @@
-const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpakcPlugin = require('copy-webpack-plugin')
 const ThreadLoader = require('thread-loader')
@@ -9,8 +8,6 @@ const workerpool = {
   workers: require('os').cpus().length - 1,
   poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
 }
-
-ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
 
 /**
  * @type import('webpack').Configuration
