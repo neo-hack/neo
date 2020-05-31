@@ -8,6 +8,8 @@
 
 </div>
 
+![usage](https://user-images.githubusercontent.com/6839576/83341699-f436dc00-a318-11ea-9cf5-60b4ee16cfa7.gif)
+
 ## table of contents
 
 - [table of contents](#table-of-contents)
