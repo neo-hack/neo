@@ -1,7 +1,16 @@
 const webpack = require('webpack')
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const ThreadLoader = require('thread-loader')
 const srcDir = '../src/'
+
+const workerpool = {
+  workers: require('os').cpus().length - 1,
+  poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
+}
+
+ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
 
 module.exports = {
   entry: {
@@ -24,8 +33,23 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: [
+          { loader: 'cache-loader' },
+          {
+            loader: 'thread-loader',
+            options: workerpool,
+          },
+          { loader: 'babel-loader' },
+          {
+            loader: 'ts-loader',
+            options: {
+              // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+              transpileOnly: true,
+              happyPackMode: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -36,5 +60,9 @@ module.exports = {
     // exclude locale files in moment
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CopyPlugin([{ from: '.', to: '../' }], { context: 'public' }),
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: path.join(__dirname, '../tsconfig.json'),
+      checkSyntacticErrors: true,
+    }),
   ],
 }
