@@ -1,26 +1,80 @@
+<div align="center">
+
 # @aiou/chrome-extenstion-template
-> Chrome Extension, TypeScript and Visual Studio Code
 
 [![npm](https://img.shields.io/npm/v/@aiou/chrome-extenstion-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
 
-## Note
+</div>
 
-- maybe need to custom `prepublishOnly script` in package.json and other package info
-- need reconfig `baseUrl and paths` in `tsconfig.json`
+- [@aiou/chrome-extenstion-template](#aiouchrome-extenstion-template)
+  - [custom](#custom)
+    - [basic](#basic)
+    - [different ctx type](#different-ctx-type)
+  - [features](#features)
+  - [stacks](#stacks)
+  - [folder structure](#folder-structure)
+  - [development](#development)
+    - [setup & install](#setup--install)
+    - [build](#build)
+  - [Q&A](#qa)
 
-## Prerequisites
+## custom
 
-* [node + npm](https://nodejs.org/) (Current Version)
+### basic
 
-## Option
+- custom package info in `package.json & publick/manifest.json`
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+### different ctx type
 
-## Feature
+1. content mode - in default, this template work on any live webpage
+
+2. newtab mode 
+
+    create `src/tab.tsx`
+
+
+    create `public/tab.html`
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>New Tab</title>
+    </head>
+
+    <body>
+      <div id="APP"></div>
+      
+      <script src="js/vendor.js"></script>
+      <script src="js/myPage.js"></script>
+    </body>
+    </html>
+    ```
+
+    modify `webpack.common.js`
+
+    ```tsx
+    entry: {
+      ...
+      tab: path.join(__dirname, srcDir + 'tab.tsx'),
+    }
+    ```
+
+    modify `public/manifest.json`
+
+    ```json
+    {
+      "chrome_url_overrides" : {
+        "newtab": "myPage.html"
+      },
+    }
+    ```
+
+## features
 
 * support hot reload
 
-## Includes the following
+## stacks
 
 * TypeScript
 * React
@@ -34,16 +88,15 @@
     * count up badge number
     * background
 
-## Project Structure
+## folder structure
 
-* src/typescript: TypeScript source files
 * src/assets: static files
 * dist: Chrome Extension directory
 * dist/js: Generated JavaScript files
 
-# Dev
+## development
 
-## Setup
+### setup & install
 
 ```
 npm install
@@ -52,15 +105,15 @@ npm run dev
 
 > see how load extension to chrome in Guide part
 
-## Build
+### build
 
 ```
 npm run build
 ```
 
-# Q&A
+## Q&A
 
-* How to Load extension to chrome?
+* Q1 - How to load extension to chrome?
 
   Open `Setting->Extenstion->Load unpack extenstion`
 
@@ -68,7 +121,7 @@ npm run build
 
   or Check this [video](https://www.notion.so/Chrome-Extentions-23d3afc128644457bfb08022713fe2b1#20aadfedc6cc4b32b6979decbea644ea)
 
-* How to management dom?
+* Q2 - How to management dom?
 
   ```js
   const main = document.querySelector('#main')
@@ -77,7 +130,7 @@ npm run build
   main.appendChild(p)
   ```
 
-* How to use axios in chrome-extenstion
+* Q3 - How to use axios in chrome-extenstion
 
   ```js
   // in content.ts
@@ -88,9 +141,9 @@ npm run build
       })
   })
   ```
-* How to inject css to with content scripts ? - **See it in manifest.json**
+* Q4 - How to inject css to with content scripts ? - **See it in manifest.json**
 
-* How to use third-party `.css` or `.js` files in popup.html
+* Q5 - How to use third-party `.css` or `.js` files in popup.html
 
   ```json
   {
@@ -99,4 +152,8 @@ npm run build
   }
   ```
 
-* How to publish - see this [video](https://www.youtube.com/watch?v=DpdYTAhDWbs)
+* Q6 - How to publish - see this [video](https://www.youtube.com/watch?v=DpdYTAhDWbs)
+
+* Q7 - How to switch to different ctx mode ? 
+
+    check [#custom section]((#different-ctx-type))
