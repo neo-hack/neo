@@ -7,6 +7,8 @@
     "start": "npm ci",
     "dev": "npm run clean && webpack --config webpack/webpack.dev.js --watch",
     "build": "npm run clean && webpack --config webpack/webpack.prod.js",
+    "package": "npm run build && zip -r chrome-extenstion-template dist",
+    "package:force": "rimraf chrome-extenstion-template.zip && npm run build && zip -r chrome-extenstion-template.zip dist",
     "clean": "rimraf dist",
     "prettier": "prettier --config .prettierrc --write '**/*'",
     "update": "npm update && npm update --save-dev",
