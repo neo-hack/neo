@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ThreadLoader = require('thread-loader')
 const srcDir = '../src/'
@@ -31,6 +32,18 @@ module.exports = {
       name: 'vendor',
       chunks: 'initial',
     },
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        extractComments: false,
+        terserOptions: {
+          warnings: false,
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
   },
   module: {
     rules: [
