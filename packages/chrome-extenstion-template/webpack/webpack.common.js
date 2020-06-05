@@ -12,6 +12,9 @@ const workerpool = {
 
 ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
 
+/**
+ * @type import('webpack').Configuration
+ */
 module.exports = {
   entry: {
     popup: path.join(__dirname, srcDir + 'popup.ts'),

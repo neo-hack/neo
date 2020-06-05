@@ -48,6 +48,7 @@
     "prettier-quick": "0.0.5",
     "pretty-quick": "1.11.1",
     "rimraf": "2.6.3",
+    "terser-webpack-plugin": "^3.0.3",
     "thread-loader": "2.1.3",
     "ts-loader": "5.4.5",
     "tslint-config-prettier": "1.18.0",
