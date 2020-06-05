@@ -3,15 +3,8 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const ThreadLoader = require('thread-loader')
 const srcDir = '../src/'
-
-const workerpool = {
-  workers: require('os').cpus().length - 1,
-  poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,
-}
-
-ThreadLoader.warmup(workerpool, ['ts-loader', 'babel-loader'])
+const configs = require('./configs')
 
 /**
  * @type import('webpack').Configuration
@@ -54,7 +47,7 @@ module.exports = {
           { loader: 'cache-loader' },
           {
             loader: 'thread-loader',
-            options: workerpool,
+            options: configs.workerpool,
           },
           { loader: 'babel-loader' },
           {
