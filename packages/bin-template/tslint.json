@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-react", "tslint-plugin-prettier", "tslint-config-prettier"],
+  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
     "prettier": true,
     "semicolon": false,
