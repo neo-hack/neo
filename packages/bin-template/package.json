@@ -11,8 +11,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "tsc",
-    "build": "npm run prebuild && node scripts/build.js",
+    "prebuild": "rimraf lib && rimraf .lib && tsc",
+    "build": "node scripts/build.js",
     "pretest": "npm run build",
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",
