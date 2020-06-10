@@ -15,5 +15,6 @@
     "noUnusedLocals": true,
     "outDir": ".lib"
   },
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "lib"],
+  "include": ["src"]
 }
