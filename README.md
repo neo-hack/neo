@@ -16,17 +16,43 @@
 - [table of contents](#table-of-contents)
 - [install](#install)
 - [commands](#commands)
+  - [whoami](#whoami)
+  - [list](#list)
+  - [create](#create)
 - [templates](#templates)
 
 ## install
 
-`npm installl @aiou/neo -g`
+```bash
+npm installl @aiou/neo -g
+```
 
 ## commands
 
-1. `neo list` - list all templates
+### whoami
 
-2. `neo create <template-name> [project-name]` - create [project-name] from [template-name]
+<div align='center'>
+
+![whoami](/packages/core/src/assets/neo.jpg)  
+*▲ whoami*
+
+</div>
+
+### list
+> list all templates
+
+```bash
+neo list
+```
+
+### create
+> create [project-name] from [template-name]
+
+```bash
+neo create <template-name> [project-name]
+```
+
+
 
 ## templates
 
