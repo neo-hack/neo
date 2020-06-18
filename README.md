@@ -31,6 +31,10 @@ npm installl @aiou/neo -g
 
 ### whoami
 
+```bash
+neo whoami
+```
+
 <div align='center'>
 
 ![whoami](/packages/core/src/assets/neo.jpg)  
