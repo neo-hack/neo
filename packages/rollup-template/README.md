@@ -1,14 +1,11 @@
+<div align="center">
+
 # @aiou/rollup-template
-> rollup-template for single lib
+*rollup-template for single lib*
 
 [![npm](https://img.shields.io/npm/v/@aiou/rollup-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
 
-## Note
-
-- maybe need to custom `prepublishOnly script` in package.json and other package info
-- need reconfig `baseUrl and paths` in `tsconfig.json`
-
-This repo contains a bare-bones example of how to create a library using Rollup, including importing a module from `node_modules` and converting it from CommonJS.
+</div>
 
 We're creating a library called `how-long-till-lunch`, which usefully tells us how long we have to wait until lunch, using the [ms](https://github.com/zeit/ms) package:
 
@@ -16,7 +13,14 @@ We're creating a library called `how-long-till-lunch`, which usefully tells us h
 console.log('it will be lunchtime in ' + howLongTillLunch());
 ```
 
-## Getting started
+
+> **⚠️ WARNING**  
+rollup is not recommended, if project that **contains builtin node module**, please use [ts-lib-template](/packages/ts-lib-components) instead
+
+## usage
+
+> **💡 NOTE**  
+rename `how-long-till-lunch` to peronsonal package name
 
 `npm run build` builds the library to `dist`, generating three files:
 
@@ -31,6 +35,4 @@ console.log('it will be lunchtime in ' + howLongTillLunch());
 
 `npm test` builds the library, then tests it.
 
-# Q&A
 
-1. rollup is not recommended, if project that contains builtin node module
