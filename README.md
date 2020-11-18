@@ -24,7 +24,7 @@
 ## install
 
 ```bash
-npm installl @aiou/neo -g
+npm install @aiou/neo -g
 ```
 
 ## commands
