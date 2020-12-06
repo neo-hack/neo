@@ -1,8 +1,5 @@
-import { getOptions } from './utils/options'
-
-function loader() {
-  const options = getOptions([])
-  return options
+const welcome = () => {
+  console.log('hello world')
 }
 
-export default loader
+export default welcome

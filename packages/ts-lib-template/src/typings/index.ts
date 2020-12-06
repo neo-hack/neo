@@ -1,3 +1,1 @@
-export type Validation = [boolean | undefined, string]
-
-export type Options = string[]
+export type Name = '@aiou/ts-lib-template'
