@@ -8,8 +8,8 @@
     "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
   },
   "keywords": [
-    "webpack",
-    "loader",
+    "typescript",
+    "lib",
     "template"
   ],
   "watch": {
