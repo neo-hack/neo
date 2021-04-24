@@ -21,7 +21,7 @@
     "sync": "node scripts/sync.js",
     "start": "lerna bootstrap --hoist --nohoist=husky",
     "check": "lerna run check",
-    "publish": "lerna publish",
+    "publish": "lerna publish --ignore-prepublish",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",

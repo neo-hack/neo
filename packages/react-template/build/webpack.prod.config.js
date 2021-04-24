@@ -122,7 +122,7 @@ const prod = {
     }),
   ]
     .concat(
-      config.analyzer
+      configs.analyzer
         ? [
             new BundleAnalyzerPlugin({
               openAnalyzer: true,

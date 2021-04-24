@@ -63,5 +63,6 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  }
+  },
+  "gitHead": "63b79a029d866c51c3826ff0cfb1f6f7517d971f"
 }
