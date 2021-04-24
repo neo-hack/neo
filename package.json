@@ -21,6 +21,7 @@
     "sync": "node scripts/sync.js",
     "start": "lerna bootstrap --hoist --nohoist=husky",
     "check": "lerna run check",
+    "publish": "lerna publish",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
@@ -43,7 +44,6 @@
     "url": "https://github.com/JiangWeixian/templates/issues"
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
