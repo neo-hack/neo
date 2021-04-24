@@ -1,6 +1,6 @@
 {
   "name": "@aiou/ts-lib-template",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "a starter for typescript lib",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
