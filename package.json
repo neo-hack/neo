@@ -10,7 +10,7 @@
     "husky": "^3.0.1",
     "lerna": "^3.13.4",
     "np": "^5.0.1",
-    "npm-check-updates": "^3.1.9",
+    "npm-check-updates": "^11.5.1",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "typescript": "^3.5.3"
@@ -20,6 +20,7 @@
     "sync": "node scripts/sync.js",
     "start": "lerna bootstrap --hoist --nohoist=husky",
     "check": "lerna run check",
+    "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "publish": "lerna publish --ignore-scripts --yes",
     "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
     "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",

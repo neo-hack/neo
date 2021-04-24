@@ -31,20 +31,18 @@
     "tildify": "2.0.0"
   },
   "devDependencies": {
+    "@aiou/eslint-config": "0.0.10",
     "@types/download": "6.2.4",
     "@types/fs-extra": "8.0.0",
     "@types/inquirer": "6.5.0",
     "@types/node": "12.6.8",
     "@types/rimraf": "2.0.2",
     "builtin-modules": "3.1.0",
+    "eslint": "^7.18.0",
     "husky": "3.0.2",
     "np": "5.0.3",
-    "prettier": "1.17.0",
-    "pretty-quick": "1.10.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "@typescript-eslint/parser": "^4.14.0",
-    "eslint": "^7.18.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "2.2.1",
+    "pretty-quick": "3.1.0",
     "typescript": "3.5.3"
   },
   "gitHead": "63b79a029d866c51c3826ff0cfb1f6f7517d971f"

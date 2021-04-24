@@ -12,8 +12,8 @@
     "husky": "^3.0.1",
     "lodash": "^4.17.11",
     "np": "^5.0.3",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.4.5",
     "vuepress": "^0.14.11"
