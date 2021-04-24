@@ -109,7 +109,7 @@
     "prettier": "^2.2.1",
     "prettier-quick": "0.0.5",
     "pretty-quick": "3.1.0",
-    "react-hot-loader": "4.12.21",
+    "react-hot-loader": "4.13.0",
     "rucksack-css": "1.0.2",
     "rupture": "0.7.1",
     "style-loader": "0.23.1",
