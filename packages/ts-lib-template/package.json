@@ -10,7 +10,8 @@
   "keywords": [
     "typescript",
     "lib",
-    "template"
+    "template",
+    "aiou"
   ],
   "watch": {
     "run_dev": {
