@@ -92,7 +92,7 @@
     "react-hot-loader": "4.12.18",
     "rucksack-css": "1.0.2",
     "rupture": "0.7.1",
-    "style-loader": "0.23.1",
+    "style-loader": "2.0.0",
     "stylelint-config-prettier": "5.1.0",
     "stylint": "1.5.9",
     "stylus": "0.54.5",
