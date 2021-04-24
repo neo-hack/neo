@@ -1,52 +1,28 @@
 # @aiou/ts-lib-template
-> webpack loader starter
+> typescript lib starter
 
 [![npm](https://img.shields.io/npm/v/@aiou/ts-lib-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template)
 
-## Note
+## notes
 
-- replace all `ts-lib-template` by real `{ webpack-loader-name }`
+- replace all `ts-lib-template` by real `package-name`
 
-## Features
+## features
 
-- [typescript]()
-- [example]() - config in `/examples/basic-react/build/webpack.common.config.js`
+- support simple `react` examples
+- support watch mode in dev
 
-## Dev
+## get started
 
-**Setup**
+**develop**
 
 ```
 npm install
 npm run dev
 ```
 
-**Build**
+**build**
 
 ```
 npm run build
 ```
-
-## Q&A
-
-- the exec queue of webpack-loaders
-   
-   ```js
-   [
-     {
-       loader: 'loader-one'
-     },
-     {
-       loader: 'loader-two'
-     },
-   ]
-   ```
-
-   `loader-two` is before `loader-one`
-
-- how webpack-loader work
-  
-  webpack output resouce-file in string-format to webpack-loader
-
-- some suggestions
-  - `tsc` is better than `rollup`
