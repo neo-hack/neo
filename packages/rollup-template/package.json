@@ -1,6 +1,6 @@
 {
   "name": "@aiou/rollup-template",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "main": "lib/how-long-till-lunch.cjs.js",
   "module": "lib/how-long-till-lunch.esm.js",
   "browser": "lib/how-long-till-lunch.umd.js",
