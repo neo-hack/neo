@@ -1,6 +1,6 @@
 {
   "name": "@aiou/original-html-template",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "original html template",
   "main": "src/index.tsx",
   "scripts": {

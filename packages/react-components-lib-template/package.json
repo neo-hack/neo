@@ -1,7 +1,7 @@
 {
   "name": "@aiou/react-components-lib-template",
   "prefix": "aiou",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react-components-lib-template",
   "main": "lib/index.js",
   "module": "es/index.js",
