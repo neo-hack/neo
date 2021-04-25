@@ -2,7 +2,7 @@
 
 ## Note
 
-- maybe need to custom `prepublishOnly script` in package.json and other package info
+- maybe need to custom `release script` in package.json and other package info
 - need reconfig `baseUrl and paths` in `tsconfig.json`
 
 ## rules

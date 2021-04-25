@@ -30,7 +30,7 @@
 
 ## For Devlopers
 
-- custom `prepublishOnly script` in package.json and other package info
+- custom `release script` in package.json and other package info
 
 1. **推荐使用VSCODE IDE**
 

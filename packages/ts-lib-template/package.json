@@ -60,5 +60,5 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "gitHead": "c315b40c582ccd6295f1bdacfa5ada94aa7b36cc"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

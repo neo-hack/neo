@@ -10,7 +10,7 @@
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",
     "mock": "PORT=8081 umi-serve",
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch"
+    "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "repository": {
     "type": "git",
@@ -121,5 +121,5 @@
   "browserslits": [
     "> 1%"
   ],
-  "gitHead": "63b79a029d866c51c3826ff0cfb1f6f7517d971f"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

@@ -7,7 +7,7 @@
     "start": "next start",
     "type-check": "tsc",
     "prettier": "pretty-quick --staged",
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch",
+    "release": "np --no-cleanup --yolo --no-publish --any-branch",
     "mock": "PORT=8080 umi-serve",
     "watch_mock": "npm-watch mock"
   },
@@ -67,5 +67,5 @@
     "> 1%",
     "last 2 versions"
   ],
-  "gitHead": "63b79a029d866c51c3826ff0cfb1f6f7517d971f"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

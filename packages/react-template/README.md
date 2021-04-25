@@ -34,7 +34,7 @@
 ## dev
 
 *  custom
-   * `prepublishOnly script`
+   * `release script`
    * package name
    * version 
 * vscode
