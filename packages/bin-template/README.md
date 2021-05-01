@@ -3,10 +3,14 @@
 
 [![npm](https://img.shields.io/npm/v/@aiou/bin-template?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=for-the-badge)](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template)
 
-### Usage
+## install 
 
-1. support command listed in src folder, same name as filename
+```ts
+npm install -g @aiou/bin-template
+```
 
-# Q&A
+## commands
 
-1. `#!/usr/bin/env node` ahead of file is the key
+### `hello`
+
+`bin-template hello`

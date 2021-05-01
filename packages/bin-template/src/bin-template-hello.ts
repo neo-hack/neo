@@ -64,7 +64,7 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
           logger.success(`🎉 ${template} Generated 🎉!`)
         })
     })
-    .catch(err => {
+    .catch((err) => {
       spinner.stop()
       logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
     })
@@ -74,7 +74,7 @@ const validateTemplates = (template: string) => {
   if (!template) {
     return
   }
-  return Object.keys(templates).findIndex(v => v === template) > -1
+  return Object.keys(templates).findIndex((v) => v === template) > -1
 }
 
 const run = () => {
@@ -100,7 +100,7 @@ if (template && projName) {
         type: 'checkbox',
         name: 'template',
         message: 'Please pick a template',
-        choices: Object.keys(templates).map(k => {
+        choices: Object.keys(templates).map((k) => {
           return {
             name: k,
             value: k,
@@ -114,7 +114,7 @@ if (template && projName) {
         message: 'Please enter a project name',
       },
     ])
-    .then(answers => {
+    .then((answers) => {
       template = answers.template[0]
       projName = answers.projName
       run()
