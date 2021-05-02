@@ -12,6 +12,7 @@ export const enum TEMPLATES {
   ORIGINAL_HTML_TEMPLATE = 'original-html-template',
   PREACT_MOBILE_SPA_TEMPLATE = 'preact-template',
   NEXTJS_REMATCH2_TEMPLATE = 'nextjs-rematch2-template',
+  ESLINT_CONFIG_TEMPLATE = 'eslint-config-template',
 }
 
 export const templates = {
@@ -27,4 +28,5 @@ export const templates = {
   [TEMPLATES.ORIGINAL_HTML_TEMPLATE]: 'original html without fe framework',
   [TEMPLATES.PREACT_MOBILE_SPA_TEMPLATE]: 'preact template, maybe for moblie',
   [TEMPLATES.NEXTJS_REMATCH2_TEMPLATE]: 'nextjs and rematch2 quick start',
+  [TEMPLATES.ESLINT_CONFIG_TEMPLATE]: 'eslint config template',
 }
