@@ -28,7 +28,7 @@
     "react": "16.10.1",
     "react-dom": "16.10.1",
     "react-redux": "7.1.0",
-    "redux": "4.0.5",
+    "redux": "4.1.0",
     "styled-components": "5.1.0",
     "styled-webgradients": "1.0.0-1"
   },
