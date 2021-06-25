@@ -48,5 +48,10 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
   }
 }
