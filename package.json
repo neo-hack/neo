@@ -16,9 +16,8 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "sync": "node scripts/sync.js",
-    "start": "lerna bootstrap --hoist --nohoist=husky",
+    "start": "lerna bootstrap",
     "check": "lerna run check",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "publish": "lerna publish --ignore-scripts --yes",
