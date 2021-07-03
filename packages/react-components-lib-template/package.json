@@ -11,6 +11,7 @@
     "clean": "npx rimraf es && npx rimraf lib",
     "server:mock": "npm run server:mock --prefix example",
     "dev": "npm run dev --prefix example",
+    "watch": "cross-env NODE_ENV=production gulp watch",
     "build": "npm run clean && cross-env NODE_ENV=production gulp compile",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
