@@ -1,6 +1,6 @@
 {
   "name": "@aiou/dayjs-plugin-template",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "dayjs plugin template",
   "main": "lib/index.js",
   "typings": "src/typings/index.d.ts",
