@@ -7,6 +7,9 @@
   "repository": {
     "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "dayjs",
     "dayjs-plugin",
