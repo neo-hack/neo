@@ -16,10 +16,6 @@
     "template",
     "aiou"
   ],
-  "files": [
-    "lib",
-    "src"
-  ],
   "watch": {
     "run_dev": {
       "patterns": [
