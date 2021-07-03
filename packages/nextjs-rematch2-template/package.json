@@ -43,7 +43,7 @@
     "cssnano-preset-advanced": "4.0.7",
     "husky": "3.1.0",
     "next-images": "1.4.0",
-    "np": "5.2.1",
+    "np": "7.5.0",
     "npm-watch": "0.6.0",
     "postcss-preset-env": "6.7.0",
     "postcss-url": "8.0.0",
