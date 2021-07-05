@@ -1,0 +1,18 @@
+on:
+  push:
+    paths:
+      - 'packages/chrome-extenstion-template/**'
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: 'ubuntu-18.04'
+    name: build
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn build
