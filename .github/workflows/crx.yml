@@ -14,5 +14,11 @@ jobs:
     name: build
     steps:
       - uses: actions/checkout@v2
-      - run: yarn
-      - run: yarn build
+      - name: checkout
+        run: |
+          yarn
+        working-directory: ./packages/chrome-extenstion-template
+      - name: build
+        run: |
+          yarn build
+        working-directory: ./packages/chrome-extenstion-template
