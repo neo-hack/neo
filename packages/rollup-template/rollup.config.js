@@ -9,7 +9,7 @@ export default [
   {
     input: 'src/index.ts',
     output: {
-      name: 'howLongUntilLunch',
+      name: 'rollup-template',
       file: pkg.browser,
       format: 'umd',
     },
@@ -42,6 +42,9 @@ export default [
         entries: [{ find: '@/', replacement: './src/' }],
       }),
     ],
-    output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'es' }],
+    output: [
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' },
+    ],
   },
 ]
