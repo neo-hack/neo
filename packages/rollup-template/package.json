@@ -6,7 +6,7 @@
   "browser": "lib/rollup-template.umd.js",
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "functional-md": "^1.0.1"
+    "functional-md": "^1.1.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.24",

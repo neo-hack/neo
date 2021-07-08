@@ -1890,10 +1890,10 @@ function-bind@^1.1.1:
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-functional-md@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/functional-md/-/functional-md-1.0.1.tgz#6ca5535e3e7970647acac916d37e516580bbd06e"
-  integrity sha512-oM0nYyf1AkAA3ya/hFtIsvlUBZAPFNcY2glBVrTfF2+oH8VQVeJpBKBuWykLDmoIWWimztVmPn+GJDVCtrhGDg==
+functional-md@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/functional-md/-/functional-md-1.1.0.tgz#f2eda183c1c95a4338d07391d9636db01393b0f7"
+  integrity sha512-efLUEFgZYiLvfd1+aRBHcf4Dx4T9lV3DXPtv6mXXXME1dmGAxp4WjFjYXG5YbjiO4vFaLTucOnvnPCbr1ktGgA==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
