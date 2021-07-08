@@ -5,7 +5,9 @@
   "module": "lib/rollup-template.esm.js",
   "browser": "lib/rollup-template.umd.js",
   "typings": "lib/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "functional-md": "^1.0.1"
+  },
   "devDependencies": {
     "@types/jest": "26.0.24",
     "husky": "3.0.9",
@@ -16,7 +18,9 @@
     "rimraf": "3.0.2",
     "rollup": "2.52.8",
     "rollup-plugin-alias": "2.2.0",
+    "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-typescript2": "0.30.0",
     "ts-jest": "27.0.3",
