@@ -2,11 +2,11 @@ on:
   push:
     paths:
       - 'packages/chrome-extenstion-template/**'
-    branches:
-      - 'master'
+    branches: [master]
   pull_request:
-    branches:
-      - 'master'
+    paths:
+      - 'packages/ts-lib-template/**'
+    branches: [master]
 
 jobs:
   build:

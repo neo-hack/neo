@@ -6,6 +6,8 @@ on:
       - 'packages/ts-lib-template/**'
     branches: [master]
   pull_request:
+    paths:
+      - 'packages/ts-lib-template/**'
     branches: [master]
 
 jobs:
