@@ -10,7 +10,7 @@ function SubRoutes(route: Routes, index?: string | number) {
     <Route
       key={index}
       path={route.path}
-      render={props => {
+      render={(props) => {
         // pass the sub-routes down to keep nesting
         return <route.component {...props} routes={route.children} />
       }}
