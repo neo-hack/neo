@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const MergeWebpack = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const ThreadLoader = require('thread-loader')
 const webpack = require('webpack')
 
@@ -14,7 +14,7 @@ ThreadLoader.warmup(configs.workerpool, ['ts-loader', 'babel-loader'])
  * @type import('webpack').Configuration
  */
 const dev = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-module-source-map',
   mode: 'development',
   output: {
     path: configs.path.output,
@@ -39,12 +39,15 @@ const dev = {
       },
     },
   },
+  optimization: {
+    moduleIds: 'named',
+  },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'style-loader' },
           {
             loader: 'typings-for-css-modules-loader',
             options: {
@@ -60,7 +63,7 @@ const dev = {
       {
         test: /(\.styl$|\.stylus$)/,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'style-loader' },
           {
             loader: 'typings-for-css-modules-loader',
             options: {
@@ -75,8 +78,10 @@ const dev = {
           {
             loader: 'stylus-loader',
             options: {
-              sourceMap: true,
-              use: configs.stylus.plugins,
+              stylusOptions: {
+                sourceMap: true,
+                use: configs.stylus.plugins,
+              },
             },
           },
         ],
@@ -85,12 +90,11 @@ const dev = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: (entry) => `${entry}.html`,
       template: 'public/index.html',
       inject: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: [`Running here http://localhost:${port}`],
@@ -104,4 +108,4 @@ const dev = {
   ],
 }
 
-module.exports = MergeWebpack(common, dev)
+module.exports = merge(common, dev)

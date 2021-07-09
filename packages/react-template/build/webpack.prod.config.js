@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const MergeWebpack = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -133,4 +133,4 @@ const prod = {
     .concat(configs.gzip ? [new CompressionPlugin()] : []),
 }
 
-module.exports = MergeWebpack(common, prod)
+module.exports = merge(common, prod)

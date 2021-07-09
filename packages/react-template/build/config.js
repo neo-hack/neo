@@ -1,4 +1,3 @@
-// NOTE: dont move this file
 const path = require('path')
 const Rupture = require('rupture')
 
