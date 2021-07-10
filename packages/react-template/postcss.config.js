@@ -4,7 +4,7 @@ module.exports = {
       'postcss-preset-env',
       {
         autoprefixer: {
-          overrideBrowserslist: ['> 1%'],
+          browserslits: ['> 1%'],
         },
       },
     ],

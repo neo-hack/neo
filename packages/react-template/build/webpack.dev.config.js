@@ -90,8 +90,8 @@ const dev = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: (entry) => `${entry}.html`,
-      template: 'public/index.html',
+      filename: 'index.html',
+      template: 'public/template.html',
       inject: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
