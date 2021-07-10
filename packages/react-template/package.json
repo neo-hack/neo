@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --config ./test/jest.config.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.js --host 0.0.0.0",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js --progress",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js",
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",
     "mock": "PORT=3000 umi-serve",
@@ -71,6 +71,7 @@
     "@types/webpack-dev-server": "3.11.5",
     "@types/webpack-env": "1.16.2",
     "@types/webpack-merge": "5.0.0",
+    "@vue/preload-webpack-plugin": "^2.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "27.0.6",
     "babel-loader": "8.2.2",
@@ -81,6 +82,7 @@
     "copy-webpack-plugin": "9.0.1",
     "cross-env": "7.0.3",
     "css-loader": "1.0.1",
+    "css-minimizer-webpack-plugin": "^3.0.2",
     "cssnano": "^5.0.6",
     "cssnano-preset-advanced": "5.1.3",
     "enzyme": "3.9.0",
@@ -95,7 +97,6 @@
     "jest-localstorage-mock": "2.4.14",
     "mini-css-extract-plugin": "2.1.0",
     "np": "7.5.0",
-    "optimize-css-assets-webpack-plugin": "6.0.1",
     "postcss": "^8.3.5",
     "postcss-cssnext": "3.1.0",
     "postcss-import": "14.0.2",
@@ -103,13 +104,13 @@
     "postcss-loader": "6.1.1",
     "postcss-preset-env": "6.7.0",
     "postcss-url": "10.1.3",
-    "preload-webpack-plugin": "3.0.0-beta.4",
     "prettier": "^2.3.2",
     "prettier-quick": "0.0.5",
     "pretty-quick": "3.1.1",
     "react-hot-loader": "4.13.0",
     "rucksack-css": "1.0.2",
     "rupture": "0.7.1",
+    "size-plugin": "2.x",
     "style-loader": "3.0.0",
     "stylelint-config-prettier": "5.1.0",
     "stylint": "2.0.0",
@@ -130,7 +131,8 @@
     "webpack-bundle-analyzer": "4.4.2",
     "webpack-cli": "4.7.2",
     "webpack-dev-server": "3.11.2",
-    "webpack-merge": "5.8.0"
+    "webpack-merge": "5.8.0",
+    "webpackbar": "^5.0.0-3"
   },
   "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

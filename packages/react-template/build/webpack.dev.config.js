@@ -1,8 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const { merge } = require('webpack-merge')
 const ThreadLoader = require('thread-loader')
+const WebpackBar = require('webpackbar')
 const webpack = require('webpack')
+const { merge } = require('webpack-merge')
 
 const configs = require('./config')
 const common = require('./webpack.common.config')
@@ -26,11 +27,11 @@ const dev = {
     watchContentBase: true,
     contentBase: configs.path.public,
     hot: true,
+    stats: 'errors-only',
     inline: true,
-    overlay: true,
     compress: true,
-    clientLogLevel: 'none',
-    quiet: true,
+    clientLogLevel: 'silent',
+    noInfo: true,
     public: `http://localhost:${port}`,
     proxy: {
       '/proxy': {
@@ -95,6 +96,7 @@ const dev = {
       inject: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new WebpackBar(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: [`Running here http://localhost:${port}`],
