@@ -11,8 +11,9 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    name: Rollup template
 
     strategy:
       matrix:

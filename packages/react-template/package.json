@@ -7,10 +7,9 @@
     "test": "jest",
     "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.js --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js",
-    "update": "npm update && npm update --save-dev",
-    "check": "npm outdated && npm outdated --save-dev",
+    "update": "yarn update && yarn update --save-dev",
+    "check": "yarn outdated && yarn outdated --save-dev",
     "mock": "PORT=3000 umi-serve",
-    "release": "np --no-cleanup --yolo --no-publish --any-branch",
     "prettier": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
   },
   "repository": {
