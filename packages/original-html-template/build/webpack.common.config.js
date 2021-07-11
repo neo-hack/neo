@@ -62,7 +62,7 @@ const config = {
         {
           from: configs.path.static,
           to: 'static',
-        }
+        },
       ],
     }),
     new ForkTsCheckerWebpackPlugin({

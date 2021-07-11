@@ -31,7 +31,7 @@ const prodWebpackConfig = {
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: function(module) {
+          test: function (module) {
             return module.resource && /react/.test(module.resource)
           },
           name: 'vendors',
