@@ -9,7 +9,7 @@ on:
     branches: [master]
 
 jobs:
-  test:
+  build:
     runs-on: 'ubuntu-18.04'
     name: Original HTML Template
     steps:
@@ -20,5 +20,5 @@ jobs:
         working-directory: ./packages/original-html-template
       - name: Test
         run: |
-          yarn test
+          yarn build
         working-directory: ./packages/original-html-template
