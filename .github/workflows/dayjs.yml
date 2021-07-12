@@ -3,11 +3,11 @@ name: Node.js CI
 on:
   push:
     paths:
-      - 'packages/rollup-template/**'
+      - 'packages/dayjs-template/**'
     branches: [master]
   pull_request:
     paths:
-      - 'packages/rollup-template/**'
+      - 'packages/dayjs-template/**'
     branches: [master]
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Test
-        working-directory: ./packages/rollup-template
+        working-directory: ./packages/dayjs-template
         run: |
           yarn
           yarn test

@@ -21,6 +21,7 @@
     "check": "lerna run check",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "publish": "lerna publish --ignore-scripts --yes",
+    "upgrade:dayjs": "cd packages/dayjs-plugin-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:react": "cd packages/react-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:crx": "cd packages/chrome-extenstion-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:original": "cd packages/original-html-template && ncu --configFilePath ./.ncurc.json",
