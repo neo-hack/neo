@@ -20,5 +20,5 @@ jobs:
         working-directory: ./packages/react-components-lib-template
       - name: Test
         run: |
-          yarn build
+          yarn test
         working-directory: ./packages/react-components-lib-template
