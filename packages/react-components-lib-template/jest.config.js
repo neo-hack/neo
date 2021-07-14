@@ -19,5 +19,4 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   testRegex: '/__test__/.+\\.test\\.tsx?$',
   verbose: false,
-  setupFiles: ['<rootDir>/test/setupTests.ts'],
 }
