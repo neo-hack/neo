@@ -21,6 +21,7 @@
     "check": "lerna run check",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "publish": "lerna publish --ignore-scripts --yes",
+    "upgrade:next": "cd packages/nextjs-rematch2-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:webpack": "cd packages/webpack-loader-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:eslint": "cd packages/eslint-config-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:dayjs": "cd packages/dayjs-plugin-template && ncu --configFilePath ./.ncurc.json",
