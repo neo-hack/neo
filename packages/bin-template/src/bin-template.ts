@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { program } from 'commander'
 import { hello } from './hello'
 import { loading } from './loading'

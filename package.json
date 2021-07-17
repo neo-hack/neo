@@ -5,6 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@aiou/eslint-config": "0.0.10",
+    "cz-emoji": "^1.3.1",
     "eslint": "^7.18.0",
     "fs-extra": "^8.1.0",
     "husky": "^3.0.1",

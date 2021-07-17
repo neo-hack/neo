@@ -5,7 +5,7 @@
     "lib": ["es2016"],
     "moduleResolution": "node",
     "importHelpers": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,7 +14,7 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "outDir": ".lib"
+    "outDir": "lib"
   },
   "exclude": ["node_modules", "lib"],
   "include": ["src"]
