@@ -77,7 +77,7 @@ fs.readdir(path.resolve(__dirname, '../packages')).then((packages) => {
   })
   _packages.forEach((p) => {
     syncConfigs(p, files)
-    syncGithub(p)
+    // syncGithub(p)
     syncTemplate(p, files)
     pkgConfig(p)
   })
