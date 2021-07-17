@@ -28,6 +28,7 @@
   "devDependencies": {
     "@aiou/eslint-config": "0.0.12",
     "@types/jest": "26.0.23",
+    "cz-emoji": "^1.3.1",
     "eslint": "^7.30.0",
     "husky": "^3.1.0",
     "jest": "27.0.6",
@@ -58,6 +59,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
     }
   },
   "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
