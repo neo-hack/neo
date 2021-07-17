@@ -4,7 +4,7 @@
   "description": "eslint config template for aiou template",
   "keywords": [],
   "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://github.com/jiangweixian/)",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "files": [
     "index.js"
   ],
@@ -43,5 +43,15 @@
     "commitizen": {
       "path": "cz-emoji"
     }
+  },
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/eslint-config-template"
   }
 }

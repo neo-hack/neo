@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template"
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/webpack-loader-template"
   },
   "keywords": [
     "webpack",
@@ -53,7 +55,7 @@
     "schema-utils": "3.1.0",
     "webpack": "5.44.0"
   },
-  "author": "JW",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "license": "MIT",
   "scripts": {
     "build": "rimraf lib && ttsc",
@@ -75,5 +77,10 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  }
 }

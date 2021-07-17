@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/ts-lib-template"
   },
   "keywords": [
     "typescript",
@@ -44,7 +46,7 @@
     "typescript": "^4.3.5",
     "typescript-transform-paths": "^3.0.2"
   },
-  "author": "JW",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "license": "MIT",
   "scripts": {
     "build": "rimraf lib && ttsc",
@@ -66,5 +68,10 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  }
 }

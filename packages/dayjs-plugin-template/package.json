@@ -7,7 +7,9 @@
   "browser": "lib/dayjs-plugin-template.umd.js",
   "typings": "src/typings/index.d.ts",
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates/tree/master/packages/dayjs-plugin-template"
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/dayjs-plugin-template"
   },
   "publishConfig": {
     "access": "public"
@@ -50,7 +52,7 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "author": "JW",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "license": "MIT",
   "scripts": {
     "build": "rimraf lib && rollup -c --silent",
@@ -71,5 +73,10 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "d910fbb93885faf57a68b0caef84335c60358b8c"
+  "gitHead": "d910fbb93885faf57a68b0caef84335c60358b8c",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  }
 }

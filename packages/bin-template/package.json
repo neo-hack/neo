@@ -15,7 +15,7 @@
     "check": "npm outdated && npm outdated --save-dev",
     "release": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
-  "author": "JW",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "license": "MIT",
   "dependencies": {
     "chalk": "4.1.1",
@@ -44,5 +44,15 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/bin-template"
+  }
 }

@@ -65,10 +65,14 @@ const pkgConfig = (package) => {
     },
   }
   const pkg = fs.readFileSync(path.resolve(__dirname, `../packages/${package}/package.json`))
-  fs.writeJSONSync(path.resolve(__dirname, `../packages/${package}/package.json`), {
-    ...JSON.parse(pkg),
-    ...config,
-  })
+  fs.writeJSONSync(
+    path.resolve(__dirname, `../packages/${package}/package.json`),
+    {
+      ...JSON.parse(pkg),
+      ...config,
+    },
+    { spaces: 2 },
+  )
 }
 
 fs.readdir(path.resolve(__dirname, '../packages')).then((packages) => {

@@ -12,12 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JiangWeixian/templates.git"
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/original-html-template"
   },
-  "author": "jiangwei",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues"
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
