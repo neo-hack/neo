@@ -5,8 +5,7 @@
   "main": ".lib/bin-template.cjs.js",
   "module": ".lib/bin-template.esm.js",
   "bin": {
-    "bin-template": "lib/bin-template",
-    "bin-template-hello": "lib/bin-template-create"
+    "bin-template": "lib/bin-template"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,29 +19,28 @@
   "author": "JW",
   "license": "MIT",
   "dependencies": {
-    "chalk": "2.4.2",
-    "commander": "2.20.0",
-    "download": "7.1.0",
-    "fs-extra": "8.1.0",
-    "inquirer": "6.5.0",
-    "ora": "3.4.0",
-    "rimraf": "2.6.3",
+    "chalk": "4.1.1",
+    "commander": "8.0.0",
+    "download": "8.0.0",
+    "fs-extra": "10.0.0",
+    "inquirer": "8.1.2",
+    "ora": "5.4.1",
+    "rimraf": "3.0.2",
     "tildify": "2.0.0"
   },
   "devDependencies": {
-    "@aiou/eslint-config": "0.0.10",
-    "@types/download": "6.2.4",
-    "@types/fs-extra": "8.0.0",
-    "@types/inquirer": "6.5.0",
-    "@types/node": "12.6.8",
-    "@types/rimraf": "2.0.2",
-    "builtin-modules": "3.1.0",
-    "eslint": "^7.18.0",
+    "@aiou/eslint-config": "0.0.12",
+    "@types/download": "8.0.1",
+    "@types/fs-extra": "9.0.12",
+    "@types/inquirer": "7.3.3",
+    "@types/node": "16.3.3",
+    "@types/rimraf": "3.0.1",
+    "eslint": "^7.30.0",
     "husky": "3.0.2",
-    "np": "5.0.3",
-    "prettier": "2.2.1",
-    "pretty-quick": "3.1.0",
-    "typescript": "3.5.3"
+    "np": "7.5.0",
+    "prettier": "2.3.2",
+    "pretty-quick": "3.1.1",
+    "typescript": "4.3.5"
   },
   "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }
