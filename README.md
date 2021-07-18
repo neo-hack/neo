@@ -4,7 +4,7 @@
 
 *the one - neo*
 
-[![npm](https://img.shields.io/npm/v/@aiou/neo?style=flat-square)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates?style=flat-square)](https://github.com/JiangWeixian/templates/tree/master/packages/rollup-template)
+[![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
 
 <img src="https://user-images.githubusercontent.com/6839576/83341699-f436dc00-a318-11ea-9cf5-60b4ee16cfa7.gif" width="640" />
 

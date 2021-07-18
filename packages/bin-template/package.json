@@ -5,7 +5,7 @@
   "main": ".lib/bin-template.cjs.js",
   "module": ".lib/bin-template.esm.js",
   "bin": {
-    "bin-template": "lib/bin-template"
+    "bin-template": "lib/bin-template.js"
   },
   "scripts": {
     "prebuild": "rimraf lib",
