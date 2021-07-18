@@ -4,32 +4,21 @@
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
   },
-  "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/react-components-lib-template"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/**/*.{js,ts,vue,json}": [
-      "eslint --fix"
-    ]
-  },
   "name": "@aiou/react-components-lib-template",
-  "prefix": "aiou",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "react-components-lib-template",
   "keywords": [
     "react",
     "components",
     "sortable"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/react-components-lib-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -41,6 +30,17 @@
     "build": "yarn run clean && cross-env NODE_ENV=production gulp compile",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "prefix": "aiou",
   "typings": "lib/index.d.ts",
   "dependencies": {
     "classnames": "2.3.1",

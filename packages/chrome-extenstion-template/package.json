@@ -4,26 +4,16 @@
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
   },
+  "name": "@aiou/chrome-extenstion-template",
+  "version": "1.2.3",
+  "description": "chrome-extenstion-template",
   "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/chrome-extenstion-template"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/**/*.{js,ts,vue,json}": [
-      "eslint --fix"
-    ]
-  },
-  "name": "@aiou/chrome-extenstion-template",
-  "version": "1.2.2",
-  "description": "chrome-extenstion-template",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "index.js",
   "scripts": {
     "start": "yarn ci",
@@ -35,6 +25,16 @@
     "update": "yarn update && yarn update --save-dev",
     "check": "yarn outdated && yarn outdated --save-dev",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "axios": "0.21.1",

@@ -4,12 +4,22 @@
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
   },
+  "name": "@aiou/nextjs-rematch2-template",
+  "version": "1.1.10",
   "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/nextjs-rematch2-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "scripts": {
+    "dev": "next -p 3001 & yarn run mock",
+    "test": "jest",
+    "build": "next build",
+    "start": "next start",
+    "mock": "PORT=8080 umi-serve",
+    "watch_mock": "npm-watch mock"
   },
   "husky": {
     "hooks": {
@@ -20,16 +30,6 @@
     "**/**/*.{js,ts,vue,json}": [
       "eslint --fix"
     ]
-  },
-  "name": "@aiou/nextjs-rematch2-template",
-  "version": "1.1.9",
-  "scripts": {
-    "dev": "next -p 3001 & yarn run mock",
-    "test": "jest",
-    "build": "next build",
-    "start": "next start",
-    "mock": "PORT=8080 umi-serve",
-    "watch_mock": "npm-watch mock"
   },
   "watch": {
     "mock": {

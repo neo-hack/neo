@@ -4,12 +4,23 @@
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
   },
+  "name": "@aiou/original-html-template",
+  "version": "1.4.3",
+  "description": "original html template",
   "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/original-html-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "main": "src/index.tsx",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.js --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js",
+    "update": "yarn update && yarn update --save-dev",
+    "check": "yarn outdated && yarn outdated --save-dev",
+    "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "husky": {
     "hooks": {
@@ -20,17 +31,6 @@
     "**/**/*.{js,ts,vue,json}": [
       "eslint --fix"
     ]
-  },
-  "name": "@aiou/original-html-template",
-  "version": "1.4.2",
-  "description": "original html template",
-  "main": "src/index.tsx",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.js --host 0.0.0.0",
-    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js",
-    "update": "yarn update && yarn update --save-dev",
-    "check": "yarn outdated && yarn outdated --save-dev",
-    "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "dependencies": {
     "animejs": "3.2.1",

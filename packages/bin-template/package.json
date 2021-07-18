@@ -4,26 +4,16 @@
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
   },
+  "name": "@aiou/bin-template",
+  "version": "2.0.3",
+  "description": "templates for command project",
   "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/bin-template"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/**/*.{js,ts,vue,json}": [
-      "eslint --fix"
-    ]
-  },
-  "name": "@aiou/bin-template",
-  "version": "2.0.2",
-  "description": "templates for command project",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": ".lib/bin-template.cjs.js",
   "module": ".lib/bin-template.esm.js",
   "bin": {
@@ -36,6 +26,16 @@
     "update": "npm update && npm update --save-dev",
     "check": "npm outdated && npm outdated --save-dev",
     "release": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "chalk": "4.1.1",
