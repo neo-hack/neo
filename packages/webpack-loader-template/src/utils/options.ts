@@ -2,8 +2,8 @@ import Webpack from 'webpack'
 import loadUtils from 'loader-utils'
 import { validate as schemaValidate } from 'schema-utils'
 import { Schema } from 'schema-utils/declarations/validate'
-import { validate } from './validate'
 import { Options } from '../typings'
+import { validate } from './validate'
 
 const schema: Schema = {
   type: 'object',

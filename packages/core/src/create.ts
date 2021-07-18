@@ -1,12 +1,12 @@
 // refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
 
-import ora from 'ora'
-import inquirer from 'inquirer'
 import path from 'path'
-import download from 'download'
-import globby from 'globby'
 import { exec } from 'child_process'
 import { existsSync } from 'fs'
+import ora from 'ora'
+import inquirer from 'inquirer'
+import download from 'download'
+import globby from 'globby'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, SCOPE } from './utils/constants'
@@ -28,7 +28,7 @@ const downloadNPM = ({ template }: { template: string }): Promise<boolean> => {
     exec(`npm v @${SCOPE}/${template} dist.tarball`, (err, stdout) => {
       if (err) {
         console.log()
-        logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
+        logger.fatal(`Failed to download template ${template}: ${err.message.trim()}`)
         return reject(err)
       }
       download(stdout, path.join(process.cwd(), '.neo'), {
@@ -85,14 +85,13 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
     })
     .catch((err) => {
       spinner.stop()
-      logger.fatal('Failed to download template ' + template + ': ' + err.message.trim())
+      logger.fatal(`Failed to download template ${template}: ${err.message.trim()}`)
     })
 }
 
 const validateTemplates = (template: string) => {
-  if (!template) {
-    return
-  }
+  if (!template) return
+
   return Object.keys(templates).findIndex((v) => v === template) > -1
 }
 
@@ -104,7 +103,7 @@ const run = (template: string, project: string) => {
   }
   // project name is required
   if (!project) {
-    logger.fatal(`<project-name> is required`)
+    logger.fatal('<project-name> is required')
     return
   }
   downloadAndGenerate({ template, dest: project })
@@ -131,9 +130,8 @@ export const create = (template: string, project: string) => {
           }),
           default: 'react-template',
           validate: function (answer) {
-            if (!answer) {
-              return 'You must choose at least one template.'
-            }
+            if (!answer) return 'You must choose at least one template.'
+
             return true
           },
         },

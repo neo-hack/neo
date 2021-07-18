@@ -9,7 +9,7 @@ type Options = {
 }
 
 export const loading = (
-  ms: number = 1000,
+  ms = 1000,
   { text = 'bin-template' }: Options = { text: 'bin-template' },
 ) => {
   try {

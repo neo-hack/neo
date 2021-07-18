@@ -1,5 +1,5 @@
-import terminalImage from 'terminal-image'
 import path from 'path'
+import terminalImage from 'terminal-image'
 
 /**
  * @description display neo image on terminal

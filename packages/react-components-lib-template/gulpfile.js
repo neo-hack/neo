@@ -28,7 +28,7 @@ function compileStylus(modules) {
 function babelify(js, modules) {
   const babelConfig = config.getBabelConfig(modules)
   delete babelConfig.cacheDirectory
-  let stream = js
+  const stream = js
     .pipe(sourcemaps.init())
     .pipe(babel(babelConfig))
     .pipe(
@@ -49,9 +49,8 @@ function compile(modules) {
     .pipe(gulp.dest(modules === false ? config.dirs.es : config.dirs.lib))
   let error = 0
   // allow jsx file in src/xxx/
-  if (config.tsConfig.allowJs) {
-    source.unshift('components/**/*.jsx')
-  }
+  if (config.tsConfig.allowJs) source.unshift('components/**/*.jsx')
+
   const tsResult = gulp
     .src(source)
     .pipe(changed(modules === false ? config.dirs.es : config.dirs.lib, { extension: '.js' }))
@@ -71,9 +70,7 @@ function compile(modules) {
     )
 
   function check() {
-    if (error && !argv['ignore-error']) {
-      process.exit(1)
-    }
+    if (error && !argv['ignore-error']) process.exit(1)
   }
 
   tsResult.on('finish', check)

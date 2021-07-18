@@ -15,7 +15,7 @@ export const hello = (word: string) => {
           return {
             name: k,
             value: k,
-            checked: k === 'react-template' ? true : false,
+            checked: k === 'react-template',
           }
         }),
       },

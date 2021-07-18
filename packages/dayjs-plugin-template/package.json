@@ -2,18 +2,6 @@
   "name": "@aiou/dayjs-plugin-template",
   "version": "1.0.1",
   "description": "dayjs plugin template",
-  "main": "lib/dayjs-plugin-template.cjs.js",
-  "module": "lib/dayjs-plugin-template.esm.js",
-  "browser": "lib/dayjs-plugin-template.umd.js",
-  "typings": "src/typings/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/dayjs-plugin-template"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "keywords": [
     "dayjs",
     "dayjs-plugin",
@@ -21,6 +9,40 @@
     "template",
     "aiou"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/dayjs-plugin-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "main": "lib/dayjs-plugin-template.cjs.js",
+  "module": "lib/dayjs-plugin-template.esm.js",
+  "browser": "lib/dayjs-plugin-template.umd.js",
+  "typings": "src/typings/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf lib && rollup -c --silent",
+    "dev": "rollup -c -w --silent",
+    "test": "jest",
+    "pretest": "yarn run build",
+    "update": "yarn update && yarn update --save-dev",
+    "check": "yarn outdated && npm outdated --save-dev",
+    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "peerDependencies": {
+    "dayjs": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "devDependencies": {
     "@aiou/eslint-config": "^0.0.12",
     "@types/jest": "26.0.24",
@@ -45,28 +67,6 @@
     "ts-jest": "27.0.3",
     "ts-node": "10.1.0",
     "typescript": "^4.3.5"
-  },
-  "peerDependencies": {
-    "dayjs": "*"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "license": "MIT",
-  "scripts": {
-    "build": "rimraf lib && rollup -c --silent",
-    "dev": "rollup -c -w --silent",
-    "test": "jest",
-    "pretest": "yarn run build",
-    "update": "yarn update && yarn update --save-dev",
-    "check": "yarn outdated && npm outdated --save-dev",
-    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "config": {
     "commitizen": {

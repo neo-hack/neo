@@ -23,7 +23,7 @@ const common = {
     plugins: [Rupture()],
   },
   gzip: false,
-  analyzer: true,
+  analyzer: false,
   workerpool: {
     workers: require('os').cpus().length - 1,
     poolTimeout: process.env.NODE_ENV === 'development' ? Infinity : 2000,

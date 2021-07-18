@@ -2,18 +2,20 @@
   "name": "@aiou/webpack-loader-template",
   "version": "0.2.1",
   "description": "a starter for webpack-loader",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/webpack-loader-template"
-  },
   "keywords": [
     "webpack",
     "loader",
     "template"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/webpack-loader-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "watch": {
     "run_dev": {
       "patterns": [
@@ -25,6 +27,27 @@
       "delay": 1000,
       "runOnChangeOnly": false
     }
+  },
+  "scripts": {
+    "build": "rimraf lib && ttsc",
+    "run_dev": "rimraf lib && ttsc",
+    "dev": "npm-watch run_dev",
+    "test": "jest",
+    "pretest": "yarn run build",
+    "update": "yarn update && yarn update --save-dev",
+    "check": "yarn outdated && yarn outdated --save-dev",
+    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "loader-utils": "2.0.0",
+    "lodash.isempty": "4.4.0",
+    "schema-utils": "3.1.0",
+    "webpack": "5.44.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -48,29 +71,6 @@
     "ttypescript": "^1.5.12",
     "typescript": "4.3.5",
     "typescript-transform-paths": "^3.0.2"
-  },
-  "dependencies": {
-    "loader-utils": "2.0.0",
-    "lodash.isempty": "4.4.0",
-    "schema-utils": "3.1.0",
-    "webpack": "5.44.0"
-  },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "license": "MIT",
-  "scripts": {
-    "build": "rimraf lib && ttsc",
-    "run_dev": "rimraf lib && ttsc",
-    "dev": "npm-watch run_dev",
-    "test": "jest",
-    "pretest": "yarn run build",
-    "update": "yarn update && yarn update --save-dev",
-    "check": "yarn outdated && yarn outdated --save-dev",
-    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "config": {
     "commitizen": {

@@ -5,9 +5,8 @@ import { Options } from './typings'
 
 function loader(this: Webpack.LoaderContext<Options>, source: string) {
   const options = getOptions(this)
-  if (options.include && options.exclude) {
-    return source
-  }
+  if (options.include && options.exclude) return source
+
   return source
 }
 

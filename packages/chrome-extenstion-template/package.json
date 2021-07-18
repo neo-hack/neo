@@ -2,6 +2,13 @@
   "name": "@aiou/chrome-extenstion-template",
   "version": "1.2.1",
   "description": "chrome-extenstion-template",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/chrome-extenstion-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "index.js",
   "scripts": {
     "start": "yarn ci",
@@ -15,12 +22,10 @@
     "check": "yarn outdated && yarn outdated --save-dev",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/chrome-extenstion-template"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "dependencies": {
     "axios": "0.21.1",
@@ -60,11 +65,6 @@
     "webpack": "^5.42.0",
     "webpack-cli": "^4.7.2",
     "webpack-merge": "^5.8.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "config": {
     "commitizen": {

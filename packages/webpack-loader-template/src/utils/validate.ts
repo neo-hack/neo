@@ -11,9 +11,7 @@ export const validate = (validations: Validation[]): void => {
     for (const validation of validations) {
       const condition = validation[0]
       const errorMessage = validation[1]
-      if (condition) {
-        throw new Error(errorMessage)
-      }
+      if (condition) throw new Error(errorMessage)
     }
   }
 }

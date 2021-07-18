@@ -3,6 +3,18 @@
   "prefix": "aiou",
   "version": "1.2.1",
   "description": "react-components-lib-template",
+  "keywords": [
+    "react",
+    "components",
+    "sortable"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/react-components-lib-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -14,19 +26,16 @@
     "build": "yarn run clean && cross-env NODE_ENV=production gulp compile",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/react-components-lib-template"
-  },
   "typings": "lib/index.d.ts",
-  "keywords": [
-    "react",
-    "components",
-    "sortable"
-  ],
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
+    }
+  },
+  "dependencies": {
+    "classnames": "2.3.1",
+    "lodash.isnull": "3.0.0"
+  },
   "devDependencies": {
     "@aiou/eslint-config": "^0.0.12",
     "@babel/core": "7.14.6",
@@ -80,15 +89,6 @@
     "ts-jest": "27.0.3",
     "ts-loader": "9.2.3",
     "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "classnames": "2.3.1",
-    "lodash.isnull": "3.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
-    }
   },
   "config": {
     "commitizen": {

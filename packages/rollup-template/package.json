@@ -1,10 +1,31 @@
 {
   "name": "@aiou/rollup-template",
   "version": "1.7.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/rollup-template"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/rollup-template.cjs.js",
   "module": "lib/rollup-template.esm.js",
   "browser": "lib/rollup-template.umd.js",
   "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib && rollup -c --silent",
+    "dev": "rollup -c -w --silent",
+    "test": "jest",
+    "pretest": "yarn run build",
+    "update": "yarn update && yarn update --save-dev",
+    "check": "yarn outdated && npm outdated --save-dev",
+    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "dependencies": {
     "functional-md": "^1.1.0"
   },
@@ -29,20 +50,6 @@
     "tslib": "2.3.0",
     "typescript": "4.3.5"
   },
-  "scripts": {
-    "build": "rimraf lib && rollup -c --silent",
-    "dev": "rollup -c -w --silent",
-    "test": "jest",
-    "pretest": "yarn run build",
-    "update": "yarn update && yarn update --save-dev",
-    "check": "yarn outdated && npm outdated --save-dev",
-    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "cz-emoji"
@@ -53,12 +60,5 @@
   "bugs": {
     "url": "https://github.com/JiangWeixian/templates/issues",
     "email": "jiangweixian1994@gmail.com"
-  },
-  "license": "MIT",
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/rollup-template"
   }
 }

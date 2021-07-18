@@ -1,9 +1,9 @@
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { merge } = require('webpack-merge')
 const WebpackBar = require('webpackbar')
 const webpack = require('webpack')
-const path = require('path')
 
 const configs = require('./config')
 const commonWebpackConfig = require('./webpack.common.config')
@@ -95,7 +95,7 @@ const devWebpackConfig = {
         messages: [`Running here http://localhost:${port}`],
         notes: ['Happy coding'],
       },
-      onErrors: function (severity, errors) {
+      onErrors(severity, errors) {
         // You can listen to errors transformed and prioritized by the plugin
         // severity can be 'error' or 'warning'
       },

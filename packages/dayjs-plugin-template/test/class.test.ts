@@ -1,5 +1,5 @@
-import Hello from '../src/index'
 import dayjs from 'dayjs'
+import Hello from '../src/index'
 
 dayjs.extend(Hello)
 

@@ -2,21 +2,23 @@
   "name": "aiou",
   "version": "1.0.0",
   "description": "templates",
-  "main": "index.js",
-  "devDependencies": {
-    "@aiou/eslint-config": "0.0.10",
-    "cz-emoji": "^1.3.1",
-    "eslint": "^7.18.0",
-    "fs-extra": "^8.1.0",
-    "husky": "^3.0.1",
-    "lerna": "^3.13.4",
-    "np": "^5.0.1",
-    "npm-check-updates": "^11.5.1",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "typescript": "^3.5.3"
+  "keywords": [
+    "templates",
+    "neo"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiangWeixian/templates.git"
   },
+  "author": "jiangweixian",
+  "files": [
+    "packages/core"
+  ],
+  "main": "index.js",
   "scripts": {
+    "lint": "eslint '**/*.{js,ts,json}'",
+    "lint:fix": "eslint '**/*.{js,ts,json}' --fix",
     "sync": "node scripts/sync.js",
     "start": "lerna bootstrap",
     "check": "lerna run check",
@@ -37,28 +39,29 @@
     "upgrade:rollup": "cd packages/rollup-template && ncu --configFilePath ./.ncurc.json",
     "prettier": "prettier --config .prettierrc --write '**/*'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JiangWeixian/templates.git"
-  },
-  "keywords": [
-    "templates",
-    "neo"
-  ],
-  "files": [
-    "packages/core"
-  ],
-  "author": "jiangweixian",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues"
-  },
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "devDependencies": {
+    "@aiou/eslint-config": "^0.0.13",
+    "cz-emoji": "^1.3.1",
+    "eslint": "^7.18.0",
+    "fs-extra": "^8.1.0",
+    "husky": "^3.0.1",
+    "lerna": "^3.13.4",
+    "lint-staged": "^11.0.1",
+    "np": "^5.0.1",
+    "npm-check-updates": "^11.5.1",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "typescript": "^3.5.3"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues"
+  },
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "config": {
     "commitizen": {
       "path": "cz-emoji"
