@@ -1,7 +1,10 @@
+/**
+ * @fileoverview global sync/setting jobs
+ */
 const fs = require('fs-extra')
 const path = require('path')
 
-const files = ['.prettierignore', '.prettierrc', '.eslintrc.js', '.gitignore', 'LICENSE']
+const files = ['.eslintrc.js', '.gitignore', 'LICENSE']
 
 const excludes = ['core']
 
@@ -31,7 +34,7 @@ const syncGithub = (package) => {
 }
 
 /**
- *
+ * sync root ['.eslintrc.js', '.gitignore', 'LICENSE'] into `packages\/**\/template`
  * @param {string[]} files
  */
 const syncTemplate = (package, files = []) => {
@@ -43,13 +46,53 @@ const syncTemplate = (package, files = []) => {
   })
 }
 
+/**
+ * global set packages/*\/package.json
+ */
+const pkgConfig = (package) => {
+  const config = {
+    homepage: 'https://github.com/JiangWeixian/templates#readme',
+    bugs: {
+      url: 'https://github.com/JiangWeixian/templates/issues',
+      email: 'jiangweixian1994@gmail.com',
+    },
+    license: 'MIT',
+    author: 'JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)',
+    repository: {
+      type: 'git',
+      url: 'https://github.com/JiangWeixian/templates',
+      directory: `packages/${package}`,
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "lint-staged": {
+      "**/**/*.{js,ts,vue,json}": [
+        "eslint --fix"
+      ]
+    }
+  }
+  const pkg = fs.readFileSync(path.resolve(__dirname, `../packages/${package}/package.json`))
+  fs.writeJSONSync(
+    path.resolve(__dirname, `../packages/${package}/package.json`),
+    {
+      ...JSON.parse(pkg),
+      ...config,
+    },
+    { spaces: 2 },
+  )
+}
+
 fs.readdir(path.resolve(__dirname, '../packages')).then((packages) => {
   const _packages = packages.filter((f) => {
     return excludes.findIndex((e) => e === f) < 0
   })
   _packages.forEach((p) => {
     syncConfigs(p, files)
-    syncGithub(p)
+    // syncGithub(p)
     syncTemplate(p, files)
+    pkgConfig(p)
   })
 })

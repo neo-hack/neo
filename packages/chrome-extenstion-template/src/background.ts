@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV === 'development') {
-  require('crx-hotreload')
-}
+if (process.env.NODE_ENV === 'development') require('crx-hotreload')
 
 function polling() {
   console.log('polling')

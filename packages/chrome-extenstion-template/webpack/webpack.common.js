@@ -1,5 +1,5 @@
-const webpack = require('webpack')
 const path = require('path')
+const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
@@ -11,10 +11,10 @@ const configs = require('./configs')
  */
 module.exports = {
   entry: {
-    popup: path.join(__dirname, srcDir + 'popup.ts'),
-    options: path.join(__dirname, srcDir + 'options.ts'),
-    background: path.join(__dirname, srcDir + 'background.ts'),
-    content: path.join(__dirname, srcDir + 'content.tsx'),
+    popup: path.join(__dirname, `${srcDir}popup.ts`),
+    options: path.join(__dirname, `${srcDir}options.ts`),
+    background: path.join(__dirname, `${srcDir}background.ts`),
+    content: path.join(__dirname, `${srcDir}content.tsx`),
   },
   output: {
     path: path.join(__dirname, '../dist/js'),
@@ -68,10 +68,12 @@ module.exports = {
   plugins: [
     // exclude locale files in moment
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new CopyPlugin([{ from: '.', to: '../' }], { context: 'public' }),
+    new CopyPlugin({ patterns: [{ from: '.', to: '../', context: 'public' }] }),
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.join(__dirname, '../tsconfig.json'),
-      checkSyntacticErrors: true,
+      typescript: {
+        configFile: path.join(__dirname, '../tsconfig.json'),
+      },
+      async: true,
     }),
   ],
 }

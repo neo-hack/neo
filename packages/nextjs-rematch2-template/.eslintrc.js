@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@aiou'],
+  extends: ['@aiou/eslint-config'],
 }

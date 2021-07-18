@@ -2,52 +2,68 @@
   "name": "aiou",
   "version": "1.0.0",
   "description": "templates",
-  "main": "index.js",
-  "devDependencies": {
-    "@aiou/eslint-config": "0.0.10",
-    "eslint": "^7.18.0",
-    "fs-extra": "^8.1.0",
-    "husky": "^3.0.1",
-    "lerna": "^3.13.4",
-    "np": "^5.0.1",
-    "npm-check-updates": "^11.5.1",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "typescript": "^3.5.3"
+  "keywords": [
+    "templates",
+    "neo"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiangWeixian/templates.git"
   },
+  "author": "jiangweixian",
+  "files": [
+    "packages/core"
+  ],
+  "main": "index.js",
   "scripts": {
+    "lint": "eslint '**/*.{js,ts,json}'",
+    "lint:fix": "eslint '**/*.{js,ts,json}' --fix",
     "sync": "node scripts/sync.js",
     "start": "lerna bootstrap",
     "check": "lerna run check",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "publish": "lerna publish --ignore-scripts --yes",
-    "upgrade:react": "cd packages/react-templates && ncu --configFilePath ./.ncurc.json",
-    "upgrade:docs": "cd packages/docs-templates && ncu --configFilePath ./.ncurc.json",
-    "upgrade:rollup": "cd packages/rollup-templates && ncu --configFilePath ./.ncurc.json",
-    "prettier": "prettier --config .prettierrc --write '**/*'"
+    "upgrade:core": "cd packages/core && ncu --configFilePath ./.ncurc.json",
+    "upgrade:bin": "cd packages/bin-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:next": "cd packages/nextjs-rematch2-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:webpack": "cd packages/webpack-loader-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:eslint": "cd packages/eslint-config-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:dayjs": "cd packages/dayjs-plugin-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:react": "cd packages/react-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:react-lib": "cd packages/react-components-lib-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:crx": "cd packages/chrome-extenstion-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:original": "cd packages/original-html-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:tslib": "cd packages/ts-lib-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:docs": "cd packages/docs-template && ncu --configFilePath ./.ncurc.json",
+    "upgrade:rollup": "cd packages/rollup-template && ncu --configFilePath ./.ncurc.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JiangWeixian/templates.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "keywords": [
-    "templates",
-    "neo"
-  ],
-  "files": [
-    "packages/core"
-  ],
-  "author": "jiangweixian",
-  "license": "MIT",
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@aiou/eslint-config": "^0.0.20",
+    "cz-emoji": "^1.3.1",
+    "eslint": "^7.18.0",
+    "fs-extra": "^8.1.0",
+    "husky": "^3.0.1",
+    "lerna": "^3.13.4",
+    "lint-staged": "^11.0.1",
+    "np": "^5.0.1",
+    "npm-check-updates": "^11.5.1",
+    "typescript": "^3.5.3"
+  },
   "bugs": {
     "url": "https://github.com/JiangWeixian/templates/issues"
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "cz-emoji"
