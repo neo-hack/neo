@@ -25,12 +25,12 @@
   - [`dayjs-plugin-template`](#dayjs-plugin-template)
   - [`eslint-config-template`](#eslint-config-template)
   - [`(WIP)nextjs-rematch2-template`](#wipnextjs-rematch2-template)
-  - [original-html-template](#original-html-template)
-  - [react-components-lib-template](#react-components-lib-template)
-  - [react-template](#react-template)
-  - [rollup-template](#rollup-template)
-  - [ts-lib-template](#ts-lib-template)
-  - [webpack-loader-template](#webpack-loader-template)
+  - [`original-html-template`](#original-html-template)
+  - [`react-components-lib-template`](#react-components-lib-template)
+  - [`react-template`](#react-template)
+  - [`rollup-template`](#rollup-template)
+  - [`ts-lib-template`](#ts-lib-template)
+  - [`webpack-loader-template`](#webpack-loader-template)
 
 ## install
 
@@ -112,7 +112,7 @@ neo create <template-name> [project-name]
 - With `rematch2`
 - Styled with `styled-components`
 
-### original-html-template
+### `original-html-template`
 
 *build web application without framework*
 
@@ -120,7 +120,7 @@ neo create <template-name> [project-name]
 - Visit page via `http:<ip>:8080` in mobile
 - Style with `stylus` and useful `Rucksack & Rupture`
 
-### react-components-lib-template
+### `react-components-lib-template`
 *build multiple react components lib, insipred by [antd-tools](https://github.com/ant-design/antd-tools)*
 
 - output `lib & es` components version
@@ -128,7 +128,7 @@ neo create <template-name> [project-name]
 - multiple react components
 - support css-modules
 
-### react-template
+### `react-template`
 
 *build spa react template with pure webpack*
 
@@ -138,19 +138,21 @@ neo create <template-name> [project-name]
 - With friendly build progress and error output
 - Bundle size analyzer
 
-### rollup-template
+### `rollup-template`
+**build lib with rollup**
 
 - output bundlesize
 - exclude `dependencies` and `peerDependencies`
   
-### ts-lib-template
+### `ts-lib-template`
 **build ts lib template**
 
 - Simple build with `tsc`
 - Replace `alias` path to `real` path
 - Watch mode
 
-### webpack-loader-template
+### `webpack-loader-template`
+*build webpack loader*
 
 
 - Watch mode
