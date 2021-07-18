@@ -21,30 +21,30 @@
     jsonc-eslint-parser "^1.0.1"
     yaml-eslint-parser "^0.3.2"
 
-"@aiou/eslint-config-react@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config-react/-/eslint-config-react-0.0.4.tgz#07c1153da20b321ba841dffc8496ba6f4786f113"
-  integrity sha512-Vzwx+2dvz3F5iu4P8vNTVu0npxdGrwg+LcrNKuuKrTs2iaL3IgTiF3UcdjZ37wUk84TbFFtZQGuPvj3yGlKSWA==
+"@aiou/eslint-config-react@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.npmjs.org/@aiou/eslint-config-react/-/eslint-config-react-0.0.8.tgz#06d63b3bb68a9fa9c7742c7a93e641f24bd60977"
+  integrity sha512-3LvH5n714JkouqbYAZ+Mx5qH8LpkotsIPjiekIMGQGT4fTr5RPeY/zs9tsNAocgmLqveSXsUBmO+VjugvAJfHQ==
   dependencies:
-    "@aiou/eslint-config-ts" "^0.0.12"
+    "@aiou/eslint-config-ts" "^0.0.16"
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@aiou/eslint-config-ts@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config-ts/-/eslint-config-ts-0.0.12.tgz#4775e30f06d4886b48cecc497d3123db4285c135"
-  integrity sha512-UppeR8oLVDb64kVW7+DwHVbybgnyjo2eerJcuEryRFx1IyWrzOBeqTF3pF+ORVSIqgXlZCjfJNBMvfFS/AMhcw==
+"@aiou/eslint-config-ts@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.npmjs.org/@aiou/eslint-config-ts/-/eslint-config-ts-0.0.16.tgz#5cdecc8235f08f658378349f9184296261675257"
+  integrity sha512-qanOpJD93e8xbEAoNgoBmRoBXgLx2QsBRQ7bsWq2WuEt6kNGNSVyeWrm9lM4P7cI74j8RlZLJe7lMBnVYcnh3A==
   dependencies:
     "@aiou/eslint-config-basic" latest
     "@typescript-eslint/eslint-plugin" "^4.17.0"
     "@typescript-eslint/parser" "^4.17.0"
 
-"@aiou/eslint-config@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config/-/eslint-config-0.0.13.tgz#7d8f959d3313edb293bfcd3f862ac26204bb269b"
-  integrity sha512-xHrXRU3r30xCq4ZxDxIDzfYKinIjvYKPLr7wtBgomj1Fq5tOoq0b2NMKD1ZvAtKn7PFo3oJRNNOCITawK2ZEPg==
+"@aiou/eslint-config@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.npmjs.org/@aiou/eslint-config/-/eslint-config-0.0.17.tgz#071381258660e3b1b1f74e39dd1a545dab14276f"
+  integrity sha512-VkhC/VGQ391vURR/RD+hevziIYHudfRQaEwU33Hsz4XP0aG8rA/SWtNZNwuaWBq3WlMm+CjYI/2OQKNZzHHWag==
   dependencies:
-    "@aiou/eslint-config-react" "^0.0.4"
+    "@aiou/eslint-config-react" "^0.0.8"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"

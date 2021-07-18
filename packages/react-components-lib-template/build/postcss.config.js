@@ -5,9 +5,7 @@ const cssnano = require('cssnano')
 const fs = require('fs-extra')
 const cssmodules = require('postcss-modules')({
   generateScopedName: `${pkg.prefix}_[name]_[local]`,
-  getJSON(cssFileName, json, outputFileName) {
-    const path = require('path')
-    const cssName = path.basename(cssFileName, '.css')
+  getJSON(cssFileName, json, _outputFileName) {
     fs.outputFileSync(`${cssFileName}.json`, JSON.stringify(json))
     fs.outputFileSync(`${cssFileName.replace('/components/', '/es/')}.json`, JSON.stringify(json))
     fs.outputFileSync(`${cssFileName.replace('/components/', '/lib/')}.json`, JSON.stringify(json))

@@ -4,5 +4,6 @@ dist
 scripts
 *.d.ts
 jest
+coverage
 .eslintrc.js,
 size-plugin.json

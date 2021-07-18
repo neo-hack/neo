@@ -70,7 +70,7 @@ function compile(modules) {
     )
 
   function check() {
-    if (error && !argv['ignore-error']) process.exit(1)
+    if (error && !process.argv['ignore-error']) process.exit(1)
   }
 
   tsResult.on('finish', check)

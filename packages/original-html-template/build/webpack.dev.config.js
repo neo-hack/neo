@@ -95,7 +95,7 @@ const devWebpackConfig = {
         messages: [`Running here http://localhost:${port}`],
         notes: ['Happy coding'],
       },
-      onErrors(severity, errors) {
+      onErrors(_severity, _errors) {
         // You can listen to errors transformed and prioritized by the plugin
         // severity can be 'error' or 'warning'
       },

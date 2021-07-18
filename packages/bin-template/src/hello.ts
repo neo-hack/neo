@@ -20,8 +20,8 @@ export const hello = (word: string) => {
         }),
       },
     ])
-    .then((answers) => {
-      logger.log(`hello ${answers.word}`)
+    .then((answers: { word: string }) => {
+      logger.log(`hello ${answers.word || word}`)
     })
     .catch(logger.fatal)
 }

@@ -1,4 +1,3 @@
-const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ThreadLoader = require('thread-loader')
