@@ -1,6 +1,6 @@
 {
   "name": "@aiou/rollup-template",
-  "version": "1.6.5",
+  "version": "1.7.0",
   "main": "lib/rollup-template.cjs.js",
   "module": "lib/rollup-template.esm.js",
   "browser": "lib/rollup-template.umd.js",

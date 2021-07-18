@@ -1,6 +1,6 @@
 {
   "name": "@aiou/eslint-config-template",
-  "version": "0.0.14",
+  "version": "0.1.0",
   "description": "eslint config template for aiou template",
   "keywords": [],
   "license": "MIT",

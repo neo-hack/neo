@@ -1,6 +1,6 @@
 {
   "name": "@aiou/dayjs-plugin-template",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "dayjs plugin template",
   "main": "lib/dayjs-plugin-template.cjs.js",
   "module": "lib/dayjs-plugin-template.esm.js",
