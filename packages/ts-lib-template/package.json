@@ -22,7 +22,7 @@
     ]
   },
   "name": "@aiou/ts-lib-template",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "a starter for typescript lib",
   "keywords": [
     "typescript",

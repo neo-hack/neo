@@ -22,7 +22,7 @@
     ]
   },
   "name": "@aiou/eslint-config-template",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "eslint config template for aiou template",
   "keywords": [],
   "main": "index.js",
