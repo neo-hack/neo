@@ -12,7 +12,6 @@ const sep = chalk.gray('·')
  *
  * @param {String} message
  */
-
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
   console.log(chalk.bgBlue.black(prefix), sep, msg)
