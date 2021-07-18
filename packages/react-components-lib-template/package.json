@@ -1,4 +1,26 @@
 {
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/react-components-lib-template"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
   "name": "@aiou/react-components-lib-template",
   "prefix": "aiou",
   "version": "1.2.1",
@@ -8,13 +30,6 @@
     "components",
     "sortable"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/react-components-lib-template"
-  },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -27,11 +42,6 @@
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
   },
   "typings": "lib/index.d.ts",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && stylus-supremacy format 'components/**/*.styl' -r -p .stylintrc"
-    }
-  },
   "dependencies": {
     "classnames": "2.3.1",
     "lodash.isnull": "3.0.0"
@@ -72,6 +82,7 @@
     "husky": "3.0.0",
     "jest": "27.0.6",
     "jest-css-modules": "^2.1.0",
+    "lint-staged": "^11.0.1",
     "lodash.assign": "4.2.0",
     "merge2": "1.4.1",
     "np": "7.5.0",
@@ -95,10 +106,5 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  }
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

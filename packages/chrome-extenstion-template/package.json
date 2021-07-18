@@ -1,14 +1,29 @@
 {
-  "name": "@aiou/chrome-extenstion-template",
-  "version": "1.2.1",
-  "description": "chrome-extenstion-template",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
   "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/chrome-extenstion-template"
   },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "name": "@aiou/chrome-extenstion-template",
+  "version": "1.2.1",
+  "description": "chrome-extenstion-template",
   "main": "index.js",
   "scripts": {
     "start": "yarn ci",
@@ -17,15 +32,9 @@
     "package": "yarn run build && zip -r chrome-extenstion-template dist",
     "package:force": "rimraf chrome-extenstion-template.zip && yarn run build && zip -r chrome-extenstion-template.zip dist",
     "clean": "rimraf dist",
-    "prettier": "prettier --config .prettierrc --write '**/*'",
     "update": "yarn update && yarn update --save-dev",
     "check": "yarn outdated && yarn outdated --save-dev",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "dependencies": {
     "axios": "0.21.1",
@@ -53,6 +62,7 @@
     "cz-emoji": "^1.3.1",
     "fork-ts-checker-webpack-plugin": "^6.2.12",
     "husky": "3.0.1",
+    "lint-staged": "^11.0.1",
     "np": "7.5.0",
     "prettier": "2.3.2",
     "prettier-quick": "0.0.5",
@@ -71,10 +81,5 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  }
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

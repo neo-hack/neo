@@ -92,7 +92,7 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
 const validateTemplates = (template: string) => {
   if (!template) return
 
-  return Object.keys(templates).findIndex((v) => v === template) > -1
+  return Object.keys(templates).findIndex((v: string) => v === template) > -1
 }
 
 const run = (template: string, project: string) => {
@@ -129,7 +129,7 @@ export const create = (template: string, project: string) => {
             }
           }),
           default: 'react-template',
-          validate: function (answer) {
+          validate(answer: { template: TEMPLATES; project: string }) {
             if (!answer) return 'You must choose at least one template.'
 
             return true

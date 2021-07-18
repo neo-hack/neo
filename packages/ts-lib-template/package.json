@@ -1,4 +1,26 @@
 {
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/ts-lib-template"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
   "name": "@aiou/ts-lib-template",
   "version": "0.4.1",
   "description": "a starter for typescript lib",
@@ -8,13 +30,6 @@
     "template",
     "aiou"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JiangWeixian/templates",
-    "directory": "packages/ts-lib-template"
-  },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "watch": {
@@ -39,11 +54,6 @@
     "check": "yarn outdated && npm outdated --save-dev",
     "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "devDependencies": {
     "@aiou/eslint-config": "0.0.12",
     "@types/jest": "26.0.23",
@@ -51,6 +61,7 @@
     "eslint": "^7.30.0",
     "husky": "^3.1.0",
     "jest": "27.0.6",
+    "lint-staged": "^11.0.1",
     "np": "7.5.0",
     "npm-watch": "0.10.0",
     "prettier": "2.3.2",
@@ -68,10 +79,5 @@
       "path": "cz-emoji"
     }
   },
-  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  }
+  "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4"
 }

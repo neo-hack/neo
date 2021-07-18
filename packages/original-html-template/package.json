@@ -1,14 +1,29 @@
 {
-  "name": "@aiou/original-html-template",
-  "version": "1.4.1",
-  "description": "original html template",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
   "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/original-html-template"
   },
-  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "name": "@aiou/original-html-template",
+  "version": "1.4.1",
+  "description": "original html template",
   "main": "src/index.tsx",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.config.js --host 0.0.0.0",
@@ -16,16 +31,6 @@
     "update": "yarn update && yarn update --save-dev",
     "check": "yarn outdated && yarn outdated --save-dev",
     "release": "np --no-cleanup --yolo --no-publish --any-branch"
-  },
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  },
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
-    }
   },
   "dependencies": {
     "animejs": "3.2.1",
@@ -67,6 +72,7 @@
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "5.3.2",
     "husky": "2.3.0",
+    "lint-staged": "^11.0.1",
     "mini-css-extract-plugin": "2.1.0",
     "np": "7.5.0",
     "postcss": "^8.3.5",

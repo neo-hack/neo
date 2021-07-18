@@ -1,4 +1,9 @@
 {
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
   "name": "@aiou/react-template",
   "version": "1.8.1",
   "description": "React template",
@@ -16,18 +21,17 @@
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.js",
     "update": "yarn update && yarn update --save-dev",
     "check": "yarn outdated && yarn outdated --save-dev",
-    "mock": "PORT=3000 umi-serve",
-    "prettier": "prettier --config .prettierrc --loglevel warn --write '**/*' && stylus-supremacy format 'src/**/*.styl' -r -p .stylintrc"
+    "mock": "PORT=3000 umi-serve"
   },
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  },
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@rematch/core": "1.1.0",
@@ -91,6 +95,7 @@
     "jest": "27.0.6",
     "jest-css-modules": "2.1.0",
     "jest-localstorage-mock": "2.4.14",
+    "lint-staged": "^11.0.1",
     "mini-css-extract-plugin": "2.1.0",
     "np": "7.5.0",
     "postcss": "^8.3.5",

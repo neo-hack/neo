@@ -4,7 +4,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-const files = ['.prettierignore', '.prettierrc', '.eslintrc.js', '.gitignore', 'LICENSE']
+const files = ['.eslintrc.js', '.gitignore', 'LICENSE']
 
 const excludes = ['core']
 
@@ -34,7 +34,7 @@ const syncGithub = (package) => {
 }
 
 /**
- * sync root ['.prettierignore', '.prettierrc', '.eslintrc.js', '.gitignore', 'LICENSE'] into `packages\/**\/template`
+ * sync root ['.eslintrc.js', '.gitignore', 'LICENSE'] into `packages\/**\/template`
  * @param {string[]} files
  */
 const syncTemplate = (package, files = []) => {
@@ -63,6 +63,16 @@ const pkgConfig = (package) => {
       url: 'https://github.com/JiangWeixian/templates',
       directory: `packages/${package}`,
     },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "lint-staged": {
+      "**/**/*.{js,ts,vue,json}": [
+        "eslint --fix"
+      ]
+    }
   }
   const pkg = fs.readFileSync(path.resolve(__dirname, `../packages/${package}/package.json`))
   fs.writeJSONSync(
