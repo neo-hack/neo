@@ -5,9 +5,6 @@
   "keywords": [],
   "license": "MIT",
   "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "files": [
-    "index.js"
-  ],
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --config=index.js"
