@@ -1515,12 +1515,10 @@
   resolved "https://registry.nlark.com/@polka/url/download/@polka/url-1.0.0-next.15.tgz#6a9d143f7f4f49db2d782f9e1c8839a29b43ae23"
   integrity sha1-ap0UP39PSdsteC+eHIg5optDriM=
 
-"@rematch/core@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@rematch/core/-/core-1.1.0.tgz#702aa1d20420cec403d16626cbb7730f9b1a756d"
-  integrity sha512-qqK6oG7peM8wwMzHOEjJUBQUeBSb0i2iwNvRpzj89ebjaqUgvMIWwNWvypk8zleCzkOe1rLRyj+05u5eNBi3lQ==
-  dependencies:
-    redux "^4.0.1"
+"@rematch/core@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rematch/core/-/core-2.0.1.tgz#c69bba9637f41c403c8725834673b12a58a28f31"
+  integrity sha512-EyvgmXzXZnDCIIsmBmOtwzaTQzH+rAlrjcPTiV8Hd/TbFeH5VpCXI/B4myB5aH4P+yQafRkm846HNHMmhkq7kQ==
 
 "@samverschueren/stream-to-observable@^0.3.0", "@samverschueren/stream-to-observable@^0.3.1":
   version "0.3.1"
@@ -10707,7 +10705,7 @@ reduce-function-call@^1.0.1, reduce-function-call@^1.0.2:
   dependencies:
     balanced-match "^1.0.0"
 
-redux@^4.0.0, redux@^4.0.1:
+redux@^4.0.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/redux/-/redux-4.1.0.tgz#eb049679f2f523c379f1aff345c8612f294c88d4"
   integrity sha512-uI2dQN43zqLWCt6B/BMGRMY6db7TTY4qeHHfGeKb3EOhmOKjU3KdWvNLJyqaHRksv/ErdNH7cFZWg9jXtewy4g==
