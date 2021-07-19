@@ -1,7 +1,9 @@
 # @aiou/original-html-template
 *build web application without framework*
 
-[![npm](https://img.shields.io/npm/v/@aiou/original-html-template)](https://github.com/JiangWeixian/templates/tree/master/packages/original-html-template) [![GitHub](https://img.shields.io/npm/l/@aiou/original-html-template)](https://github.com/JiangWeixian/templates/tree/master/packages/original-html-template)
+[![npm](https://img.shields.io/npm/v/@aiou/original-html-template)](https://github.com/JiangWeixian/templates/tree/master/packages/original-html-template) [![GitHub](https://img.shields.io/npm/l/@aiou/original-html-template)](https://github.com/JiangWeixian/templates/tree/master/packages/original-html-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/original-html-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/original-html-template)
 
 ## features
 

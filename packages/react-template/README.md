@@ -2,7 +2,9 @@
 *build spa react template with pure webpack*
 
 
-[![npm](https://img.shields.io/npm/v/@aiou/react-template)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template) [![GitHub](https://img.shields.io/npm/l/@aiou/react-components-lib-template)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template)
+[![npm](https://img.shields.io/npm/v/@aiou/react-template)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template) [![GitHub](https://img.shields.io/npm/l/@aiou/react-template)](https://github.com/JiangWeixian/templates/tree/master/packages/react-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/react-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/react-template)
 
 ## features
 

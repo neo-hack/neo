@@ -1,7 +1,10 @@
 # @aiou/chrome-extenstion-template
 *build chrome crx application*
 
-[![npm](https://img.shields.io/npm/v/@aiou/chrome-extenstion-template)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template) [![GitHub](https://img.shields.io/npm/l/@aiou/chrome-extenstion-template)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
+[![npm](https://img.shields.io/npm/v/@aiou/chrome-extenstion-template)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template) [![GitHub](https://img.shields.io/npm/l/@aiou/chrome-extenstion-template)](https://github.com/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/chrome-extenstion-template)
+
 
 ## features
 
