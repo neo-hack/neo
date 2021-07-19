@@ -1,7 +1,9 @@
 # @aiou/webpack-loader-template
 *build webpack loader*
 
-[![npm](https://img.shields.io/npm/v/@aiou/webpack-loader-template)](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template) [![GitHub](https://img.shields.io/npm/l/@aiou/webpack-loader-template)](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
+[![npm](https://img.shields.io/npm/v/@aiou/webpack-loader-template)](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template) [![GitHub](https://img.shields.io/npm/l/@aiou/webpack-loader-template)](https://github.com/JiangWeixian/templates/tree/master/packages/webpack-loader-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/webpack-loader-template)
 
 ## install
 

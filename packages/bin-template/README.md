@@ -1,7 +1,9 @@
 # @aiou/bin-template
 *build npm cli command application*
 
-[![npm](https://img.shields.io/npm/v/@aiou/bin-template)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/npm/l/@aiou/bin-template)](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template)
+[![npm](https://img.shields.io/npm/v/@aiou/bin-template)](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template) [![GitHub](https://img.shields.io/npm/l/@aiou/bin-template)](https://github.com/JiangWeixian/templates/tree/master/packages/bin-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/bin-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/bin-template)
 
 ## features
 
