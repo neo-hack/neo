@@ -21,30 +21,30 @@
     jsonc-eslint-parser "^1.0.1"
     yaml-eslint-parser "^0.3.2"
 
-"@aiou/eslint-config-react@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config-react/-/eslint-config-react-0.0.11.tgz#16421b88cb03f034c2897177149570b8a1489a75"
-  integrity sha512-P2mocOZgYe1iuM4RxuxxzwTXzlU4ORzmIDniVm5jiw4Q07TRf4pNJSATkp0FWT86zjxdJcaltVOTg2VQV87MKA==
+"@aiou/eslint-config-react@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@aiou/eslint-config-react/-/eslint-config-react-0.0.17.tgz#79d97a112459a35e171100a97ffcde5242456d62"
+  integrity sha512-fxmxjh1tRC1PxLPxpTlsAx7cT52OVEkKrxE50AIbh2FLWhhQf6r7z4rwGi7w9UhAaAezLHGMIGA8iZnYxpNqjA==
   dependencies:
-    "@aiou/eslint-config-ts" "^0.0.19"
+    "@aiou/eslint-config-ts" "^0.0.25"
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@aiou/eslint-config-ts@^0.0.19":
-  version "0.0.19"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config-ts/-/eslint-config-ts-0.0.19.tgz#728ef7aa8afc85e3f98faa2e8be781ff6c8ba2de"
-  integrity sha512-aNEddfQbOvLdlcqyKxdytDPcTLb+Y6Oo27C3AVffOKgbQxTIpmtVAG4CAsOi0n7mXATP6qKzsxJexgBCtzCpfQ==
+"@aiou/eslint-config-ts@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@aiou/eslint-config-ts/-/eslint-config-ts-0.0.25.tgz#0442451817b59916b05e87523f0e10f729e5b7c8"
+  integrity sha512-C3FOnymU/gqhO5kf77lvzgquUNfgHlArSPl+iv0VNTXZkOvfB8OXA91EUYzEVdOn9LTNylAGUTf1HD0m7jhOZQ==
   dependencies:
     "@aiou/eslint-config-basic" latest
     "@typescript-eslint/eslint-plugin" "^4.17.0"
     "@typescript-eslint/parser" "^4.17.0"
 
-"@aiou/eslint-config@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.npmjs.org/@aiou/eslint-config/-/eslint-config-0.0.20.tgz#61796f95f5ca5082dedbc355da5dc3874b4e9ac3"
-  integrity sha512-hC5YFdAYCwiOxXPPxYjHAH8AXPalJF76zGMiJ4UF3wuoZiRgNkFAp71mCRDEglQAbVeRkyJSNNPabCddLt1oIA==
+"@aiou/eslint-config@^0.0.26":
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/@aiou/eslint-config/-/eslint-config-0.0.26.tgz#f77c2bfc031850a0d8da538db366c78a95057549"
+  integrity sha512-OorVjCpZRIl6Jf2bIWvXPaOpZ0p12Ngtmlh6/zZO9e2rg4YzyKFzcwxTraoFVYD5IsJcRe9GCmeS8EFy1F++KA==
   dependencies:
-    "@aiou/eslint-config-react" "^0.0.11"
+    "@aiou/eslint-config-react" "^0.0.17"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
