@@ -468,7 +468,6 @@ importers:
       '@babel/preset-typescript': 7.14.5
       '@types/animejs': 3.1.4
       '@types/chai': 4.1.7
-      '@types/classnames': 2.3.1
       '@types/copy-webpack-plugin': 8.0.1
       '@types/document-ready': 2.0.0
       '@types/enzyme': 3.9.1
@@ -545,7 +544,6 @@ importers:
       '@babel/preset-typescript': 7.14.5_@babel+core@7.14.6
       '@types/animejs': 3.1.4
       '@types/chai': 4.1.7
-      '@types/classnames': 2.3.1
       '@types/copy-webpack-plugin': 8.0.1_webpack-cli@4.7.2
       '@types/document-ready': 2.0.0
       '@types/enzyme': 3.9.1
@@ -619,7 +617,6 @@ importers:
       '@babel/preset-env': 7.14.7
       '@babel/preset-react': 7.14.5
       '@testing-library/react-hooks': 7.0.1
-      '@types/classnames': 2.3.1
       '@types/jest': ^26.0.24
       '@types/lodash.isnull': 3.0.6
       '@types/react': 17.0.14
@@ -678,7 +675,6 @@ importers:
       '@babel/preset-env': 7.14.7_@babel+core@7.14.6
       '@babel/preset-react': 7.14.5_@babel+core@7.14.6
       '@testing-library/react-hooks': 7.0.1_509016fd322278d497c1e58f6164ce1d
-      '@types/classnames': 2.3.1
       '@types/jest': 26.0.24
       '@types/lodash.isnull': 3.0.6
       '@types/react': 17.0.14
@@ -734,7 +730,6 @@ importers:
       '@babel/preset-react': 7.14.5
       '@babel/preset-typescript': 7.14.5
       '@rematch/core': 1.1.0
-      '@types/classnames': 2.3.1
       '@types/copy-webpack-plugin': 8.0.1
       '@types/html-webpack-plugin': 3.2.6
       '@types/jest': 26.0.24
@@ -848,7 +843,6 @@ importers:
       '@babel/preset-env': 7.14.7_@babel+core@7.14.6
       '@babel/preset-react': 7.14.5_@babel+core@7.14.6
       '@babel/preset-typescript': 7.14.5_@babel+core@7.14.6
-      '@types/classnames': 2.3.1
       '@types/copy-webpack-plugin': 8.0.1_webpack-cli@4.7.2
       '@types/html-webpack-plugin': 3.2.6
       '@types/jest': 26.0.24
@@ -5956,13 +5950,6 @@ packages:
       '@types/har-format': 1.2.7
     dev: true
 
-  /@types/classnames/2.3.1:
-    resolution: {integrity: sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==}
-    deprecated: This is a stub types definition. classnames provides its own type definitions, so you do not need this installed.
-    dependencies:
-      classnames: 2.3.1
-    dev: true
-
   /@types/clean-css/4.2.5:
     resolution: {integrity: sha512-NEzjkGGpbs9S9fgC4abuBvTpVwE3i+Acu9BBod3PUyjDVZcNsGx61b8r2PphR61QGPnn0JHVs5ey6/I4eTrkxw==}
     dependencies:
@@ -8720,6 +8707,7 @@ packages:
 
   /classnames/2.3.1:
     resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /clean-css/4.2.3:
     resolution: {integrity: sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==}

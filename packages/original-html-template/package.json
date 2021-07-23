@@ -5,7 +5,7 @@
     "email": "jiangweixian1994@gmail.com"
   },
   "name": "@aiou/original-html-template",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "original html template",
   "license": "MIT",
   "repository": {
@@ -43,7 +43,6 @@
     "@babel/preset-typescript": "7.14.5",
     "@types/animejs": "3.1.4",
     "@types/chai": "4.1.7",
-    "@types/classnames": "2.3.1",
     "@types/copy-webpack-plugin": "8.0.1",
     "@types/document-ready": "2.0.0",
     "@types/enzyme": "3.9.1",
