@@ -59,7 +59,7 @@
     "husky": "^3.0.1",
     "lint-staged": "^11.0.1",
     "np": "^5.0.1",
-    "npm-check-updates": "^11.5.1",
+    "npm-check-updates": "^11.8.3",
     "prettier": "^2.3.2",
     "typescript": "^3.5.3"
   },
