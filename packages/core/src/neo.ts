@@ -4,8 +4,9 @@ import { program } from 'commander'
 import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
+import { readPackageUpSync } from 'read-pkg-up'
 
-const cli = program.version(require('../package.json').version)
+const cli = program.version(readPackageUpSync()?.packageJson?.version || '')
 
 cli
   .command('create <template-name> [project-name]')
