@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.0.3
+
+### Patch Changes
+
+- template name optional
+
 ## 3.0.2
 
 ### Patch Changes
