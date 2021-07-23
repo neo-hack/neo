@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es2016"],
+    "module": "ES2020",
+    "lib": ["ESNext"],
+    "outDir": "lib",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "sourceMap": true,
     "esModuleInterop": true,
@@ -13,7 +14,12 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "outDir": "lib"
+    "plugins": [
+      {
+        "transform": "typescript-transform-extensions",
+        "extensions": { ".ts": ".js" }
+      }
+    ]
   },
-  "exclude": ["node_modules", "lib"]
+  "include": ["src"]
 }

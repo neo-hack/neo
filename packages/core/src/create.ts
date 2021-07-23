@@ -7,12 +7,13 @@ import ora from 'ora'
 import inquirer from 'inquirer'
 import download from 'download'
 import globby from 'globby'
+import rimraf from 'rimraf'
+import fsExtra from 'fs-extra'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, SCOPE } from './utils/constants'
 
-const rm = require('rimraf').sync
-const fsExtra = require('fs-extra')
+const rm = rimraf.sync
 
 process.on('exit', () => {
   console.log()
