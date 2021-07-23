@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.0.2
+
+### Patch Changes
+
+- fix es ext
+
 ## 3.0.1
 
 ### Patch Changes
