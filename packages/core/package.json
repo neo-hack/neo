@@ -1,6 +1,6 @@
 {
   "name": "@aiou/neo",
-  "version": "2.7.4",
+  "version": "3.0.3",
   "description": "templates cli",
   "license": "MIT",
   "author": "JW",
@@ -23,6 +23,9 @@
     "check": "yarn outdated && yarn outdated --save-dev",
     "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "chalk": "4.1.1",
     "commander": "8.0.0",
@@ -34,7 +37,8 @@
     "read-pkg-up": "^8.0.0",
     "rimraf": "3.0.2",
     "terminal-image": "2.0.0",
-    "tildify": "2.0.0"
+    "tildify": "2.0.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/download": "8.0.1",

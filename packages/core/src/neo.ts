@@ -9,7 +9,7 @@ import { readPackageUpSync } from 'read-pkg-up'
 const cli = program.version(readPackageUpSync()?.packageJson?.version || '')
 
 cli
-  .command('create <template-name> [project-name]')
+  .command('create [template-name] [project-name]')
   .description('generate a new project from a neo template')
   .alias('c')
   .action(create)
