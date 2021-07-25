@@ -1,5 +1,11 @@
 # @aiou/react-components-lib-template
 
+## 1.2.7
+
+### Patch Changes
+
+- update eslint-config
+
 ## 1.2.6
 
 ### Patch Changes
