@@ -1,5 +1,11 @@
 # @aiou/rollup-template
 
+## 1.7.6
+
+### Patch Changes
+
+- add eslint
+
 ## 1.7.5
 
 ### Patch Changes
