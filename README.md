@@ -31,6 +31,7 @@
   - [`rollup-template`](#rollup-template)
   - [`ts-lib-template`](#ts-lib-template)
   - [`webpack-loader-template`](#webpack-loader-template)
+  - [`alfred-workflow-template`](#alfred-workflow-template)
 
 ## install
 
@@ -178,3 +179,10 @@ neo create <template-name> [project-name]
 - Watch mode
 - Build with `tsc`
 - Replace `alias` path to `real` path
+
+### `alfred-workflow-template`
+*build alfred workflow template*
+
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/alfred-workflow-template)
+
+- Build workflow with [alfy](https://github.com/sindresorhus/alfy)

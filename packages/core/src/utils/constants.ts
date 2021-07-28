@@ -12,6 +12,7 @@ export const enum TEMPLATES {
   NEXTJS_REMATCH2_TEMPLATE = 'nextjs-rematch2-template',
   ESLINT_CONFIG_TEMPLATE = 'eslint-config-template',
   DAYJS_PLUGIN_TEMPLATE = 'dayjs-plugin-template',
+  ALFRED_WORKFLOW_TEMPLATE = 'alfred-workflow-template',
 }
 
 export const templates = {
@@ -27,4 +28,5 @@ export const templates = {
   [TEMPLATES.NEXTJS_REMATCH2_TEMPLATE]: 'nextjs and rematch2 quick start',
   [TEMPLATES.ESLINT_CONFIG_TEMPLATE]: 'eslint config template',
   [TEMPLATES.DAYJS_PLUGIN_TEMPLATE]: 'dayjs plugin template',
+  [TEMPLATES.ALFRED_WORKFLOW_TEMPLATE]: 'alfred workflow',
 }

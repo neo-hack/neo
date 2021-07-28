@@ -13,7 +13,7 @@
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/alfred-workflow-template"
   },
-  "author": "JiangWeixian",
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "files": [
     "index.js",
     "utils.js",
@@ -32,10 +32,23 @@
     "access": "public"
   },
   "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
+    "@aiou/eslint-config": "^0.1.3",
     "alfy": "^0.10.0",
     "dayjs": "^1.8.36",
+    "eslint": "^7.31.0",
     "lodash.isnan": "^3.0.2",
+    "prettier": "^2.3.2",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
@@ -44,5 +57,9 @@
     "ava": "^3.12.1",
     "typescript": "^4.0.2"
   },
-  "gitHead": "4a302133a123a80fa398e628df05bb341da9d5df"
+  "gitHead": "4a302133a123a80fa398e628df05bb341da9d5df",
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  }
 }
