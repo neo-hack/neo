@@ -1,5 +1,12 @@
 # @aiou/neo
 
+## 3.0.4
+
+### Patch Changes
+
+- alfred
+- 79385f1: release alfred
+
 ## 3.0.3
 
 ### Patch Changes
