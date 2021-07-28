@@ -14,12 +14,6 @@
     "directory": "packages/alfred-workflow-template"
   },
   "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
-  "files": [
-    "index.js",
-    "utils.js",
-    "info.plist",
-    "icon.png"
-  ],
   "main": "index.js",
   "scripts": {
     "test": "ava",
