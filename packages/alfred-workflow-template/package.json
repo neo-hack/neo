@@ -1,0 +1,48 @@
+{
+  "name": "@aiou/alfred-workflow-template",
+  "version": "0.0.1",
+  "description": "alfred workflow template",
+  "keywords": [
+    "alfred",
+    "dayjs",
+    "alfred-workflow-template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
+    "directory": "packages/alfred-workflow-template"
+  },
+  "author": "JiangWeixian",
+  "files": [
+    "index.js",
+    "utils.js",
+    "info.plist",
+    "icon.png"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "build": "tsc",
+    "pretest": "yarn run build",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "dependencies": {
+    "alfy": "^0.10.0",
+    "dayjs": "^1.8.36",
+    "lodash.isnan": "^3.0.2",
+    "tslib": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash.isnan": "^3.0.6",
+    "alfy-test": "^0.4.0",
+    "ava": "^3.12.1",
+    "typescript": "^4.0.2"
+  },
+  "gitHead": "4a302133a123a80fa398e628df05bb341da9d5df"
+}
