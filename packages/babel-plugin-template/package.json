@@ -13,8 +13,8 @@
   "license": "MIT",
   "homepage": "https://github.com/JiangWeixian/templates#readme",
   "repository": {
-    "url": "https://github.com/JiangWeixian/templates",
     "type": "git",
+    "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/babel-plugin-template"
   },
   "bugs": {
@@ -81,6 +81,11 @@
   "config": {
     "commitizen": {
       "path": "cz-emoji"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   }
 }
