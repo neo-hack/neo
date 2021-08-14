@@ -1,14 +1,12 @@
 {
-  "name": "babel-plugin-template",
-  "version": "0.2.0",
-  "description": "compile windicss to css",
+  "name": "@aiou/babel-plugin-template",
+  "version": "0.0.0",
+  "description": "babel plugin template",
   "keywords": [
-    "styled-components",
-    "css-in-js",
+    "babel-plugin-template",
     "babel-plugin",
-    "server-side rendering",
-    "ssr",
-    "displayName"
+    "babel",
+    "aiou"
   ],
   "license": "MIT",
   "homepage": "https://github.com/JiangWeixian/templates#readme",

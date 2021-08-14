@@ -32,6 +32,7 @@
   - [`ts-lib-template`](#ts-lib-template)
   - [`webpack-loader-template`](#webpack-loader-template)
   - [`alfred-workflow-template`](#alfred-workflow-template)
+  - [`babel-plugin-template`](#babel-plugin-template)
 
 ## install
 
@@ -186,3 +187,10 @@ neo create <template-name> [project-name]
 [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/alfred-workflow-template)
 
 - Build workflow with [alfy](https://github.com/sindresorhus/alfy)
+
+### `babel-plugin-template`
+*build babel plugin*
+
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/babel-plugin-template)
+
+1. support babel snapshot test
