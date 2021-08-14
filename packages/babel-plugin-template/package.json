@@ -1,0 +1,86 @@
+{
+  "name": "babel-plugin-template",
+  "version": "0.2.0",
+  "description": "compile windicss to css",
+  "keywords": [
+    "styled-components",
+    "css-in-js",
+    "babel-plugin",
+    "server-side rendering",
+    "ssr",
+    "displayName"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "repository": {
+    "url": "https://github.com/JiangWeixian/templates",
+    "type": "git",
+    "directory": "packages/babel-plugin-template"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint:fix": "eslint . --fix",
+    "build": "babel src -d lib",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "peerDependencies": {
+    "styled-components": ">= 2"
+  },
+  "dependencies": {
+    "@babel/helper-module-imports": "^7.0.0",
+    "@windicss/plugin-utils": "^1.2.7",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "windicss": "^3.1.6"
+  },
+  "devDependencies": {
+    "@aiou/eslint-config": "^0.1.4",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.4.5",
+    "@changesets/cli": "^2.16.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-test": "^0.2.1",
+    "cz-emoji": "^1.3.1",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "jest-file-snapshot": "^0.5.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.0",
+    "styled-components": "^5.0.0",
+    "typescript": "^4.3.5"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "snapshotSerializers": [
+      "<rootDir>/test/whitespaceTrimmingSerializer.js"
+    ],
+    "watchPathIgnorePatterns": [
+      "fixtures\\/[^/]+\\/(output|error)\\.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
+  }
+}
