@@ -1,9 +1,4 @@
 {
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  },
   "name": "@aiou/webpack-loader-template",
   "version": "0.2.3",
   "description": "a starter for webpack-loader",
@@ -13,13 +8,19 @@
     "template"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/webpack-loader-template"
   },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
   "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "rimraf lib && ttsc",
     "run_dev": "rimraf lib && ttsc",
@@ -40,7 +41,6 @@
       "eslint --fix"
     ]
   },
-  "typings": "lib/index.d.ts",
   "watch": {
     "run_dev": {
       "patterns": [

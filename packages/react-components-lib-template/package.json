@@ -1,9 +1,4 @@
 {
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  },
   "name": "@aiou/react-components-lib-template",
   "version": "1.2.7",
   "description": "react-components-lib-template",
@@ -13,14 +8,20 @@
     "sortable"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/react-components-lib-template"
   },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
   "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "pretest": "yarn run build",
     "test": "cross-env NODE_ENV=test jest",
@@ -41,13 +42,12 @@
     ]
   },
   "prefix": "aiou",
-  "typings": "lib/index.d.ts",
   "dependencies": {
     "classnames": "2.3.1",
     "lodash.isnull": "3.0.0"
   },
   "devDependencies": {
-    "@aiou/eslint-config": "^0.1.3",
+    "@aiou/eslint-config": "^0.2.1",
     "@babel/core": "7.14.6",
     "@babel/plugin-transform-typescript": "7.14.6",
     "@babel/preset-env": "7.14.7",

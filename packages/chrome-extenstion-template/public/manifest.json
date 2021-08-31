@@ -27,8 +27,5 @@
     "scripts": ["js/vendor.js", "js/background.js"]
   },
 
-  "permissions": [
-    "storage",
-    "<all_urls>"
-  ]
+  "permissions": ["storage", "<all_urls>"]
 }

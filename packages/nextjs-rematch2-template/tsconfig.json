@@ -5,10 +5,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -21,23 +18,11 @@
     "target": "ES2015",
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "pages/*"
-      ]
+      "~/*": ["./*"],
+      "@/*": ["pages/*"]
     },
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "next.config.js",
-    "test/demo.test.jsx",
-    "test/demo.test.jsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx", "next.config.js", "test/demo.test.jsx", "test/demo.test.jsx"]
 }

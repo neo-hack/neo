@@ -14,7 +14,7 @@ const Home = (props: PageProps) => {
   return (
     <div>
       this is new home page reload1
-      {data?.map(v => (
+      {data?.map((v) => (
         <span key={v}>{v}-1</span>
       ))}
       <ExampleCount />

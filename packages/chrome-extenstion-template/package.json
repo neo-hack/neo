@@ -1,17 +1,17 @@
 {
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues",
-    "email": "jiangweixian1994@gmail.com"
-  },
   "name": "@aiou/chrome-extenstion-template",
   "version": "1.2.4",
   "description": "chrome-extenstion-template",
   "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/JiangWeixian/templates",
     "directory": "packages/chrome-extenstion-template"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
   },
   "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
   "main": "index.js",

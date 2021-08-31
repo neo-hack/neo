@@ -7,7 +7,7 @@ module.exports = {
   verbose: true,
   collectCoverage: true,
   globals: {
-    'NODE_ENV': 'test',
+    NODE_ENV: 'test',
     'ts-jest': {
       diagnostics: false,
       tsConfig: 'tsconfig.test.json',

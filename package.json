@@ -7,9 +7,13 @@
     "neo"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JiangWeixian/templates.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/templates/issues"
   },
   "author": "jiangweixian",
   "files": [
@@ -17,13 +21,10 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint '**/*.{js,ts,json}'",
-    "lint:fix": "eslint '**/*.{js,ts,json}' --fix",
+    "lint": "eslint '**/*.{js,ts,tsx,json}'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx,json}' --fix",
     "sync": "node scripts/sync.js",
-    "start": "lerna bootstrap",
-    "check": "lerna run check",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
-    "publish": "lerna publish --ignore-scripts --yes",
     "upgrade:core": "cd packages/core && ncu --configFilePath ./.ncurc.json",
     "upgrade:bin": "cd packages/bin-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:next": "cd packages/nextjs-rematch2-template && ncu --configFilePath ./.ncurc.json",
@@ -63,10 +64,6 @@
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   },
-  "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues"
-  },
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
   "config": {
     "commitizen": {
       "path": "cz-emoji"

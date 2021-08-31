@@ -9,7 +9,7 @@ const user = createModel({
   },
   effects: {
     async incrementAsync() {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
       this.increment()
     },
   },
