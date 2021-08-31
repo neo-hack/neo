@@ -1,5 +1,11 @@
 # @aiou/react-template
 
+## 1.8.6
+
+### Patch Changes
+
+- lintfix package
+
 ## 1.8.5
 
 ### Patch Changes

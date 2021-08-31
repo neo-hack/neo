@@ -1,5 +1,11 @@
 # @aiou/react-components-lib-template
 
+## 1.2.8
+
+### Patch Changes
+
+- lintfix package
+
 ## 1.2.7
 
 ### Patch Changes

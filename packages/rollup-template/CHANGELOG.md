@@ -1,5 +1,11 @@
 # @aiou/rollup-template
 
+## 1.7.7
+
+### Patch Changes
+
+- lintfix package
+
 ## 1.7.6
 
 ### Patch Changes
