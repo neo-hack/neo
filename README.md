@@ -49,7 +49,7 @@ neo whoami
 
 <div align='center'>
 
-![whoami](/packages/core/src/assets/neo.jpg)  
+![whoami](/packages/core/assets/neo.jpg)  
 *▲ whoami*
 
 </div>
