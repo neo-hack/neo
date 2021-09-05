@@ -28,10 +28,9 @@ jobs:
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install pnpm
         run: curl -f https://get.pnpm.io/v6.14.js | node - add --global pnpm@6
-      - name: Build
+      - name: Install
         run: |
-          pnpm install --filter=!./packages/alfred-workflow-template
-        working-directory: ./packages/core
+          pnpm i --filter=!./packages/alfred-workflow-template
       - name: Test
         run: |
           pnpm run build
