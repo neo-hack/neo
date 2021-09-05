@@ -1,12 +1,13 @@
 {
   "name": "@aiou/neo",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "templates cli",
   "license": "MIT",
   "author": "JW",
   "type": "module",
   "files": [
-    "lib"
+    "lib",
+    "assets"
   ],
   "engines": {
     "node": ">=12"
@@ -16,13 +17,10 @@
   },
   "scripts": {
     "clean": "rimraf lib",
-    "prebuild": "yarn run clean",
-    "build": "ttsc",
-    "test": "jest",
-    "pretest": "yarn run build",
-    "update": "yarn update && yarn update --save-dev",
-    "check": "yarn outdated && yarn outdated --save-dev",
-    "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+    "build": "pnpm run clean && ttsc",
+    "test": "pnpm run build && jest",
+    "prepublish": "pnpm run build",
+    "release:beta": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },
   "publishConfig": {
     "access": "public"
@@ -39,7 +37,8 @@
     "rimraf": "3.0.2",
     "terminal-image": "2.0.0",
     "tildify": "2.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "update-notifier": "^5.1.0"
   },
   "devDependencies": {
     "@types/download": "8.0.1",
@@ -47,6 +46,7 @@
     "@types/inquirer": "7.3.3",
     "@types/node": "16.3.3",
     "@types/rimraf": "3.0.1",
+    "@types/update-notifier": "^5.1.0",
     "builtin-modules": "3.2.0",
     "cz-emoji": "^1.3.1",
     "execa": "^5.1.1",

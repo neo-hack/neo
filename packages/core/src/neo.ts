@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 import { program } from 'commander'
+import updateNotifier from 'update-notifier'
 
 import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
 import { readPackageUpSync } from 'read-pkg-up'
 
-const cli = program.version(readPackageUpSync()?.packageJson?.version || '')
+const pkg = readPackageUpSync()?.packageJson
+const notifier = updateNotifier({ pkg })
+notifier.notify()
+
+const cli = program.version(pkg?.version || '')
 
 cli
   .command('create [template-name] [project-name]')

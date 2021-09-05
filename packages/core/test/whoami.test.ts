@@ -1,3 +1,11 @@
+import execa from 'execa'
+
+const cli = require.resolve('../lib/neo.js')
+
 describe('command whoami', () => {
-  it.todo('should print neo')
+  it('should print neo', async () => {
+    const { stdout, stderr } = await execa('node', [cli].concat(['whoami']))
+    expect(stderr).toBe('')
+    expect(stdout).toMatchSnapshot()
+  })
 })

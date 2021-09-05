@@ -1,11 +1,11 @@
 on:
   push:
     paths:
-      - 'packages/bin-template/**'
+      - 'packages/core/**'
     branches: [master]
   pull_request:
     paths:
-      - 'packages/bin-template/**'
+      - 'packages/core/**'
     branches: [master]
 
 jobs:
@@ -17,8 +17,9 @@ jobs:
       - name: Checkout
         run: |
           yarn
-        working-directory: ./packages/bin-template
+        working-directory: ./packages/core
       - name: Build
         run: |
           yarn build
-        working-directory: ./packages/bin-template
+          yarn test
+        working-directory: ./packages/core

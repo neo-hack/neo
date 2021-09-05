@@ -1,5 +1,17 @@
 # @aiou/neo
 
+## 3.0.5
+
+### Patch Changes
+
+- enable update noti
+
+## 3.0.5
+
+### Patch Changes
+
+- fix subcommands failed
+
 ## 3.0.4
 
 ### Patch Changes
