@@ -13,7 +13,6 @@ process.on('exit', () => {
  * @description List all templates
  */
 export const list = () => {
-  console.log('  Templates:')
   console.log()
   Object.keys(templates).forEach((k) => {
     console.log(`    * ${k}: ${templates[k]}`)

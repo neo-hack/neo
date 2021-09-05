@@ -5,7 +5,7 @@ on:
     branches: [master]
   pull_request:
     paths:
-      - 'packages/ts-lib-template/**'
+      - 'packages/bin-template/**'
     branches: [master]
 
 jobs:
