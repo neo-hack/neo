@@ -18,6 +18,8 @@ jobs:
         run: |
           yarn
         working-directory: ./packages/react-template
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Test
         run: |
           yarn test

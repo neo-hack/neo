@@ -18,6 +18,8 @@ jobs:
         run: |
           yarn
         working-directory: ./packages/chrome-extenstion-template
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Build
         run: |
           yarn build
