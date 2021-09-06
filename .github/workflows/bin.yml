@@ -13,14 +13,18 @@ jobs:
     runs-on: 'ubuntu-18.04'
     name: Cli extensions
     steps:
-      - uses: actions/checkout@v2
-      - name: Checkout
+      - name: checkout code repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.14.js | node - add --global pnpm@6
+      - name: Install  
         run: |
-          yarn
-        working-directory: ./packages/bin-template
+          pnpm i --filter=./packages/bin-template
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Build
         run: |
-          yarn build
+          pnpm build
         working-directory: ./packages/bin-template
