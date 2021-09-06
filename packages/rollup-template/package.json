@@ -37,7 +37,7 @@
     ]
   },
   "dependencies": {
-    "@aiou/eslint-config": "^0.2.1",
+    "@aiou/eslint-config": "^0.2.2",
     "eslint": "^7.31.0",
     "functional-md": "^1.1.0"
   },
