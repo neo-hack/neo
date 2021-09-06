@@ -1,10 +1,7 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ThreadLoader = require('thread-loader')
 
 const configs = require('./config')
-
-ThreadLoader.warmup(configs.workerpool, ['ts-loader', 'babel-loader'])
 
 const config = {
   context: configs.path.context,

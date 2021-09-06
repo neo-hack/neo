@@ -41,7 +41,7 @@
     ]
   },
   "dependencies": {
-    "@aiou/eslint-config": "^0.2.1",
+    "@aiou/eslint-config": "^0.2.2",
     "alfy": "^0.10.0",
     "dayjs": "^1.8.36",
     "eslint": "^7.31.0",

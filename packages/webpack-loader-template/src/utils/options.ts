@@ -27,7 +27,7 @@ export const validateOptions = (options: Options) => {
 }
 
 export const getOptions = (context: Webpack.LoaderContext<Options>): Options => {
-  const options = loadUtils.getOptions(context)
+  const options = loadUtils.getOptions(context as any)
   validateOptions(options)
   return options
 }
