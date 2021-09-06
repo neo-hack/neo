@@ -1,5 +1,12 @@
 # @aiou/neo
 
+## 3.0.6
+
+### Patch Changes
+
+- 6fc085b: fix readpkg up
+- 6fc085b: fix build
+
 ## 3.0.5
 
 ### Patch Changes

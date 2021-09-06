@@ -1,6 +1,6 @@
 {
   "name": "@aiou/webpack-loader-template",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "a starter for webpack-loader",
   "keywords": [
     "webpack",
