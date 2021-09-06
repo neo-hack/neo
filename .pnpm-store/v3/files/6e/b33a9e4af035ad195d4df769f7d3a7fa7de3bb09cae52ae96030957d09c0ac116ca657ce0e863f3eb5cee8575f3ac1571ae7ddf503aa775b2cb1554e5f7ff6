@@ -1,0 +1,2 @@
+export declare function requireFromLinter<T>(module: string): T | null;
+export declare function requireFromCwd<T>(module: string): T | null;

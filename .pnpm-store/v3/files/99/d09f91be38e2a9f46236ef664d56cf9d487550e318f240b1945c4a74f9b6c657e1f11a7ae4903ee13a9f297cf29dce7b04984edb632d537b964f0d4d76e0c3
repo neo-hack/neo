@@ -1,0 +1,8 @@
+declare type ListProps<T> = {
+    dataSource?: T[];
+    renderItem?: (value: T) => string;
+    limit?: number;
+};
+export declare const listItem: (value: string) => string;
+export declare const list: <T>({ dataSource, limit, ...props }: ListProps<T>) => string;
+export {};

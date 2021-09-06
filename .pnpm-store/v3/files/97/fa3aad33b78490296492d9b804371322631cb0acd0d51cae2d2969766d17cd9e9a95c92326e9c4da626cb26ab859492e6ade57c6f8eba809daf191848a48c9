@@ -1,0 +1,35 @@
+{
+  "name": "@aiou/eslint-plugin-progress",
+  "version": "0.1.6",
+  "description": "Report progress when running ESLint. Useful for large projects!",
+  "keywords": [
+    "eslint-plugin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/eslint-config/packages/progress/readme.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/eslint-config.git",
+    "directory": "packages/progress"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/eslint-config/issues"
+  },
+  "author": "JW <jiangweixian1994@gmail.com>",
+  "main": "index.js",
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

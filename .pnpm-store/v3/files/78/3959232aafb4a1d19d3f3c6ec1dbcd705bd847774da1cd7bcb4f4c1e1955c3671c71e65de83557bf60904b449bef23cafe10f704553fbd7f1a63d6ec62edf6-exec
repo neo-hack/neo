@@ -1,0 +1,35 @@
+{
+    "name": "@types/animejs",
+    "version": "3.1.4",
+    "description": "TypeScript definitions for animejs",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/animejs",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Andrew Babin    ",
+            "url": "https://github.com/A-Babin",
+            "githubUsername": "A-Babin"
+        },
+        {
+            "name": "supaiku0        ",
+            "url": "https://github.com/supaiku0",
+            "githubUsername": "supaiku0"
+        },
+        {
+            "name": "southrock        ",
+            "url": "https://github.com/southrock",
+            "githubUsername": "southrock"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/animejs"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "5f867aae05fde944b4e59babaa91577854a6220dced65d96a8ca495b879d51e5",
+    "typeScriptVersion": "3.6"
+}

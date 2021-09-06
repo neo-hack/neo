@@ -1,0 +1,34 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.table = void 0;
+/**
+ * @description render markdown table
+ */
+var table = function (props) {
+    var len = props.columns.length;
+    var tableHeader = new Array(len)
+        .fill(0)
+        .map(function (_v, i) {
+        return "|" + props.columns[i].title;
+    })
+        .concat('|')
+        .join('');
+    var fixedRow = new Array(len)
+        .fill(0)
+        .map(function () {
+        return "|" + new Array(5).fill('-').join('');
+    })
+        .concat('|')
+        .join('');
+    var rows = props.dataSource
+        .map(function (v) {
+        var row = props.columns
+            .map(function (col) { var _a; return "|" + (((_a = col.render) === null || _a === void 0 ? void 0 : _a.call(col, col.dataIndex ? v[col.dataIndex] : v)) || v[col.dataIndex]); })
+            .concat('|')
+            .join('');
+        return row;
+    })
+        .join('\n');
+    return [tableHeader, fixedRow, rows].join('\n');
+};
+exports.table = table;

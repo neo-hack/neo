@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.list = exports.listItem = void 0;
+var tslib_1 = require("tslib");
+var block_1 = require("./block");
+var listItem = function (value) {
+    return ['- ', value].join('');
+};
+exports.listItem = listItem;
+var list = function (_a) {
+    var _b = _a.dataSource, dataSource = _b === void 0 ? [] : _b, _c = _a.limit, limit = _c === void 0 ? Infinity : _c, props = tslib_1.__rest(_a, ["dataSource", "limit"]);
+    var lists = dataSource.slice(0, limit).map(function (v) {
+        var content = v;
+        if (props.renderItem) {
+            content = props.renderItem(v);
+        }
+        return exports.listItem(content);
+    });
+    var tail = '';
+    if (limit < dataSource.length) {
+        tail = exports.listItem('...');
+    }
+    return block_1.block(lists.concat(tail));
+};
+exports.list = list;

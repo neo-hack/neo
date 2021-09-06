@@ -1,0 +1,50 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.menu = void 0;
+var block_1 = require("./block");
+var list_1 = require("./list");
+var prefixable = function (level) {
+    if (level === void 0) { level = 0; }
+    if (level === 0) {
+        return '';
+    }
+    return ' '.repeat(level + 1);
+};
+var isStringMenu = function (items) {
+    if (items === void 0) { items = []; }
+    return typeof items[0] === 'string';
+};
+var isObjectMenu = function (items) {
+    if (items === void 0) { items = []; }
+    return typeof items[0] === 'object';
+};
+var getSubMenu = function (dataSource, level) {
+    if (dataSource === void 0) { dataSource = []; }
+    if (level === void 0) { level = 0; }
+    if (dataSource.length === 0) {
+        return '';
+    }
+    if (isStringMenu(dataSource)) {
+        var data = dataSource.map(function (v) {
+            return block_1.inlineBlock(prefixable(level), list_1.listItem(v));
+        });
+        return block_1.block(data);
+    }
+    if (isObjectMenu(dataSource)) {
+        var data = dataSource.map(function (v) {
+            var parent = block_1.inlineBlock(prefixable(level), list_1.listItem(v.title));
+            var children = getSubMenu(v.items, level + 1);
+            if (children === '') {
+                return parent;
+            }
+            return block_1.block(parent, children);
+        });
+        return block_1.block(data);
+    }
+    return '';
+};
+var menu = function (_a) {
+    var _b = _a.dataSource, dataSource = _b === void 0 ? [] : _b;
+    return getSubMenu(dataSource, 0);
+};
+exports.menu = menu;

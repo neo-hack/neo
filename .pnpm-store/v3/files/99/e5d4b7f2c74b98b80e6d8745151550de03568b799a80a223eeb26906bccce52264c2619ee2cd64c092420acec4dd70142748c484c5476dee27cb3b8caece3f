@@ -1,0 +1,42 @@
+{
+  "name": "postcss-easings",
+  "version": "1.0.1",
+  "description": "PostCSS plugin to replace easing names to cubic-bezier()",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "easings",
+    "ease"
+  ],
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "postcss/postcss-easings",
+  "dependencies": {
+    "postcss": "^6.0.14",
+    "postcss-value-parser": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "test": "jest --coverage && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}

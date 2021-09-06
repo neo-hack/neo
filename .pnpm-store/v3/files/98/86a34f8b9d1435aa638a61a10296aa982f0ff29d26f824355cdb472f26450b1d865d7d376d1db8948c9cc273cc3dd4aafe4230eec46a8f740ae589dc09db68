@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.title = void 0;
+var tslib_1 = require("tslib");
+var block_1 = require("./block");
+var constants_1 = tslib_1.__importDefault(require("./constants"));
+var title = function (_a) {
+    var _b = _a.heading, heading = _b === void 0 ? 1 : _b, props = tslib_1.__rest(_a, ["heading"]);
+    var hash = '#'.repeat(heading);
+    return block_1.inlineBlock([hash, ' ', props.children || '', constants_1.default.newline]);
+};
+exports.title = title;

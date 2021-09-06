@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inlineCode = exports.code = void 0;
+var block_1 = require("./block");
+var code = function (props) {
+    return block_1.block(['```' + (props.language || ''), props.value || '', '```']);
+};
+exports.code = code;
+var inlineCode = function (props) {
+    return block_1.inlineBlock(['`', props.value || '', '`']);
+};
+exports.inlineCode = inlineCode;

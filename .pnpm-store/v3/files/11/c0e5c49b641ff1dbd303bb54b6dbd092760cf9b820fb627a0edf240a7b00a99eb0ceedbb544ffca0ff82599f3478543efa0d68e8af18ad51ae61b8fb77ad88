@@ -1,0 +1,2 @@
+declare const getExternal: (modules?: string[], peerDependenciesFlag?: boolean, dependenciesFlag?: boolean) => string[] | ((module: string) => boolean);
+export default getExternal;

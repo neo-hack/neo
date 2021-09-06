@@ -1,0 +1,67 @@
+{
+  "name": "rucksack-css",
+  "version": "1.0.2",
+  "description": "A little bag of CSS superpowers",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --reporter nyan",
+    "posttest": "eslint ."
+  },
+  "keywords": [
+    "rucksack",
+    "postcss",
+    "css",
+    "framework",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simplaio/rucksack.git"
+  },
+  "author": "Sean King <sean@simpla.io>",
+  "maintainers": [
+    {
+      "name": "Sean King",
+      "email": "sean@simpla.io",
+      "web": "https://twitter.com/seaneking"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/simplaio/rucksack/issues"
+  },
+  "bin": {
+    "rucksack": "./bin/cmd.js"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "homepage": "https://github.com/simplaio/rucksack",
+  "dependencies": {
+    "autoprefixer": "^7.1.2",
+    "laggard": "^2.0.0",
+    "minimist": "^1.1.2",
+    "postcss": "^6.0.8",
+    "postcss-alias": "^2.0.0",
+    "postcss-clearfix": "^2.0.1",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-easings": "^1.0.0",
+    "postcss-fontpath": "^1.0.0",
+    "postcss-hexrgba": "^1.0.0",
+    "postcss-input-style": "^1.0.0",
+    "postcss-opacity": "^5.0.0",
+    "postcss-position": "^1.0.0",
+    "postcss-pseudoelements": "^5.0.0",
+    "postcss-quantity-queries": "^0.5.0",
+    "postcss-reporter": "^5.0.0",
+    "postcss-responsive-type": "^1.0.0",
+    "postcss-vmin": "^3.0.0",
+    "read-file-stdin": "^0.2.0",
+    "write-file-stdout": "^0.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "eslint": "^4.3.0",
+    "mocha": "^3.5.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "postcss-opacity",
+  "version": "5.0.0",
+  "description": "PostCSS plugin to add opacity filter for IE8 and legacy browsers",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "opacity"
+  ],
+  "author": "Vincent De Oliveira <vincent@iamvdo.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamvdo/postcss-opacity.git"
+  },
+  "dependencies": {
+    "postcss": "^6.0.7"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-mocha": "^4.3.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "gulp"
+  }
+}

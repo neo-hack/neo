@@ -1,5 +1,11 @@
 # @aiou/rollup-template
 
+## 1.7.8
+
+### Patch Changes
+
+- 6fc085b: fix build
+
 ## 1.7.7
 
 ### Patch Changes

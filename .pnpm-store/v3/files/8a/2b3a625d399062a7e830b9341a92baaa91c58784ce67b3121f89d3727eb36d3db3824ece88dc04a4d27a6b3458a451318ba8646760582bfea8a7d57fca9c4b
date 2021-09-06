@@ -1,0 +1,14 @@
+declare type OverflowListProps = {
+    /**
+     * @deprecated use dataSource instead
+     */
+    list?: string[];
+    /**
+     * @deprecated use max instead
+     */
+    max?: number;
+    dataSource?: string[];
+    limit?: number;
+};
+export declare const overflowList: ({ limit, dataSource }: OverflowListProps) => string;
+export {};

@@ -1,0 +1,27 @@
+import * as path from 'path';
+
+const getDeps = (dependencies, includeFlag = true) => !dependencies || !includeFlag ? [] : Object.keys(dependencies);
+const getExternal = (modules = [], peerDependenciesFlag = true, dependenciesFlag = true) => {
+    const packageFilePath = path.resolve(process.cwd(), "package.json");
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const packageFile = require(packageFilePath);
+    const peerDependenciesKeys = getDeps(packageFile.peerDependencies, peerDependenciesFlag);
+    const dependenciesKeys = getDeps(packageFile.dependencies, dependenciesFlag);
+    const externalModules = [
+        ...modules,
+        ...peerDependenciesKeys,
+        ...dependenciesKeys,
+    ]
+        .filter((module) => module)
+        .map((externalModule) => new RegExp("^" + externalModule + "(\\/.+)*$"));
+    return (module) => externalModules.some((regexp) => regexp.test(module));
+};
+
+function index ({ peerDependencies, dependencies, } = {}) {
+    return {
+        name: "exclude-dependencies-from-bundle",
+        options: (opts) => (Object.assign(Object.assign({}, opts), { external: getExternal(opts.external, peerDependencies, dependencies) })),
+    };
+}
+
+export default index;

@@ -1,0 +1,32 @@
+{
+  "name": "@aiou/eslint-config-react",
+  "version": "0.1.2",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://github.com/jiangweixian/)",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@aiou/eslint-config-ts": "^0.1.2",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "react": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "gitHead": "dc8927e14f6826e237e5c267fc24e6adf2ad4497",
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  }
+}

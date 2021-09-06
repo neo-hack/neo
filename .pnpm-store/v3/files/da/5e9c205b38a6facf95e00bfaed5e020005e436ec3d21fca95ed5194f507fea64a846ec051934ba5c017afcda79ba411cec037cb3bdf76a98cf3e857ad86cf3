@@ -1,0 +1,96 @@
+{
+  "name": "rxjs-hooks",
+  "version": "0.7.0",
+  "description": "React hooks for RxJS",
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
+  "author": "LongYinan <lynweklm@gmail.com>",
+  "license": "MIT",
+  "typings": "dist/cjs/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "rm -rf dist/esm && tsc -p src/tsconfig.json --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "rm -rf dist/cjs && tsc -p src/tsconfig.json --module commonjs --target es5 --outDir dist/cjs",
+    "start": "webpack-dev-server --config ./tools/webpack.config.js --progress --color",
+    "test": "NODE_ENV=test jest --no-cache --ci",
+    "lint": "yarn lint:eslint && yarn lint:tsc",
+    "lint:eslint": "eslint . --ext .ts,.tsx --fix --max-warnings 0",
+    "lint:tsc": "tsc -p ./tsconfig.json --noEmit",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:LeetCode-OpenSource/rxjs-hooks.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "@types/lodash": "^4.14.149",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-test-renderer": "^17.0.0",
+    "@types/sinon": "^9.0.0",
+    "@types/sinon-chai": "^3.2.3",
+    "@types/webpack": "^4.41.0",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "browser-resolve": "^2.0.0",
+    "codecov": "^3.6.1",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-react": "^7.23.1",
+    "fork-ts-checker-webpack-plugin": "^6.0.0",
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^5.0.0",
+    "husky": "^5.2.0",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.0.1",
+    "prettier": "^2.0.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-test-renderer": "17.0.1",
+    "rxjs": "^6.5.3",
+    "sinon": "^9.0.0",
+    "source-map-loader": "^2.0.0",
+    "standard": "^16.0.0",
+    "ts-jest": "^26.0.0",
+    "ts-loader": "^8.0.0",
+    "typescript": "^4.2.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0",
+    "use-constant": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "17.0.1",
+    "rxjs": "^6.5.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "standard --fix"
+    ],
+    "*.@(ts|tsx)": [
+      "prettier --write",
+      "yarn lint:eslint"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "arrowParens": "always",
+    "parser": "typescript"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "resolver": "browser-resolve"
+  }
+}

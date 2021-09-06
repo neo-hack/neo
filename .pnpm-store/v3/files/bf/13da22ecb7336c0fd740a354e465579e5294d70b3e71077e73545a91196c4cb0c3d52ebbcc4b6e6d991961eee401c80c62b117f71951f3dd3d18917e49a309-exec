@@ -1,0 +1,39 @@
+{
+    "name": "@types/copy-webpack-plugin",
+    "version": "8.0.1",
+    "description": "TypeScript definitions for copy-webpack-plugin",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/copy-webpack-plugin",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "flying-sheep",
+            "url": "https://github.com/flying-sheep",
+            "githubUsername": "flying-sheep"
+        },
+        {
+            "name": "avin-kavish ",
+            "url": "https://github.com/avin-kavish",
+            "githubUsername": "avin-kavish"
+        },
+        {
+            "name": "Piotr Błażejewicz ",
+            "url": "https://github.com/peterblazejewicz",
+            "githubUsername": "peterblazejewicz"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/copy-webpack-plugin"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*",
+        "tapable": "^2.0.0",
+        "webpack": "^5.1.0"
+    },
+    "typesPublisherContentHash": "138bcd2997c3694014700407dbab3dea00b5a26cbf36b0db374e3c59f34c696a",
+    "typeScriptVersion": "3.7"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@aiou/eslint-config-ts",
+  "version": "0.1.2",
+  "description": "eslint config typescript for aiou template",
+  "keywords": [],
+  "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://github.com/jiangweixian/)",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "dependencies": {
+    "@aiou/eslint-config-basic": "^0.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "gitHead": "dc8927e14f6826e237e5c267fc24e6adf2ad4497",
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  }
+}

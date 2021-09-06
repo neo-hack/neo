@@ -1,0 +1,9 @@
+declare type Menu = {
+    title: string;
+    items?: (Menu | string)[];
+};
+declare type MenuProps = {
+    dataSource: Menu[];
+};
+export declare const menu: ({ dataSource }: MenuProps) => string;
+export {};

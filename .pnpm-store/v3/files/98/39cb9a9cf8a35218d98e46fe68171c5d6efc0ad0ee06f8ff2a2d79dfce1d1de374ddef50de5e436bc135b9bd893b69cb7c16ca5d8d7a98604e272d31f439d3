@@ -1,0 +1,7 @@
+declare type LinkProps = {
+    alt?: string;
+    href?: string;
+    children?: string;
+};
+export declare const link: (props: LinkProps) => string;
+export {};

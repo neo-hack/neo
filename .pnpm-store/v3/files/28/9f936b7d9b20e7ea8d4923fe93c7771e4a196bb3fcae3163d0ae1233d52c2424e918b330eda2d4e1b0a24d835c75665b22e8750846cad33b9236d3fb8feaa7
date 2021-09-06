@@ -1,0 +1,12 @@
+interface ExcludeDependenciesFromBundlePlugin {
+    peerDependencies?: boolean;
+    dependencies?: boolean;
+}
+declare type Plugin = {
+    name: string;
+    options: (opts: {
+        external: string[];
+    }) => Record<string, unknown>;
+};
+export default function ({ peerDependencies, dependencies, }?: ExcludeDependenciesFromBundlePlugin): Plugin;
+export {};

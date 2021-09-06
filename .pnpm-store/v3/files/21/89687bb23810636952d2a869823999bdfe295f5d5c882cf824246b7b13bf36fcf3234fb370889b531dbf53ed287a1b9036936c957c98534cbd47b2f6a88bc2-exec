@@ -1,0 +1,43 @@
+{
+    "name": "@types/loader-utils",
+    "version": "2.0.3",
+    "description": "TypeScript definitions for loader-utils",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/loader-utils",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Gyusun Yeom",
+            "url": "https://github.com/Perlmint",
+            "githubUsername": "Perlmint"
+        },
+        {
+            "name": "Totooria Hyperion",
+            "url": "https://github.com/TotooriaHyperion",
+            "githubUsername": "TotooriaHyperion"
+        },
+        {
+            "name": "Piotr Błażejewicz",
+            "url": "https://github.com/peterblazejewicz",
+            "githubUsername": "peterblazejewicz"
+        },
+        {
+            "name": "Jesse Katsumata",
+            "url": "https://github.com/Naturalclar",
+            "githubUsername": "Naturalclar"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/loader-utils"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*",
+        "@types/webpack": "^4"
+    },
+    "typesPublisherContentHash": "c519e753cd2dd70498a3345ee18f521d78c0921a62dcf71c33973eb40efb19dd",
+    "typeScriptVersion": "3.7"
+}

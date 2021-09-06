@@ -1,0 +1,125 @@
+{
+  "name": "@rematch2/core",
+  "version": "0.2.2",
+  "description": "rethink rematch",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/rematch-v2"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/rematch-v2/issues"
+  },
+  "homepage": "https://github.com/JiangWeixian/rematch-v2#readme",
+  "keywords": [
+    "@rematch",
+    "rematch",
+    "redux",
+    "state management",
+    "javascript"
+  ],
+  "main": "dist/cjs",
+  "module": "dist/esm/rematch.js",
+  "browser": "dist/umd/rematch.js",
+  "files": [
+    "scripts",
+    "dist",
+    "src/typings/index.d.ts"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production && npm run clean && rollup -c",
+    "build:all": "bash ./scripts/build.sh",
+    "clean": "npm run clean:dist & npm run clean:build",
+    "clean:build": "rimraf build",
+    "clean:dist": "rimraf dist",
+    "dev": "tsc --watch src",
+    "install:all": "tsc && bash ./scripts/setup_plugins.sh",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "size": "bundlesize",
+    "test": "jest",
+    "test:ts": "jest --testPathPattern=\"/test/typescript.test.js\" --testPathIgnorePatterns=[]",
+    "test:ts:setup": "npm run build && npm run clean --prefix examples/ts/count"
+  },
+  "bundlesize": [
+    {
+      "maxSize": "6 kB",
+      "path": "./dist/umd/rematch.prod.min.js"
+    }
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage/",
+    "coveragePathIgnorePatterns": [
+      "/_book/",
+      "/node_modules/",
+      "/plugins/react-navigation/",
+      "/dist",
+      ".mock.js",
+      "/test/utils.js",
+      "test/typescript.test"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "testPathIgnorePatterns": [
+      "/_book/",
+      "/lib/",
+      "/plugins",
+      "/plugins/react-navigation/examples",
+      "/plugins/subscriptions",
+      "/plugins/loading-immutable",
+      "/examples/ts",
+      "test/typescript.test"
+    ],
+    "transform": {
+      ".+\\.tsx?$": "ts-jest"
+    }
+  },
+  "types": "src/typings/index.d.ts",
+  "dependencies": {
+    "redux": "4.0.4",
+    "reselect": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "25.1.1",
+    "@types/node": "12.6.8",
+    "bundlesize": "0.18.0",
+    "coveralls": "3.0.5",
+    "cross-env": "5.2.0",
+    "jest": "25.1.0",
+    "rimraf": "3.0.1",
+    "rollup": "1.31.0",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-replace": "2.2.0",
+    "rollup-plugin-typescript": "1.0.1",
+    "rollup-plugin-uglify": "6.0.2",
+    "ts-jest": "24.0.2",
+    "tslib": "1.10.0",
+    "tslint": "5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.7.5",
+    "typings-tester": "0.3.2",
+    "uglify-es": "3.3.9"
+  },
+  "gitHead": "9a195fee138bc9b48d8bace4b0743cc3789aad34"
+}

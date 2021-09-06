@@ -1,5 +1,11 @@
 # @aiou/react-template
 
+## 1.8.7
+
+### Patch Changes
+
+- 6fc085b: fix build
+
 ## 1.8.6
 
 ### Patch Changes

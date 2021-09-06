@@ -1,0 +1,38 @@
+{
+  "name": "@aiou/eslint-config-basic",
+  "version": "0.1.4",
+  "description": "eslint config basic for aiou template",
+  "keywords": [],
+  "license": "MIT",
+  "author": "JW <jiangweixian1994@gmail.com> (https://github.com/jiangweixian/)",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsonc": "^1.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-unicorn": "^28.0.2",
+    "eslint-plugin-yml": "^0.8.1",
+    "jsonc-eslint-parser": "^1.2.0",
+    "yaml-eslint-parser": "^0.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "gitHead": "dc8927e14f6826e237e5c267fc24e6adf2ad4497",
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  }
+}

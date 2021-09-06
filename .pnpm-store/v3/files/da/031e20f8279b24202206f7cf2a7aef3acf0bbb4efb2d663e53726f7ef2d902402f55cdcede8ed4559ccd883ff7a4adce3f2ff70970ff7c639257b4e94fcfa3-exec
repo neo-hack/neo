@@ -1,0 +1,48 @@
+{
+    "name": "@types/rimraf",
+    "version": "3.0.1",
+    "description": "TypeScript definitions for rimraf",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/rimraf",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Carlos Ballesteros Velasco",
+            "url": "https://github.com/soywiz",
+            "githubUsername": "soywiz"
+        },
+        {
+            "name": "e-cloud",
+            "url": "https://github.com/e-cloud",
+            "githubUsername": "e-cloud"
+        },
+        {
+            "name": "Ruben Schmidmeister",
+            "url": "https://github.com/bash",
+            "githubUsername": "bash"
+        },
+        {
+            "name": "Oganexon",
+            "url": "https://github.com/oganexon",
+            "githubUsername": "oganexon"
+        },
+        {
+            "name": "Piotr Błażejewicz",
+            "url": "https://github.com/peterblazejewicz",
+            "githubUsername": "peterblazejewicz"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/rimraf"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/glob": "*",
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "12decab888b61faaa2828c1ecd5cfb418ebc509cb72d953fb0df42a2f45eaa19",
+    "typeScriptVersion": "3.6"
+}

@@ -1,0 +1,93 @@
+{
+  "name": "gulp-ts-alias",
+  "version": "2.0.0",
+  "description": "Use Gulp to resolve Typescript path aliases during compilation.",
+  "main": "./lib/index.js",
+  "types": "./typings/index.d.ts",
+  "files": [
+    "lib/",
+    "typings/",
+    "src/",
+    "test/"
+  ],
+  "scripts": {
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "tsc",
+    "lint": "eslint src/**/* && tsc --noEmit",
+    "test": "jest --ci --verbose --forceExit --detectOpenHandles --coverage",
+    "test:coverage": "coveralls < coverage/lcov.info",
+    "prepublishOnly": "npm run build"
+  },
+  "author": {
+    "name": "David Katz",
+    "url": "https://github.com/DoctorJew"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhkatz/gulp-ts-alias"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gulpplugin",
+    "gulp",
+    "typescript",
+    "ts",
+    "resolve",
+    "relative",
+    "paths"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "@types/node": "^16.3.1",
+    "@types/vinyl": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "coveralls": "^3.0.6",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.3.2",
+    "ts-jest": "^26.4.4",
+    "vinyl": "^2.2.0"
+  },
+  "dependencies": {
+    "typescript": "^3.2.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "rules": {}
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "./tsconfig.json"
+      }
+    },
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "testRegex": "/test/.*\\.test\\.[jt]s$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}",
+      "!<rootDir>/node_modules/"
+    ]
+  }
+}

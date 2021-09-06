@@ -1,0 +1,50 @@
+{
+  "name": "@aiou/eslint-ignore",
+  "version": "0.1.1",
+  "description": "collection of eslint ignore patterns",
+  "keywords": [
+    "eslint",
+    "ignore"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JiangWeixian/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JiangWeixian/eslint-config",
+    "directory": "packages/ignore"
+  },
+  "bugs": {
+    "url": "https://github.com/JiangWeixian/eslint-config/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "author": "JW <jiangweixian1994@gmail.com> (https://twitter.com/jiangweixian)",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "lint-staged": {
+    "**/**/*.{js,ts,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.23",
+    "@types/strip-comments": "^2.0.1",
+    "axios": "^0.21.1",
+    "jest": "27.0.6",
+    "lint-staged": "^11.0.1",
+    "npm-watch": "0.10.0",
+    "rimraf": "3.0.2",
+    "strip-comments": "^2.0.1",
+    "ts-jest": "27.0.3",
+    "ts-node": "10.0.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "build": "ts-node ./src/index.ts",
+    "test": "jest"
+  }
+}

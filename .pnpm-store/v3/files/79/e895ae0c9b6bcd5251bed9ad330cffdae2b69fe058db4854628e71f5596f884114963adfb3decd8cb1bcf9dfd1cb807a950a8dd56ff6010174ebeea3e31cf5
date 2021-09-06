@@ -1,0 +1,6 @@
+declare type TitleProps = {
+    heading?: number;
+    children?: string;
+};
+export declare const title: ({ heading, ...props }: TitleProps) => string;
+export {};

@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.overflowList = void 0;
+var badge_1 = require("./badge");
+var overflowList = function (_a) {
+    var _b = _a.limit, limit = _b === void 0 ? Infinity : _b, _c = _a.dataSource, dataSource = _c === void 0 ? [] : _c;
+    var sliced = dataSource || [];
+    var len = dataSource.length;
+    if (limit && len > limit) {
+        sliced = dataSource === null || dataSource === void 0 ? void 0 : dataSource.slice(0, limit);
+    }
+    var badgeCount = Math.max(len - limit, 0);
+    var content = sliced.join(', ');
+    if (badgeCount > 0) {
+        return [content, ' ', badge_1.badge({ value: badgeCount })].join('');
+    }
+    return content;
+};
+exports.overflowList = overflowList;

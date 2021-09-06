@@ -1,0 +1,7 @@
+declare type CodeProps = {
+    language?: string;
+    value?: string;
+};
+export declare const code: (props: CodeProps) => string;
+export declare const inlineCode: (props: Omit<CodeProps, 'language'>) => string;
+export {};

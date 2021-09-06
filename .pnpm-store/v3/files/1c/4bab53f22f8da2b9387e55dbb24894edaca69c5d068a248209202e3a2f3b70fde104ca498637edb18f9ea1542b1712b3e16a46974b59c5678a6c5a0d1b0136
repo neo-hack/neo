@@ -1,0 +1,5 @@
+declare type BadgeProps = {
+    value?: number;
+};
+export declare const badge: ({ value }: BadgeProps) => string;
+export {};

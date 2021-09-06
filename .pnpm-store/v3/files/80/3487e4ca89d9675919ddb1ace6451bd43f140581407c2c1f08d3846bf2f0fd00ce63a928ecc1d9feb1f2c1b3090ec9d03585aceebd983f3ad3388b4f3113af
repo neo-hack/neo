@@ -1,0 +1,6 @@
+declare type ImageProps = {
+    alt?: string;
+    src?: string;
+};
+export declare const image: (props: ImageProps) => string;
+export {};

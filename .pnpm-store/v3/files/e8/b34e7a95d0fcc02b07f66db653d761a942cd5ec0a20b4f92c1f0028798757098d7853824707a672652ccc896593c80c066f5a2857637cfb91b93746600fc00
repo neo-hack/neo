@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.badge = void 0;
+var block_1 = require("./block");
+var badge = function (_a) {
+    var _b = _a.value, value = _b === void 0 ? 0 : _b;
+    if (value === 0) {
+        return '';
+    }
+    return block_1.inlineBlock(['`', "+" + value, '`']);
+};
+exports.badge = badge;

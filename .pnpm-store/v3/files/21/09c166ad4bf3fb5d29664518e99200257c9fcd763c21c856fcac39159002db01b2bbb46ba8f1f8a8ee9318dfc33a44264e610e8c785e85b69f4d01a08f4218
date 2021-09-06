@@ -1,0 +1,56 @@
+{
+  "name": "laggard",
+  "version": "2.0.1",
+  "description": "Automatic CSS fallbacks for legacy browsers, built on PostCSS",
+  "scripts": {
+    "test": "mocha test --reporter nyan",
+    "posttest": "eslint ."
+  },
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "legacy"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seaneking/laggard.git"
+  },
+  "author": "Sean King <sean@seanking.org>",
+  "maintainers": [
+    {
+      "name": "Sean King",
+      "email": "sean@seanking.org",
+      "web": "https://twitter.com/seaneking"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/seaneking/laggard/issues"
+  },
+  "bin": {
+    "laggard": "./bin/cmd.js"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "homepage": "https://github.com/seaneking/laggard",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "pixrem": "^4.0.1",
+    "postcss": "^6.0.8",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-opacity": "^5.0.0",
+    "postcss-pseudoelements": "^5.0.0",
+    "postcss-reporter": "^5.0.0",
+    "postcss-vmin": "^3.0.0",
+    "postcss-will-change": "^2.0.0",
+    "read-file-stdin": "^0.2.0",
+    "write-file-stdout": "0.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "eslint": "^4.3.0",
+    "mocha": "^3.5.0"
+  }
+}

@@ -1,5 +1,11 @@
 # v0.3.0
 
+## 0.4.6
+
+### Patch Changes
+
+- 6fc085b: fix build
+
 ## 0.4.5
 
 ### Patch Changes

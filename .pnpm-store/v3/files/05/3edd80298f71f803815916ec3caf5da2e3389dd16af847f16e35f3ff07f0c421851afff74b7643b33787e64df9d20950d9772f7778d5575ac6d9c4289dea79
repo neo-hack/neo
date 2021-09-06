@@ -1,0 +1,51 @@
+'use strict';
+
+var path = require('path');
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () {
+            return e[k];
+          }
+        });
+      }
+    });
+  }
+  n['default'] = e;
+  return Object.freeze(n);
+}
+
+var path__namespace = /*#__PURE__*/_interopNamespace(path);
+
+const getDeps = (dependencies, includeFlag = true) => !dependencies || !includeFlag ? [] : Object.keys(dependencies);
+const getExternal = (modules = [], peerDependenciesFlag = true, dependenciesFlag = true) => {
+    const packageFilePath = path__namespace.resolve(process.cwd(), "package.json");
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const packageFile = require(packageFilePath);
+    const peerDependenciesKeys = getDeps(packageFile.peerDependencies, peerDependenciesFlag);
+    const dependenciesKeys = getDeps(packageFile.dependencies, dependenciesFlag);
+    const externalModules = [
+        ...modules,
+        ...peerDependenciesKeys,
+        ...dependenciesKeys,
+    ]
+        .filter((module) => module)
+        .map((externalModule) => new RegExp("^" + externalModule + "(\\/.+)*$"));
+    return (module) => externalModules.some((regexp) => regexp.test(module));
+};
+
+function index ({ peerDependencies, dependencies, } = {}) {
+    return {
+        name: "exclude-dependencies-from-bundle",
+        options: (opts) => (Object.assign(Object.assign({}, opts), { external: getExternal(opts.external, peerDependencies, dependencies) })),
+    };
+}
+
+module.exports = index;

@@ -1,0 +1,83 @@
+{
+  "name": "jest-localstorage-mock",
+  "version": "2.4.14",
+  "description": "Auto mock all localstorage and sessionstorage APIs for your Jest tests",
+  "main": "dist/setup.js",
+  "module": "src/setup.js",
+  "author": "Bryan Clark <clarkbw@gmail.com> (https://twitter.com/clarkbw)",
+  "maintainers": [
+    {
+      "name": "Bryan Clark",
+      "email": "clarkbw@gmail.com",
+      "web": "https://twitter.com/clarkbw"
+    }
+  ],
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clarkbw/jest-localstorage-mock"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/clarkbw/jest-localstorage-mock.git"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/clarkbw/jest-localstorage-mock/issues"
+  },
+  "homepage": "https://github.com/clarkbw/jest-localstorage-mock",
+  "license": "BSD-3-Clause",
+  "licenses": [
+    {
+      "type": "BSD-3-Clause"
+    }
+  ],
+  "keywords": [
+    "jest",
+    "test",
+    "mock",
+    "localstorage",
+    "sessionstorage",
+    "storage",
+    "node",
+    "browser"
+  ],
+  "directories": {
+    "lib": "./src",
+    "test": "./__tests__"
+  },
+  "scripts": {
+    "test": "yarn test:node && yarn test:jsdom",
+    "test:node": "jest --env=node",
+    "test:jsdom": "jest --env=jsdom",
+    "build": "rollup -c",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,setups}__}/**/*.js\" README.md CONTRIBUTING.md *.json rollup.config.js",
+    "version": "yarn run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-external-helpers": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^25.4.0",
+    "jest": "^25.4.0",
+    "prettier": "^2.0.5",
+    "rollup": "^2.7.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=6.16.0"
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "bail": true,
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "setupFiles": [
+      "./__setups__/localstorage.js"
+    ]
+  }
+}

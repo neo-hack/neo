@@ -1,0 +1,12 @@
+export declare type TableProps<T> = {
+    columns: {
+        dataIndex: string;
+        title: string;
+        render?: (data: any) => string;
+    }[];
+    dataSource: T[];
+};
+/**
+ * @description render markdown table
+ */
+export declare const table: <T>(props: TableProps<T>) => string;

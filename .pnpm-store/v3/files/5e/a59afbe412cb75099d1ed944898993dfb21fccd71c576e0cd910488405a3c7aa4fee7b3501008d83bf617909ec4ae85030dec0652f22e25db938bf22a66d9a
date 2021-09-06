@@ -1,0 +1,4 @@
+export declare function block(args: string[]): string;
+export declare function block(...args: string[]): string;
+export declare function inlineBlock(args: string[]): string;
+export declare function inlineBlock(...args: string[]): string;

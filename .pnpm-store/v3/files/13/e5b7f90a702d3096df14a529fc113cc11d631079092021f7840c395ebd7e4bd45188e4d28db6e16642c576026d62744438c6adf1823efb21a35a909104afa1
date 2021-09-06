@@ -1,0 +1,44 @@
+{
+  "name": "postcss-clearfix",
+  "version": "2.0.1",
+  "description": "PostCSS plugin that adds `fix` and `fix-legacy` attributes to the `clear` property, for self-clearing of children.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "clearfix",
+    "clear"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seaneking/postcss-clearfix.git"
+  },
+  "author": "Sean King <sean@simpla.io>",
+  "maintainers": [
+    {
+      "name": "Sean King",
+      "email": "sean@simpla.io",
+      "web": "http://simpla.io"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/seaneking/postcss-clearfix/issues"
+  },
+  "homepage": "https://github.com/seaneking/postcss-clearfix",
+  "dependencies": {
+    "postcss": "^6.0.6"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "eslint": "^4.1.1",
+    "mocha": "^3.4.2"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "posttest": "eslint ."
+  }
+}

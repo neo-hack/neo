@@ -1,0 +1,48 @@
+{
+  "name": "postcss-will-change",
+  "version": "2.0.0",
+  "description": "PostCSS plugin to insert 3D hack before will-change property",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "will-change",
+    "fallback"
+  ],
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "postcss/postcss-will-change.git",
+  "dependencies": {
+    "postcss": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^20.0.0",
+    "lint-staged": "^3.4.1",
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "test": "jest && eslint *.js"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 100
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}
