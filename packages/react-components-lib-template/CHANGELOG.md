@@ -1,5 +1,11 @@
 # @aiou/react-components-lib-template
 
+## 1.2.9
+
+### Patch Changes
+
+- 6fc085b: fix build
+
 ## 1.2.8
 
 ### Patch Changes
