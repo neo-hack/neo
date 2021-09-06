@@ -18,6 +18,8 @@ jobs:
         run: |
           yarn
         working-directory: ./packages/nextjs-rematch2-template
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Test
         run: |
           yarn test
