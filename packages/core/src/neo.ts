@@ -6,8 +6,12 @@ import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
 import { readPackageUpSync } from 'read-pkg-up'
+import { fileURLToPath } from 'url'
+import path, { dirname } from 'path'
 
-const pkg = readPackageUpSync()?.packageJson
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+const pkg = readPackageUpSync({ cwd: path.resolve(__dirname, '..') })?.packageJson
 const notifier = updateNotifier({ pkg })
 notifier.notify()
 
