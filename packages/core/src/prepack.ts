@@ -29,12 +29,18 @@ const ci = (pkg: NormalizedPackageJson) => {
  * @description prepack eslint with `@aiou`
  */
 const lint = (pkg: NormalizedPackageJson) => {
-  fs.copy(r('assets/eslint'), root)
+  fs.copySync(r('assets/eslint'), root)
+  fs.renameSync(path.resolve(root, './.eslintrc.js.tpl'), path.resolve(root, './.eslintrc.js'))
   // setup package scripts
   pkg.scripts!['lint:fix'] = 'eslint . --fix'
+  // lint-staged
   pkg['lint-staged'] = {
     '**/**/*.{js,ts,tsx,vue,json}': ['eslint --fix'],
   }
+  // install aiou
+  pkg.devDependencies!['@aiou/eslint-config'] = 'latest'
+  pkg.devDependencies!.eslint = pkg.devDependencies!.eslint || '^7.x'
+  pkg.devDependencies!['lint-staged'] = pkg.devDependencies!['lint-staged'] || '^11.1.0'
 }
 
 const preprepack = () => {
@@ -47,11 +53,18 @@ const preprepack = () => {
   if (!pkg?.scripts) {
     pkg!.scripts = {}
   }
+  if (!pkg.devDependencies) {
+    pkg.devDependencies = {}
+  }
   return { pkg }
 }
 
 const postprepack = (pkg: NormalizedPackageJson) => {
-  fs.writeJSONSync(path.resolve(root, './package.json'), pkg)
+  fs.writeJSONSync(
+    path.resolve(root, './package.json'),
+    { ...pkg, _id: undefined, readme: undefined },
+    { spaces: 2 },
+  )
 }
 
 const parts = {
@@ -59,12 +72,13 @@ const parts = {
   lint,
 }
 
-export const prepack = async (modules: string[] = Object.keys(parts)) => {
+export const prepack = async (options: { module: string[] }) => {
+  const { module = Object.keys(parts) } = options
   const { pkg } = preprepack()
   if (!pkg) {
     return
   }
-  for (const m of modules) {
+  for (const m of module) {
     parts[m]?.(pkg)
   }
   postprepack(pkg)
