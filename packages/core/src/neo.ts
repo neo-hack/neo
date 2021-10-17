@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 import { program } from 'commander'
 import updateNotifier from 'update-notifier'
+import { readPackageUpSync } from 'read-pkg-up'
+import { fileURLToPath } from 'url'
+import path, { dirname } from 'path'
 
 import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
-import { readPackageUpSync } from 'read-pkg-up'
-import { fileURLToPath } from 'url'
-import path, { dirname } from 'path'
+import { prepack } from './prepack'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -26,5 +27,12 @@ cli
 cli.command('list').description('list all templates').alias('l').action(list)
 
 cli.command('whoami').alias('me').description('who is neo?').action(whoami)
+
+cli
+  .command('prepack')
+  .alias('p')
+  .description('prepack neo ci, lint, etc.. to your project')
+  .option('-m, --module [modules...]', 'prepack ci, lint, etc... standalone')
+  .action(prepack)
 
 program.parse(process.argv)
