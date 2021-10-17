@@ -17,7 +17,7 @@ const ci = (pkg: NormalizedPackageJson) => {
   // read templates
   // write to .github/workflows
   const target = path.resolve(root, '.github/workflows')
-  fs.copy(r('templates/workflows'), target)
+  fs.copy(r('assets/workflows'), target)
   // setup package scripts
   pkg.scripts!['ci:publish'] = 'pnpm run build && pnpx changeset publish'
   pkg.scripts!['ci:version'] = 'pnpx changeset version'
@@ -29,7 +29,7 @@ const ci = (pkg: NormalizedPackageJson) => {
  * @description prepack eslint with `@aiou`
  */
 const lint = (pkg: NormalizedPackageJson) => {
-  fs.copy(r('templates/eslint'), root)
+  fs.copy(r('assets/eslint'), root)
   // setup package scripts
   pkg.scripts!['lint:fix'] = 'eslint . --fix'
   pkg['lint-staged'] = {
@@ -38,7 +38,6 @@ const lint = (pkg: NormalizedPackageJson) => {
 }
 
 const preprepack = () => {
-  fs.copy(r('templates/eslint'), root)
   // read pkg
   const pkg = readPackageUpSync({ cwd: root })?.packageJson
   if (!pkg) {

@@ -38,8 +38,7 @@
     "upgrade:crx": "cd packages/chrome-extenstion-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:original": "cd packages/original-html-template && ncu --configFilePath ./.ncurc.json",
     "upgrade:tslib": "cd packages/ts-lib-template && ncu --configFilePath ./.ncurc.json",
-    "upgrade:docs": "cd packages/docs-template && ncu --configFilePath ./.ncurc.json",
-    "upgrade:rollup": "cd packages/rollup-template && ncu --configFilePath ./.ncurc.json"
+    "upgrade:docs": "cd packages/docs-template && ncu --configFilePath ./.ncurc.json"
   },
   "husky": {
     "hooks": {
