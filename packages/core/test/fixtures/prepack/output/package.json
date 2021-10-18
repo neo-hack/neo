@@ -11,7 +11,8 @@
     "ci:version": "pnpx changeset version",
     "ci:snapshot": "pnpx changeset version --snapshot beta",
     "ci:prerelease": "pnpx changeset publish --tag beta",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/**/*.{js,ts,tsx,vue,json}": [
@@ -22,6 +23,7 @@
     "@aiou/eslint-config": "latest",
     "comparedir-test": "^1.0.1",
     "eslint": "^7.x",
+    "husky": "^7.0.0",
     "lint-staged": "^11.1.0"
   }
 }

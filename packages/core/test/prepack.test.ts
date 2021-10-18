@@ -1,6 +1,6 @@
 import execa from 'execa'
 import path from 'path'
-import { compare } from 'comparedir-test/lib/index'
+import { compare } from 'comparedir-test'
 import { r } from '../src/utils'
 const cli = r('lib/neo.js')
 
@@ -16,6 +16,15 @@ describe('command prepack', () => {
       cwd: r('test/fixtures/prepack-lint/output'),
     })
     await compare(r('test/fixtures/prepack-lint/output'), r('test/fixtures/prepack-lint/expected'))
+  })
+  it('prepack husky part should work', async () => {
+    await execa.node(cli, ['prepack', '--module', 'husky'], {
+      cwd: path.resolve(r('test/fixtures/prepack-husky/output')),
+    })
+    await compare(
+      r('test/fixtures/prepack-husky/output'),
+      r('test/fixtures/prepack-husky/expected'),
+    )
   })
   it('prepack should work', async () => {
     await execa.node(cli, ['prepack'], {

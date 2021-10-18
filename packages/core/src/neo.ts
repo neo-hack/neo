@@ -28,8 +28,8 @@ cli.command('whoami').alias('me').description('who is neo?').action(whoami)
 cli
   .command('prepack')
   .alias('p')
-  .description('prepack neo ci, lint, etc.. to your project')
-  .option('-m, --module [modules...]', 'prepack ci, lint, etc... standalone')
+  .description('prepack neo ci, lint, husky, etc.. to your project')
+  .option('-m, --module [modules...]', 'prepack ci, lint, husky, etc... standalone')
   .action(prepack)
 
 program.parse(process.argv)

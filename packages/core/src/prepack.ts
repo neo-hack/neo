@@ -1,5 +1,6 @@
 /**
  * @fileoverview prepack ci, lint, etc...
+ * @todo install pkg with command
  */
 
 import { r } from './utils'
@@ -7,6 +8,8 @@ import fs from 'fs-extra'
 import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
 import type { NormalizedPackageJson } from 'read-pkg-up'
+import { updatePkg } from 'husky-init'
+import { set, install } from 'husky'
 
 const root = process.cwd()
 
@@ -25,7 +28,7 @@ const ci = (pkg: NormalizedPackageJson) => {
   pkg.scripts!['ci:snapshot'] =
     pkg.scripts!['ci:snapshot'] || 'pnpx changeset version --snapshot beta'
   pkg.scripts!['ci:prerelease'] =
-    pkg.scripts!['ci:prerelease'] || 'pnpx changeset publish --tag beta'
+    pkg.scripts!['ci:prerelease'] || 'pnpm run build && pnpx changeset publish --tag beta'
 }
 
 /**
@@ -45,6 +48,15 @@ const lint = (pkg: NormalizedPackageJson) => {
     pkg.devDependencies!['@aiou/eslint-config'] || 'latest'
   pkg.devDependencies!.eslint = pkg.devDependencies!.eslint || '^7.x'
   pkg.devDependencies!['lint-staged'] = pkg.devDependencies!['lint-staged'] || '^11.1.0'
+}
+
+const husky = (pkg: NormalizedPackageJson) => {
+  updatePkg(pkg, false)
+  pkg.husky = undefined
+  try {
+    install()
+    set('.husky/pre-commit', 'pnpx lint-staged')
+  } catch (e) {}
 }
 
 const preprepack = () => {
@@ -74,6 +86,7 @@ const postprepack = (pkg: NormalizedPackageJson) => {
 const parts = {
   ci,
   lint,
+  husky,
 }
 
 export const prepack = async (options: { module: string[] }) => {

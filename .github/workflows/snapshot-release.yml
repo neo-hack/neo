@@ -2,9 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - main
-      - master
-      - 'releases/*'
+      - snapshot
 env:
   CI: true
 jobs:
@@ -27,10 +25,10 @@ jobs:
       - name: create and publish versions
         uses: changesets/action@master
         with:
-          version: pnpm ci:version
+          version: pnpm ci:snapshot
           commit: "chore: update versions"
           title: "chore: update versions"
-          publish: pnpm ci:publish
+          publish: pnpm ci:prerelease
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

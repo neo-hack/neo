@@ -2,7 +2,6 @@
  * @type {import('@jest/types').Config.InitialOptions}
  */
 export default {
-  resolver: 'jest-node-exports-resolver',
   testEnvironment: 'jest-environment-node',
   cacheDirectory: './jest/cache',
   collectCoverage: true,
