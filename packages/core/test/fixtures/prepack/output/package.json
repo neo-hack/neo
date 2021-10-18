@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@aiou/eslint-config": "latest",
+    "@changesets/cli": "^2.16.0",
     "comparedir-test": "^1.0.1",
     "eslint": "^7.x",
     "husky": "^7.0.0",

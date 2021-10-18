@@ -21,7 +21,9 @@ const ci = (pkg: NormalizedPackageJson) => {
   // write to .github/workflows
   const target = path.resolve(root, '.github/workflows')
   fs.copy(r('assets/workflows'), target)
-  // setup package scripts
+  // setup package
+  pkg.devDependencies!['@changesets/cli'] = pkg.devDependencies!['@changesets/cli'] || '^2.16.0'
+  // setup ci scripts
   pkg.scripts!['ci:publish'] =
     pkg.scripts!['ci:publish'] || 'pnpm run build && pnpx changeset publish'
   pkg.scripts!['ci:version'] = pkg.scripts!['ci:version'] || 'pnpx changeset version'
