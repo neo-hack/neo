@@ -19,10 +19,13 @@ const ci = (pkg: NormalizedPackageJson) => {
   const target = path.resolve(root, '.github/workflows')
   fs.copy(r('assets/workflows'), target)
   // setup package scripts
-  pkg.scripts!['ci:publish'] = 'pnpm run build && pnpx changeset publish'
-  pkg.scripts!['ci:version'] = 'pnpx changeset version'
-  pkg.scripts!['ci:snapshot'] = 'pnpx changeset version --snapshot beta'
-  pkg.scripts!['ci:prerelease'] = 'pnpx changeset publish --tag beta'
+  pkg.scripts!['ci:publish'] =
+    pkg.scripts!['ci:publish'] || 'pnpm run build && pnpx changeset publish'
+  pkg.scripts!['ci:version'] = pkg.scripts!['ci:version'] || 'pnpx changeset version'
+  pkg.scripts!['ci:snapshot'] =
+    pkg.scripts!['ci:snapshot'] || 'pnpx changeset version --snapshot beta'
+  pkg.scripts!['ci:prerelease'] =
+    pkg.scripts!['ci:prerelease'] || 'pnpx changeset publish --tag beta'
 }
 
 /**
@@ -38,7 +41,8 @@ const lint = (pkg: NormalizedPackageJson) => {
     '**/**/*.{js,ts,tsx,vue,json}': ['eslint --fix'],
   }
   // install aiou
-  pkg.devDependencies!['@aiou/eslint-config'] = 'latest'
+  pkg.devDependencies!['@aiou/eslint-config'] =
+    pkg.devDependencies!['@aiou/eslint-config'] || 'latest'
   pkg.devDependencies!.eslint = pkg.devDependencies!.eslint || '^7.x'
   pkg.devDependencies!['lint-staged'] = pkg.devDependencies!['lint-staged'] || '^11.1.0'
 }
