@@ -1,8 +1,6 @@
-import path, { dirname } from 'path'
 import terminalImage from 'terminal-image'
-import { fileURLToPath } from 'url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+import { r } from './utils'
 
 /**
  * @description display neo image on terminal
@@ -10,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export const whoami = () => {
   ;(async () => {
     console.log(
-      await terminalImage.file(path.resolve(__dirname, '../assets/neo.jpg'), {
+      await terminalImage.file(r('assets/neo.jpg'), {
         width: '10%',
         height: '10%',
       }),

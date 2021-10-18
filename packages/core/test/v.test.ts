@@ -1,6 +1,9 @@
 import execa from 'execa'
+
 import pkg from '../package.json'
-const cli = require.resolve('../lib/neo.js')
+import { r } from '../src/utils'
+
+const cli = r('lib/neo.js')
 
 describe('command version', () => {
   it('print correct version', async () => {
