@@ -183,6 +183,6 @@ neo create <template-name> [project-name]
 ### `alfred-workflow-template`
 *build alfred workflow template*
 
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/alfred-workflow-template)
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://github.com/spring-catponents/alfred-workflow-template)
 
 - Build workflow with [alfy](https://github.com/sindresorhus/alfy)
