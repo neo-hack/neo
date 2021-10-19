@@ -74,7 +74,7 @@ neo create <template-name> [project-name]
 
 *build cli application*
 
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/bin-template)
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/bin-template/tree/master)
 
 - Use [**commander**](https://github.com/tj/commander.js/) build cli application
 - Interaction interface with [**inquirer**](https://github.com/SBoudrias/Inquirer.js/)
