@@ -19,6 +19,7 @@
   - [whoami](#whoami)
   - [list](#list)
   - [create](#create)
+  - [prepack](#prepack)
 - [templates](#templates)
   - [`bin-template`](#bin-template)
   - [`chrome-extenstion-template`](#chrome-extenstion-template)
@@ -67,6 +68,20 @@ neo list
 ```bash
 neo create <template-name> [project-name]
 ```
+
+### prepack
+> prepack `ci & lint & precommit` into packages
+
+```bash
+neo prepack
+```
+
+including...
+
+- `release.yml` - publish package with `changset`
+- `snapshot-release.yml` - publish prerelase package with `changset`
+- `.husky & lint-staged` - lint-staged precommit
+- `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
 
 ## templates
 

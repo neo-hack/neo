@@ -12,3 +12,4 @@
 1. `neo list` - list all templates
 2. `neo create <template-name> <project-name>` - create `project-name` from `template-name`
 3. `neo whomai` - who is neo
+4. `neo prepack` - prepack `ci & lint & precommit` into project
