@@ -110,6 +110,7 @@ importers:
       '@types/fs-extra': 9.0.12
       '@types/inquirer': 7.3.3
       '@types/jest': ^27.0.2
+      '@types/listr': ^0.14.4
       '@types/node': 16.3.3
       '@types/rimraf': 3.0.1
       '@types/update-notifier': ^5.1.0
@@ -127,6 +128,7 @@ importers:
       husky-init: ^7.0.0
       inquirer: 8.1.2
       jest: ^27.3.0
+      listr: ^0.14.3
       np: 7.5.0
       ora: 5.4.1
       prettier: 2.3.2
@@ -163,6 +165,7 @@ importers:
       '@types/fs-extra': 9.0.12
       '@types/inquirer': 7.3.3
       '@types/jest': 27.0.2
+      '@types/listr': 0.14.4
       '@types/node': 16.3.3
       '@types/rimraf': 3.0.1
       '@types/update-notifier': 5.1.0
@@ -172,6 +175,7 @@ importers:
       enhanced-resolve: 5.8.3
       execa: 5.1.1
       jest: 27.3.0_ts-node@10.1.0
+      listr: 0.14.3
       np: 7.5.0
       prettier: 2.3.2
       pretty-quick: 3.1.1_prettier@2.3.2
@@ -6345,6 +6349,13 @@ packages:
     resolution: {integrity: sha512-/FvAK2p4jQOaJ6CGDHJTqZcUtbZe820qIeTg7o0Shg7drB4JHeL+V/dhSaly7NXx6u8eSee+r7coT+yuJEvDLg==}
     dependencies:
       '@types/node': 16.4.3
+    dev: true
+
+  /@types/listr/0.14.4:
+    resolution: {integrity: sha512-+MWvidNujBUgJsi4yMVwEQQwaHe6oHedPSy+dwk3akGEeuIbvhWkK+TGsXSwbFup7Y0cCBb+wzzdD+yGKp7sOg==}
+    dependencies:
+      '@types/node': 16.4.3
+      rxjs: 6.6.7
     dev: true
 
   /@types/loader-utils/2.0.3:

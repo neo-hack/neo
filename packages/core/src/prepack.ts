@@ -4,6 +4,8 @@
  */
 
 import { r } from './utils'
+
+import Listr from 'listr'
 import fs from 'fs-extra'
 import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
@@ -115,8 +117,14 @@ export const prepack = async (options: { module: string[] }) => {
   if (!pkg) {
     return
   }
-  for (const m of module) {
-    parts[m]?.(pkg)
-  }
+  const tasks = new Listr(
+    module.map((m) => {
+      return {
+        title: m,
+        task: () => parts[m]?.(pkg),
+      }
+    }),
+  )
+  tasks.run()
   postprepack(pkg)
 }
