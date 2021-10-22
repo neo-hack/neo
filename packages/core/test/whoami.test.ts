@@ -1,6 +1,8 @@
 import execa from 'execa'
 
-const cli = require.resolve('../lib/neo.js')
+import { r } from '../src/utils'
+
+const cli = r('lib/neo.js')
 
 describe('command whoami', () => {
   it('should print neo', async () => {

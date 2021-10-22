@@ -1,0 +1,30 @@
+{
+  "name": "prepack",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ci:publish": "pnpm run build && pnpx changeset publish",
+    "ci:version": "pnpx changeset version",
+    "ci:snapshot": "pnpx changeset version --snapshot beta",
+    "ci:prerelease": "pnpx changeset publish --tag beta",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@aiou/eslint-config": "latest",
+    "@changesets/cli": "^2.16.0",
+    "comparedir-test": "^1.0.1",
+    "eslint": "^7.x",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.0"
+  }
+}
