@@ -11,6 +11,21 @@ describe('command prepack', () => {
     })
     await compare(r('test/fixtures/prepack-ci/output'), r('test/fixtures/prepack-ci/expected'))
   })
+  it('prepack issue part should work', async () => {
+    await execa.node(cli, ['prepack', '--module', 'issue'], {
+      cwd: path.resolve(r('test/fixtures/prepack-issue/output')),
+    })
+    await compare(
+      r('test/fixtures/prepack-issue/output'),
+      r('test/fixtures/prepack-issue/expected'),
+    )
+  })
+  it('prepack pr part should work', async () => {
+    await execa.node(cli, ['prepack', '--module', 'pr'], {
+      cwd: path.resolve(r('test/fixtures/prepack-pr/output')),
+    })
+    await compare(r('test/fixtures/prepack-pr/output'), r('test/fixtures/prepack-pr/expected'))
+  })
   it('prepack lint part should work', async () => {
     await execa.node(cli, ['prepack', '--module', 'lint'], {
       cwd: r('test/fixtures/prepack-lint/output'),

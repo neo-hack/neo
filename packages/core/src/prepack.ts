@@ -25,8 +25,8 @@ const issue = () => {
  * @description setup pr template
  */
 const pr = () => {
-  const target = path.resolve(root, '.github')
-  fs.copyFile(r('assets/templates/PULL_REQUEST_TEMPLATE'), target)
+  const target = path.resolve(root, '.github/PULL_REQUEST_TEMPLATE.md')
+  fs.copy(r('assets/templates/PULL_REQUEST_TEMPLATE.md'), target)
 }
 
 /**
