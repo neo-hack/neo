@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.0
+
+### Minor Changes
+
+- 66fa4b7: prepack command
+
 ## 3.0.6
 
 ### Patch Changes
