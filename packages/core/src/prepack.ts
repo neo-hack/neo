@@ -1,6 +1,5 @@
 /**
  * @fileoverview prepack ci, lint, etc...
- * @todo install pkg with command
  */
 
 import { r } from './utils'
@@ -11,14 +10,14 @@ import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
 import type { NormalizedPackageJson } from 'read-pkg-up'
 import { updatePkg } from 'husky-init'
-import { set, install } from 'husky'
+import { install, set } from 'husky'
 
 const root = process.cwd()
 
 /**
  * @description setup issue template
  */
-const issue = () => {
+const issue = async () => {
   const target = path.resolve(root, '.github/ISSUE_TEMPLATE')
   fs.copy(r('assets/templates/ISSUE_TEMPLATE'), target)
 }
@@ -26,7 +25,7 @@ const issue = () => {
 /**
  * @description setup pr template
  */
-const pr = () => {
+const pr = async () => {
   const target = path.resolve(root, '.github/PULL_REQUEST_TEMPLATE.md')
   fs.copy(r('assets/templates/PULL_REQUEST_TEMPLATE.md'), target)
 }
@@ -34,7 +33,7 @@ const pr = () => {
 /**
  * @description prepack github ci
  */
-const ci = (pkg: NormalizedPackageJson) => {
+const ci = async (pkg: NormalizedPackageJson) => {
   // read templates
   // write to .github/workflows
   const target = path.resolve(root, '.github/workflows')
@@ -54,7 +53,7 @@ const ci = (pkg: NormalizedPackageJson) => {
 /**
  * @description prepack eslint with `@aiou`
  */
-const lint = (pkg: NormalizedPackageJson) => {
+const lint = async (pkg: NormalizedPackageJson) => {
   fs.copySync(r('assets/eslint'), root)
   fs.renameSync(path.resolve(root, './.eslintrc.js.tpl'), path.resolve(root, './.eslintrc.js'))
   // setup package scripts
@@ -70,13 +69,15 @@ const lint = (pkg: NormalizedPackageJson) => {
   pkg.devDependencies!['lint-staged'] = pkg.devDependencies!['lint-staged'] || '^11.1.0'
 }
 
-const husky = (pkg: NormalizedPackageJson) => {
+const husky = async (pkg: NormalizedPackageJson) => {
   updatePkg(pkg, false)
   pkg.husky = undefined
   try {
     install()
     set('.husky/pre-commit', 'pnpx lint-staged')
-  } catch (e) {}
+  } catch (e) {
+    throw new Error('make sure .git exited')
+  }
 }
 
 const preprepack = () => {
@@ -104,11 +105,26 @@ const postprepack = (pkg: NormalizedPackageJson) => {
 }
 
 const parts = {
-  ci,
-  lint,
-  husky,
-  issue,
-  pr,
+  ci: {
+    title: 'Setup release.yml, snapshot-release, ci.yml',
+    task: ci,
+  },
+  lint: {
+    title: 'Setup eslint',
+    task: lint,
+  },
+  issue: {
+    title: 'Setup github issue template',
+    task: issue,
+  },
+  pr: {
+    title: 'Setup github pr template',
+    task: pr,
+  },
+  husky: {
+    title: 'Setup husky with lint-staged',
+    task: husky,
+  },
 }
 
 export const prepack = async (options: { module: string[] }) => {
@@ -120,11 +136,15 @@ export const prepack = async (options: { module: string[] }) => {
   const tasks = new Listr(
     module.map((m) => {
       return {
-        title: m,
-        task: () => parts[m]?.(pkg),
+        title: parts[m]?.title,
+        task: () => parts[m]?.task(pkg),
       }
     }),
   )
-  tasks.run()
-  postprepack(pkg)
+  await tasks
+    .run()
+    .then(() => {
+      postprepack(pkg)
+    })
+    .catch(() => {})
 }
