@@ -14,6 +14,22 @@ import { set, install } from 'husky'
 const root = process.cwd()
 
 /**
+ * @description setup issue template
+ */
+const issue = () => {
+  const target = path.resolve(root, '.github/ISSUE_TEMPLATE')
+  fs.copy(r('assets/templates/ISSUE_TEMPLATE'), target)
+}
+
+/**
+ * @description setup pr template
+ */
+const pr = () => {
+  const target = path.resolve(root, '.github')
+  fs.copyFile(r('assets/templates/PULL_REQUEST_TEMPLATE'), target)
+}
+
+/**
  * @description prepack github ci
  */
 const ci = (pkg: NormalizedPackageJson) => {
@@ -89,6 +105,8 @@ const parts = {
   ci,
   lint,
   husky,
+  issue,
+  pr,
 }
 
 export const prepack = async (options: { module: string[] }) => {
