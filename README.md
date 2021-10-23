@@ -112,10 +112,9 @@ including...
 
 *build dayjs plugin lib*
 
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/dayjs-plugin-template)
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/dayjs-plugin-template/tree/master)
 
-- ✨ build and write with `typescript`
-- ✨ good typo define
+- 💪 Typescript - type safe
 
 ### `eslint-config-template`
 
