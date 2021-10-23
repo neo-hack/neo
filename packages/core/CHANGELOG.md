@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.1
+
+### Patch Changes
+
+- 64dcba9: fix update-notifier
+
 ## 3.1.0
 
 ### Minor Changes
