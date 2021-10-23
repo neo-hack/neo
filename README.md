@@ -171,21 +171,22 @@ including...
 - Bundle size analyzer
 
 ### `rollup-template`
-**build lib with rollup**
+*build lib with rollup*
 
 [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/rollup-template)
 
-- output bundlesize
-- exclude `dependencies` and `peerDependencies`
+- 📊 Stats - output bag bundlesize
+- 📦 exclude `dependencies` and `peerDependencies`
+- 💪 Typescript - type safe
   
 ### `ts-lib-template`
-**build ts lib template**
+*build ts lib template*
 
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/ts-lib-template)
+[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)
 
-- Simple build with `tsc`
-- Replace `alias` path to `real` path
-- Watch mode
+- 💪 Type safe - build with `ttsc`
+- 💞 replace `alias` path to `real` path
+- 🥽 watch mode
 
 ### `webpack-loader-template`
 *build webpack loader*
