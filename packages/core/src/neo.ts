@@ -10,7 +10,9 @@ import { whoami } from './whoami'
 import { prepack } from './prepack'
 
 const pkg = readPackageUpSync({ cwd: r() })?.packageJson
-const notifier = updateNotifier({ pkg })
+const notifier = updateNotifier({
+  pkg: { name: pkg!.name, version: '0.1.0' },
+})
 notifier.notify()
 
 const cli = program.version(pkg?.version || '')
