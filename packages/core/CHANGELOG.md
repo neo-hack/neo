@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.2
+
+### Patch Changes
+
+- bd6312e: constants version
+
 ## 3.1.1
 
 ### Patch Changes
