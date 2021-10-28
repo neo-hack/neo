@@ -99,7 +99,7 @@ const preprepack = () => {
 
 const postparts = {
   ci() {
-    if (!fs.existsSync(path.resolve(root, './changeset'))) {
+    if (!fs.existsSync(path.resolve(root, './.changeset'))) {
       console.log()
       console.log(`It\'s almost done...`)
       console.log()
