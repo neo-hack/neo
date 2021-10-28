@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.4
+
+### Patch Changes
+
+- e51a942: changeset folder name
+
 ## 3.1.3
 
 ### Patch Changes
