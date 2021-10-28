@@ -5,6 +5,7 @@
 import { r } from './utils'
 
 import Listr from 'listr'
+import chalk from 'chalk'
 import fs from 'fs-extra'
 import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
@@ -96,6 +97,18 @@ const preprepack = () => {
   return { pkg }
 }
 
+const postparts = {
+  ci() {
+    if (!fs.existsSync(path.resolve(root, './changeset'))) {
+      console.log()
+      console.log(`It\'s almost done...`)
+      console.log()
+      console.log(`  ${chalk.blue('•')} pnpm add @changesets/cli`)
+      console.log(`  ${chalk.blue('•')} pnpx changeset init`)
+    }
+  },
+}
+
 const postprepack = (pkg: NormalizedPackageJson) => {
   fs.writeJSONSync(
     path.resolve(root, './package.json'),
@@ -145,6 +158,9 @@ export const prepack = async (options: { module: string[] }) => {
     .run()
     .then(() => {
       postprepack(pkg)
+      module.forEach((m) => {
+        postparts[m]?.()
+      })
     })
     .catch(() => {})
 }
