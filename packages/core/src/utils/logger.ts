@@ -1,6 +1,5 @@
 import { format } from 'util'
 import chalk from 'chalk'
-import ora from 'ora'
 
 /**
  * Prefix.
@@ -42,19 +41,8 @@ const success = (...args: [any, ...any[]]) => {
   console.log(chalk.bgGreen.black(prefix), sep, msg)
 }
 
-const progress = () => {
-  const spinner = ora('Loading unicorns').start()
-  spinner.color = 'yellow'
-  spinner.text = 'Loading rainbows'
-  return {
-    success: () => spinner.succeed(),
-    fatal: () => spinner.fail(),
-  }
-}
-
 export default {
   log,
   fatal,
   success,
-  progress,
 }
