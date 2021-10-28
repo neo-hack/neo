@@ -1,5 +1,12 @@
 # @aiou/neo
 
+## 3.1.3
+
+### Patch Changes
+
+- 341370f: fix listr
+- 341370f: output postmessage after prepack
+
 ## 3.1.2
 
 ### Patch Changes
