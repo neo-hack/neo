@@ -127,6 +127,7 @@ importers:
       husky: 7.0.2
       husky-init: ^7.0.0
       inquirer: 8.1.2
+      inquirer-autocomplete-prompt: ^1.4.0
       jest: ^27.3.0
       listr: ^0.14.3
       np: 7.5.0
@@ -153,6 +154,7 @@ importers:
       husky: 7.0.2
       husky-init: 7.0.0
       inquirer: 8.1.2
+      inquirer-autocomplete-prompt: 1.4.0_inquirer@8.1.2
       listr: 0.14.3
       ora: 5.4.1
       read-pkg-up: 8.0.0
@@ -13607,6 +13609,20 @@ packages:
       inquirer: 3.2.0
       run-async: 2.4.1
     dev: true
+
+  /inquirer-autocomplete-prompt/1.4.0_inquirer@8.1.2:
+    resolution: {integrity: sha512-qHgHyJmbULt4hI+kCmwX92MnSxDs/Yhdt4wPA30qnoa01OF6uTXV8yvH4hKXgdaTNmkZ9D01MHjqKYEuJN+ONw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      inquirer: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      figures: 3.2.0
+      inquirer: 8.1.2
+      run-async: 2.4.1
+      rxjs: 6.6.7
+    dev: false
 
   /inquirer-autosubmit-prompt/0.2.0:
     resolution: {integrity: sha512-mzNrusCk5L6kSzlN0Ioddn8yzrhYNLli+Sn2ZxMuLechMYAzakiFCIULxsxlQb5YKzthLGfrFACcWoAvM7p04Q==}
