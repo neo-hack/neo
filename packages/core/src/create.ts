@@ -9,6 +9,7 @@ import download from 'download'
 import globby from 'globby'
 import rimraf from 'rimraf'
 import fsExtra from 'fs-extra'
+import InquirerSearchList from 'inquirer-search-list'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, SCOPE } from './utils/constants'
@@ -110,6 +111,8 @@ const run = (template: string, project: string) => {
   downloadAndGenerate({ template, dest: project })
 }
 
+inquirer.registerPrompt('search-list', InquirerSearchList)
+
 /**
  * @description create project from template
  */
@@ -121,7 +124,7 @@ export const create = (template: string, project: string) => {
     inquirer
       .prompt<{ template: TEMPLATES; project: string }>([
         {
-          type: 'list',
+          type: 'search-list',
           name: 'template',
           message: 'Please pick a template',
           choices: Object.keys(templates).map((k) => {
