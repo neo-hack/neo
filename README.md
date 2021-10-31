@@ -56,7 +56,7 @@ neo whoami
 </div>
 
 ### list
-> list all templates
+> list all builtin templates
 
 ```bash
 neo list
@@ -83,6 +83,10 @@ including...
 - `.husky & lint-staged` - lint-staged precommit
 - `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
 - `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/spring-catponents/templates/tree/master/packages/core/assets/templates) for more details
+
+`options`
+
+- `--module` - prepack part of `ci, lint, issue, pr, husky`, e.g `neo prepack --module ci`
 
 ## templates
 
