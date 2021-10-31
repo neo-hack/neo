@@ -127,6 +127,7 @@ importers:
       husky: 7.0.2
       husky-init: ^7.0.0
       inquirer: 8.1.2
+      inquirer-search-list: ^1.2.6
       jest: ^27.3.0
       listr: ^0.14.3
       np: 7.5.0
@@ -153,6 +154,7 @@ importers:
       husky: 7.0.2
       husky-init: 7.0.0
       inquirer: 8.1.2
+      inquirer-search-list: 1.2.6
       listr: 0.14.3
       ora: 5.4.1
       read-pkg-up: 8.0.0
@@ -8959,7 +8961,6 @@ packages:
 
   /chardet/0.4.2:
     resolution: {integrity: sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=}
-    dev: true
 
   /chardet/0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
@@ -9169,7 +9170,6 @@ packages:
 
   /cli-width/2.2.1:
     resolution: {integrity: sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==}
-    dev: true
 
   /cli-width/3.0.0:
     resolution: {integrity: sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==}
@@ -11779,7 +11779,6 @@ packages:
       chardet: 0.4.2
       iconv-lite: 0.4.24
       tmp: 0.0.33
-    dev: true
 
   /external-editor/3.1.0:
     resolution: {integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==}
@@ -12352,6 +12351,11 @@ packages:
     resolution: {integrity: sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==}
     engines: {node: '>=6'}
     dev: true
+
+  /fuzzy/0.1.3:
+    resolution: {integrity: sha1-THbsL/CsGjap3M+aAN+GIweNTtg=}
+    engines: {node: '>= 0.6.0'}
+    dev: false
 
   /gather-stream/1.0.0:
     resolution: {integrity: sha1-szmUr0V6gRVwDUEPMXczy+egkEs=}
@@ -13627,6 +13631,15 @@ packages:
       lodash.partialright: 4.2.1
     dev: true
 
+  /inquirer-search-list/1.2.6:
+    resolution: {integrity: sha512-C4pKSW7FOYnkAloH8rB4FiM91H1v08QFZZJh6KRt//bMfdDBIhgdX8wjHvrVH2bu5oIo6wYqGpzSBxkeClPxew==}
+    dependencies:
+      chalk: 2.4.2
+      figures: 2.0.0
+      fuzzy: 0.1.3
+      inquirer: 3.3.0
+    dev: false
+
   /inquirer/3.2.0:
     resolution: {integrity: sha512-4CyUYMP7lOBkiUU1rR24WGrfRX6SucwbY2Mqb1PdApU24wnTIk4TsnkQwV72dDdIKZ2ycLP+fWCV+tA7wwgoew==}
     dependencies:
@@ -13645,6 +13658,25 @@ packages:
       strip-ansi: 4.0.0
       through: 2.3.8
     dev: true
+
+  /inquirer/3.3.0:
+    resolution: {integrity: sha512-h+xtnyk4EwKvFWHrUYsWErEVR+igKtLdchu+o0Z1RL7VU/jVMFbYir2bp6bAj8efFNxWqHX0dIss6fJQ+/+qeQ==}
+    dependencies:
+      ansi-escapes: 3.2.0
+      chalk: 2.4.2
+      cli-cursor: 2.1.0
+      cli-width: 2.2.1
+      external-editor: 2.2.0
+      figures: 2.0.0
+      lodash: 4.17.21
+      mute-stream: 0.0.7
+      run-async: 2.4.1
+      rx-lite: 4.0.8
+      rx-lite-aggregates: 4.0.8
+      string-width: 2.1.1
+      strip-ansi: 4.0.0
+      through: 2.3.8
+    dev: false
 
   /inquirer/5.2.0:
     resolution: {integrity: sha512-E9BmnJbAKLPGonz0HeWHtbKf+EeSP93paWO3ZYoUpq/aowXvYGjjCSuashhXPpzbArIjBbji39THkxTz9ZeEUQ==}
@@ -17119,7 +17151,6 @@ packages:
 
   /mute-stream/0.0.7:
     resolution: {integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=}
-    dev: true
 
   /mute-stream/0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
@@ -21107,11 +21138,9 @@ packages:
     resolution: {integrity: sha1-dTuHqJoRyVRnxKwWJsTvxOBcZ74=}
     dependencies:
       rx-lite: 4.0.8
-    dev: true
 
   /rx-lite/4.0.8:
     resolution: {integrity: sha1-Cx4Rr4vESDbwSmQH6S2kJGe3lEQ=}
-    dev: true
 
   /rxjs-hooks/0.7.0_react@17.0.2+rxjs@7.2.0:
     resolution: {integrity: sha512-R7uSuiYkn5p0ig9dgdpiCyrRwoltTW70wtCNSalwxb+OWVuI1wkg3sYF/tLOtSXUm1n4eGwKkJgL65ICS3n/5A==}

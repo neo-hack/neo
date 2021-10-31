@@ -2,30 +2,20 @@
 
 exports[`command list should contain all templates listed in constants 1`] = `
 "
+There are 12 templates...
 
-    * rollup-template: rollup stater build pure function lib
-
-    * react-template: webapp starter base on react react-router rematch
-
-    * chrome-extenstion-template: chrome-extenstion starter base ts rxjs react
-
-    * bin-template: bin template
-
-    * react-components-lib-template: react components lib starter, work fine with single component or mutiple components
-
-    * webpack-loader-template: webapck-loader starter
-
-    * ts-lib-template: typescript lib
-
-    * original-html-template: original html without fe framework
-
-    * nextjs-rematch2-template: nextjs and rematch2 quick start
-
-    * eslint-config-template: eslint config template
-
-    * dayjs-plugin-template: dayjs plugin template
-
-    * alfred-workflow-template: alfred workflow
+  • rollup-template: rollup stater build pure function lib
+  • react-template: webapp starter base on react react-router rematch
+  • chrome-extenstion-template: chrome-extenstion starter base ts rxjs react
+  • bin-template: bin template
+  • react-components-lib-template: react components lib starter, work fine with single component or mutiple components
+  • webpack-loader-template: webapck-loader starter
+  • ts-lib-template: typescript lib
+  • original-html-template: original html without fe framework
+  • nextjs-rematch2-template: nextjs and rematch2 quick start
+  • eslint-config-template: eslint config template
+  • dayjs-plugin-template: dayjs plugin template
+  • alfred-workflow-template: alfred workflow
 
 
 "
