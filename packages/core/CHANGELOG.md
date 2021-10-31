@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.5
+
+### Patch Changes
+
+- aa7c8c8: pretty list + search templates
+
 ## 3.1.4
 
 ### Patch Changes
