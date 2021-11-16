@@ -10,6 +10,7 @@ import globby from 'globby'
 import rimraf from 'rimraf'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
+import { findUp } from 'find-up'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, SCOPE } from './utils/constants'
@@ -76,6 +77,31 @@ const generate = ({ dest, template }: { dest: string; template: string }) => {
 }
 
 /**
+ * @description del files after generate
+ */
+const postgenerate = ({ dest }: { dest: string }) => {
+  const common = ['CHANGELOG.md']
+  const mono = [
+    '.eslintignore',
+    '.eslintrc',
+    '.changeset',
+    '.github',
+    '.husky'
+  ]
+  if (findUp('pnpm-workspace.yaml')) {
+    common.concat(mono)
+      .forEach(filename => {
+        fsExtra.removeSync(path.join(process.cwd(), dest, filename))
+      })
+    return
+  }
+  common
+    .forEach(filename => {
+      fsExtra.removeSync(path.join(process.cwd(), dest, filename))
+    })
+}
+
+/**
  * copy downloaded npm package to <projName> folder
  */
 const downloadAndGenerate = ({ template, dest }: { template: string; dest: string }) => {
@@ -84,6 +110,9 @@ const downloadAndGenerate = ({ template, dest }: { template: string; dest: strin
   downloadNPM({ template })
     .then(() => {
       generate({ dest, template })
+    })
+    .then(() => {
+      postgenerate({ dest })
     })
     .catch((err) => {
       spinner.stop()
