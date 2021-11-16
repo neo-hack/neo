@@ -10,6 +10,7 @@ import globby from 'globby'
 import rimraf from 'rimraf'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
+import Listr, { ListrTask } from 'listr'
 import { findUp } from 'find-up'
 
 import logger from './utils/logger'
@@ -93,43 +94,49 @@ const postgenerate = async ({ dest }: { dest: string }) => {
   })
 }
 
-/**
- * copy downloaded npm package to <projName> folder
- */
-const downloadAndGenerate = ({ template, dest }: { template: string; dest: string }) => {
-  if (existsSync(template)) rm(template)
-  spinner.start()
-  downloadNPM({ template })
-    .then(() => {
-      generate({ dest, template })
-    })
-    .then(() => {
-      postgenerate({ dest })
-    })
-    .catch((err) => {
-      spinner.stop()
-      logger.fatal(`Failed to download template ${template}: ${err.message.trim()}`)
-    })
-}
-
 const validateTemplates = (template: string) => {
   if (!template) return
 
   return Object.keys(templates).findIndex((v: string) => v === template) > -1
 }
 
-const run = (template: string, project: string) => {
-  // validate template in list
-  if (!validateTemplates(template)) {
-    logger.fatal(`Failed locate ${template}`)
-    return
+const createTask = ({ template, project }: { template: string; project: string }) => {
+  const hooks = {
+    validate: {
+      title: 'Validate template',
+      task: () => {
+        if (!validateTemplates(template)) {
+          throw new Error(`Failed locate ${template}`)
+        }
+        if (!project) {
+          throw new Error(`<project-name> is required`)
+        }
+        return true
+      },
+    },
+    download: {
+      title: 'Download template',
+      task: () => {
+        // TODO: looks not need
+        if (existsSync(template)) rm(template)
+        return downloadNPM({ template })
+      },
+    },
+    generate: {
+      title: 'Generate project',
+      task: () => {
+        return generate({ dest: project, template })
+      },
+    },
+    // postgenerate
+    postgenerate: {
+      title: 'Clean up',
+      task: () => {
+        return postgenerate({ dest: project })
+      },
+    },
   }
-  // project name is required
-  if (!project) {
-    logger.fatal('<project-name> is required')
-    return
-  }
-  downloadAndGenerate({ template, dest: project })
+  return new Listr(Object.values(hooks) as ListrTask<any>[])
 }
 
 inquirer.registerPrompt('search-list', InquirerSearchList)
@@ -137,9 +144,10 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
 /**
  * @description create project from template
  */
-export const create = (template: string, project: string) => {
+export const create = async (template: string, project: string) => {
   if (template && project) {
-    run(template, project)
+    const task = createTask({ template, project })
+    await task.run()
   } else {
     console.log()
     inquirer
@@ -166,8 +174,9 @@ export const create = (template: string, project: string) => {
           message: 'Please enter a project name',
         },
       ])
-      .then((answers) => {
-        run(answers.template, answers.project)
+      .then(async (answers) => {
+        const task = createTask({ template: answers.template, project: answers.project })
+        await task.run()
       })
       .catch(logger.fatal)
   }
