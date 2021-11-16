@@ -79,26 +79,18 @@ const generate = ({ dest, template }: { dest: string; template: string }) => {
 /**
  * @description del files after generate
  */
-const postgenerate = ({ dest }: { dest: string }) => {
+const postgenerate = async ({ dest }: { dest: string }) => {
   const common = ['CHANGELOG.md']
-  const mono = [
-    '.eslintignore',
-    '.eslintrc',
-    '.changeset',
-    '.github',
-    '.husky'
-  ]
-  if (findUp('pnpm-workspace.yaml')) {
-    common.concat(mono)
-      .forEach(filename => {
-        fsExtra.removeSync(path.join(process.cwd(), dest, filename))
-      })
-    return
-  }
-  common
-    .forEach(filename => {
+  const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
+  if (await findUp('pnpm-workspace.yaml')) {
+    common.concat(mono).forEach((filename) => {
       fsExtra.removeSync(path.join(process.cwd(), dest, filename))
     })
+    return
+  }
+  common.forEach((filename) => {
+    fsExtra.removeSync(path.join(process.cwd(), dest, filename))
+  })
 }
 
 /**
