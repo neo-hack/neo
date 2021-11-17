@@ -22,6 +22,7 @@ describe('command create download npm package', () => {
     await execa.node(cli, ['create', 'bin-template', 'neo-cli-app'], {
       cwd: path.resolve(fixture('neo-cli-app')),
     })
+    expect(fs.existsSync(fixture('neo-cli-app/neo-cli-app/README.md'))).toBe(true)
     clearDir('neo-cli-app')
   }, 10000)
 })
