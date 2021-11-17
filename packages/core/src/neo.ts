@@ -8,6 +8,7 @@ import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
 import { prepack } from './prepack'
+import { preset } from './preset'
 
 const pkg = readPackageUpSync({ cwd: r() })?.packageJson
 const notifier = updateNotifier({
@@ -33,5 +34,11 @@ cli
   .description('prepack neo ci, lint, husky, etc.. to your project')
   .option('-m, --module [modules...]', 'prepack ci, lint, husky, etc... standalone')
   .action(prepack)
+
+cli
+  .command('preset')
+  .alias('ps')
+  .description('load template preset module into local')
+  .action(preset)
 
 program.parse(process.argv)
