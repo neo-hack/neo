@@ -115,7 +115,7 @@ export const create = async (template: string, project: string) => {
     const task = createTask({ template, project })
     await task.run()
     console.log()
-    logger.success(`🎉 ${template} Generated, Happy hacking!`)
+    logger.success(`🎉 ${template} generated, Happy hacking!`)
   } else {
     console.log()
     inquirer
