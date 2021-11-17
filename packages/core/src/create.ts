@@ -1,5 +1,3 @@
-// refs: https://github.com/vuejs/vue-cli/blob/v2/bin/vue-init
-
 import path from 'path'
 import { exec } from 'child_process'
 import { existsSync } from 'fs'
@@ -145,6 +143,10 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
  * @description create project from template
  */
 export const create = async (template: string, project: string) => {
+  const mono = await findUp('pnpm-workspace.yaml')
+  if (mono) {
+    console.log('mono')
+  }
   if (template && project) {
     const task = createTask({ template, project })
     await task.run()
