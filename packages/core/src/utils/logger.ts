@@ -38,7 +38,7 @@ const fatal = (...args: [any, ...any[]]) => {
 
 const success = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(chalk.bgGreen.black(prefix), sep, msg)
+  console.log(sep, msg)
 }
 
 export default {

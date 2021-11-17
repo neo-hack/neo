@@ -1,78 +1,47 @@
 import path from 'path'
-import { exec } from 'child_process'
-import { existsSync } from 'fs'
-import ora from 'ora'
+import execa from 'execa'
 import inquirer from 'inquirer'
 import download from 'download'
 import globby from 'globby'
-import rimraf from 'rimraf'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
-import { findUp } from 'find-up'
+import { isMonorepo } from './utils'
 
 import logger from './utils/logger'
 import { templates, TEMPLATES, SCOPE } from './utils/constants'
-
-const rm = rimraf.sync
 
 process.on('exit', () => {
   console.log()
 })
 
-const spinner = ora('downloading template')
-
 /**
  * download template .neo folder
  */
-const downloadNPM = ({ template }: { template: string }): Promise<boolean> => {
-  return new Promise((resolve, reject) => {
-    exec(`npm v @${SCOPE}/${template} dist.tarball`, (err, stdout) => {
-      if (err) {
-        console.log()
-        logger.fatal(`Failed to download template ${template}: ${err.message.trim()}`)
-        return reject(err)
-      }
-      download(stdout, path.join(process.cwd(), '.neo'), {
-        extract: true,
-      }).then(() => {
-        return resolve(true)
-      })
-    })
+const downloadNPM = async ({ template }: { template: string }) => {
+  const { stdout } = await execa('npm', ['v', `@${SCOPE}/${template}`, 'dist.tarball'])
+  await download(stdout, path.join(process.cwd(), '.neo'), {
+    extract: true,
   })
 }
 
 /**
  * generate template files
  */
-const generate = ({ dest, template }: { dest: string; template: string }) => {
-  fsExtra
-    .copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
-    .then(() => {
-      // remove cache files
-      fsExtra.remove(path.join(process.cwd(), '.neo'))
-      return true
-    })
-    .then(() => {
-      // generate config files from dest.template folder
-      const tplPath = path.join(process.cwd(), dest, 'template')
-      const tpls = globby.sync('*.tpl', {
-        cwd: tplPath,
-        dot: true,
-      })
-      tpls.forEach((f) => {
-        fsExtra.copySync(
-          path.join(tplPath, f),
-          path.join(process.cwd(), dest, f.replace('.tpl', '')),
-        )
-      })
-      // remove template folder
-      fsExtra.removeSync(tplPath)
-    })
-    .then(() => {
-      spinner.stop()
-      logger.success(`🎉 ${template} Generated 🎉!`)
-    })
+const generate = async ({ dest }: { dest: string }) => {
+  await fsExtra.copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
+  await fsExtra.remove(path.join(process.cwd(), '.neo'))
+  // generate config files from dest.template folder
+  const tplPath = path.join(process.cwd(), dest, 'template')
+  const tpls = globby.sync('*.tpl', {
+    cwd: tplPath,
+    dot: true,
+  })
+  tpls.forEach((f) => {
+    fsExtra.copySync(path.join(tplPath, f), path.join(process.cwd(), dest, f.replace('.tpl', '')))
+  })
+  // remove template folder
+  fsExtra.removeSync(tplPath)
 }
 
 /**
@@ -81,7 +50,7 @@ const generate = ({ dest, template }: { dest: string; template: string }) => {
 const postgenerate = async ({ dest }: { dest: string }) => {
   const common = ['CHANGELOG.md']
   const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
-  if (await findUp('pnpm-workspace.yaml')) {
+  if (await isMonorepo()) {
     common.concat(mono).forEach((filename) => {
       fsExtra.removeSync(path.join(process.cwd(), dest, filename))
     })
@@ -109,27 +78,26 @@ const createTask = ({ template, project }: { template: string; project: string }
         if (!project) {
           throw new Error(`<project-name> is required`)
         }
-        return true
       },
     },
     download: {
       title: 'Download template',
-      task: () => {
+      task: async () => {
         // TODO: looks not need
-        if (existsSync(template)) rm(template)
-        return downloadNPM({ template })
+        fsExtra.removeSync(template)
+        await downloadNPM({ template })
       },
     },
     generate: {
       title: 'Generate project',
-      task: () => {
-        return generate({ dest: project, template })
+      task: async () => {
+        return generate({ dest: project })
       },
     },
     // postgenerate
     postgenerate: {
       title: 'Clean up',
-      task: () => {
+      task: async () => {
         return postgenerate({ dest: project })
       },
     },
@@ -143,13 +111,11 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
  * @description create project from template
  */
 export const create = async (template: string, project: string) => {
-  const mono = await findUp('pnpm-workspace.yaml')
-  if (mono) {
-    console.log('mono')
-  }
   if (template && project) {
     const task = createTask({ template, project })
     await task.run()
+    console.log()
+    logger.success(`🎉 ${template} Generated, Happy hacking!`)
   } else {
     console.log()
     inquirer
@@ -179,6 +145,8 @@ export const create = async (template: string, project: string) => {
       .then(async (answers) => {
         const task = createTask({ template: answers.template, project: answers.project })
         await task.run()
+        console.log()
+        logger.success(`🎉 ${template} Generated, Happy hacking!`)
       })
       .catch(logger.fatal)
   }
