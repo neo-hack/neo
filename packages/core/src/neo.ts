@@ -36,9 +36,11 @@ cli
   .action(prepack)
 
 cli
-  .command('preset')
+  .command('preset [alias]')
   .alias('ps')
   .description('load template preset module into local')
-  .action(preset)
+  .action((alias) => {
+    return preset({ alias })
+  })
 
 program.parse(process.argv)

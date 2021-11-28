@@ -17,4 +17,5 @@ export default {
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   extensionsToTreatAsEsm: ['.ts'],
   testRegex: '/test/.+\\.test\\.ts?$',
+  verbose: true,
 }
