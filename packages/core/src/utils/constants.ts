@@ -1,4 +1,10 @@
+import os from 'os'
+import path from 'path'
+
 export const SCOPE = 'aiou'
+export const STORE_PATH = path.join(os.homedir(), '.neo-store')
+export const LOCK_FILE_PATH = path.join(STORE_PATH, 'neo-lock.yml')
+export const NPM_REGISTRY = 'https://registry.npmjs.org/'
 
 export const enum TEMPLATES {
   ROLLUP_STARTER = 'rollup-template',
