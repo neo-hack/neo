@@ -44,7 +44,7 @@
     "@rematch2/core": "^0.2.2",
     "axios": "0.21.1",
     "isomorphic-unfetch": "3.1.0",
-    "next": "^11.1.0",
+    "next": "^11.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "7.2.4",
