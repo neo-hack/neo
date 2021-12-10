@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.1.6
+
+### Patch Changes
+
+- fe2cd5a: pure some files in monorepo and create in task list
+
 ## 3.1.5
 
 ### Patch Changes
