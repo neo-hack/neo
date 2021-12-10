@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@aiou/eslint-config': ^0.3.0
+      '@aiou/eslint-config': ^0.3.2
       '@changesets/cli': ^2.16.0
       cz-emoji: ^1.3.1
       eslint: ^7.18.0
@@ -18,7 +18,7 @@ importers:
     dependencies:
       '@changesets/cli': 2.16.0
     devDependencies:
-      '@aiou/eslint-config': 0.3.0_2055f56ab8dafa07df5c7ad406c8a4ab
+      '@aiou/eslint-config': 0.3.2_2055f56ab8dafa07df5c7ad406c8a4ab
       cz-emoji: 1.3.1
       eslint: 7.31.0
       fs-extra: 10.0.0
@@ -150,6 +150,7 @@ importers:
       chalk: 4.1.1
       commander: 8.0.0
       download: 8.0.0
+      execa: 5.1.1
       find-up: 6.2.0
       fs-extra: 10.0.0
       globby: 11.0.4
@@ -178,7 +179,6 @@ importers:
       comparedir-test: 1.0.3
       cz-emoji: 1.3.1
       enhanced-resolve: 5.8.3
-      execa: 5.1.1
       jest: 27.3.0_ts-node@10.1.0
       np: 7.5.0
       prettier: 2.3.2
@@ -473,6 +473,9 @@ importers:
       webpack-dev-server: 3.11.2_webpack-cli@4.7.2+webpack@5.44.0
       webpack-merge: 5.8.0
       webpackbar: 5.0.0-3_webpack@5.44.0
+
+  packages/presets/aiou:
+    specifiers: {}
 
   packages/react-components-lib-template:
     specifiers:
@@ -862,8 +865,8 @@ packages:
       - supports-color
     dev: true
 
-  /@aiou/eslint-config-basic/0.2.0_eslint@7.31.0:
-    resolution: {integrity: sha512-3mLpkFzeNxBa+GdEH4HD4xUOpgCqlTtV+9HYO6fddLt5uF/5XIVIUxNTwO7rjKy74nm5GQN22IJlAyTsBSWp0Q==}
+  /@aiou/eslint-config-basic/0.2.2_eslint@7.31.0:
+    resolution: {integrity: sha512-y2vc/+NY0MtCYfQ+B7qCbfcPxNhGE4lq09DHIG1WND67lMNKD4GdudGJbH5uLs7raVnq4T4A1PotnjZo7k1JsA==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -897,12 +900,12 @@ packages:
       - typescript
     dev: true
 
-  /@aiou/eslint-config-react/0.2.0_eslint@7.31.0+typescript@4.3.5:
-    resolution: {integrity: sha512-50J+Gv1K3dGub0iyNNgei1waLhGprkxr+HynmU2yNxakbQNpF3hmCZJFnOZydsWzOjHaqNXzYyl5vxf5jlIshA==}
+  /@aiou/eslint-config-react/0.2.2_eslint@7.31.0+typescript@4.3.5:
+    resolution: {integrity: sha512-TCPkX+u2oxg/qZnmvNiUvE6HEG//j1QLa9UqUax2jqLS8bPszm2WbzVjUCPMzoN/ruCadTYXexO0wHC8+4Za1A==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@aiou/eslint-config-ts': 0.2.0_eslint@7.31.0+typescript@4.3.5
+      '@aiou/eslint-config-ts': 0.2.2_eslint@7.31.0+typescript@4.3.5
       eslint: 7.31.0
       eslint-plugin-react: 7.25.1_eslint@7.31.0
       eslint-plugin-react-hooks: 4.2.0_eslint@7.31.0
@@ -926,13 +929,13 @@ packages:
       - supports-color
     dev: true
 
-  /@aiou/eslint-config-ts/0.2.0_eslint@7.31.0+typescript@4.3.5:
-    resolution: {integrity: sha512-V8zuIvqkBPnptRC7CWo/L7ArdvAVL7i/9Py5COfFF9ggNTzZX7mQAla7fbydjKlgI+gZgfr3WBgTqJOJIy7u1g==}
+  /@aiou/eslint-config-ts/0.2.2_eslint@7.31.0+typescript@4.3.5:
+    resolution: {integrity: sha512-udDs/srrJNTpAoHzb7B6Pdw6bKNHoOwedf4BOz19+KnSyzEAGc6XdhO159O/j12fGXAh0pEWCMmsgkTZWOZxlQ==}
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
     dependencies:
-      '@aiou/eslint-config-basic': 0.2.0_eslint@7.31.0
+      '@aiou/eslint-config-basic': 0.2.2_eslint@7.31.0
       '@typescript-eslint/eslint-plugin': 4.30.0_d42c8eac5212204cbdc288193fb124cb
       '@typescript-eslint/parser': 4.30.0_eslint@7.31.0+typescript@4.3.5
       eslint: 7.31.0
@@ -961,14 +964,14 @@ packages:
       - typescript
     dev: true
 
-  /@aiou/eslint-config/0.3.0_2055f56ab8dafa07df5c7ad406c8a4ab:
-    resolution: {integrity: sha512-7rv0OM1xgncG7RAE8ux4rcwgf5+E5J4j9Kb1QK+sslVdw1WjjZsiC7EelOAinmIkSlzZvtpVnpomsxUyALmLrw==}
+  /@aiou/eslint-config/0.3.2_2055f56ab8dafa07df5c7ad406c8a4ab:
+    resolution: {integrity: sha512-ZnEWsinz4X0I5YVh6f4fjxADv0AxfrHJN7E29J+BJ8eO7qFk8aKDYlY8kFO405aurpYlw6lIHoU3cgRMXkmB5Q==}
     peerDependencies:
       eslint: '>=7.4.0'
       prettier: '>=2.2.1'
       pretty-quick: '>=3.1.0'
     dependencies:
-      '@aiou/eslint-config-react': 0.2.0_eslint@7.31.0+typescript@4.3.5
+      '@aiou/eslint-config-react': 0.2.2_eslint@7.31.0+typescript@4.3.5
       '@aiou/eslint-ignore': 0.1.2
       '@aiou/eslint-plugin-progress': 0.1.7_eslint@7.31.0
       eslint: 7.31.0
