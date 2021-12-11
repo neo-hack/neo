@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`load preset npm package should work 1`] = `
+"{
+  id: 'registry.npmjs.org/@aiou/preset-aiou/0.0.1',
+  isLocal: false,
+  isInstallable: true,
+  latest: '0.0.1',
+  manifest: {
+    name: '@aiou/preset-aiou',
+    version: '0.0.1',
+    dist: {
+      integrity: 'sha512-+X0RUSXy9FzkC61U28uqglPg9h152yadRmST/71ykbkN13gxi2gVN1M4uTo+bb5os/7CDO7EnLBprYZxwQR7Sg==',
+      shasum: '1b226a671df8c1bdc9b2f35945fb4282af356dd0',
+      tarball: 'https://registry.npmjs.org/@aiou/preset-aiou/-/preset-aiou-0.0.1.tgz',
+      fileCount: 5,
+      unpackedSize: 2086,
+      'npm-signature': '-----BEGIN PGP SIGNATURE-----\\\\r\\\\n' +
+        'Version: OpenPGP.js v3.0.13\\\\r\\\\n' +
+        'Comment: https://openpgpjs.org\\\\r\\\\n' +
+        '\\\\r\\\\n' +
+        'wsFcBAEBCAAQBQJhsr+VCRA9TVsSAnZWagAA+a4P/joZub2nzPPcGT/+4kxO\\\\n' +
+        'Mk6t7c20m+JFwE+mwIr6XXocuZIdeO4O5PxOWVTreeezzpZwuPuR6+4vVwGp\\\\n' +
+        'GpEk8qWcWNlGGfk761gqk2M+Mf/MVinP5nZ8dmWbcMR8hSHNpH4dULzUi1FA\\\\n' +
+        'dEMQBMR+5Omj4/xfUAVLLN6YPCB3QPaQxvBhWGQHMP7LndAjD5qgNeh+gJ03\\\\n' +
+        'F3R6P3genLIsRh+R6G3tApTvMAr0pcOGlWHVQcvHTelOc9uJf1ebNEYZ38/J\\\\n' +
+        '1eNFfeAb+RBLSM37h+kShVDr+JtUfbHjTCud/OKYD5BRmHdNMr7G/DCMuXBU\\\\n' +
+        'gQPjmPfKtFn/TjabRuK8VE+r4jKlnwKdGNJRM/vRtAN/l38LAF4WtB19X9mE\\\\n' +
+        'R4eY7rfYJPfSTTytdIUTonXIJu4Ayt2ZSPz+ryOWDJXymU6nj8oP/bDDUMXj\\\\n' +
+        'G8EGF4qg7tWGu+KLDRH4St/OH0DFgzjGQqwZtUwjPVYG+CqoYXHJadwKu8L1\\\\n' +
+        'tA8a//OGZlSr8gZXpdOB+wy1JjpCQxepHlvhD3/hTXm1C5WFP8OWhAN6006N\\\\n' +
+        'zj99PRLJV/WmDnj7AMtcyQGW1icWhUjtdwsum2UgHEMNwf4YXSCr9Sqf/chp\\\\n' +
+        '1MfWtWBxtFRzFIPbyW8ZSmY8IOK+icllRAFpwH5rbVSCFBqMQL4/1S8mq7av\\\\n' +
+        'x16f\\\\r\\\\n' +
+        '=GFCJ\\\\r\\\\n' +
+        '-----END PGP SIGNATURE-----\\\\r\\\\n'
+    }
+  },
+  normalizedPref: undefined,
+  resolution: {
+    integrity: 'sha512-+X0RUSXy9FzkC61U28uqglPg9h152yadRmST/71ykbkN13gxi2gVN1M4uTo+bb5os/7CDO7EnLBprYZxwQR7Sg==',
+    registry: 'https://registry.npmjs.org/',
+    tarball: 'https://registry.npmjs.org/@aiou/preset-aiou/-/preset-aiou-0.0.1.tgz'
+  },
+  resolvedVia: 'npm-registry',
+  updated: true
+}"
+`;

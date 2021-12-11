@@ -7,5 +7,12 @@ export type PresetPackage = {
 }
 
 export type LockFile = {
+  templates?: Record<string, any>
   presets?: Record<string, { templates: PresetPackage[] }>
 }
+
+export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
+  ...args: any
+) => Promise<infer R>
+  ? R
+  : any

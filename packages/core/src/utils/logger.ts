@@ -43,7 +43,8 @@ const success = (...args: [any, ...any[]]) => {
 
 export const debugLogger = {
   lockfile: debug('neo:lockfile'),
-  preset: debug('neo:preset'),
+  preset: debug('neo:cmd:preset'),
+  create: debug('neo:cmd:create'),
 }
 
 export default {

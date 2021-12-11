@@ -23,6 +23,12 @@ describe('lock file', () => {
     })
     expect(await lockFile.read()).toMatchSnapshot()
   })
+  it('update templates should work', async () => {
+    await lockFile.updateTemplates({
+      '/@aiou/ts-lib-template/0.5.0': {},
+    })
+    expect(await lockFile.read()).toMatchSnapshot()
+  })
   it('read templates should work', async () => {
     expect(await lockFile.readTemplates()).toMatchSnapshot()
   })

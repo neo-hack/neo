@@ -18,6 +18,9 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     getLockFilePath() {
       return lockFilePath
     },
+    getTemplateId(name: string, version: string) {
+      return `/${name}/${version}`
+    },
     async read(): Promise<LockFile> {
       // make sure lockfile
       if (!fs.existsSync(lockFilePath)) {
@@ -36,6 +39,16 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
         lockfile.presets = {}
       }
       lockfile.presets = { ...lockfile.presets, ...data }
+      return this.write(lockfile)
+    },
+    async updateTemplates(data: any) {
+      const lockfile: LockFile = await this.read()
+      debugLogger.lockfile(lockFilePath)
+      debugLogger.lockfile('update templates %O', data)
+      if (!lockfile.templates) {
+        lockfile.templates = {}
+      }
+      lockfile.templates = { ...lockfile.templates, ...data }
       return this.write(lockfile)
     },
     async readTemplates() {
