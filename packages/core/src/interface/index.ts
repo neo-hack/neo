@@ -6,8 +6,12 @@ export type PresetPackage = {
   name: string
 }
 
+export type Package = PresetPackage & {
+  version: string
+}
+
 export type LockFile = {
-  templates?: Record<string, any>
+  templates?: Record<string, Package>
   presets?: Record<string, { templates: PresetPackage[] }>
 }
 

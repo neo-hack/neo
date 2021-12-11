@@ -16,7 +16,7 @@ describe('lock file', () => {
       neo: {
         templates: [
           {
-            name: '@aiou/ts-lib-template',
+            name: '@aiou/bin-template',
           },
         ],
       },
@@ -25,12 +25,15 @@ describe('lock file', () => {
   })
   it('update templates should work', async () => {
     await lockFile.updateTemplates({
-      '/@aiou/ts-lib-template/0.5.0': {},
+      '/@aiou/ts-lib-template/0.5.0': {
+        name: '@aiou/ts-lib-template',
+      },
     })
     expect(await lockFile.read()).toMatchSnapshot()
   })
   it('read templates should work', async () => {
-    expect(await lockFile.readTemplates()).toMatchSnapshot()
+    const tpls = await lockFile.readTemplates()
+    expect(tpls).toMatchSnapshot()
   })
   it.todo('update packages should work')
 })

@@ -3,6 +3,9 @@
 exports[`lock file read templates should work 1`] = `
 Array [
   Object {
+    "name": "@aiou/bin-template",
+  },
+  Object {
     "name": "@aiou/ts-lib-template",
   },
 ]
@@ -14,7 +17,7 @@ Object {
     "neo": Object {
       "templates": Array [
         Object {
-          "name": "@aiou/ts-lib-template",
+          "name": "@aiou/bin-template",
         },
       ],
     },
@@ -28,13 +31,15 @@ Object {
     "neo": Object {
       "templates": Array [
         Object {
-          "name": "@aiou/ts-lib-template",
+          "name": "@aiou/bin-template",
         },
       ],
     },
   },
   "templates": Object {
-    "/@aiou/ts-lib-template/0.5.0": Object {},
+    "/@aiou/ts-lib-template/0.5.0": Object {
+      "name": "@aiou/ts-lib-template",
+    },
   },
 }
 `;

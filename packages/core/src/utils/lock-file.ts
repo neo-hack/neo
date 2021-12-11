@@ -54,11 +54,12 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     async readTemplates() {
       const lockFile = await this.read()
       const presets: LockFile['presets'] = lockFile.presets || {}
-      // TODO: merge cached packages and preset packages
-      const packages = Object.values(presets).reduce((acc, cur) => {
+      const templates: LockFile['templates'] = lockFile.templates || {}
+      const cachedTemplates = Object.values(templates)
+      const presetTemplates = Object.values(presets).reduce((acc, cur) => {
         return acc.concat(cur.templates)
       }, [] as PresetPackage[])
-      return packages
+      return presetTemplates.concat(cachedTemplates)
     },
   }
 }

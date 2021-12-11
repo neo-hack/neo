@@ -35,7 +35,10 @@ const generate = async ({
   debugLogger.create('source template %s@%s', manifest?.name, manifest?.version)
   await pm.import(project, await templateResponse.files?.())
   await lockFile.updateTemplates({
-    [lockFile.getTemplateId(manifest!.name, manifest!.version)]: {},
+    [lockFile.getTemplateId(manifest!.name, manifest!.version)]: {
+      name: manifest!.name,
+      version: manifest!.version,
+    },
   })
   // generate config files from dest.template folder
   const tplPath = path.join(process.cwd(), project, 'template')
