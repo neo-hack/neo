@@ -1,0 +1,36 @@
+{
+  "name": "@aiou/preset-aiou",
+  "version": "0.0.1",
+  "description": "preset aiou",
+  "keywords": [
+    "preset",
+    "template",
+    "aiou"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/spring-catponents/templates#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spring-catponents/templates.git",
+    "directory": "packages/presets/aiou"
+  },
+  "bugs": {
+    "url": "https://github.com/spring-catponents/templates/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "main": "index.json",
+  "scripts": {
+    "build": "echo build",
+    "test": "echo test"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": [
+      "eslint --fix"
+    ]
+  }
+}
