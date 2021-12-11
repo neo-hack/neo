@@ -2,6 +2,42 @@
   "templates": [
     {
       "name": "@aiou/ts-lib-template"
+    },
+    {
+      "name": "@aiou/actions-template"
+    },
+    {
+      "name": "@aiou/rollup-plugin-template"
+    },
+    {
+      "name": "@aiou/rollup-template"
+    },
+    {
+      "name": "@aiou/dayjs-plugin-template"
+    },
+    {
+      "name": "@aiou/bin-template"
+    },
+    {
+      "name": "@aiou/webext-template"
+    },
+    {
+      "name": "@aiou/eslint-config-template"
+    },
+    {
+      "name": "@aiou/webpack-loader-template"
+    },
+    {
+      "name": "@aiou/react-template"
+    },
+    {
+      "name": "@aiou/react-components-lib-template"
+    },
+    {
+      "name": "@aiou/original-html-template"
+    },
+    {
+      "name": "@aiou/chrome-extenstion-template"
     }
   ]
 }
