@@ -4,17 +4,20 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from './constants'
+import { CommonOptions } from '../interface'
 import { debugLogger } from './logger'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
 }
 
+let lockFile: ReturnType<typeof createLockFile>
+
 type LockFile = {
   presets?: Record<string, { templates: string[] }>
 }
 
-const createLockFile = ({ storeDir = STORE_PATH }: { storeDir: string }) => {
+const createLockFile = ({ storeDir = STORE_PATH }: CommonOptions) => {
   const lockFilePath = getLockFilePath(storeDir)
   return {
     getLockFilePath() {
@@ -43,4 +46,11 @@ const createLockFile = ({ storeDir = STORE_PATH }: { storeDir: string }) => {
   }
 }
 
-export default createLockFile
+const create = (params: CommonOptions) => {
+  if (lockFile) {
+    return lockFile
+  }
+  return createLockFile(params)
+}
+
+export default create

@@ -1,17 +1,15 @@
 import createStore, { PackageFilesResponse } from '@pnpm/package-store'
 import createClient from '@pnpm/client'
 import path from 'path'
+
+import { CommonOptions } from '../interface'
 import { STORE_PATH, NPM_REGISTRY } from './constants'
 
 const authConfig = { registry: NPM_REGISTRY }
 
-export type TemplatePackageManagerClient = {
-  request(alias: string, pref?: string): Promise<any>
-  fetch(): Promise<any>
-  import(to: string, response: PackageFilesResponse): Promise<any>
-}
+let pm: ReturnType<typeof createTemplatePM>
 
-const createTemplatePM = async ({ storeDir = STORE_PATH }: { storeDir: string }) => {
+const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
   // @ts-ignore
   const { resolve, fetchers } = createClient.default({
     authConfig,
@@ -22,7 +20,7 @@ const createTemplatePM = async ({ storeDir = STORE_PATH }: { storeDir: string })
     storeDir,
     verifyStoreIntegrity: true,
   })
-  const pm: TemplatePackageManagerClient = {
+  return {
     async request(alias: string, pref?: string) {
       const fetchResponse = await storeController.requestPackage(
         {
@@ -65,7 +63,13 @@ const createTemplatePM = async ({ storeDir = STORE_PATH }: { storeDir: string })
       })
     },
   }
-  return pm
 }
 
-export default createTemplatePM
+const create = (params: CommonOptions) => {
+  if (pm) {
+    return pm
+  }
+  return createTemplatePM(params)
+}
+
+export default create

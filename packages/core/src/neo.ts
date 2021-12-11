@@ -39,7 +39,7 @@ cli
   .command('preset [alias]')
   .alias('ps')
   .description('load template preset module into local')
-  .option('--store-dir [storeDir]', 'set template store dir')
+  .option('--store-dir [storeDir]', 'define store dir')
   .action((alias, options = {}) => {
     return preset({ alias, storeDir: options.storeDir })
   })

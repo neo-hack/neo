@@ -1,4 +1,4 @@
-import createTemplatePM, { TemplatePackageManagerClient } from './utils/pm'
+import createTemplatePM from './utils/pm'
 import log, { debugLogger } from './utils/logger'
 import createLockFile from './utils/lock-file'
 import { STORE_PATH } from './utils/constants'
@@ -6,9 +6,6 @@ import { STORE_PATH } from './utils/constants'
 import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
-
-let pm: TemplatePackageManagerClient
-let lockFile: ReturnType<typeof createLockFile>
 
 type PresetOptions = {
   alias: string
@@ -23,8 +20,8 @@ export const preset = async ({ alias, pref, storeDir = STORE_PATH }: PresetOptio
   try {
     debugLogger.preset('fetch %s with pref %s at %s', alias, pref, storeDir)
     // init template package manager
-    pm = await createTemplatePM({ storeDir })
-    lockFile = createLockFile({ storeDir })
+    const pm = await createTemplatePM({ storeDir })
+    const lockFile = createLockFile({ storeDir })
     // download
     const response = await pm.request(alias, pref)
     const dir = tempy.directory()
