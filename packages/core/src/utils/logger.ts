@@ -1,5 +1,6 @@
 import { format } from 'util'
 import chalk from 'chalk'
+import debug from 'debug'
 
 /**
  * Prefix.
@@ -39,6 +40,10 @@ const fatal = (...args: [any, ...any[]]) => {
 const success = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
   console.log(sep, msg)
+}
+
+export const debugLogger = {
+  lockfile: debug('lockfile'),
 }
 
 export default {

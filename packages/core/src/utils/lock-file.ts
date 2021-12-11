@@ -1,10 +1,12 @@
 import writeYamlFile from 'write-yaml-file'
+import path from 'path'
 
-import { LOCK_FILE_PATH } from './constants'
+import { LOCK_FILE, STORE_PATH } from './constants'
 
 const lock = {
-  write(data: any) {
-    return writeYamlFile(LOCK_FILE_PATH, data)
+  write(data: any, lockFilePath = path.join(STORE_PATH, LOCK_FILE)) {
+    console.log(lockFilePath)
+    return writeYamlFile(lockFilePath, data)
   },
 }
 

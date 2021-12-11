@@ -4,7 +4,6 @@ import path from 'path'
 import { STORE_PATH, NPM_REGISTRY } from './constants'
 
 const authConfig = { registry: NPM_REGISTRY }
-console.log(createClient)
 
 export type TemplatePackageManagerClient = {
   request(alias: string, pref?: string): Promise<any>
@@ -25,7 +24,6 @@ const createTemplatePM = async ({ storeDir = STORE_PATH }: { storeDir: string })
   })
   const pm: TemplatePackageManagerClient = {
     async request(alias: string, pref?: string) {
-      console.log(storeDir)
       const fetchResponse = await storeController.requestPackage(
         {
           alias,

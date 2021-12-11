@@ -7,6 +7,12 @@ export default {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*'],
   coverageDirectory: './jest/coverage',
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
   resetMocks: true,
   resetModules: true,
   restoreMocks: true,
