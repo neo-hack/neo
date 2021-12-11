@@ -9,4 +9,5 @@ describe('command list', () => {
     const { stdout } = await execa('node', [cli].concat(['list']))
     expect(stdout).toMatchSnapshot()
   })
+  it.todo('list template from presets and packages')
 })

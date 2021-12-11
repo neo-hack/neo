@@ -25,4 +25,6 @@ describe('command create download npm package', () => {
     expect(fs.existsSync(fixture('neo-cli-app/neo-cli-app/README.md'))).toBe(true)
     clearDir('neo-cli-app')
   }, 10000)
+
+  it.todo('create package will update lock file')
 })

@@ -1,5 +1,6 @@
 import createTemplatePM, { TemplatePackageManagerClient } from './utils/pm'
-import lockFile from './utils/lock-file'
+import log, { debugLogger } from './utils/logger'
+import createLockFile from './utils/lock-file'
 import { STORE_PATH } from './utils/constants'
 
 import fs from 'fs-extra'
@@ -7,6 +8,7 @@ import path from 'path'
 import tempy from 'tempy'
 
 let pm: TemplatePackageManagerClient
+let lockFile: ReturnType<typeof createLockFile>
 
 type PresetOptions = {
   alias: string
@@ -19,29 +21,25 @@ type PresetOptions = {
  */
 export const preset = async ({ alias, pref, storeDir = STORE_PATH }: PresetOptions) => {
   try {
-    console.log(alias, pref, storeDir)
+    debugLogger.preset('fetch %s with pref %s at %s', alias, pref, storeDir)
     // init template package manager
     pm = await createTemplatePM({ storeDir })
+    lockFile = createLockFile({ storeDir })
     // download
     const response = await pm.request(alias, pref)
-    console.log(response)
-    // import
     const dir = tempy.directory()
     const files = await response.files?.()
-    console.log(files)
     if (!files) {
-      // TODO: throw error
-      return
+      throw new Error(`${alias} is empty`)
     }
     await pm.import(dir, files)
     const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
-    console.log(pkgs)
-    lockFile.write({
-      presets: {
-        [alias]: pkgs,
-      },
+    debugLogger.preset('%O', pkgs)
+    // always update latest alias preset
+    await lockFile.updatePreset({
+      [alias]: pkgs,
     })
   } catch (e) {
-    console.error(e)
+    log.fatal(e)
   }
 }
