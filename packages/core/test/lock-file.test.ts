@@ -23,5 +23,8 @@ describe('lock file', () => {
     })
     expect(await lockFile.read()).toMatchSnapshot()
   })
+  it('read templates should work', async () => {
+    expect(await lockFile.readTemplates()).toMatchSnapshot()
+  })
   it.todo('update packages should work')
 })

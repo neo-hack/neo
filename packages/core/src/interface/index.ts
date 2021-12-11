@@ -1,3 +1,11 @@
 export type CommonOptions = {
-  storeDir: string
+  storeDir?: string
+}
+
+export type PresetPackage = {
+  name: string
+}
+
+export type LockFile = {
+  presets?: Record<string, { templates: PresetPackage[] }>
 }

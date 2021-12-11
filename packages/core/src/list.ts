@@ -1,24 +1,24 @@
-import { templates } from './utils/constants'
 import chalk from 'chalk'
 
-/**
- * Padding.
- */
-
-console.log()
-process.on('exit', () => {
-  console.log()
-})
+import { CommonOptions } from './interface'
+import log from './utils/logger'
+import createLockFile from './utils/lock-file'
 
 /**
  * @description List all templates
  */
-export const list = () => {
-  const keys = Object.keys(templates)
-  console.log(`There are ${keys.length} templates...`)
+export const list = async (params: CommonOptions) => {
+  const lockFile = createLockFile(params)
+  const templates = await lockFile.readTemplates()
+  if (!templates.length) {
+    log.log(`There are no templates...`)
+    return
+  }
+  log.log(`There are ${templates.length} templates...`)
   console.log()
-  keys.forEach((k) => {
-    console.log(`  ${chalk.blue('•')} ${chalk.bold.green(k)}: ${templates[k]}`)
+  // TODO: list template with detail
+  templates.forEach((tpl) => {
+    console.log(`  ${chalk.blue('•')} ${chalk.bold.green(tpl.name)}`)
   })
   console.log()
 }

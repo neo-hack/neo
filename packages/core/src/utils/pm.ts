@@ -9,7 +9,7 @@ const authConfig = { registry: NPM_REGISTRY }
 
 let pm: ReturnType<typeof createTemplatePM>
 
-const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
+export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
   // @ts-ignore
   const { resolve, fetchers } = createClient.default({
     authConfig,

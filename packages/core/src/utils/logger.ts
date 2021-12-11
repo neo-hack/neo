@@ -5,7 +5,7 @@ import debug from 'debug'
 /**
  * Prefix.
  */
-const sep = chalk.gray('·')
+export const sep = chalk.gray('·')
 
 /**
  * Log a `message` to the console.
@@ -14,7 +14,7 @@ const sep = chalk.gray('·')
  */
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(sep, msg)
+  console.log(msg)
 }
 
 /**
@@ -26,7 +26,7 @@ const log = (...args: [any, ...any[]]) => {
 const fatal = (...args: [any, ...any[]]) => {
   if (args[0] instanceof Error) args[0] = args[0].message.trim()
   const msg = format.apply(format, args)
-  console.error(sep, msg)
+  console.error(msg)
   process.exit(1)
 }
 
@@ -38,7 +38,7 @@ const fatal = (...args: [any, ...any[]]) => {
 
 const success = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(sep, msg)
+  console.log(msg)
 }
 
 export const debugLogger = {

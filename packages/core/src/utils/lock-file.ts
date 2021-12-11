@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from './constants'
-import { CommonOptions } from '../interface'
+import { CommonOptions, LockFile, PresetPackage } from '../interface'
 import { debugLogger } from './logger'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
@@ -13,12 +13,7 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
 
 let lockFile: ReturnType<typeof createLockFile>
 
-type LockFile = {
-  presets?: Record<string, { templates: string[] }>
-}
-
-const createLockFile = ({ storeDir = STORE_PATH }: CommonOptions) => {
-  const lockFilePath = getLockFilePath(storeDir)
+export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
   return {
     getLockFilePath() {
       return lockFilePath
@@ -43,14 +38,23 @@ const createLockFile = ({ storeDir = STORE_PATH }: CommonOptions) => {
       lockfile.presets = { ...lockfile.presets, ...data }
       return this.write(lockfile)
     },
+    async readTemplates() {
+      const lockFile = await this.read()
+      const presets: LockFile['presets'] = lockFile.presets || {}
+      // TODO: merge cached packages and preset packages
+      const packages = Object.values(presets).reduce((acc, cur) => {
+        return acc.concat(cur.templates)
+      }, [] as PresetPackage[])
+      return packages
+    },
   }
 }
 
-const create = (params: CommonOptions) => {
+const create = (params?: CommonOptions) => {
   if (lockFile) {
     return lockFile
   }
-  return createLockFile(params)
+  return createLockFile({ lockFilePath: getLockFilePath(params?.storeDir) })
 }
 
 export default create

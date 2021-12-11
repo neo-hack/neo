@@ -22,9 +22,15 @@ cli
   .command('create [template-name] [project-name]')
   .description('generate a new project from a neo template')
   .alias('c')
+  .option('--store-dir [storeDir]', 'define store dir')
   .action(create)
 
-cli.command('list').description('list all templates').alias('l').action(list)
+cli
+  .command('list')
+  .description('list all templates')
+  .alias('l')
+  .option('--store-dir [storeDir]', 'define store dir')
+  .action(list)
 
 cli.command('whoami').alias('me').description('who is neo?').action(whoami)
 
