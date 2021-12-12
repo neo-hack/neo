@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`command list should contain all templates listed in constants 1`] = `
-"· There are 1 templates...
-
-  • @aiou/ts-lib-template
-
-"
-`;
