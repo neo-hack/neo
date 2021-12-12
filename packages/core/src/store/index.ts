@@ -1,4 +1,5 @@
 import { AsyncReturnType, CommonOptions } from '../interface'
+import { debugLogger } from '../utils/logger'
 import createLockFile from './lock-file'
 import createTemplatePM, { RequestOptions } from './pm'
 
@@ -12,14 +13,17 @@ const createStore = async (params: CommonOptions) => {
     lockFile,
     async addTemplate(params: RequestOptions) {
       const fetchResponse = await pm.request(params)
-      const manifest = await fetchResponse?.bundledManifest?.()
-      if (!manifest) {
+      if (!fetchResponse) {
+        debugLogger.store('template not found')
         return
       }
+      const manifest = await fetchResponse?.bundledManifest?.()
+      const { id, resolvedVia } = fetchResponse.body
       await lockFile.updateTemplates({
-        [lockFile.getTemplateId(manifest!.name, manifest!.version)]: {
+        [id]: {
           name: manifest!.name,
           version: manifest!.version,
+          resolvedVia,
         },
       })
       return fetchResponse

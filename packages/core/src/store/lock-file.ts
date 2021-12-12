@@ -14,12 +14,10 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
 let lockFile: ReturnType<typeof createLockFile>
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
+  debugLogger.lockfile('lockfilepath at %s', lockFilePath)
   return {
     getLockFilePath() {
       return lockFilePath
-    },
-    getTemplateId(name: string, version: string) {
-      return `/${name}/${version}`
     },
     async read(): Promise<LockFile> {
       // make sure lockfile
@@ -33,7 +31,6 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     },
     async updatePreset(data: any) {
       const lockfile: LockFile = await this.read()
-      debugLogger.lockfile(lockFilePath)
       debugLogger.lockfile('update preset %O', data)
       if (!lockfile.presets) {
         lockfile.presets = {}
@@ -43,7 +40,6 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     },
     async updateTemplates(data: any) {
       const lockfile: LockFile = await this.read()
-      debugLogger.lockfile(lockFilePath)
       debugLogger.lockfile('update templates %O', data)
       if (!lockfile.templates) {
         lockfile.templates = {}

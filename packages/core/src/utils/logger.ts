@@ -43,6 +43,8 @@ const success = (...args: [any, ...any[]]) => {
 
 export const debugLogger = {
   lockfile: debug('neo:lockfile'),
+  pm: debug('neo:pm'),
+  store: debug('neo:store'),
   preset: debug('neo:cmd:preset'),
   create: debug('neo:cmd:create'),
 }

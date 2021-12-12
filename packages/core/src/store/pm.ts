@@ -4,6 +4,7 @@ import path from 'path'
 
 import { CommonOptions } from '../interface'
 import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
+import { debugLogger } from '../utils/logger'
 
 const authConfig = { registry: NPM_REGISTRY }
 export type RequestOptions = {
@@ -25,7 +26,7 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
     verifyStoreIntegrity: true,
   })
   return {
-    async request({ alias, pref }: RequestOptions): Promise<PackageResponse> {
+    async fetch({ alias, pref }: RequestOptions): Promise<PackageResponse> {
       const fetchResponse = await storeController.requestPackage(
         {
           alias,
@@ -40,6 +41,17 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
           sideEffectsCache: false,
         },
       )
+      return fetchResponse
+    },
+    async request({ alias, pref }: RequestOptions): Promise<PackageResponse> {
+      let fetchResponse = await this.fetch({ alias, pref }).catch((e) => {
+        debugLogger.pm(`request %s with %s ${e}`, alias, pref)
+        return undefined
+      })
+      if (!fetchResponse) {
+        fetchResponse = await this.fetch({ pref: alias })
+      }
+      debugLogger.pm('request response.body %O', fetchResponse.body)
       return fetchResponse
     },
     async import(to: string, response?: PackageFilesResponse) {
