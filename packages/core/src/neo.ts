@@ -19,7 +19,7 @@ notifier.notify()
 const cli = program.version(pkg?.version || '')
 
 cli
-  .command('Create [template-name] [project-name]')
+  .command('create [template-name] [project-name]')
   .description('Generate a new project from a neo template')
   .alias('c')
   .option('--store-dir [storeDir]', 'Set store dir')
