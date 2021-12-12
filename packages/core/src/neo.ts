@@ -8,7 +8,7 @@ import { create } from './create'
 import { list } from './list'
 import { whoami } from './whoami'
 import { prepack } from './prepack'
-import { preset } from './preset'
+import { add } from './add'
 
 const pkg = readPackageUpSync({ cwd: r() })?.packageJson
 const notifier = updateNotifier({
@@ -42,12 +42,12 @@ cli
   .action(prepack)
 
 cli
-  .command('preset [alias]')
+  .command('add [alias]')
   .alias('ps')
   .description('load template preset module into local')
   .option('--store-dir [storeDir]', 'define store dir')
   .action((alias, options = {}) => {
-    return preset({ alias, storeDir: options.storeDir })
+    return add({ alias, storeDir: options.storeDir })
   })
 
 program.parse(process.argv)

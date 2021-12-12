@@ -24,6 +24,7 @@ const createStore = async (params: CommonOptions) => {
           name: manifest!.name,
           version: manifest!.version,
           resolvedVia,
+          id,
         },
       })
       return fetchResponse

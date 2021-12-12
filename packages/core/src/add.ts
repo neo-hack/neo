@@ -15,7 +15,7 @@ type PresetOptions = {
 /**
  * @description load preset/npm-package to local yaml file
  */
-export const preset = async ({ alias, pref, storeDir = STORE_PATH }: PresetOptions) => {
+export const add = async ({ alias, pref, storeDir = STORE_PATH }: PresetOptions) => {
   try {
     debugLogger.preset('fetch %s with pref %s at %s', alias, pref, storeDir)
     // init template package manager
