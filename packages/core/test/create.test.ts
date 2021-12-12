@@ -15,5 +15,6 @@ describe('command create download npm package', () => {
     expect(fs.existsSync(path.join(destDir, './neo-cli-app/README.md'))).toBe(true)
   }, 10000)
 
+  it.todo('create package from github should work')
   it.todo('create package will update lock file')
 })

@@ -9,14 +9,12 @@ import type { PackageResponse } from '@pnpm/package-store'
 import { isMonorepo } from './utils'
 import logger, { debugLogger } from './utils/logger'
 import { CommonOptions, AsyncReturnType } from './interface'
-import createLockFile from './utils/lock-file'
-import createTemplatePM from './utils/pm'
+import createStore from './store'
 
 type CreateOptions = {
   template: string
   project: string
-  pm: AsyncReturnType<typeof createTemplatePM>
-  lockFile: ReturnType<typeof createLockFile>
+  store: AsyncReturnType<typeof createStore>
 }
 
 /**
@@ -25,21 +23,13 @@ type CreateOptions = {
  */
 const generate = async ({
   project,
-  pm,
+  template,
   templateResponse,
-  lockFile,
-}: Omit<CreateOptions, 'template'> & {
+  store,
+}: CreateOptions & {
   templateResponse: PackageResponse
 }) => {
-  const manifest = templateResponse.body.manifest
-  debugLogger.create('source template %s@%s', manifest?.name, manifest?.version)
-  await pm.import(project, await templateResponse.files?.())
-  await lockFile.updateTemplates({
-    [lockFile.getTemplateId(manifest!.name, manifest!.version)]: {
-      name: manifest!.name,
-      version: manifest!.version,
-    },
-  })
+  await store.pm.import(project, await templateResponse.files?.())
   // generate config files from dest.template folder
   const tplPath = path.join(process.cwd(), project, 'template')
   const tpls = globby.sync('*.tpl', {
@@ -54,6 +44,7 @@ const generate = async ({
   })
   // remove template folder
   fsExtra.removeSync(tplPath)
+  debugLogger.create('create project %s from source template %s', project, template)
 }
 
 /**
@@ -74,8 +65,8 @@ const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
   })
 }
 
-const createTask = ({ template, project, pm, lockFile }: CreateOptions) => {
-  let templateResponse: PackageResponse
+const createTask = ({ template, project, store }: CreateOptions) => {
+  let templateResponse: PackageResponse | undefined
   const hooks = {
     validate: {
       title: 'Validate template',
@@ -90,13 +81,16 @@ const createTask = ({ template, project, pm, lockFile }: CreateOptions) => {
       task: async () => {
         // TODO: looks not need
         fsExtra.removeSync(template)
-        templateResponse = await pm.request(template)
+        templateResponse = await store.addTemplate({ alias: template })
       },
     },
     generate: {
       title: 'Generate project',
       task: async () => {
-        return generate({ project, pm, templateResponse, lockFile })
+        if (!templateResponse) {
+          throw new Error('template not found')
+        }
+        return generate({ project, store, templateResponse, template })
       },
     },
     // postgenerate
@@ -116,10 +110,9 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
  * @description create project from template
  */
 export const create = async (template: string, project: string, options: CommonOptions) => {
-  const pm = await createTemplatePM(options)
-  const lockFile = createLockFile(options)
+  const store = await createStore(options)
   if (template && project) {
-    const task = createTask({ template, project, pm, lockFile })
+    const task = createTask({ template, project, store })
     await task.run()
     console.log()
     logger.success(`🎉 ${template} generated, Happy hacking!`)
@@ -130,7 +123,7 @@ export const create = async (template: string, project: string, options: CommonO
           type: 'search-list',
           name: 'template',
           message: 'Please pick a template',
-          choices: await lockFile.readTemplates(),
+          choices: await store.lockFile.readTemplates(),
           validate(answer: { template: string; project: string }) {
             if (!answer) return 'You must choose at least one template.'
 
@@ -147,8 +140,7 @@ export const create = async (template: string, project: string, options: CommonO
         const task = createTask({
           template: answers.template,
           project: answers.project,
-          pm,
-          lockFile,
+          store,
         })
         await task.run()
         console.log()

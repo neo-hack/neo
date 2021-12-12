@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`load from npm load preset npm package should work 1`] = `
+"{
+  name: '@aiou/preset-aiou',
+  version: '1.0.0',
+  dist: {
+    integrity: 'sha512-5/eH7VgYOsc0vZbqHKb6rLfuni6kfxoBYPdWVtglT6PQp+Sa4OMlIbMFaccZpoMhcq8WQv975EuYMEzLPVwqBQ==',
+    shasum: '5523eb2b3eae5874ba8a0df9e6f08b414f17a382',
+    tarball: 'https://registry.npmjs.org/@aiou/preset-aiou/-/preset-aiou-1.0.0.tgz',
+    fileCount: 5,
+    unpackedSize: 2815,
+    'npm-signature': '-----BEGIN PGP SIGNATURE-----\\\\r\\\\n' +
+      'Version: OpenPGP.js v3.0.13\\\\r\\\\n' +
+      'Comment: https://openpgpjs.org\\\\r\\\\n' +
+      '\\\\r\\\\n' +
+      'wsFcBAEBCAAQBQJhtLfaCRA9TVsSAnZWagAAPjgP/R5TopyUYceSFzAz6tNX\\\\n' +
+      'zFjOPuXOv+MCLTaZZVvJ+nVPdEITxP5FwpjOk8PDbfNiYDLXaFcQtYR1Yzmi\\\\n' +
+      '1V3dHwOigjVeIgqPm921YbJmMUSrQhWJu/Dd8nKWLc3BxDwkisXl8fE4Ezv9\\\\n' +
+      'QahNCZdxKuSbuPt0Q4eqLAmEowb45UluWw5SDA2/LwRba2iakzvnvTerrqrr\\\\n' +
+      'aRSUhiDjBLyZb3P/5Cf4wS8mgBS+ZMbR6mj2RKDPh6n4nDidc9Mp7mJLe5v/\\\\n' +
+      'OQSq302KQB2cEnnuYvWYz8KqRrFaZpmZ6WDjGdOd/RYMTPagnCIQ/PI6RbkI\\\\n' +
+      '/HuJWyXZ9lfOU0WHqtuhJHqlZ1Hg7KMuK7ZaX6t3hE032pnsAt5RJLmUrXIC\\\\n' +
+      'lPjTRZuYFMwkU8td7IDxSIF0OZrDjaBxybcpWnCeB4qP8qSshcPGMULFiy8K\\\\n' +
+      'R8FAL8lXUtjs/2PYqE+/GHvIpti6dc6srqfbW0N5z5fUK2F96XHLRdcbiMhm\\\\n' +
+      '5s6Y8QVNT1m/Woolu4wWbOc9WNvV8L4LBaFhAoX3P7EG1Hw8R2Up8KBAS2E1\\\\n' +
+      'cbQIPmMQDbXmpMWdIh4EXW20G0egZFRw6hYc8ivrOnZvwUyqbFwoeExicvjw\\\\n' +
+      'IKscldgyJ78LLZv2gr6N1FdeoNDJh7AcMcGYCjTATRm7G+lwByeKIbdWijQW\\\\n' +
+      'GLUW\\\\r\\\\n' +
+      '=43K4\\\\r\\\\n' +
+      '-----END PGP SIGNATURE-----\\\\r\\\\n'
+  }
+}"
+`;
+
 exports[`load preset npm package should work 1`] = `
 "{
   id: 'registry.npmjs.org/@aiou/preset-aiou/0.0.1',

@@ -1,5 +1,5 @@
 import { r } from '../../src/utils'
-import createLockFile from '../../src/utils/lock-file'
+import createLockFile from '../../src/store/lock-file'
 
 import tempy from 'tempy'
 import path from 'path'

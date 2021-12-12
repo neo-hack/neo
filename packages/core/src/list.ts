@@ -2,14 +2,14 @@ import chalk from 'chalk'
 
 import { CommonOptions } from './interface'
 import log from './utils/logger'
-import createLockFile from './utils/lock-file'
+import createStore from './store'
 
 /**
  * @description List all templates
  */
 export const list = async (params: CommonOptions) => {
-  const lockFile = createLockFile(params)
-  const templates = await lockFile.readTemplates()
+  const store = await createStore(params)
+  const templates = await store.lockFile.readTemplates()
   if (!templates.length) {
     log.log(`There are no templates...`)
     return

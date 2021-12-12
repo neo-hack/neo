@@ -1,4 +1,4 @@
-import createLockFile from '../src/utils/lock-file'
+import createLockFile from '../src/store/lock-file'
 
 import path from 'path'
 import tempy from 'tempy'

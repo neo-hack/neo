@@ -3,9 +3,9 @@ import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
 
-import { LOCK_FILE, STORE_PATH } from './constants'
+import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, PresetPackage } from '../interface'
-import { debugLogger } from './logger'
+import { debugLogger } from '../utils/logger'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)

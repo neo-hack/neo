@@ -3,9 +3,13 @@ import createClient from '@pnpm/client'
 import path from 'path'
 
 import { CommonOptions } from '../interface'
-import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from './constants'
+import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
 
 const authConfig = { registry: NPM_REGISTRY }
+export type RequestOptions = {
+  alias?: string
+  pref?: string
+}
 
 let pm: ReturnType<typeof createTemplatePM>
 
@@ -21,7 +25,7 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
     verifyStoreIntegrity: true,
   })
   return {
-    async request(alias: string, pref?: string): Promise<PackageResponse> {
+    async request({ alias, pref }: RequestOptions): Promise<PackageResponse> {
       const fetchResponse = await storeController.requestPackage(
         {
           alias,

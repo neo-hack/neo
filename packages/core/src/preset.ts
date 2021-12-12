@@ -1,6 +1,5 @@
-import createTemplatePM from './utils/pm'
 import log, { debugLogger } from './utils/logger'
-import createLockFile from './utils/lock-file'
+import createStore from './store'
 import { STORE_PATH } from './utils/constants'
 
 import fs from 'fs-extra'
@@ -20,20 +19,19 @@ export const preset = async ({ alias, pref, storeDir = STORE_PATH }: PresetOptio
   try {
     debugLogger.preset('fetch %s with pref %s at %s', alias, pref, storeDir)
     // init template package manager
-    const pm = await createTemplatePM({ storeDir })
-    const lockFile = createLockFile({ storeDir })
+    const store = await createStore({ storeDir })
     // download
-    const response = await pm.request(alias, pref)
+    const response = await store.pm.request({ alias, pref })
     const dir = tempy.directory()
-    const files = await response.files?.()
+    const files = await response?.files?.()
     if (!files) {
       throw new Error(`${alias} is empty`)
     }
-    await pm.import(dir, files)
+    await store.pm.import(dir, files)
     const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
     debugLogger.preset('%O', pkgs)
     // always update latest alias preset
-    await lockFile.updatePreset({
+    await store.lockFile.updatePreset({
       [alias]: pkgs,
     })
   } catch (e) {
