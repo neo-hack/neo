@@ -111,8 +111,11 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
  */
 export const create = async (template: string, project: string, options: CommonOptions) => {
   const store = await createStore(options)
+  // FIXME: template may has duplicate name
+  const choices = await store.lockFile.readTemplates()
   if (template && project) {
-    const task = createTask({ template, project, store })
+    const pref = choices.find((choice) => choice.name === template)
+    const task = createTask({ template: pref?.pref || template, project, store })
     await task.run()
     console.log()
     logger.success(`🎉 ${template} generated, Happy hacking!`)
@@ -123,7 +126,7 @@ export const create = async (template: string, project: string, options: CommonO
           type: 'search-list',
           name: 'template',
           message: 'Please pick a template',
-          choices: await store.lockFile.readTemplates(),
+          choices,
           validate(answer: { template: string; project: string }) {
             if (!answer) return 'You must choose at least one template.'
 
@@ -137,8 +140,9 @@ export const create = async (template: string, project: string, options: CommonO
         },
       ])
       .then(async (answers) => {
+        const pref = choices.find((choice) => choice.name === template)
         const task = createTask({
-          template: answers.template,
+          template: pref?.pref || answers.template,
           project: answers.project,
           store,
         })

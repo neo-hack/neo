@@ -19,35 +19,35 @@ notifier.notify()
 const cli = program.version(pkg?.version || '')
 
 cli
-  .command('create [template-name] [project-name]')
-  .description('generate a new project from a neo template')
+  .command('Create [template-name] [project-name]')
+  .description('Generate a new project from a neo template')
   .alias('c')
-  .option('--store-dir [storeDir]', 'define store dir')
+  .option('--store-dir [storeDir]', 'Set store dir')
   .action(create)
 
 cli
   .command('list')
-  .description('list all templates')
+  .description('List all templates')
   .alias('l')
-  .option('--store-dir [storeDir]', 'define store dir')
+  .option('--store-dir [storeDir]', 'Set store dir')
   .action(list)
 
-cli.command('whoami').alias('me').description('who is neo?').action(whoami)
+cli.command('whoami').alias('me').description('Who is neo?').action(whoami)
 
 cli
   .command('prepack')
   .alias('p')
-  .description('prepack neo ci, lint, husky, etc.. to your project')
-  .option('-m, --module [modules...]', 'prepack ci, lint, husky, etc... standalone')
+  .description('Prepack neo ci, lint, husky, etc.. to your project')
+  .option('-m, --module [modules...]', 'Prepack partial of ci, lint, husky, etc... to your project')
   .action(prepack)
 
 cli
   .command('add [alias]')
-  .alias('ps')
-  .description('load template preset module into local')
-  .option('--store-dir [storeDir]', 'define store dir')
+  .description('Load template or preset into the `.neo-store`')
+  .option('--store-dir [storeDir]', 'Set store dir')
+  .option('--preset', 'If true, load `alias` as preset')
   .action((alias, options = {}) => {
-    return add({ alias, storeDir: options.storeDir })
+    return add({ alias, options })
   })
 
 program.parse(process.argv)

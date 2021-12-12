@@ -45,7 +45,7 @@ export const debugLogger = {
   lockfile: debug('neo:lockfile'),
   pm: debug('neo:pm'),
   store: debug('neo:store'),
-  preset: debug('neo:cmd:preset'),
+  add: debug('neo:cmd:add'),
   create: debug('neo:cmd:create'),
 }
 

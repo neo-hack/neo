@@ -8,6 +8,9 @@ export type PresetPackage = {
 
 export type Package = PresetPackage & {
   version: string
+  pref: string
+  id: string
+  resolvedVia: string
 }
 
 export type LockFile = {

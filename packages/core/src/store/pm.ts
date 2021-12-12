@@ -44,10 +44,8 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       return fetchResponse
     },
     async request({ alias, pref }: RequestOptions): Promise<PackageResponse> {
-      let fetchResponse = await this.fetch({ alias, pref }).catch((e) => {
-        debugLogger.pm(`request %s with %s ${e}`, alias, pref)
-        return undefined
-      })
+      debugLogger.pm(`request %s with %s`, alias, pref)
+      let fetchResponse = await this.fetch({ alias, pref }).catch(() => undefined)
       if (!fetchResponse) {
         fetchResponse = await this.fetch({ pref: alias })
       }
@@ -58,6 +56,7 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       if (!response) {
         return
       }
+      debugLogger.pm('import template from store %s', response.fromStore)
       return storeController.importPackage(to, {
         filesResponse: response,
         force: false,
