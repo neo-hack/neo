@@ -35,5 +35,4 @@ describe('lock file', () => {
     const tpls = await lockFile.readTemplates()
     expect(tpls).toMatchSnapshot()
   })
-  it.todo('update packages should work')
 })
