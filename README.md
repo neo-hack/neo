@@ -10,6 +10,7 @@
 
 </div>
 
+*`neo` use `pnpm` to manage your template*
 
 ## table of contents
 
@@ -19,6 +20,7 @@
   - [whoami](#whoami)
   - [list](#list)
   - [create](#create)
+  - [add](#add)
   - [prepack](#prepack)
 
 ## install
@@ -43,17 +45,36 @@ neo whoami
 </div>
 
 ### list
-> list all builtin templates
+> list all saved templates or preset templates
 
 ```bash
 neo list
 ```
 
 ### create
-> create [project-name] from [template-name]
+> create <project> from <alias>
 
 ```bash
-neo create <template-name> [project-name]
+neo create <alias> <project>
+```
+
+*Once create, will save `template` into `.neo-store`. At second time, it will fetch from local filesystem first*
+
+### add
+> load preset or template into `.neo-store`
+
+**load preset**, save collection of `templates` into `.neo-store`
+
+```bash
+# load preset
+neo add <alias> --preset
+```
+
+**load template**, save `template` into `.neo-store`
+
+```bash
+# load template
+neo add <alias>
 ```
 
 ### prepack

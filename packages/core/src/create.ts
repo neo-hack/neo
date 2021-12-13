@@ -72,7 +72,7 @@ const createTask = ({ template, project, store }: CreateOptions) => {
       title: 'Validate template',
       task: () => {
         if (!project) {
-          throw new Error(`<project-name> is required`)
+          throw new Error(`<project> is required`)
         }
       },
     },
