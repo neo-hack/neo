@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 0.0.0-beta-20211114152811
+
+### Patch Changes
+
+- 9bf0f5d: cmmand add
+
 ## 3.1.6
 
 ### Patch Changes

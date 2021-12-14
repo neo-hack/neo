@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 0.0.0-beta-20211114152811
+
+### Patch Changes
+
+- 9bf0f5d: update readme
+
 ## 1.0.0
 
 ### Major Changes
