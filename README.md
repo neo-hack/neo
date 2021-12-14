@@ -10,6 +10,7 @@
 
 </div>
 
+*`neo` use `pnpm` to manage your template*
 
 ## table of contents
 
@@ -19,20 +20,8 @@
   - [whoami](#whoami)
   - [list](#list)
   - [create](#create)
+  - [add](#add)
   - [prepack](#prepack)
-- [templates](#templates)
-  - [`bin-template`](#bin-template)
-  - [`chrome-extenstion-template`](#chrome-extenstion-template)
-  - [`dayjs-plugin-template`](#dayjs-plugin-template)
-  - [`eslint-config-template`](#eslint-config-template)
-  - [`(WIP)nextjs-rematch2-template`](#wipnextjs-rematch2-template)
-  - [`original-html-template`](#original-html-template)
-  - [`react-components-lib-template`](#react-components-lib-template)
-  - [`react-template`](#react-template)
-  - [`rollup-template`](#rollup-template)
-  - [`ts-lib-template`](#ts-lib-template)
-  - [`webpack-loader-template`](#webpack-loader-template)
-  - [`alfred-workflow-template`](#alfred-workflow-template)
 
 ## install
 
@@ -56,17 +45,36 @@ neo whoami
 </div>
 
 ### list
-> list all builtin templates
+> list all saved templates or preset templates
 
 ```bash
 neo list
 ```
 
 ### create
-> create [project-name] from [template-name]
+> create <project> from <alias>
 
 ```bash
-neo create <template-name> [project-name]
+neo create <alias> <project>
+```
+
+*Once create, will save `template` into `.neo-store`. At second time, it will fetch from local filesystem first*
+
+### add
+> load preset or template into `.neo-store`
+
+**load preset**, save collection of `templates` into `.neo-store`
+
+```bash
+# load preset
+neo add <alias> --preset
+```
+
+**load template**, save `template` into `.neo-store`
+
+```bash
+# load template
+neo add <alias>
 ```
 
 ### prepack
@@ -88,121 +96,3 @@ including...
 
 - `--module` - prepack part of `ci, lint, issue, pr, husky`, e.g `neo prepack --module ci`
 
-## templates
-
-### `bin-template`
-
-*build cli application*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/bin-template/tree/master)
-
-- Use [**commander**](https://github.com/tj/commander.js/) build cli application
-- Interaction interface with [**inquirer**](https://github.com/SBoudrias/Inquirer.js/)
-- Display loading status with [**ora**](https://github.com/sindresorhus/ora)
-
-### `chrome-extenstion-template`
-
-*build chrome crx application*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/chrome-extenstion-template)
-
-* Support hot reload
-* Build with `webpack`, and to `.zip`
-* Build UI interface with `react`
-* Process page element with `JQuery`
-* Process multiple dom event with `rxjs`
-
-### `dayjs-plugin-template`
-
-*build dayjs plugin lib*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/dayjs-plugin-template/tree/master)
-
-- 💪 Typescript - type safe
-
-### `eslint-config-template`
-
-*build eslint plugin lib*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/eslint-config-template)
-- `on/off` eslint rules
-- extends 3rd eslint plugin
-- config `prettier`
-- lint non `.js/.ts` files
-
-
-### `(WIP)nextjs-rematch2-template`
-
-*build nextjs ssr web application*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/nextjs-rematch2-template)
-
-- Mock server
-- With `rematch2`
-- Styled with `styled-components`
-
-### `original-html-template`
-
-*build web application without framework*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/original-html-template)
-
-- Build with webpack
-- Visit page via `http:<ip>:8080` in mobile
-- Style with `stylus` and useful `Rucksack & Rupture`
-
-### `react-components-lib-template`
-*build multiple react components lib, insipred by [antd-tools](https://github.com/ant-design/antd-tools)*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/react-components-lib-template)
-
-- output `lib & es` components version
-- build with `gulp`
-- multiple react components
-- support css-modules
-
-### `react-template`
-
-*build spa react template with pure webpack*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/react-template)
-
-- Pure webpack
-- Visit via `http:<ip>:port` on mobile
-- Rematch
-- With friendly build progress and error output
-- Bundle size analyzer
-
-### `rollup-template`
-*build lib with rollup*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/rollup-template)
-
-- 📊 Stats - output bag bundlesize
-- 📦 exclude `dependencies` and `peerDependencies`
-- 💪 Typescript - type safe
-  
-### `ts-lib-template`
-*build ts lib template*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)
-
-- 💪 Type safe - build with `ttsc`
-- 💞 replace `alias` path to `real` path
-- 🥽 watch mode
-
-### `webpack-loader-template`
-*build webpack loader*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/templates/tree/master/packages/webpack-loader-template)
-
-- Watch mode
-- Build with `tsc`
-- Replace `alias` path to `real` path
-
-### `alfred-workflow-template`
-*build alfred workflow template*
-
-[![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://github.com/spring-catponents/alfred-workflow-template)
-
-- Build workflow with [alfy](https://github.com/sindresorhus/alfy)

@@ -1,28 +1,27 @@
-import execa from 'execa'
 import path from 'path'
 import fs from 'fs-extra'
+import tempy from 'tempy'
 
-import { r } from '../src/utils'
+import { execNeo } from './helpers'
 
-const fixture = (pathname) => r(`test/fixtures/create/${pathname}`)
-const ensureDir = (pathname) => {
-  const folder = fixture(pathname)
-  if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder)
-  }
-}
-const clearDir = (pathname) => {
-  fs.removeSync(fixture(pathname))
-}
-const cli = r('lib/neo.js')
+const storeDir = path.join(tempy.directory(), '.store')
 
-describe('command create download npm package', () => {
+describe('command create', () => {
   it('create project from npm', async () => {
-    ensureDir('neo-cli-app')
-    await execa.node(cli, ['create', 'bin-template', 'neo-cli-app'], {
-      cwd: path.resolve(fixture('neo-cli-app')),
+    const destDir = tempy.directory()
+    await execNeo(['create', '@aiou/bin-template', 'target', '--store-dir', storeDir], {
+      cwd: destDir,
     })
-    expect(fs.existsSync(fixture('neo-cli-app/neo-cli-app/README.md'))).toBe(true)
-    clearDir('neo-cli-app')
+    expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 10000)
+
+  it('create package from github should work', async () => {
+    const destDir = tempy.directory()
+    const url = 'https://github.com/spring-catponents/bin-template'
+    await execNeo(['create', url, 'target', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
+  }, 30000)
+  it.todo('create package will update lock file')
 })
