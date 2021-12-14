@@ -17,5 +17,5 @@ describe('pm', () => {
     const response = await store.addTemplate({ alias: 'github:spring-catponents/actions-template' })
     const { fromStore } = await response.files?.()
     expect(fromStore).toBe(true)
-  }, 30000)
+  }, 60000)
 })
