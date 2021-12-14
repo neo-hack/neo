@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`load template load template from github should work 1`] = `
-Object {
-  "templates": Object {
-    "github.com/spring-catponents/actions-template/0e9198744a8fa6751ca5bdc8a21a9c1f22ed76b4": Object {
-      "id": "github.com/spring-catponents/actions-template/0e9198744a8fa6751ca5bdc8a21a9c1f22ed76b4",
-      "name": "@aiou/actions-template",
-      "pref": "github:spring-catponents/actions-template",
-      "resolvedVia": "git-repository",
-      "version": "0.2.0",
-    },
-  },
-}
-`;
-
 exports[`load template load template from npm should work 1`] = `
 Object {
   "templates": Object {
