@@ -10,7 +10,7 @@ const notifier = updateNotifier({
   pkg: { name: pkg!.name, version: pkg!.version },
 })
 
-const cli = program.version('', '-v, --version').hook('preAction', () => {
+const cli = program.version(pkg?.version || '', '-v, --version').hook('preAction', () => {
   notifier.notify()
 })
 

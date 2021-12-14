@@ -11,10 +11,10 @@ export const list = async (params: CommonOptions) => {
   const store = await createStore(params)
   const templates = await store.lockFile.readTemplates()
   if (!templates.length) {
-    log.log(`There are no templates...`)
+    log.log(`No templates...`)
     return
   }
-  log.log(`There are ${templates.length} templates...`)
+  log.log(`Found ${templates.length} templates...`)
   console.log()
   // TODO: list template with detail
   templates.forEach((tpl) => {
