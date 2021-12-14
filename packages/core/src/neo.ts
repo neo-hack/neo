@@ -9,9 +9,10 @@ const pkg = readPackageUpSync({ cwd: r() })?.packageJson
 const notifier = updateNotifier({
   pkg: { name: pkg!.name, version: pkg!.version },
 })
-notifier.notify()
 
-const cli = program.version(pkg?.version || '', '-v, --version')
+const cli = program.version('', '-v, --version').hook('preAction', () => {
+  notifier.notify()
+})
 
 const commands = {
   create: async () => await import('./create').then((res) => res.create),
@@ -23,7 +24,7 @@ const commands = {
 
 const handler = (cmdName: string) => {
   return async function (...args: any[]) {
-    const cmd = await commands[cmdName]
+    const cmd = await commands[cmdName]()
     await cmd(...args)
   }
 }
