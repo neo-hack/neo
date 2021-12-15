@@ -3,11 +3,11 @@
   "version": "3.1.6",
   "description": "templates cli",
   "license": "MIT",
-  "homepage": "https://github.com/spring-catponents/templates#readme",
+  "homepage": "https://github.com/spring-catponents/neo#readme",
   "repository": {
     "directory": "packages/core",
     "type": "git",
-    "url": "https://github.com/spring-catponents/templates"
+    "url": "https://github.com/spring-catponents/neo"
   },
   "author": {
     "name": "JW"
