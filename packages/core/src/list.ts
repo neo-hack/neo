@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import uniqby from 'lodash.uniqby'
 
 import { CommonOptions } from './interface'
 import log from './utils/logger'
@@ -9,7 +10,7 @@ import createStore from './store'
  */
 export const list = async (params: CommonOptions) => {
   const store = await createStore(params)
-  const templates = await store.lockFile.readTemplates()
+  const templates = uniqby(await store.lockFile.readTemplates(), 'name')
   if (!templates.length) {
     log.log(`No templates...`)
     return
