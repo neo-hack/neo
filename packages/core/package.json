@@ -55,6 +55,7 @@
     "lodash.countby": "^4.6.0",
     "lodash.groupby": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
+    "minimatch": "^3.0.4",
     "read-pkg-up": "^8.0.0",
     "read-yaml-file": "^2.1.0",
     "rimraf": "3.0.2",

@@ -6,6 +6,7 @@ import fs from 'fs-extra'
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package } from '../interface'
 import { debugLogger } from '../utils/logger'
+import { isMatchPreset } from '../utils'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
@@ -72,9 +73,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       debugLogger.lockfile('read templates with %O', presetNames)
 
       if (presetNames) {
-        presetTemplates = presetTemplates.filter(
-          (tpl) => !tpl.preset || presetNames.includes(tpl.preset),
-        )
+        presetTemplates = presetTemplates.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
         return presetTemplates
       }
       const allTemplates = presetTemplates.concat(cachedTemplates)
