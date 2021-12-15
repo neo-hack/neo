@@ -1,16 +1,20 @@
+import type { ResolveResult } from '@pnpm/package-store'
+
 export type CommonOptions = {
   storeDir?: string
 }
 
-export type PresetPackage = {
+export interface PresetPackage {
   name: string
+  resolvedVia?: ResolveResult['resolvedVia']
 }
 
-export type Package = PresetPackage & {
+export interface Package extends PresetPackage {
   version: string
   pref: string
   id: string
-  resolvedVia: string
+  cached?: boolean
+  preset?: string
 }
 
 export type LockFile = {

@@ -140,7 +140,7 @@ export const create = async (template: string, project: string, options: CommonO
         },
       ])
       .then(async (answers) => {
-        const pref = choices.find((choice) => choice.name === template)
+        const pref = choices.find((choice) => choice.name === answers.template)
         const task = createTask({
           template: pref?.pref || answers.template,
           project: answers.project,
