@@ -5,22 +5,39 @@
 
 ## Install
 
-`npm installl @aiou/neo -g`
+`npm install @aiou/neo -g`
 
 ## Commands
 
 ### list
-> list all builtin templates
+> list all saved templates or preset templates
 
 ```bash
 neo list
 ```
 
 ### create
-> create [project-name] from [template-name]
+> create <project> from <alias>
 
 ```bash
-neo create <template-name> [project-name]
+neo create <alias> [project]
+```
+
+### add
+> load preset or template to `.neo-store`
+
+**load preset**
+
+```bash
+# load preset
+neo add <alias> --preset
+```
+
+**load template**
+
+```bash
+# load template
+neo add <alias>
 ```
 
 ### prepack

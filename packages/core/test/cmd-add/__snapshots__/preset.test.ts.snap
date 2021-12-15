@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`load preset load preset from npm package should work 1`] = `
+Object {
+  "presets": Object {
+    "@aiou/preset-aiou": Object {
+      "templates": Array [
+        Object {
+          "name": "@aiou/ts-lib-template",
+        },
+        Object {
+          "name": "@aiou/actions-template",
+        },
+        Object {
+          "name": "@aiou/rollup-plugin-template",
+        },
+        Object {
+          "name": "@aiou/rollup-template",
+        },
+        Object {
+          "name": "@aiou/dayjs-plugin-template",
+        },
+        Object {
+          "name": "@aiou/bin-template",
+        },
+        Object {
+          "name": "@aiou/webext-template",
+        },
+        Object {
+          "name": "@aiou/eslint-config-template",
+        },
+        Object {
+          "name": "@aiou/webpack-loader-template",
+        },
+        Object {
+          "name": "@aiou/react-template",
+        },
+        Object {
+          "name": "@aiou/react-components-lib-template",
+        },
+        Object {
+          "name": "@aiou/original-html-template",
+        },
+        Object {
+          "name": "@aiou/chrome-extenstion-template",
+        },
+      ],
+    },
+  },
+}
+`;

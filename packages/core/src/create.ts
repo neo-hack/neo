@@ -1,82 +1,78 @@
 import path from 'path'
-import execa from 'execa'
 import inquirer from 'inquirer'
-import download from 'download'
 import globby from 'globby'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
+import type { PackageResponse } from '@pnpm/package-store'
+
 import { isMonorepo } from './utils'
+import logger, { debugLogger } from './utils/logger'
+import { CommonOptions, AsyncReturnType } from './interface'
+import createStore from './store'
 
-import logger from './utils/logger'
-import { templates, TEMPLATES, SCOPE } from './utils/constants'
-
-process.on('exit', () => {
-  console.log()
-})
-
-/**
- * download template .neo folder
- */
-const downloadNPM = async ({ template }: { template: string }) => {
-  const { stdout } = await execa('npm', ['v', `@${SCOPE}/${template}`, 'dist.tarball'])
-  await download(stdout, path.join(process.cwd(), '.neo'), {
-    extract: true,
-  })
+type CreateOptions = {
+  template: string
+  project: string
+  store: AsyncReturnType<typeof createStore>
 }
 
 /**
- * generate template files
+ * @description generate template files
+ * @todo move tpl parts to @aiou/workflows
  */
-const generate = async ({ dest }: { dest: string }) => {
-  await fsExtra.copy(path.join(process.cwd(), '.neo/package'), path.join(process.cwd(), dest))
-  await fsExtra.remove(path.join(process.cwd(), '.neo'))
+const generate = async ({
+  project,
+  template,
+  templateResponse,
+  store,
+}: CreateOptions & {
+  templateResponse: PackageResponse
+}) => {
+  await store.pm.import(project, await templateResponse.files?.())
   // generate config files from dest.template folder
-  const tplPath = path.join(process.cwd(), dest, 'template')
+  const tplPath = path.join(process.cwd(), project, 'template')
   const tpls = globby.sync('*.tpl', {
     cwd: tplPath,
     dot: true,
   })
   tpls.forEach((f) => {
-    fsExtra.copySync(path.join(tplPath, f), path.join(process.cwd(), dest, f.replace('.tpl', '')))
+    fsExtra.outputFileSync(
+      path.join(process.cwd(), project, f.replace('.tpl', '')),
+      fsExtra.readFileSync(path.join(tplPath, f)).toString(),
+    )
   })
   // remove template folder
   fsExtra.removeSync(tplPath)
+  debugLogger.create('create project %s from source template %s', project, template)
 }
 
 /**
  * @description del files after generate
+ * @todo move to @aiou/workflows
  */
-const postgenerate = async ({ dest }: { dest: string }) => {
+const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
   const common = ['CHANGELOG.md']
   const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
   if (await isMonorepo()) {
     common.concat(mono).forEach((filename) => {
-      fsExtra.removeSync(path.join(process.cwd(), dest, filename))
+      fsExtra.removeSync(path.join(process.cwd(), project, filename))
     })
     return
   }
   common.forEach((filename) => {
-    fsExtra.removeSync(path.join(process.cwd(), dest, filename))
+    fsExtra.removeSync(path.join(process.cwd(), project, filename))
   })
 }
 
-const validateTemplates = (template: string) => {
-  if (!template) return
-
-  return Object.keys(templates).findIndex((v: string) => v === template) > -1
-}
-
-const createTask = ({ template, project }: { template: string; project: string }) => {
+const createTask = ({ template, project, store }: CreateOptions) => {
+  let templateResponse: PackageResponse | undefined
   const hooks = {
     validate: {
       title: 'Validate template',
       task: () => {
-        if (!validateTemplates(template)) {
-          throw new Error(`Failed locate ${template}`)
-        }
         if (!project) {
-          throw new Error(`<project-name> is required`)
+          throw new Error(`<project> is required`)
         }
       },
     },
@@ -85,20 +81,23 @@ const createTask = ({ template, project }: { template: string; project: string }
       task: async () => {
         // TODO: looks not need
         fsExtra.removeSync(template)
-        await downloadNPM({ template })
+        templateResponse = await store.addTemplate({ alias: template })
       },
     },
     generate: {
       title: 'Generate project',
       task: async () => {
-        return generate({ dest: project })
+        if (!templateResponse) {
+          throw new Error('template not found')
+        }
+        return generate({ project, store, templateResponse, template })
       },
     },
     // postgenerate
     postgenerate: {
       title: 'Clean up',
       task: async () => {
-        return postgenerate({ dest: project })
+        return postgenerate({ project })
       },
     },
   }
@@ -110,27 +109,25 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
 /**
  * @description create project from template
  */
-export const create = async (template: string, project: string) => {
+export const create = async (template: string, project: string, options: CommonOptions) => {
+  const store = await createStore(options)
+  // FIXME: template may has duplicate name
+  const choices = await store.lockFile.readTemplates()
   if (template && project) {
-    const task = createTask({ template, project })
+    const pref = choices.find((choice) => choice.name === template)
+    const task = createTask({ template: pref?.pref || template, project, store })
     await task.run()
     console.log()
     logger.success(`🎉 ${template} generated, Happy hacking!`)
   } else {
-    console.log()
     inquirer
-      .prompt<{ template: TEMPLATES; project: string }>([
+      .prompt<{ template: string; project: string }>([
         {
           type: 'search-list',
           name: 'template',
           message: 'Please pick a template',
-          choices: Object.keys(templates).map((k) => {
-            return {
-              name: k,
-            }
-          }),
-          default: 'react-template',
-          validate(answer: { template: TEMPLATES; project: string }) {
+          choices,
+          validate(answer: { template: string; project: string }) {
             if (!answer) return 'You must choose at least one template.'
 
             return true
@@ -143,7 +140,12 @@ export const create = async (template: string, project: string) => {
         },
       ])
       .then(async (answers) => {
-        const task = createTask({ template: answers.template, project: answers.project })
+        const pref = choices.find((choice) => choice.name === template)
+        const task = createTask({
+          template: pref?.pref || answers.template,
+          project: answers.project,
+          store,
+        })
         await task.run()
         console.log()
         logger.success(`🎉 ${template} Generated, Happy hacking!`)
