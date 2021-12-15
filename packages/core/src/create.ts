@@ -5,6 +5,7 @@ import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
+import uniqby from 'lodash.uniqby'
 
 import { isMonorepo } from './utils'
 import logger, { debugLogger } from './utils/logger'
@@ -111,7 +112,6 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
  */
 export const create = async (template: string, project: string, options: CommonOptions) => {
   const store = await createStore(options)
-  // FIXME: template may has duplicate name
   const choices = await store.lockFile.readTemplates()
   if (template && project) {
     const pref = choices.find((choice) => choice.name === template)
@@ -126,7 +126,7 @@ export const create = async (template: string, project: string, options: CommonO
           type: 'search-list',
           name: 'template',
           message: 'Please pick a template',
-          choices,
+          choices: uniqby(choices, 'name'),
           validate(answer: { template: string; project: string }) {
             if (!answer) return 'You must choose at least one template.'
 
