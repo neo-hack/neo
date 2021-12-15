@@ -5,5 +5,8 @@
     "@aiou/neo": "3.1.6",
     "@aiou/preset-aiou": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "few-bugs-shout",
+    "tall-steaks-unite"
+  ]
 }

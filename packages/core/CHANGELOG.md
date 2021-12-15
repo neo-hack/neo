@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.2.0-beta.0
+
+### Minor Changes
+
+- 90dfad3: cmd:add - load presets and create repo from cached store
+
 ## 3.1.6
 
 ### Patch Changes
