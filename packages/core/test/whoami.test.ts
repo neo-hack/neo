@@ -1,12 +1,8 @@
-import execa from 'execa'
-
-import { r } from '../src/utils'
-
-const cli = r('lib/neo.js')
+import { execNeo } from './helpers'
 
 describe('command whoami', () => {
   it('should print neo', async () => {
-    const { stdout, stderr } = await execa('node', [cli].concat(['whoami']))
+    const { stdout, stderr } = await execNeo(['whoami'])
     expect(stderr).toBe('')
     expect(typeof stdout).toBe('string')
   })

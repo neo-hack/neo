@@ -1,11 +1,11 @@
 import { format } from 'util'
 import chalk from 'chalk'
+import debug from 'debug'
 
 /**
  * Prefix.
  */
-const prefix = ' neo '
-const sep = chalk.gray('·')
+export const sep = chalk.gray('·')
 
 /**
  * Log a `message` to the console.
@@ -14,7 +14,7 @@ const sep = chalk.gray('·')
  */
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(chalk.bgBlue.black(prefix), sep, msg)
+  console.log(msg)
 }
 
 /**
@@ -26,7 +26,7 @@ const log = (...args: [any, ...any[]]) => {
 const fatal = (...args: [any, ...any[]]) => {
   if (args[0] instanceof Error) args[0] = args[0].message.trim()
   const msg = format.apply(format, args)
-  console.error(chalk.bgRed.black(prefix), sep, msg)
+  console.error(msg)
   process.exit(1)
 }
 
@@ -38,7 +38,15 @@ const fatal = (...args: [any, ...any[]]) => {
 
 const success = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(sep, msg)
+  console.log(msg)
+}
+
+export const debugLogger = {
+  lockfile: debug('neo:lockfile'),
+  pm: debug('neo:pm'),
+  store: debug('neo:store'),
+  add: debug('neo:cmd:add'),
+  create: debug('neo:cmd:create'),
 }
 
 export default {

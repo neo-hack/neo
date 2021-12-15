@@ -1,24 +1,25 @@
-import { templates } from './utils/constants'
 import chalk from 'chalk'
+import uniqby from 'lodash.uniqby'
 
-/**
- * Padding.
- */
-
-console.log()
-process.on('exit', () => {
-  console.log()
-})
+import { CommonOptions } from './interface'
+import log from './utils/logger'
+import createStore from './store'
 
 /**
  * @description List all templates
  */
-export const list = () => {
-  const keys = Object.keys(templates)
-  console.log(`There are ${keys.length} templates...`)
+export const list = async (params: CommonOptions) => {
+  const store = await createStore(params)
+  const templates = uniqby(await store.lockFile.readTemplates(), 'name')
+  if (!templates.length) {
+    log.log(`No templates...`)
+    return
+  }
+  log.log(`Found ${templates.length} templates...`)
   console.log()
-  keys.forEach((k) => {
-    console.log(`  ${chalk.blue('•')} ${chalk.bold.green(k)}: ${templates[k]}`)
+  // TODO: list template with detail
+  templates.forEach((tpl) => {
+    console.log(`  ${chalk.blue('•')} ${chalk.bold.green(tpl.name)}`)
   })
   console.log()
 }

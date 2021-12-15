@@ -1,0 +1,1468 @@
+{
+  "_id": "@aiou/ts-lib-template",
+  "_rev": "15-fa1f5f7bc8b29999b62796010cd8352b",
+  "name": "@aiou/ts-lib-template",
+  "dist-tags": {
+    "latest": "0.5.0"
+  },
+  "versions": {
+    "0.0.2": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.0.2",
+      "description": "a starter for typesciprt lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "@types/lodash.isempty": "4.4.6",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "typescript": "3.4.5"
+      },
+      "dependencies": {
+        "loader-utils": "1.2.3",
+        "lodash.isempty": "4.4.0"
+      },
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && tsc",
+        "run_dev": "rimraf lib && tsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.0.2",
+      "_nodeVersion": "8.11.4",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-uIubq+p67YMQvOeLrLkGBcUbiY0S13gYn8QXNdc1/yiZDHEkUrCfAb5ZGx70ClpK3vQ4Jqq3uWllXPRPvjYPHA==",
+        "shasum": "33174f83a7f80e9e330b93183d501985fe691ede",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.0.2.tgz",
+        "fileCount": 68,
+        "unpackedSize": 680092,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdgdqsCRA9TVsSAnZWagAAK2cP/35iY14YXFC74XUGofMK\nDCD5q/fOub07ESlEazqI7F0pz8wzOGqMRAkMGTKRbvqjGkLOcBJnXNvqF8dq\n5ootjJ9XJ1r3W7CT2Xbw5x3Fg1rUQdUYqUA2jJ3n2Gp9KjB3Rxh5paLykXq/\n11utFeYCWL338dV2yaebJ74BCwP7y0YO20ScOkbBR94NTPliFcC9YHYKsjt4\nVj+PKUicdY7/ZtWu2zTgrr0IdSdHe9QmkiuKW7zLlBFsyZZ+ujAmsLAX35Aw\nZgnaJRGSpz2D2duCv8oRBlGhmOYNkHT8ewV9o9Z5f7iyn9B541fUjLbj97dm\nIkUaZ+oExtNQdQsUFzRrHiZZ7L7j5Mju5ri9VZTUcN+QIXMKwO5eRfdLM9e9\nu7UAMYiDVSkcJl9wLTWtZ+Ar67JiyxVCQkJ0EzYsAyrYO7dNTZiyS6+r2iKp\nxbh6vSTky37CzIEQnmwLS174/W8SQ2YoDzUqocQI6wjK3thrmyoMoB1aBzRR\nZ4oi3TyiPQ5CsXhDegg0itBLL0Hx8vekUamrHARNTgbAp+gNU6Vdizr9lcTA\n0d5tkVTawerWHZnXifHAHISPjJ4vYgKNl7Bpwbbbz/xVE5AlbP22VacFA094\nM3o8A6Fl+WibizT3pV0X3YPF1ybTAen+buekMeopYX/UYk7cfosAHmpcFMOg\neRH1\r\n=/K7M\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmUser": {},
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.0.2_1568791212026_0.6078324874901324"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.0.3",
+      "description": "a starter for typesciprt lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "@types/lodash.isempty": "4.4.6",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "typescript": "3.4.5"
+      },
+      "dependencies": {
+        "loader-utils": "1.2.3",
+        "lodash.isempty": "4.4.0"
+      },
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && tsc",
+        "run_dev": "rimraf lib && tsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.0.3",
+      "_nodeVersion": "8.11.4",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-ht3l4xVwT7LVL648ipLUkUAA8conDcGSOJeshiCxkP6NkAZHLYoGy3WeL7LzceEuJZFvC684Pcj34qhOCQYyIg==",
+        "shasum": "68375c9e35c246ff64173d284909ca06eb53ca36",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.0.3.tgz",
+        "fileCount": 73,
+        "unpackedSize": 682367,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdkZqhCRA9TVsSAnZWagAALBUP/1c884ZZGsFqSudGSW1f\nrQVMKkxNv9tkJTwFSckJTtWEf1i+s8f4RPBV3r5yZULXZPnjuou6MjzCGOMu\nLMdxZtNNiRLqF6d9HN62NYqx9ftmc3wAszFmGWM1yBDzHdD0INznjvhkurvI\n+soMSqVJnNDWaO6smLqRQ7dLEj2dIMr6EcUhwu7bZJZzWFs7Hh76a8PwRmcQ\nebTSHH92R02Bw7zEIdWi5Jcf7Q1yasFGiYalURPP+FDU1F9L3WpUoWknRyQu\naCCh+pButH5x+Tsq8HnTrTr7jVwWq6uWTslpbCpy1NX/N4Bz4hVoRrHZHQzz\nPwRDpDFr/Wi++BqTDuPrueHEIzh/N1KYfwgeR14gtd6XH9uCdIyYkhmRN/XS\n3VAGUMtmEa7OzK0HZLuw1m9zKpDjpzfeenCej/1X0ff58QWoQYOVh+9gG0F7\nHzXRF1k6p362IOEeac12jxaAUzOMB+5YbXN8vJEmgtyCnHU9wJKQAUFWvFl6\nTtSrCkUb6VngHoa0YWxhByS7ygkl7amLg/NnAXF18DtxGIaWua4+71DUp0gQ\nsKdHBvimD7iH1s0ckoZUDockvKZO+y7MMODV4kEhDm2Ko5Echd3lrbXQiG6D\nCvhxbFjKGXxGgsdbiicQJyYb//xSKw6dGxV7Bifk4OVuJ0iM9OnQLjEyvonc\noaQa\r\n=JIvu\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.0.3_1569823393057_0.4306239550674438"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.1.1",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "ttypescript": "^1.5.12",
+        "typescript": "3.4.5",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "dependencies": {},
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.1.1",
+      "_nodeVersion": "12.18.3",
+      "_npmVersion": "6.14.6",
+      "dist": {
+        "integrity": "sha512-ud+ayzR03ahdZMmNdUZg+FYh8W0Pm/XDwLinkk75j3MFCW6bc/OpCXiHBVBNrckqSIcby5d9e9AaGxbPy+7tqQ==",
+        "shasum": "364ac7590531c1d4a02959738e15b8a312e00aff",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.1.1.tgz",
+        "fileCount": 65,
+        "unpackedSize": 680156,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfzGdpCRA9TVsSAnZWagAAuPUQAJYJpuvTDrldCXi7um5w\npgg7AnSIX38/GeuMcEfNc8QkkpObRfIvvBvCp6N864XrsLTYhcPkg1VOxuil\nS/YmmNIyWPrbOTM09pMojeZBomUFfKkiD1XcxFWxIyozlo7krikYe0NMdDIv\nMGNt4mi+I0Qxr2uFyNq1W1l6VXJtklC4AJGERzrfJSjzmAqu2TSkqkU//pcw\n5JffsJ4rkDvkI6lTolXqOrePs4TL1Y5ZdZgyyYjUZcfNgiGVZcmURpkLoQRN\ncXcgDpKDqo+/M/DuPPDS+uabDx/fO6LyK1rVd9ysgJt+b9drCzEpX/44adB7\nKcKVi7bmt327Guyolmed9Lo8RB7W/0t6yq/u4EAigyickwiNdAcMfCgPfPSZ\nS2Nv/+VRoH8M3YMsir66M+EIcOVvNLxvhmIXHWbx5DePkdcRXrWg2OMHHIfa\nn2vwhv7zaA1oq4nrqX0R7xG+lcHZvWJ7b//yh0TdUlYPfCvUrrPrmPEUsldK\n8tBk+LooifbwzvlYjTh3TgGNPPqTJU5h+iAWkZPIFoDP74XDXIQe0TpFrV/0\nDGjJPLBN+vw81Px6/Q0NhVbvWL0YnsxWGd/WB2Aw/S+zdVwZfWLSci9FIAPB\nDn2NsdfMtoN/2W0tQ7VtTLLktm3hDcMMsP1vw94zFFREX+r1a+v9Ik1iGcoT\nu6ET\r\n=YLOX\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.1.1_1607231336367_0.7872558461692425"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.2": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.1.2",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.3.0",
+        "tslint-react": "^5.0.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.1.2",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "dependencies": {},
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.1.2",
+      "_nodeVersion": "12.18.3",
+      "_npmVersion": "6.14.6",
+      "dist": {
+        "integrity": "sha512-j7LWB+MIpK2vCAi899nchmLpf6F2EeQjk282IuWA/hP8TDNIw4Ml4Kt1X++FDQfXNbJiAPdBrSSBBZTh4+rnXQ==",
+        "shasum": "d2ac7102abf015fca2c4b187d7feeb327c0eee93",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.1.2.tgz",
+        "fileCount": 65,
+        "unpackedSize": 680268,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfzHItCRA9TVsSAnZWagAAAiwP/0gPEfQRFoLEqMfMtRBX\nSp5QPhhrmgu2le/3lnPBHsE/3ewJs5/UANJDJA7eBZX/KtuLDRgN5NQ9Aq25\nEA6fWZK1wfC1bgZDZVAs0CAKZg4pJCeF9h2nDH3tlkJ+wyurdrzkeQwmjWi8\noaYG1XWqXxgbHGKU9QZk1uMsU++zQ62BD4DAO7tr7+fl5HvqpVlCBqBNtLjx\ndmDyaQBWxjETpFcMRwHwcTOJtoOmwMSsvBSFnTUAOhs+JJ85UkUC/l9M3X91\nx0IdVhtd8NPf4qib50vvIutXM1QlXtI4S2b3FUyItlI4GW8RHs615sTTYex5\nnGMcFu+p6l+ql/s5O5kdBeI5acVj60xElr6ku18eIRiABDI+lyCWQaI3pEQg\nmBkf64PA0YH823txbJgxQugHJztA2MKJi6waEWvZlkaI1qWFfuVvdtjlpsan\nqqfCqSFtB7u0xlFD9Weg8jt9JM5xWqOmSBzckakJ7yJdLrkNZjOsihIWT6+u\nuCwgKmG16dmdQkvHuzM0vUq7vXZI6NsrapEJv8nrjvVX1djD7dzEoNr7AOF+\n8P4WzDRWS27e8Qk3Jd6BN5boUXlYAYDLkbTixRkYYwt4dbESyF07ZyBg06/m\nHY4SdTsYNHPQ3oJNpA5nGYIv/p7uak3EqUG2ojGiJc1VUqY+Abm0fJISA2En\nK9p4\r\n=vxMJ\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.1.2_1607234093162_0.433396103302347"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.4": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.1.4",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.3.0",
+        "tslint-react": "^5.0.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.1.2",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "dependencies": {},
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.1.4",
+      "_nodeVersion": "12.18.3",
+      "_npmVersion": "6.14.6",
+      "dist": {
+        "integrity": "sha512-xUyJmYOR4pnxs8jnBOcFdT/bfNVmVmaz0qYFs3MERqq63KdKAhXPTBBx2/XahErUGS8JGTSyCkPlDDCM9fPjwg==",
+        "shasum": "c8d7862ca7a4c3461d8bad5e03d424c1ead22661",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.1.4.tgz",
+        "fileCount": 66,
+        "unpackedSize": 680794,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf2CarCRA9TVsSAnZWagAAnVYP/0Dasa6FsNlAY+28b9xU\nYEYt5qWzTMy/Sg1J1vNFRfLpxSaznDroneMl3Cam73ggZCn6YIsMCXYDFTqi\nuUzdNl+fcTnSs+BCklRl3HjYxjaRk6RM73dGANUMGJMRgQfDMbUpqT9yo+mU\nLLvJ0ZarNW+2KRkF0XWF1OUWoqWrFnqt7Za1cGiS0Kz/wdR6sBxiKJemESWw\nv662b1B97FSw34Vrgc+QbY8GmfY7IsT8l2PapU4C82XjX+3/U8BrVxPEh07L\nvwGUvYiZ6aQOQYpyzwJGO8hhLE52quAdtk+LFNhe0QVnpDhsMq06mQTdfzLw\njC6rGC/KMq34HC1KIVdeB4zzN+svn/UBnrVtW+q9qEUQmHMCHCajYNHNaxTO\n3HEAaBqFDhnl2NCE8RKlKg4R6rnwF/Fk/T4TTY1xowlUTySZRvoyK2Bab7Zt\n/YqdYZ43qkTaZnQRk6+6NzTUdZrLNKv8eqQjoBZTrf6sA8PYPzs9IL04cDh3\namiLYmYvNF7muJhGhc3m6JQTzidWFT389sHaYWsITCHOdwqpboSrq9+hpYOC\nMxRtZT8OcLsSJjAltRj6LhAhG49xn6pR7yFXQ2lfK+2phbSpdwGyLqpQXgoA\nUj042a/YzEMXJGF0lxiaJdtixWgvo6FDoPVRimY+DDz0YxNqsZeUiBBCs27t\n81Ix\r\n=iGm8\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.1.4_1608001194513_0.7396607682049736"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.2.0",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["webpack", "loader", "template"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
+        "eslint": "^7.18.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.1.3",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "dependencies": {},
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "_id": "@aiou/ts-lib-template@0.2.0",
+      "_nodeVersion": "12.18.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-JmnnwtqezuvZUp6X862DSCKOvvihaYY+a3sb/oMIWYcnib2K47cxYEQStY1jrrDpqVNUOfSsBjcBa5V95n6iSw==",
+        "shasum": "9c125172059530947686c5570db595062ab8c0f3",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.2.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 680301,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgC+4eCRA9TVsSAnZWagAAMTUP/2aI1c2J+l3KDyzj5vQb\nfjzfKd5lWV/PUVY3zBjHgM5tCc0i/FVWWKIxi6Cp9HvRU24Wza7Y5D66K/SY\nxmZJN3IUjRuWZq0pZ2Q/fkp/Ie9ro0DQVnQ4piQT/uGDXZ92EvyrdF6wCPlo\nzS7ESggFVvnvG9QXPH8VTN/48KT/xiBFc42rmyvoA60D6ZwKcEp3h4paqX7v\nvKqX3+/2zXaMY0vOuYzm6Arr9ZaXLNuOCk1yKdC5b45d3RA6xUkRspKjCGVA\nM2Ud18kOTY5158TjALe5zVrmKakeze/Sd4DPyRGaXKhXKlGTMrfKJ7bpv5xN\nWorVKV7dBBreWFqqQaSwXOWtIkj0+49tlYjHDkoTWY+757wLXWNgPvUggRY/\nlu6Ik3rsMdgN950fUqnJflB44R6SohKJrRxfBBQnfAC3GDvW6c+8IEzZMPTz\nZH/e39hIIMuoseh7rYNE7PpWuEor8H0bmfLeFLGaaNtaf1bafgYn/KPsqc1k\n55zuv4CbPAso72R3uqn2Pg3IwYNM40CjEtL7lXmzEmRd6Vo0zjJj4GVabmO4\nYeulesO4F25prfc+pr5b7/VpBtepjOPomMm3d6qFkGwAhxwx9v3qFXBolEcO\nlVDbGrQ9XHDHQ0WWy503n/3Vs7Mu8tCY3sX44SkBpPBWiOOL9yVVTDIequtD\nYXkz\r\n=pH1H\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.2.0_1611394589908_0.8186744615154733"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.4": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.3.4",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@types/jest": "24.0.18",
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
+        "eslint": "^7.18.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "1.18.2",
+        "pretty-quick": "1.11.1",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.1.3",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "gitHead": "6cbadaa431dafdef35d4ae70bb514ef99d2a8bc9",
+      "_id": "@aiou/ts-lib-template@0.3.4",
+      "_nodeVersion": "14.16.0",
+      "_npmVersion": "lerna/3.13.4/node@v14.16.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-qLsWOPB6bznoYG1hiKONP4souABPrG+pALvZuh13Xq9tdT7z4GgY0T2rmcdxE7i8IkovsVv99HZYcr2Wl3Rz+g==",
+        "shasum": "4de33cf142b5b0ea02ec8907b4cb2f2126df24cf",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.3.4.tgz",
+        "fileCount": 66,
+        "unpackedSize": 679776,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgg3wUCRA9TVsSAnZWagAA6qkP/RFvnRcaX5vEeO1D9VDp\nCvl97N62DJx00FuKdT7nMsNfv8P/+q7XVOFeKsw9D/9ypsxerKmP1d5ipB+r\nVTdWB5E7m0UhQ8Ev24zPEejK9x5M54uwEd9JCzAeb5pEnkYBVQtqrCh91g+Z\nCb9UE2GberSzDSwZrYmHpOcZeE0yFdte7zh0uMe/vNvy+5Z6m1agmd7x9QwY\n9xDa4dN1O5wS4+0EuIthsW51G/AeSGZr5AcFCjlBhvhuBSMkl/7+yWh74ASq\ntlkNqv/zOfcLWH/MfQ1pAq/Vtmm1VQ25lSnjHecBVRIFveSMM4CvC3cexAh3\ntRsvsxHI8qe/53UII0xDiOHFy0mMlJ04BF9UKaHCn5PTz0DZmp+KAHf74i/Q\nqvslefeXHhFR0oe8XswVfPGr1rJF/4MUpVdVNEiuUJaRA9hebUsVom3UgB60\nxqN+EeCTh6PPyAvmdAyo1VsoL91pDaHnGzcf3HToe52bAmr71F9QxUKDeGS/\nuNEYOJaPH2moqPVNnZrq1Udj49wef5Gt+lPre8CG6VaqvhZSKXOKcpdOzHEk\nYdtfruLAxZvYmIedvOPq8w18BhwX8wVtzIY9TbTGozGCB3Wxsy1i3vrZbEv4\nQ8yny32fsmYMpv/qGCq+QumV4IbYw90HruTGWeOK62B7xDTZxfGB4gwOvsoR\nqvkd\r\n=gqww\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.3.4_1619229716014_0.2846735602166073"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.6": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.3.6",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+      },
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.0.10",
+        "@types/jest": "24.0.18",
+        "eslint": "^7.18.0",
+        "husky": "3.0.1",
+        "jest": "24.9.0",
+        "np": "5.0.3",
+        "npm-watch": "0.6.0",
+        "prettier": "2.2.1",
+        "pretty-quick": "3.1.0",
+        "rimraf": "3.0.0",
+        "ts-jest": "24.0.2",
+        "ts-node": "8.1.0",
+        "tslib": "1.9.3",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.1.3",
+        "typescript-transform-paths": "^2.1.0"
+      },
+      "author": {
+        "name": "JW"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "npm run build",
+        "update": "npm update && npm update --save-dev",
+        "check": "npm outdated && npm outdated --save-dev",
+        "release": "npm run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "gitHead": "37c1b90e655d75d63fb9ed1403c2acb962678083",
+      "_id": "@aiou/ts-lib-template@0.3.6",
+      "_nodeVersion": "14.16.0",
+      "_npmVersion": "lerna/3.13.4/node@v14.16.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-scU+A4cJQqp8DMCW4kjIFRh8ex9NQ2g6EHqFI2Z4LgFDee0AZS4MRr/AcBquYQ10UsEPzaSBJX7zQyVRvbCSPg==",
+        "shasum": "32f9c7f831ca0287c6a2c52ad411d6a514d054f1",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.3.6.tgz",
+        "fileCount": 66,
+        "unpackedSize": 681306,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJghY70CRA9TVsSAnZWagAAflMP/Rff+mK72PF4hYixWaVl\nFfqEd93QWdE3ZKBqDWmkFailwxatOPdWxwZ+LCoEtcaI05S22Os05ZibF0SW\nbclO/Aztz50n+jpPjD/XaZq45zC+mrsVDTmnZKc6Jt6YzcxV8rdJWPTcz7Ck\nRcQoM5fdIIgBK91PGHqjnRxk/1hx+tmHvQekae6d0VcI7L4RhNGN9TAMXeUw\n6mgh/iVR348XzZQx7beDMmO7B3SBtvlr42pUCDXXVA/k03HUPMJlSBMYZPN6\nU9ZS0CzZJqc9BghxxnT1HAsj/XSO0jtZfBMsImYI4ZbZZfR/I6MxgGcvwN0Z\nQZ4ibKmmz6X+d2SGs5vgGWbG75pzRd9etBydF+4vxU5PjmZODtEKYdmwjGfY\nt2WKFi6Wokowd4yFGksMEGJ2Ac0OkgCu7TDxMc49ZCVoSAjnwzR9tRPcsMwt\n7lFt8yMm4E8SkZAuW4FVVh7UXJpngg0Fh6OF+omAumyaNbZxqHJJpiwJAdB6\nkYSwdk13G+q1p6xOZZtxU1tm0uuLUE5IJJY9JbyrGpw5j+3YuXNQgnHn1ZPy\nmu9XtGFkxkPvX1wQ0X1sFgDRi8PbQ45P77PeFJR3cUwGObWUOFAcgaN8fjSC\n92ll9k3UUNsdCPidsCzBZMc7s3ERFqBZvmn7Ays8TdpmNfWdXYiarUptrt96\nwHoa\r\n=l/6v\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.3.6_1619365619678_0.031302899419907604"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.0": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.0",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.0.12",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "_id": "@aiou/ts-lib-template@0.4.0",
+      "_nodeVersion": "12.22.1",
+      "_npmVersion": "6.14.12",
+      "dist": {
+        "integrity": "sha512-GNnP3TnhGUYfRuGRRdSVWwHApfpWT7zQ/9tJFJ9S3ZgKD0uQwRyxLwHS5eELDMTaCEKi5toOD/6NPmA8RSjppA==",
+        "shasum": "052dab90e2420969d2fb4d36125c8d638c941623",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.0.tgz",
+        "fileCount": 67,
+        "unpackedSize": 38173,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg85cLCRA9TVsSAnZWagAAT3UP/1Vcca3F+Y2+mqbw7+gH\nOxIJG5kof+ZbNZb2EXWPndW/skzpTte4vzt4AG4L+kp6UTiLR9sCAVEvb7Yd\nM3yM4Im8xLBd55N4dLfy2yZFdrQzBfbbSu2qQDpBs4kZlW7YwDyQTzhmmxH6\n4sg1is4k8gt8htYXrKgEiiWTFuABjHVOxXuCU/isBqkJyLyp5jLpuubYPsEo\nSxtQvTjU+wjhMyIUdEvADQ+o+1i1UpVQ9a0Zp3J+2LKrbLa2rT9DvLU+wAu+\nbwqc7XvgsTBrwqn+ZooAz9fPf01I7M3w5XcgFQiEA55L+oOOjtCmcM7M0a1Q\no/VQG/HKpC3oF4s0r9j9UVnHUpG0wz0pfvN/TtaeFZ8hxwe98XZFfxvmRU0m\nWsfcY8ZI86VYzjFn5/uJPiNzGRlZCA9jhoRVSpJrPjPrTZTotDqYRILbvRwo\nMFAR6xvMzZwIe1bXR44kdfwzDLKHiyKgAqljOroxGCLbikCq6vkUYdoeyk5j\nA4x+BkqtvBuk/x9q4BCZPisdeWQuSdMP0QUh2AlWkJOc4NM7L3LVng0FByk5\nIlyfCxfdINBnIItWrUHl7usA5NX27OSg9FWjJI3Xh/1lJq2UCx53a79tygw+\n0CQD2zJ9dk5Flc9SN04QYobJEaBqVtqrfXqSf44NnoJCI5HNeJP/aoni/lIx\nWzbO\r\n=5fKr\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.0_1626576651095_0.2581566105062627"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.1": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.1",
+      "description": "a starter for typescript lib",
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.0.12",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "pretty-quick --staged"
+        }
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "ab8a0e0dc0cb99322b2102be9c878fe87ca5f7d2",
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "_id": "@aiou/ts-lib-template@0.4.1",
+      "_nodeVersion": "12.22.1",
+      "_npmVersion": "lerna/3.22.1/node@v12.22.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-rSnWOw5cHjRkhT1EDrpQ6vUzg3phtW/0EYCOY5T9kPCQYc+CfLc+J3BgkPfIXWjdBXz0d374w9Cz8tNLNpCRWg==",
+        "shasum": "efba74eb6033e74f89475bc6988d919a29069b0b",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.1.tgz",
+        "fileCount": 26,
+        "unpackedSize": 11580,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg85iCCRA9TVsSAnZWagAAq6AP/1jJSDkxxXwJ2OwkKmuV\nS4XYOD+7ICx0ZtqizKZAjNsvtUsOCAILHI4P/xTywcvWbPAZSA7llcUlG3cP\nuyXEcMfPFRcf3r9JFMetC8gfpRmyalJu/ZZbZaM0OtvlgUF3ZgjP4q2gngU/\n8TlBxV+0ZAOrF4hZxbkRWw/sJyM+3VPKfKGa4mNgnYJ0ZxT3dq3KcpRzmllJ\njf0Xbu4BGDhDi4k5CYvHFBe0Jm/ejW1kn6HsWtj+W+YGKlDO91NwSb/Dj1qW\nhff51tWQ2NQfdwfFUm5919NJWklPbFEm6dbgdBJToz3gTQycxdtOMyx6kUnd\nFv3lb/qZnczW/mPDRvcF988MRC0BWTul+t5Y4w65gVzKZYjugMpUvXwXHdet\n6UyABUgiBgr7ICV0CBChjTrw6EFECeVnCj/uwELqWWzIIQAmVTCH+h7+kDKK\nFp8N8ZbxHzYM0UvIk2eO/wyAlRhjw7Fd/NQDiyVSNHRoE59FmmypABfzmua6\n/RY6w9xkdn6aJarQ6d6aV6ejFn5f+IOb/g1KnRnbV+/Ya66u0Q02A+OMwfws\nhgN0zSpWT7FNE4JdyW2ztG+KsQpjDpLJHul30V1LHHJU2SlIXlzAx0koGSyR\n3SC+FCMiHYWcbOHcU2VAkbhrnpYsKyg50Etydt2+4eoMspW7t0PBFfBZXccu\nE/b6\r\n=OVI6\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.1_1626577025881_0.34170160600822674"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.3": {
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "**/**/*.{js,ts,vue,json}": ["eslint --fix"]
+      },
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.3",
+      "description": "a starter for typescript lib",
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.0.12",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.1",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "3610e9f46affc8631d4a868146984905bd5f2a5e",
+      "_id": "@aiou/ts-lib-template@0.4.3",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "lerna/3.22.1/node@v14.17.3+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-KAhTc20en4wZ5KTUOfF3AeP1ci5v0NQ7phCELRxUpH6L401u2HkuKMkLzQ1MMq4oYe+dVlpli+CaFRSTGcnyXQ==",
+        "shasum": "75f10fb6d274e0ef8fdc2d74df5077ede389b7e7",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.3.tgz",
+        "fileCount": 22,
+        "unpackedSize": 10697,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg9FEnCRA9TVsSAnZWagAALa4P/2iKk9eUgldKTqHg37zN\nkmZKOYk0vFxRqz+uudyBlJDZUXP2AjbUA+egqNig19Zldqgw4A+H1GxVzrft\n8LodZm3x5D8Jl0O7vxkbB6+U9ypYKvK059lJzao5SA6JFiFdcpGKeUXlk9mB\nZeNggHmXPgLy2enM0885N6f/EKJgBET1/j8Pi7i4bcssgEIp7xVvxaNbX4FK\nBziiBcdKG2ZMZa82EddsIz2OAd2ic3IAp9R1Fropy0veuxaYzTa60S/AVHXT\n7toertP73G3urIB+JP9bw+g4pChwU9aZqSQe+oX8zEjDYQubjHneqAdu5gKE\n5vLRthHbqqexwprvzIxbjRalcLuW/6sM09aHIInPg/HJB5b7g1A5eK+sbbZd\nrGj1bPWbyFA2qkVWfCRBnZVZ3wmpH+UaDeG8tvkMsKDaWWwfSpuf4On6p4Rx\nrNKZiqS2DtSGUZ0qFLxmyozzlTntE+NS/vrVS3lrW/xEvA+HDvsGmagUP3C0\nWXfmQxSY6fkEDtErlZIspcDc1NQgx1oR4fBjRC+8Rhs70+eCNBwC6J29lv1f\nqqoQ5lBVGdFtb3sAy5vV/42Z9o8YakTjmA+49D51xIi4KfIQvrBDbgETyuDB\njUikpsFl8Cn721m77vYo7UU7Wp3C95Ii+ceZLpvUDqfezXJfQSqyg7OrBOD3\na9X2\r\n=36m9\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.3_1626624295743_0.22453610211592423"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.4": {
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.4",
+      "description": "a starter for typescript lib",
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "**/**/*.{js,ts,vue,json}": ["eslint --fix"]
+      },
+      "typings": "lib/index.d.ts",
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.1.3",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.1",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+      "_id": "@aiou/ts-lib-template@0.4.4",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-Y2WbdzL7XMccFutoadqjnAMmEH1lpr3O9MtY5Ma5m5iJhbJXFEQ/LR39JOj+N6UvWbXUFWBW2fkuXFp2DUEmBA==",
+        "shasum": "8d9038d061222269d4a2c2e6617f952ec1433926",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.4.tgz",
+        "fileCount": 20,
+        "unpackedSize": 10799,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg/RDqCRA9TVsSAnZWagAAiWEQAJpWmJYS+wegrwI0f1lU\nOuByXSGwm4CxFGir1psRlnThd06cCuCG3nBqJDY8uiaNhbFpL9leRk3/V58U\n6oqRx1WcL7UnyvgPEl6RZf76wR9ru4nDNDX/wqMloM9j2A6x3aksx2dM2hZ9\nl8pmUY+kRFFXfZRZNbonT3HNcdqU2wMqShEU9TkfjfA7mjS1C3Nsl5W2xGpA\n7LTwy2YiEo+eaaANNyE8PXFdRtL33T3oUL50ZVJv+Op9rt3O4IPLfYnSc9TO\n2VyjBopqmGEDCtUlf/500ZG65pn7+t3unou2KlxsWKJoaP0M2nu/WcJgxayO\nOGx6EGuzulW5miszyHIgG/C+mWJRL3fn6yTdIHlaCgpMdwZs/LjlEsWg1wRX\nQXDvgowibcekFSlU/PanKAUZzZDAxV4EON+tCZfjRMvVMJD+aSC3hf4k9rPV\nFkBZ2bd31Iwj5v1qJbKTcwokB47YpdyaSNJaFIuG5UYSf23ikFSOJ4dbLSYs\nbFVQXuOwRU3JR+ZMWjGKh3hoLRcYYfYcWWanqt1o00paTPlkU1nLbBE1fZHk\nZRUEjpid8aCKu26tdvMS+9PWOXGtEbQb4KS23AsYsPBKNFqvnlw9KCM12qbf\njfdpRAJuDCaeua9On+huic0GfJ2hK68KNoEC2DTAHfeMx1Tl27J6b2wri8Hp\nYq4q\r\n=zJqv\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jiangweixian1994",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jiangweixian1994",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.4_1627197674188_0.2183587094434687"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.5": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.5",
+      "description": "a starter for typescript lib",
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "license": "MIT",
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "**/**/*.{js,ts,vue,json}": ["eslint --fix"]
+      },
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.2.1",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.1",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+      "_id": "@aiou/ts-lib-template@0.4.5",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-wmYYR9/LO4Fqg1HSRj/u0yQAKyPnklU7AolfhMW6RfD9cPfhJLHNkmUNtrC0bkEBqh9+d/Oa/4rY3iYysMQ6Dw==",
+        "shasum": "036f3a4202e2e993166c2ab559e8c525c274eace",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.5.tgz",
+        "fileCount": 20,
+        "unpackedSize": 10839,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhLYIrCRA9TVsSAnZWagAA6QQP/1RQWLMdoZshSIZHFbnV\niEEnWDrRCxJEH4bltRA7S/WVXusD5hmjWBSAdRcZHPGBXRpc5JPPE8fXjIE6\nk3c4L50WP/nK4W45osTwzEmZH4kq3AYmeym8GOr6NW8FdfauARF8Gyk0yOvm\n346x7FZ7gFaB7VtV0KQhTWbeg69+mGiyBs8DpESEvtD4Evl2wuOX3bFJxTok\n4pZRYGOpFssWZpPTn1CXi68pGuH259kKLhTbVkrt343qi1LPhx1zMAgqoqoY\nmg5hz2wZn/PLsRJ//ZvG0di7Dhx7Udo8jH6nwO89j0axFb+ioI4su0lUwkMk\nHQZWELLpRmJiMrdDuW80QBsE1eLGPtYO67MGkoV70XEd2KWx6SFrXwr6OgTu\nfApRvY+fR1UYE2PFqAa7TZ3FAyXp0nhXenMCeAbpGIe5fzqy4+NH8d2lXI/4\nBpKBs309+XPxedLGteBdtiRvdjw2B+OxojmGRO5n6qRmwJs+VxgUuLDhX7ok\n2EjVfGln1562Ltk2+QANb5jaww7O5uHaqv4GSv5kdCjMm0o1K1swdEum1jR4\n8RhTDJwMqRGoiSZz/+qvgOxXcrbGeP8N232v4U+sSAtPJQUZfdJf5D0UlZR6\nVlj2M1pEJR1yHbDQmxzCe5eCZFLmDLEolsmWnyGFAylRugOyX045jE8NotDp\nZ5Ai\r\n=kBIO\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qidanta",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qidanta",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.5_1630372395743_0.9904839935368597"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.6": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.4.6",
+      "description": "a starter for typescript lib",
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "license": "MIT",
+      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "directory": "packages/ts-lib-template"
+      },
+      "bugs": {
+        "url": "https://github.com/JiangWeixian/templates/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "jest",
+        "pretest": "yarn run build",
+        "update": "yarn update && npm update --save-dev",
+        "check": "yarn outdated && npm outdated --save-dev",
+        "release": "yarn run build && np --no-cleanup --yolo --no-publish --any-branch"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "**/**/*.{js,ts,vue,json}": ["eslint --fix"]
+      },
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.2.1",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^3.1.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.1",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
+      "_id": "@aiou/ts-lib-template@0.4.6",
+      "_nodeVersion": "14.17.6",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-DdhTDezHBDEfEZ41BvoYLLMAoZayJk1E199ADDYRanedJVSg8BvoGz6dstNMwzUDzvlRViZe0J+CgbvJB48/mA==",
+        "shasum": "05464fe6faeb6bbbe6f0db142075ff6d3d60c27f",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.4.6.tgz",
+        "fileCount": 22,
+        "unpackedSize": 11142,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhNi7oCRA9TVsSAnZWagAAsvgP/AqQxY0lCokwpzdnAxzc\nz9Hl1AfpV3VZvRvp3a2himehtVgQ99UKTdts57f0jYyaybKhbwqifSPuYx1N\n2R9MUpUzDUqDF2IH8FjhwEXVpTVvLfyx0ZmBF/oQCH10pwUPYCw8kkpDD5ci\ngznn/Yf4/mmMI7bH8jPoYXe4nc14T8meNIcqzkxvH3NHo++o/TnlXVKU1eBt\nz1q3q1PYSNFP9UOhgWGwMD3k1EdGx0GqjyNNTSeBhu0azOUpGAB6iNAyU0kQ\n4Y7rRwQSx3na8V1sIK7nEF4V1ZkZJ+JcTZrrUQ2m3R/6fGRpMgHr2bK8MZ3f\nu3pXekOEP4BrdrI5I4qk+R0jjGf8vrs1n/u7J7NchwlfucRyS0w/ZkXVwcOB\nN0Q00pjoLUTZzhCBkUqRjarQn1xNWV/dYE0QBK8hzVsTRJZmv91A1cp3vv96\neYKd440OAE7ji2PsbiaYBQaSVimlgNr/0gIELXJ9LOuGc+TzjtypT3wnpqge\n2I2MFVIuy83dUpTMkpOvH1QGMGsC/rwI2nB34LgzzDKot0+JeFRCEdUooExP\n64wLEDpbPzzDLcUQhdOGNeHWzBJtLikLt7d1oJbZVmAKkeuG/XJQ47I/HDM0\n7nVFQH/A1E4Spja1dAmimhgVAozK34zICUIfORc8m5IgbebSY1XxlO1FSfOL\na/u4\r\n=pdda\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qidanta",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qidanta",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.4.6_1630940903894_0.9949046772452379"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.0": {
+      "name": "@aiou/ts-lib-template",
+      "version": "0.5.0",
+      "description": "a starter for typescript lib",
+      "keywords": ["typescript", "lib", "template", "aiou"],
+      "license": "MIT",
+      "homepage": "https://github.com/spring-catponents/ts-lib-template#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/spring-catponents/ts-lib-template.git"
+      },
+      "bugs": {
+        "url": "https://github.com/spring-catponents/ts-lib-template/issues",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "author": {
+        "name": "JW",
+        "email": "jiangweixian1994@gmail.com",
+        "url": "https://twitter.com/jiangweixian"
+      },
+      "main": "lib/index.js",
+      "typings": "lib/index.d.ts",
+      "lint-staged": {
+        "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+      },
+      "watch": {
+        "run_dev": {
+          "patterns": ["src"],
+          "extensions": "ts",
+          "quiet": true,
+          "legacyWatch": true,
+          "delay": 1000,
+          "runOnChangeOnly": false
+        }
+      },
+      "devDependencies": {
+        "@aiou/eslint-config": "0.2.1",
+        "@changesets/cli": "^2.16.0",
+        "@types/jest": "26.0.23",
+        "cz-emoji": "^1.3.1",
+        "eslint": "^7.30.0",
+        "husky": "^7.0.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.1",
+        "np": "7.5.0",
+        "npm-watch": "0.10.0",
+        "prettier": "2.3.2",
+        "pretty-quick": "3.1.1",
+        "rimraf": "3.0.2",
+        "ts-jest": "27.0.3",
+        "ts-node": "10.0.0",
+        "tslib": "2.3.0",
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.5",
+        "typescript-transform-paths": "^3.0.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "cz-emoji"
+        }
+      },
+      "scripts": {
+        "build": "rimraf lib && ttsc",
+        "run_dev": "rimraf lib && ttsc",
+        "dev": "npm-watch run_dev",
+        "test": "pnpm run build && jest",
+        "pretest": "pnpm run build",
+        "ci:publish": "pnpm run build && pnpx changeset publish",
+        "ci:version": "pnpx changeset version",
+        "ci:snapshot": "pnpx changeset version --snapshot beta",
+        "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
+        "lint:fix": "eslint . --fix"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:aiou-ts-lib-template-0.5.0.tgz",
+      "_id": "@aiou/ts-lib-template@0.5.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-3ZgNFsunago8T3u5ulsa4SjMiYNfb82xmN1iX6SdnV0k7yca6pYtSTSJuh3Bq0NIMtjYzUnufJrvhKHtI4n4HA==",
+        "shasum": "977cd8c20b25700c055cf1024cc8a843d06c1908",
+        "tarball": "https://registry.npmjs.org/@aiou/ts-lib-template/-/ts-lib-template-0.5.0.tgz",
+        "fileCount": 28,
+        "unpackedSize": 247839
+      },
+      "_npmUser": {
+        "name": "qidanta",
+        "email": "jiangweixian1994@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qidanta",
+          "email": "jiangweixian1994@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-lib-template_0.5.0_1634984650684_0.6893706124383305"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2019-09-18T07:20:11.815Z",
+    "0.0.2": "2019-09-18T07:20:12.195Z",
+    "modified": "2021-10-23T10:24:10.869Z",
+    "0.0.3": "2019-09-30T06:03:13.215Z",
+    "0.1.1": "2020-12-06T05:08:56.598Z",
+    "0.1.2": "2020-12-06T05:54:53.350Z",
+    "0.1.4": "2020-12-15T02:59:54.670Z",
+    "0.2.0": "2021-01-23T09:36:30.078Z",
+    "0.3.4": "2021-04-24T02:01:56.266Z",
+    "0.3.6": "2021-04-25T15:46:59.904Z",
+    "0.4.0": "2021-07-18T02:50:51.293Z",
+    "0.4.1": "2021-07-18T02:57:06.030Z",
+    "0.4.3": "2021-07-18T16:04:55.902Z",
+    "0.4.4": "2021-07-25T07:21:14.566Z",
+    "0.4.5": "2021-08-31T01:13:15.895Z",
+    "0.4.6": "2021-09-06T15:08:24.006Z",
+    "0.5.0": "2021-10-23T10:24:10.835Z"
+  },
+  "maintainers": [
+    {
+      "name": "qidanta",
+      "email": "jiangweixian1994@gmail.com"
+    }
+  ],
+  "description": "a starter for typescript lib",
+  "keywords": ["typescript", "lib", "template", "aiou"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spring-catponents/ts-lib-template.git"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "license": "MIT",
+  "readme": "# @aiou/ts-lib-template\n*build ts lib template*\n\n[![npm](https://img.shields.io/npm/v/@aiou/ts-lib-template)](https://github.com/spring-catponents/ts-lib-template/tree/master) [![GitHub](https://img.shields.io/npm/l/@aiou/ts-lib-template)](https://github.com/spring-catponents/ts-lib-template/tree/master) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)\n\n[Edit on StackBlitz ⚡️](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)\n\n\n## features\n\n- 💪 Type safe - build with `ttsc`\n- 💞 replace `alias` path to `real` path\n- 🥽 watch mode\n\n## development\n\n- **Setup** - `pnpm i`\n- **Build** - `pnpm build`\n\n# \n<div align='right'>\n\n*built with ❤️ by 😼*\n\n</div>",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/spring-catponents/ts-lib-template#readme",
+  "bugs": {
+    "url": "https://github.com/spring-catponents/ts-lib-template/issues",
+    "email": "jiangweixian1994@gmail.com"
+  }
+}
