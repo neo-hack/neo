@@ -7,6 +7,12 @@ export default {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*'],
   coverageDirectory: './jest/coverage',
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
   resetMocks: true,
   resetModules: true,
   restoreMocks: true,
@@ -17,4 +23,5 @@ export default {
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   extensionsToTreatAsEsm: ['.ts'],
   testRegex: '/test/.+\\.test\\.ts?$',
+  verbose: true,
 }
