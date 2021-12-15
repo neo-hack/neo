@@ -49,7 +49,7 @@
     "globby": "11.0.4",
     "husky": "7.0.2",
     "husky-init": "^7.0.0",
-    "inquirer": "8.1.2",
+    "inquirer": "8.2.0",
     "inquirer-search-list": "^1.2.6",
     "listr": "^0.14.3",
     "lodash.countby": "^4.6.0",

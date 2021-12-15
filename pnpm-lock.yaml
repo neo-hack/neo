@@ -60,7 +60,7 @@ importers:
       globby: 11.0.4
       husky: 7.0.2
       husky-init: ^7.0.0
-      inquirer: 8.1.2
+      inquirer: 8.2.0
       inquirer-search-list: ^1.2.6
       jest: ^27.3.0
       listr: ^0.14.3
@@ -97,7 +97,7 @@ importers:
       globby: 11.0.4
       husky: 7.0.2
       husky-init: 7.0.0
-      inquirer: 8.1.2
+      inquirer: 8.2.0
       inquirer-search-list: 1.2.6
       listr: 0.14.3
       lodash.countby: 4.6.0
@@ -5718,8 +5718,8 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer/8.1.2:
-    resolution: {integrity: sha512-DHLKJwLPNgkfwNmsuEUKSejJFbkv0FMO9SMiQbjI3n5NQuCrSIBqP66ggqyz2a6t2qEolKrMjhQ3+W/xXgUQ+Q==}
+  /inquirer/8.2.0:
+    resolution: {integrity: sha512-0crLweprevJ02tTuA6ThpoAERAGyVILC4sS74uib58Xf/zSr1/ZWtmm7D5CI+bSQEaA04f0K7idaHpQbSWgiVQ==}
     engines: {node: '>=8.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
@@ -5733,8 +5733,8 @@ packages:
       ora: 5.4.1
       run-async: 2.4.1
       rxjs: 7.2.0
-      string-width: 4.2.2
-      strip-ansi: 6.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
       through: 2.3.8
     dev: false
 
@@ -8027,7 +8027,7 @@ packages:
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
-      strip-ansi: 6.0.0
+      strip-ansi: 6.0.1
       wcwidth: 1.0.1
     dev: false
 

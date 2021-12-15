@@ -14,9 +14,9 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
 let lockFile: ReturnType<typeof createLockFile>
 
 const isCached = (cachedTemplates: Partial<Package>[], template: Partial<Package>) => {
-  const { resolvedVia = 'npm-registry', name } = template
+  const { pref } = template
   return cachedTemplates.find((tpl) => {
-    return tpl.resolvedVia === resolvedVia && name === tpl.name
+    return tpl.pref === pref
   })
 }
 
