@@ -6,6 +6,7 @@ import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import uniqby from 'lodash.uniqby'
+import countby from 'lodash.countby'
 
 import { isMonorepo } from './utils'
 import logger, { debugLogger } from './utils/logger'
@@ -110,9 +111,15 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
 /**
  * @description create project from template
  */
-export const create = async (template: string, project: string, options: CommonOptions) => {
+export const create = async (
+  template: string,
+  project: string,
+  options: CommonOptions & {
+    preset: string[]
+  },
+) => {
   const store = await createStore(options)
-  const choices = await store.lockFile.readTemplates()
+  let choices = uniqby(await store.lockFile.readTemplates({ presetNames: options.preset }), 'pref')
   if (template && project) {
     const pref = choices.find((choice) => choice.name === template)
     const task = createTask({ template: pref?.pref || template, project, store })
@@ -120,15 +127,20 @@ export const create = async (template: string, project: string, options: CommonO
     console.log()
     logger.success(`🎉 ${template} generated, Happy hacking!`)
   } else {
+    const counters = countby(choices, 'name')
+    choices = choices.map((ch) => ({
+      ...ch,
+      name: counters[ch.name!] > 1 && ch.pref ? `${ch.name} (${ch.pref})` : ch.name,
+    }))
     inquirer
       .prompt<{ template: string; project: string }>([
         {
           type: 'search-list',
           name: 'template',
-          message: 'Please pick a template',
-          choices: uniqby(choices, 'name'),
+          message: 'Please select template',
+          choices,
           validate(answer: { template: string; project: string }) {
-            if (!answer) return 'You must choose at least one template.'
+            if (!answer) return 'You must choose template.'
 
             return true
           },
@@ -136,11 +148,16 @@ export const create = async (template: string, project: string, options: CommonO
         {
           type: 'input',
           name: 'project',
-          message: 'Please enter a project name',
+          message: 'Please enter project name',
+          validate(answer: { template: string; project: string }) {
+            if (!answer) return 'You must enter project name.'
+
+            return true
+          },
         },
       ])
       .then(async (answers) => {
-        const pref = choices.find((choice) => choice.name === template)
+        const pref = choices.find((choice) => choice.name === answers.template)
         const task = createTask({
           template: pref?.pref || answers.template,
           project: answers.project,

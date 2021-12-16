@@ -4,14 +4,22 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
-import { CommonOptions, LockFile, Package, PresetPackage } from '../interface'
+import { CommonOptions, LockFile, Package } from '../interface'
 import { debugLogger } from '../utils/logger'
+import { isMatchPreset } from '../utils'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
 }
 
 let lockFile: ReturnType<typeof createLockFile>
+
+const isCached = (cachedTemplates: Partial<Package>[], template: Partial<Package>) => {
+  const { pref } = template
+  return cachedTemplates.find((tpl) => {
+    return tpl.pref === pref
+  })
+}
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
   debugLogger.lockfile('lockfilepath at %s', lockFilePath)
@@ -47,15 +55,30 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       lockfile.templates = { ...lockfile.templates, ...data }
       return this.write(lockfile)
     },
-    async readTemplates(): Promise<Partial<Package>[]> {
+    async readTemplates({ presetNames }: { presetNames?: string[] } = {}): Promise<
+      Partial<Package>[]
+    > {
       const lockFile = await this.read()
-      const presets: LockFile['presets'] = lockFile.presets || {}
       const templates: LockFile['templates'] = lockFile.templates || {}
-      const cachedTemplates = Object.values(templates)
-      const presetTemplates = Object.values(presets).reduce((acc, cur) => {
-        return acc.concat(cur.templates)
-      }, [] as PresetPackage[])
-      return presetTemplates.concat(cachedTemplates)
+      const cachedTemplates = Object.values(templates).map((tpl) => ({ ...tpl, cached: true }))
+
+      const presets: LockFile['presets'] = lockFile.presets || {}
+      let presetTemplates: Partial<Package>[] = Object.keys(presets)
+        .reduce((acc, cur) => {
+          return acc.concat(
+            presets[cur].templates.map((tpl) => ({ ...tpl, preset: cur, pref: tpl.name })),
+          )
+        }, [] as Partial<Package>[])
+        .map((tpl) => ({ ...tpl, cached: !!isCached(cachedTemplates, tpl) }))
+      debugLogger.lockfile('read templates with %O', presetNames)
+
+      if (presetNames) {
+        presetTemplates = presetTemplates.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
+        return presetTemplates
+      }
+      const allTemplates = presetTemplates.concat(cachedTemplates)
+      debugLogger.lockfile('templates list %O', allTemplates)
+      return allTemplates
     },
   }
 }

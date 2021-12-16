@@ -90,7 +90,7 @@ including...
 - `snapshot-release.yml` - publish prerelease package with `changeset`
 - `.husky & lint-staged` - lint-staged precommit
 - `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
-- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/spring-catponents/templates/tree/master/packages/core/assets/templates) for more details
+- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/spring-catponents/neo/tree/master/packages/core/assets/templates) for more details
 
 `options`
 

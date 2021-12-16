@@ -3,18 +3,13 @@ import chalk from 'chalk'
 import debug from 'debug'
 
 /**
- * Prefix.
- */
-export const sep = chalk.gray('·')
-
-/**
  * Log a `message` to the console.
  *
  * @param {String} message
  */
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(msg)
+  console.log(chalk.cyan(msg))
 }
 
 /**
