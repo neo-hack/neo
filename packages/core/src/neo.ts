@@ -34,6 +34,7 @@ cli
   .description('Generate a new project from a neo template')
   .alias('c')
   .option('--store-dir [storeDir]', 'Set store dir')
+  .option('-ps, --preset [presets...]', 'Create templates filtered by presets')
   .action(handler('create'))
 
 cli
@@ -41,6 +42,7 @@ cli
   .description('List all templates')
   .alias('l')
   .option('--store-dir [storeDir]', 'Set store dir')
+  .option('-ps, --preset [presets...]', 'List templates filtered by presets')
   .action(handler('list'))
 
 cli.command('whoami').alias('me').description('Who is neo?').action(handler('whoami'))

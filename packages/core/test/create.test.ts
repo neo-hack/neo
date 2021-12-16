@@ -23,5 +23,5 @@ describe('command create', () => {
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 30000)
-  it.todo('create package will update lock file')
+  it.todo('create template from preset')
 })
