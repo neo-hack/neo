@@ -1,16 +1,9 @@
-<div align="center">
+<img width='100' src='https://user-images.githubusercontent.com/6839576/146664116-9a990754-bb4b-4124-a19a-7c3eea38aca4.png' alt='logo' />
 
-![logo](/docs/logo.png)
+*neo - the one. `neo` use `pnpm` to manage your template, create hack project as quick as possible.*
 
-*the one - neo*
 
 [![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
-
-<img src="https://user-images.githubusercontent.com/6839576/83341699-f436dc00-a318-11ea-9cf5-60b4ee16cfa7.gif" width="640" />
-
-</div>
-
-*`neo` use `pnpm` to manage your template*
 
 ## table of contents
 
