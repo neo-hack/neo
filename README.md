@@ -51,6 +51,10 @@ neo whoami
 neo list
 ```
 
+`options`
+
+- `--preset` - list templates filtered by `preset`. e.g. `neo list --preset=neo`
+
 ### create
 > create <project> from <alias>
 
