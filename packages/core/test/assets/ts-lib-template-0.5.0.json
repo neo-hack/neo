@@ -13,7 +13,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -96,7 +96,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -182,7 +182,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -266,7 +266,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -353,7 +353,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -440,7 +440,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["webpack", "loader", "template"],
       "watch": {
@@ -528,7 +528,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["typescript", "lib", "template", "aiou"],
       "watch": {
@@ -616,7 +616,7 @@
       "main": "lib/index.js",
       "typings": "lib/index.d.ts",
       "repository": {
-        "url": "https://github.com/JiangWeixian/templates/tree/master/packages/ts-lib-template"
+        "url": "https://github.com/neo-hack/neo/tree/master/packages/ts-lib-template"
       },
       "keywords": ["typescript", "lib", "template", "aiou"],
       "watch": {
@@ -703,7 +703,7 @@
       "typings": "lib/index.d.ts",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "keywords": ["typescript", "lib", "template", "aiou"],
@@ -763,9 +763,9 @@
         }
       },
       "gitHead": "8d1f23440ab011812cba747468cd2e4c5c36a9e4",
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "_id": "@aiou/ts-lib-template@0.4.0",
@@ -804,7 +804,7 @@
       "typings": "lib/index.d.ts",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "keywords": ["typescript", "lib", "template", "aiou"],
@@ -864,9 +864,9 @@
         }
       },
       "gitHead": "ab8a0e0dc0cb99322b2102be9c878fe87ca5f7d2",
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "_id": "@aiou/ts-lib-template@0.4.1",
@@ -898,9 +898,9 @@
       "_hasShrinkwrap": false
     },
     "0.4.3": {
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "license": "MIT",
@@ -911,7 +911,7 @@
       },
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "husky": {
@@ -1003,9 +1003,9 @@
       "_hasShrinkwrap": false
     },
     "0.4.4": {
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "name": "@aiou/ts-lib-template",
@@ -1015,7 +1015,7 @@
       "license": "MIT",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "author": {
@@ -1113,14 +1113,14 @@
       "description": "a starter for typescript lib",
       "keywords": ["typescript", "lib", "template", "aiou"],
       "license": "MIT",
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "author": {
@@ -1218,14 +1218,14 @@
       "description": "a starter for typescript lib",
       "keywords": ["typescript", "lib", "template", "aiou"],
       "license": "MIT",
-      "homepage": "https://github.com/JiangWeixian/templates#readme",
+      "homepage": "https://github.com/neo-hack/neo#readme",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/JiangWeixian/templates.git",
+        "url": "git+https://github.com/neo-hack/neo.git",
         "directory": "packages/ts-lib-template"
       },
       "bugs": {
-        "url": "https://github.com/JiangWeixian/templates/issues",
+        "url": "https://github.com/neo-hack/neo/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "author": {
@@ -1323,13 +1323,13 @@
       "description": "a starter for typescript lib",
       "keywords": ["typescript", "lib", "template", "aiou"],
       "license": "MIT",
-      "homepage": "https://github.com/spring-catponents/ts-lib-template#readme",
+      "homepage": "https://github.com/neo-hack/ts-lib-template#readme",
       "repository": {
         "type": "git",
-        "url": "git+https://github.com/spring-catponents/ts-lib-template.git"
+        "url": "git+https://github.com/neo-hack/ts-lib-template.git"
       },
       "bugs": {
-        "url": "https://github.com/spring-catponents/ts-lib-template/issues",
+        "url": "https://github.com/neo-hack/ts-lib-template/issues",
         "email": "jiangweixian1994@gmail.com"
       },
       "author": {
@@ -1450,7 +1450,7 @@
   "keywords": ["typescript", "lib", "template", "aiou"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spring-catponents/ts-lib-template.git"
+    "url": "git+https://github.com/neo-hack/ts-lib-template.git"
   },
   "author": {
     "name": "JW",
@@ -1458,11 +1458,11 @@
     "url": "https://twitter.com/jiangweixian"
   },
   "license": "MIT",
-  "readme": "# @aiou/ts-lib-template\n*build ts lib template*\n\n[![npm](https://img.shields.io/npm/v/@aiou/ts-lib-template)](https://github.com/spring-catponents/ts-lib-template/tree/master) [![GitHub](https://img.shields.io/npm/l/@aiou/ts-lib-template)](https://github.com/spring-catponents/ts-lib-template/tree/master) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)\n\n[Edit on StackBlitz ⚡️](https://stackblitz.com/github/spring-catponents/ts-lib-template/tree/master)\n\n\n## features\n\n- 💪 Type safe - build with `ttsc`\n- 💞 replace `alias` path to `real` path\n- 🥽 watch mode\n\n## development\n\n- **Setup** - `pnpm i`\n- **Build** - `pnpm build`\n\n# \n<div align='right'>\n\n*built with ❤️ by 😼*\n\n</div>",
+  "readme": "# @aiou/ts-lib-template\n*build ts lib template*\n\n[![npm](https://img.shields.io/npm/v/@aiou/ts-lib-template)](https://github.com/neo-hack/ts-lib-template/tree/master) [![GitHub](https://img.shields.io/npm/l/@aiou/ts-lib-template)](https://github.com/neo-hack/ts-lib-template/tree/master) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/neo-hack/ts-lib-template/tree/master)\n\n[Edit on StackBlitz ⚡️](https://stackblitz.com/github/neo-hack/ts-lib-template/tree/master)\n\n\n## features\n\n- 💪 Type safe - build with `ttsc`\n- 💞 replace `alias` path to `real` path\n- 🥽 watch mode\n\n## development\n\n- **Setup** - `pnpm i`\n- **Build** - `pnpm build`\n\n# \n<div align='right'>\n\n*built with ❤️ by 😼*\n\n</div>",
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/spring-catponents/ts-lib-template#readme",
+  "homepage": "https://github.com/neo-hack/ts-lib-template#readme",
   "bugs": {
-    "url": "https://github.com/spring-catponents/ts-lib-template/issues",
+    "url": "https://github.com/neo-hack/ts-lib-template/issues",
     "email": "jiangweixian1994@gmail.com"
   }
 }

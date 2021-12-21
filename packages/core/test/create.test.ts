@@ -17,7 +17,7 @@ describe('command create', () => {
 
   it('create package from github should work', async () => {
     const destDir = tempy.directory()
-    const url = 'https://github.com/spring-catponents/bin-template'
+    const url = 'https://github.com/neo-hack/bin-template'
     await execNeo(['create', url, 'target', '--store-dir', storeDir], {
       cwd: destDir,
     })
