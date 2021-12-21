@@ -1,4 +1,4 @@
-<img width='100' src='https://user-images.githubusercontent.com/6839576/146664116-9a990754-bb4b-4124-a19a-7c3eea38aca4.png' alt='logo' />
+<img width='128' align='right' src='https://user-images.githubusercontent.com/6839576/146867056-8dd103fa-c895-4057-bdc6-34c5bad460ea.png' alt='logo' />
 
 *neo - the one. `neo` use `pnpm` to manage your template, create hack project as quick as possible.*
 
