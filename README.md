@@ -3,7 +3,7 @@
 *neo - the one. `neo` use `pnpm` to manage your template, create hack project as quick as possible.*
 
 
-[![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
+[![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/neo-hack/neo/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/neo-hack/neo)](https://github.com/neo-hack/neo/tree/master/packages/core)
 
 ## table of contents
 
@@ -87,7 +87,7 @@ including...
 - `snapshot-release.yml` - publish prerelease package with `changeset`
 - `.husky & lint-staged` - lint-staged precommit
 - `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
-- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/spring-catponents/neo/tree/master/packages/core/assets/templates) for more details
+- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/neo-hack/neo/tree/master/packages/core/assets/templates) for more details
 
 `options`
 

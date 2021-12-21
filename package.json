@@ -7,13 +7,13 @@
     "neo"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/JiangWeixian/templates#readme",
+  "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JiangWeixian/templates.git"
+    "url": "git+https://github.com/neo-hack/neo.git"
   },
   "bugs": {
-    "url": "https://github.com/JiangWeixian/templates/issues"
+    "url": "https://github.com/neo-hack/neo/issues"
   },
   "author": {
     "name": "jiangweixian"

@@ -7,7 +7,7 @@ import createStore from '../../lib/store'
 describe('load template', () => {
   it('load template from github should work', async () => {
     const storeDir = path.join(tempy.directory(), '.store')
-    const url = 'https://github.com/spring-catponents/actions-template'
+    const url = 'https://github.com/neo-hack/actions-template'
     await execNeo(['add', url, '--store-dir', storeDir])
     const store = await createStore({ storeDir })
     expect(await store.lockFile.read()).toMatchSnapshot()
