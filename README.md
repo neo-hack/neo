@@ -1,16 +1,9 @@
-<div align="center">
+<img width='128' align='right' src='https://user-images.githubusercontent.com/6839576/146879486-df3486cd-ec8d-4f1e-bd96-675f16703752.png' alt='logo' />
 
-![logo](/docs/logo.png)
+*neo - new repo. `neo` use `pnpm` to manage your template, create hack project as quick as possible.*
 
-*the one - neo*
 
-[![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/JiangWeixian/templates/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/jiangweixian/templates)](https://github.com/JiangWeixian/templates/tree/master/packages/core)
-
-<img src="https://user-images.githubusercontent.com/6839576/83341699-f436dc00-a318-11ea-9cf5-60b4ee16cfa7.gif" width="640" />
-
-</div>
-
-*`neo` use `pnpm` to manage your template*
+[![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/neo-hack/neo/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/neo-hack/neo)](https://github.com/neo-hack/neo/tree/master/packages/core)
 
 ## table of contents
 
@@ -94,7 +87,7 @@ including...
 - `snapshot-release.yml` - publish prerelease package with `changeset`
 - `.husky & lint-staged` - lint-staged precommit
 - `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
-- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/spring-catponents/neo/tree/master/packages/core/assets/templates) for more details
+- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/neo-hack/neo/tree/master/packages/core/assets/templates) for more details
 
 `options`
 

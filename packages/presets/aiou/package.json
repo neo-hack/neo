@@ -8,14 +8,14 @@
     "aiou"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/spring-catponents/neo#readme",
+  "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spring-catponents/neo.git",
+    "url": "git+https://github.com/neo-hack/neo.git",
     "directory": "packages/presets/aiou"
   },
   "bugs": {
-    "url": "https://github.com/spring-catponents/neo/issues",
+    "url": "https://github.com/neo-hack/neo/issues",
     "email": "jiangweixian1994@gmail.com"
   },
   "author": {
