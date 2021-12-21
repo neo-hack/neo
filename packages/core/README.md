@@ -1,4 +1,4 @@
-# templates cli
+# neo
 > Download templates repo in packages
 
 [![npm](https://img.shields.io/npm/v/@aiou/neo)](https://github.com/neo-hack/neo/tree/master/packages/core) [![GitHub](https://img.shields.io/github/license/neo-hack/neo)](https://github.com/neo-hack/neo/tree/master/packages/core)
