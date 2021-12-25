@@ -8,7 +8,7 @@ import type { PackageResponse } from '@pnpm/package-store'
 import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
 
-import { isMonorepo } from './utils'
+import { isMonorepo, isOffline } from './utils'
 import logger, { debugLogger } from './utils/logger'
 import { CommonOptions, AsyncReturnType } from './interface'
 import createStore from './store'
@@ -17,6 +17,7 @@ type CreateOptions = {
   template: string
   project: string
   store: AsyncReturnType<typeof createStore>
+  latest?: boolean
 }
 
 /**
@@ -67,8 +68,7 @@ const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
   })
 }
 
-const createTask = ({ template, project, store }: CreateOptions) => {
-  let templateResponse: PackageResponse | undefined
+const createTask = ({ template, project, store, latest }: CreateOptions) => {
   const hooks = {
     validate: {
       title: 'Validate template',
@@ -80,19 +80,28 @@ const createTask = ({ template, project, store }: CreateOptions) => {
     },
     download: {
       title: 'Download template',
-      task: async () => {
-        // TODO: looks not need
-        fsExtra.removeSync(template)
-        templateResponse = await store.addTemplate({ alias: template })
+      task: async (ctx, task) => {
+        const offline = await isOffline()
+        if (offline) {
+          debugLogger.create('download offline')
+          task.skip('Ops, is offline, try create project from local store')
+        }
+        if (!latest) {
+          debugLogger.create('download offline')
+          task.skip('Create project from local store')
+        } else {
+          task.output = 'Fetching latest template...'
+        }
+        ctx.templateResponse = await store.addTemplate({ alias: template, latest })
       },
     },
     generate: {
       title: 'Generate project',
-      task: async () => {
-        if (!templateResponse) {
+      task: async (ctx) => {
+        if (!ctx.templateResponse) {
           throw new Error('template not found')
         }
-        return generate({ project, store, templateResponse, template })
+        return generate({ project, store, templateResponse: ctx.templateResponse, template })
       },
     },
     // postgenerate
@@ -114,15 +123,21 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
 export const create = async (
   template: string,
   project: string,
-  options: CommonOptions & {
-    preset: string[]
-  },
+  options: CommonOptions &
+    Pick<CreateOptions, 'latest'> & {
+      preset: string[]
+    },
 ) => {
   const store = await createStore(options)
   let choices = uniqby(await store.lockFile.readTemplates({ presetNames: options.preset }), 'pref')
   if (template && project) {
     const pref = choices.find((choice) => choice.name === template)
-    const task = createTask({ template: pref?.pref || template, project, store })
+    const task = createTask({
+      template: pref?.pref || template,
+      project,
+      store,
+      latest: options.latest,
+    })
     await task.run()
     console.log()
     logger.success(`🎉 ${project} generated, Happy hacking!`)
@@ -162,6 +177,7 @@ export const create = async (
           template: pref?.pref || answers.template,
           project: answers.project,
           store,
+          latest: options.latest,
         })
         await task.run()
         console.log()

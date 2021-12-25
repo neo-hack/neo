@@ -19,3 +19,17 @@ export const isMatchPreset = (preset?: string, names?: string[]) => {
   }
   return names.some((name) => name === preset || minimatch(preset, name))
 }
+
+export async function isOffline() {
+  return import('dns').then(async (m) => {
+    return new Promise<boolean>((resolve) => {
+      return m.lookup('google.com', (err) => {
+        if (err && err.code === 'ENOTFOUND') {
+          return resolve(true)
+        } else {
+          return resolve(false)
+        }
+      })
+    })
+  })
+}

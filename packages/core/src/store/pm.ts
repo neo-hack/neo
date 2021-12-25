@@ -10,24 +10,42 @@ const authConfig = { registry: NPM_REGISTRY }
 export type RequestOptions = {
   alias?: string
   pref?: string
+  latest?: boolean
 }
 
 let pm: ReturnType<typeof createTemplatePM>
 
-export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
+const createCtrl = async ({
+  storeDir = STORE_PATH,
+  offline,
+}: CommonOptions & { offline: boolean }) => {
   // @ts-ignore
   const { resolve, fetchers } = createClient.default({
     authConfig,
     cacheDir: path.join(STORE_PATH, CACHE_DIRNAME),
+    preferOffline: offline,
   })
   // @ts-ignore
-  const storeController = await createStore.default(resolve, fetchers, {
+  const storeCtrl = await createStore.default(resolve, fetchers, {
     storeDir,
     verifyStoreIntegrity: true,
   })
+  return storeCtrl
+}
+
+export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
+  // @ts-ignore
+  const storeCtrls = {
+    offline: await createCtrl({ storeDir, offline: true }),
+    online: await createCtrl({ storeDir, offline: false }),
+  }
   return {
-    async fetch({ alias, pref }: RequestOptions): Promise<PackageResponse> {
-      const fetchResponse = await storeController.requestPackage(
+    async getCtrl(params: Pick<RequestOptions, 'latest'>) {
+      return params.latest ? storeCtrls.online : storeCtrls.offline
+    },
+    async fetch({ alias, pref, latest = true }: RequestOptions): Promise<PackageResponse> {
+      const storeCtrl = await this.getCtrl({ latest })
+      const fetchResponse = await storeCtrl!.requestPackage(
         {
           alias,
           pref,
@@ -43,21 +61,26 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       )
       return fetchResponse
     },
-    async request({ alias, pref }: RequestOptions): Promise<PackageResponse> {
+    async request({ alias, pref, latest }: RequestOptions): Promise<PackageResponse> {
       debugLogger.pm(`request %s with %s`, alias, pref)
-      let fetchResponse = await this.fetch({ alias, pref }).catch(() => undefined)
+      let fetchResponse = await this.fetch({ alias, pref, latest }).catch((e) => console.error(e))
       if (!fetchResponse) {
-        fetchResponse = await this.fetch({ pref: alias })
+        fetchResponse = await this.fetch({ pref: alias, latest })
       }
       debugLogger.pm('request response.body %O', fetchResponse.body)
       return fetchResponse
     },
-    async import(to: string, response?: PackageFilesResponse) {
+    async import(
+      to: string,
+      response?: PackageFilesResponse,
+      params: Pick<RequestOptions, 'latest'> = { latest: false },
+    ) {
       if (!response) {
         return
       }
       debugLogger.pm('import template from store %s', response.fromStore)
-      return storeController.importPackage(to, {
+      const storeCtrl = await this.getCtrl(params)
+      return storeCtrl.importPackage(to, {
         filesResponse: response,
         force: false,
       })

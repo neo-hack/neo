@@ -57,6 +57,11 @@ neo create <alias> <project>
 
 *Once create, will save `template` into `.neo-store`. At second time, it will fetch from local filesystem first*
 
+`options`
+
+- `--preset` - list templates filtered by `preset`. e.g. `neo create --preset=neo`
+- `--latest` - create project from remote latest template
+
 ### add
 > load preset or template into `.neo-store`
 
