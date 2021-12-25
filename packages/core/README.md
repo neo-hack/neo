@@ -16,12 +16,21 @@
 neo list
 ```
 
+`options`
+
+- `--preset` - list templates filtered by `preset`. e.g. `neo list --preset=neo`
+
 ### create
 > create <project> from <alias>
 
 ```bash
 neo create <alias> [project]
 ```
+
+`options`
+
+- `--preset` - list templates filtered by `preset`. e.g. `neo create --preset=neo`
+- `--latest` - create project from remote latest template
 
 ### add
 > load preset or template to `.neo-store`

@@ -35,6 +35,7 @@ cli
   .alias('c')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'Create templates filtered by presets')
+  .option('--latest', 'Create project from remote latest template', false)
   .action(handler('create'))
 
 cli
