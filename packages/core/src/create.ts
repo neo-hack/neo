@@ -180,6 +180,7 @@ export const create = async (
           latest: options.latest,
         })
         await task.run()
+        console.log()
         logger.success(`🎉 ${answers.project} Generated, Happy hacking!`)
       })
       .catch(logger.fatal)
