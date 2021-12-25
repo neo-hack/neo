@@ -12,4 +12,4 @@ it('is match preset', async () => {
 
 it('is offline', async () => {
   expect(await isOffline()).toBe(false)
-})
+}, 1000)
