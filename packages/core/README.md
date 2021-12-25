@@ -67,3 +67,9 @@ including...
 `options`
 
 - `--module` - prepack part of `ci, lint, issue, pr, husky`, e.g `neo prepack --module ci`
+
+### whoami
+
+```bash
+neo whoami
+```

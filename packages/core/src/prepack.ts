@@ -5,7 +5,7 @@
 import { r } from './utils'
 
 import Listr from 'listr'
-import chalk from 'chalk'
+import pc from 'picocolors'
 import fs from 'fs-extra'
 import path from 'path'
 import { readPackageUpSync } from 'read-pkg-up'
@@ -103,8 +103,8 @@ const postparts = {
       console.log()
       console.log(`It\'s almost done...`)
       console.log()
-      console.log(`  ${chalk.blue('•')} pnpm add @changesets/cli`)
-      console.log(`  ${chalk.blue('•')} pnpx changeset init`)
+      console.log(`  ${pc.blue('•')} pnpm add @changesets/cli`)
+      console.log(`  ${pc.blue('•')} pnpx changeset init`)
     }
   },
 }

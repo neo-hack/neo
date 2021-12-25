@@ -10,11 +10,11 @@
 - [table of contents](#table-of-contents)
 - [install](#install)
 - [commands](#commands)
-  - [whoami](#whoami)
   - [list](#list)
   - [create](#create)
   - [add](#add)
   - [prepack](#prepack)
+  - [whoami](#whoami)
 
 ## install
 
@@ -23,19 +23,6 @@ npm install @aiou/neo -g
 ```
 
 ## commands
-
-### whoami
-
-```bash
-neo whoami
-```
-
-<div align='center'>
-
-![whoami](/packages/core/assets/neo.jpg)  
-*▲ whoami*
-
-</div>
 
 ### list
 > list all saved templates or preset templates
@@ -98,3 +85,8 @@ including...
 
 - `--module` - prepack part of `ci, lint, issue, pr, husky`, e.g `neo prepack --module ci`
 
+### whoami
+
+```bash
+neo whoami
+```

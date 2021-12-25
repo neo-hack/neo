@@ -1,5 +1,5 @@
 import { format } from 'util'
-import chalk from 'chalk'
+import pc from 'picocolors'
 import debug from 'debug'
 
 /**
@@ -9,7 +9,7 @@ import debug from 'debug'
  */
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(chalk.cyan(msg))
+  console.log(pc.cyan(msg))
 }
 
 /**
