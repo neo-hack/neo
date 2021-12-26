@@ -16,6 +16,8 @@ export interface Package extends PresetPackage {
   cached?: boolean
   // package from which preset
   preset?: string
+  // inject from read lock file
+  displayName?: string
 }
 
 export type LockFile = {

@@ -31,22 +31,22 @@ const createStore = async (params: CommonOptions) => {
         [params.alias!]: pkgs,
       })
     },
-    async addTemplate(params: RequestOptions) {
+    async addTemplate(params: RequestOptions & { displayName?: string }) {
       const fetchResponse = await pm.request(params)
       if (!fetchResponse) {
         debug.store('template not found')
         return
       }
       const manifest = await fetchResponse?.bundledManifest?.()
-      const { id, resolvedVia, normalizedPref } = fetchResponse.body
+      const { id, resolvedVia } = fetchResponse.body
       debug.store('add template %s', manifest!.name)
       await lockFile.updateTemplates({
         [id]: {
-          name: manifest!.name,
+          name: params.displayName || manifest!.name,
           version: manifest!.version,
           resolvedVia,
           id,
-          pref: normalizedPref || params.alias,
+          pref: params.alias,
         },
       })
       return fetchResponse

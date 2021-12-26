@@ -19,6 +19,7 @@ type CreateOptions = {
   project: string
   store: AsyncReturnType<typeof createStore>
   latest?: boolean
+  displayName: string
 }
 
 /**
@@ -30,7 +31,7 @@ const generate = async ({
   template,
   templateResponse,
   store,
-}: CreateOptions & {
+}: Omit<CreateOptions, 'displayName'> & {
   templateResponse: PackageResponse
 }) => {
   await store.pm.import(project, await templateResponse.files?.())
@@ -69,7 +70,7 @@ const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
   })
 }
 
-const createTask = ({ template, project, store, latest }: CreateOptions) => {
+const createTask = ({ template, project, store, latest, displayName }: CreateOptions) => {
   const hooks = {
     validate: {
       title: 'Validate template',
@@ -94,7 +95,7 @@ const createTask = ({ template, project, store, latest }: CreateOptions) => {
             task.output = 'Fetching latest template...'
           }
         }
-        ctx.templateResponse = await store.addTemplate({ alias: template, latest })
+        ctx.templateResponse = await store.addTemplate({ alias: template, latest, displayName })
       },
     },
     generate: {
@@ -139,6 +140,7 @@ export const create = async (
       project,
       store,
       latest: options.latest,
+      displayName: pref?.name || template,
     })
     await task.run()
     console.log()
@@ -147,6 +149,7 @@ export const create = async (
     const counters = countby(choices, 'name')
     choices = choices.map((ch) => ({
       ...ch,
+      displayName: ch.name,
       name: counters[ch.name!] > 1 && ch.pref ? `${ch.name} (${ch.pref})` : ch.name,
     }))
     inquirer
@@ -180,6 +183,7 @@ export const create = async (
           project: answers.project,
           store,
           latest: options.latest,
+          displayName: pref?.displayName || pref!.name!,
         })
         await task.run()
         console.log()
