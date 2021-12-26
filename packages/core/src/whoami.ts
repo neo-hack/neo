@@ -1,4 +1,6 @@
-import { showBanner } from './utils/show-banner'
+import { showBanner, showFooter } from './utils/show-brand'
+
+import pc from 'picocolors'
 
 /**
  * @description display neo image on terminal
@@ -6,5 +8,8 @@ import { showBanner } from './utils/show-banner'
 export const whoami = () => {
   ;(async () => {
     showBanner()
+    console.log()
+    console.log(pc.blue(' ⎯⎯'))
+    showFooter()
   })()
 }

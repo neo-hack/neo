@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 import { program } from 'commander'
 import updateNotifier from 'update-notifier'
-import { readPackageUpSync } from 'read-pkg-up'
 
-import { r } from './utils'
-import { getBanner } from './utils/show-banner'
+import { readPkg } from './utils'
+import { getBanner } from './utils/show-brand'
 
-const pkg = readPackageUpSync({ cwd: r() })?.packageJson
+const pkg = readPkg()
 const notifier = updateNotifier({
   pkg: { name: pkg!.name, version: pkg!.version },
 })
@@ -51,7 +50,7 @@ cli
   .option('-ps, --preset [presets...]', 'List templates filtered by presets')
   .action(handler('list'))
 
-cli.command('whoami').alias('me').description('Who is neo?').action(handler('whoami'))
+cli.command('whoami').alias('docs').description('What is neo?').action(handler('whoami'))
 
 cli
   .command('prepack')
