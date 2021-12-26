@@ -36,7 +36,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@aiou/schema": "workspace:^0.0.0",
+    "@aiou/schema": "workspace:^0.0.1",
     "@pnpm/client": "^6.0.5",
     "@pnpm/logger": "^4.0.0",
     "@pnpm/package-store": "^12.1.3",
