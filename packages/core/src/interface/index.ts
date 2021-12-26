@@ -1,11 +1,11 @@
 import type { ResolveResult } from '@pnpm/package-store'
+import type { PresetTemplate } from '@aiou/schema'
 
 export type CommonOptions = {
   storeDir?: string
 }
 
-export interface PresetPackage {
-  name: string
+export interface PresetPackage extends PresetTemplate {
   resolvedVia?: ResolveResult['resolvedVia']
 }
 

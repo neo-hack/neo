@@ -24,7 +24,6 @@
     "url": "https://twitter.com/jiangweixian"
   },
   "files": [
-    "preset.schema.json",
     "lib"
   ],
   "main": "lib/index.js",

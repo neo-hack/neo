@@ -1,4 +1,4 @@
-interface PresetTemplate {
+export interface PresetTemplate {
   name: string
   pref: string
 }

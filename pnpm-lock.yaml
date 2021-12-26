@@ -28,6 +28,7 @@ importers:
 
   packages/core:
     specifiers:
+      '@aiou/schema': workspace:^0.0.0
       '@pnpm/client': ^6.0.5
       '@pnpm/logger': ^4.0.0
       '@pnpm/package-store': ^12.1.3
@@ -81,6 +82,7 @@ importers:
       update-notifier: ^5.1.0
       write-yaml-file: ^4.2.0
     dependencies:
+      '@aiou/schema': link:../schema
       '@pnpm/client': 6.0.8_@pnpm+logger@4.0.0
       '@pnpm/logger': 4.0.0
       '@pnpm/package-store': 12.1.3_@pnpm+logger@4.0.0
