@@ -59,6 +59,7 @@ importers:
       husky-init: ^7.0.0
       inquirer: 8.2.0
       inquirer-search-list: ^1.2.6
+      is-offline-node: ^1.0.0
       jest: ^27.3.0
       listr: ^0.14.3
       lodash.countby: ^4.6.0
@@ -96,6 +97,7 @@ importers:
       husky-init: 7.0.0
       inquirer: 8.2.0
       inquirer-search-list: 1.2.6
+      is-offline-node: 1.0.0
       listr: 0.14.3
       lodash.countby: 4.6.0
       lodash.groupby: 4.6.0
@@ -4713,6 +4715,11 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       symbol-observable: 1.2.0
+    dev: false
+
+  /is-offline-node/1.0.0:
+    resolution: {integrity: sha512-xuEDqn1/tuLSrC78yme5kUJ2OJibN6WkWRBPH6ZfPPm/5S6/eNkKbwbktUrQHNV/acQCxlkkcWM3gvXnwYL9sw==}
+    engines: {node: '>12'}
     dev: false
 
   /is-path-cwd/2.2.0:
