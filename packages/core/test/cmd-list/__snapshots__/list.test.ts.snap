@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`command list should contain all templates listed in constants 1`] = `
+exports[`command list should contain all templates in store 1`] = `
 "Note: cached, uncached
 
 Found 1 templates:
