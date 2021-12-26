@@ -140,7 +140,7 @@ export const create = async (
     })
     await task.run()
     console.log()
-    logger.success(`🎉 ${project} generated, Happy hacking!`)
+    logger.success(`  🎉 ${project} created, Happy hacking!`)
   } else {
     const counters = countby(choices, 'name')
     choices = choices.map((ch) => ({
@@ -181,7 +181,7 @@ export const create = async (
         })
         await task.run()
         console.log()
-        logger.success(`🎉 ${answers.project} Generated, Happy hacking!`)
+        logger.success(`  🎉 ${answers.project} created, Happy hacking!`)
       })
       .catch(logger.fatal)
   }
