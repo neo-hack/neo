@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 1.0.1
+
+### Patch Changes
+
+- f4ca662: update readme
+
 ## 1.0.0
 
 ### Major Changes
