@@ -14,6 +14,7 @@ export interface Package extends PresetPackage {
   pref: string
   id: string
   cached?: boolean
+  // package from which preset
   preset?: string
 }
 

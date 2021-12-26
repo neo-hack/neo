@@ -8,7 +8,7 @@
     "aiou"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/neo-hack/neo#readme",
+  "homepage": "https://github.com/neo-hack/neo/tree/master/packages/presets/aiou#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neo-hack/neo.git",
