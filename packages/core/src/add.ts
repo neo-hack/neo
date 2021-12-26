@@ -20,10 +20,10 @@ export const add = async (
     // init store
     const store = await createStore({ storeDir })
     if (preset) {
-      await store.addPreset({ alias })
+      await store.addPreset({ alias, latest: true })
       return
     }
-    store.addTemplate({ alias })
+    store.addTemplate({ alias, latest: true })
   } catch (e) {
     logger.fatal(e)
   }
