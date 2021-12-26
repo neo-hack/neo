@@ -4,15 +4,19 @@ import updateNotifier from 'update-notifier'
 import { readPackageUpSync } from 'read-pkg-up'
 
 import { r } from './utils'
+import { getBanner } from './utils/show-banner'
 
 const pkg = readPackageUpSync({ cwd: r() })?.packageJson
 const notifier = updateNotifier({
   pkg: { name: pkg!.name, version: pkg!.version },
 })
 
-const cli = program.version(pkg?.version || '', '-v, --version').hook('preAction', () => {
-  notifier.notify()
-})
+const cli = program
+  .version(pkg?.version || '', '-v, --version')
+  .hook('preAction', () => {
+    notifier.notify()
+  })
+  .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
 const commands = {
   create: async () => await import('./create').then((res) => res.create),
