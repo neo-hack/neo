@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import tempy from 'tempy'
 
-import { execNeo } from './helpers'
+import { execNeo } from '../helpers'
 
 const storeDir = path.join(tempy.directory(), '.store')
 
@@ -23,5 +23,4 @@ describe('command create', () => {
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 30000)
-  it.todo('create template from preset')
 })

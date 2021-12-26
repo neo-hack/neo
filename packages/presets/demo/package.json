@@ -1,18 +1,18 @@
 {
-  "name": "@aiou/preset-aiou",
-  "version": "1.0.0",
-  "description": "preset aiou",
+  "name": "@aiou/preset-demo",
+  "version": "0.0.0",
+  "description": "preset demo",
   "keywords": [
     "preset",
     "template",
-    "aiou"
+    "demo"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/neo-hack/neo/tree/master/packages/presets/aiou#readme",
+  "homepage": "https://github.com/neo-hack/neo/tree/master/packages/presets/demo#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neo-hack/neo.git",
-    "directory": "packages/presets/aiou"
+    "directory": "packages/presets/demo"
   },
   "bugs": {
     "url": "https://github.com/neo-hack/neo/issues",

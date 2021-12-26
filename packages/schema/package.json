@@ -1,0 +1,40 @@
+{
+  "name": "@aiou/schema",
+  "version": "0.0.1",
+  "description": "schema and types of project neo",
+  "keywords": [
+    "types",
+    "schema",
+    "aiou"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo/tree/master/packages/schema#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git",
+    "directory": "packages/schema"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "ttsc",
+    "test": "echo test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.5.4"
+  }
+}

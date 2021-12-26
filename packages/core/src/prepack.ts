@@ -71,7 +71,7 @@ const lint = async (pkg: NormalizedPackageJson) => {
 }
 
 const husky = async (pkg: NormalizedPackageJson) => {
-  updatePkg(pkg, false)
+  updatePkg(pkg as any, false)
   pkg.husky = undefined
   try {
     install()

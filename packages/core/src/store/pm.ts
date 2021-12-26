@@ -63,7 +63,9 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
     },
     async request({ alias, pref, latest }: RequestOptions): Promise<PackageResponse> {
       debug.pm(`request %s with %s`, alias, pref)
-      let fetchResponse = await this.fetch({ alias, pref, latest }).catch((e) => console.error(e))
+      // try download as npm package
+      let fetchResponse = await this.fetch({ alias, pref, latest }).catch(() => undefined)
+      // try download as remote url
       if (!fetchResponse) {
         fetchResponse = await this.fetch({ pref: alias, latest })
       }

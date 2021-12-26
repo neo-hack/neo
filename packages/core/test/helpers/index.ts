@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { r } from '../../src/utils'
 import createLockFile from '../../src/store/lock-file'
 
@@ -18,6 +19,10 @@ export const mockLockFile = async () => {
       templates: [
         {
           name: '@aiou/ts-lib-template',
+        },
+        {
+          name: 'ts-lib-template',
+          pref: 'https://github.com/egoist/ts-lib-starter',
         },
       ],
     },
