@@ -1,6 +1,9 @@
 {
   "templates": [
     {
+      "name": "@aiou/ts-lib-template"
+    },
+    {
       "name": "electron-boilerplate",
       "pref": "https://github.com/sindresorhus/electron-boilerplate"
     },
