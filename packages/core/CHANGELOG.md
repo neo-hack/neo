@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.2.1
+
+### Patch Changes
+
+- bda0bc5: fix save display name
+
 ## 3.2.0
 
 ### Minor Changes
