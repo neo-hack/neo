@@ -3,8 +3,20 @@ import createStore from './store'
 import { STORE_PATH } from './utils/constants'
 import { CommonOptions } from './interface'
 
+import Listr from 'listr'
+import pc from 'picocolors'
+
 type AddOptions = CommonOptions & {
   preset?: boolean
+}
+
+const showSuccessInfo = (alias: string, type: 'preset' | 'template') => {
+  console.log()
+  logger.success(
+    `  Happy hacking, ${type} ${pc.green(alias)} already added, try \`${pc.green(
+      'neo',
+    )} list\` to checkout templates`,
+  )
 }
 
 /**
@@ -20,10 +32,24 @@ export const add = async (
     // init store
     const store = await createStore({ storeDir })
     if (preset) {
-      await store.addPreset({ alias, latest: true })
+      const task = new Listr([
+        {
+          title: `Add preset ${alias}`,
+          task: () => store.addPreset({ alias, latest: true }),
+        },
+      ])
+      await task.run()
+      showSuccessInfo(alias, 'preset')
       return
     }
-    store.addTemplate({ alias, latest: true })
+    const task = new Listr([
+      {
+        title: `Add template ${alias}`,
+        task: () => store.addTemplate({ alias, latest: true }),
+      },
+    ])
+    await task.run()
+    showSuccessInfo(alias, 'template')
   } catch (e) {
     logger.fatal(e)
   }
