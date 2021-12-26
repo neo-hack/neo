@@ -7,8 +7,9 @@ import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
+import isOffline from 'is-offline-node'
 
-import { isMonorepo, isOffline } from './utils'
+import { isMonorepo } from './utils'
 import logger, { debug } from './utils/logger'
 import { CommonOptions, AsyncReturnType } from './interface'
 import createStore from './store'
@@ -83,14 +84,15 @@ const createTask = ({ template, project, store, latest }: CreateOptions) => {
       task: async (ctx, task) => {
         const offline = await isOffline()
         if (offline) {
-          debug.create('download offline')
+          debug.create('offline')
           task.skip('Ops, is offline, try create project from local store')
-        }
-        if (!latest) {
-          debug.create('download offline')
-          task.skip('Create project from local store')
         } else {
-          task.output = 'Fetching latest template...'
+          if (!latest) {
+            debug.create('download from local')
+            task.skip('Create project from local store')
+          } else {
+            task.output = 'Fetching latest template...'
+          }
         }
         ctx.templateResponse = await store.addTemplate({ alias: template, latest })
       },

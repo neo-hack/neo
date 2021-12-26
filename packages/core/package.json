@@ -50,6 +50,7 @@
     "husky-init": "^7.0.0",
     "inquirer": "8.2.0",
     "inquirer-search-list": "^1.2.6",
+    "is-offline-node": "^1.0.0",
     "listr": "^0.14.3",
     "lodash.countby": "^4.6.0",
     "lodash.groupby": "^4.6.0",
