@@ -3,10 +3,11 @@
 exports[`command list should contain all templates in store 1`] = `
 "Note: cached, uncached
 
-Found 1 templates:
+Found 2 templates:
 
 neo:
-@aiou/ts-lib-template"
+@aiou/ts-lib-template
+ts-lib-template"
 `;
 
 exports[`command list should show empty template list with wrong preset 1`] = `"No templates..."`;
@@ -14,7 +15,8 @@ exports[`command list should show empty template list with wrong preset 1`] = `"
 exports[`command list should show template list filter by preset 1`] = `
 "Note: cached, uncached
 
-Found 1 templates:
+Found 2 templates:
 
-@aiou/ts-lib-template"
+@aiou/ts-lib-template
+ts-lib-template"
 `;
