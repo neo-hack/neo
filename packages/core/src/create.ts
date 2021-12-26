@@ -9,7 +9,7 @@ import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
 
 import { isMonorepo, isOffline } from './utils'
-import logger, { debugLogger } from './utils/logger'
+import logger, { debug } from './utils/logger'
 import { CommonOptions, AsyncReturnType } from './interface'
 import createStore from './store'
 
@@ -47,7 +47,7 @@ const generate = async ({
   })
   // remove template folder
   fsExtra.removeSync(tplPath)
-  debugLogger.create('create project %s from source template %s', project, template)
+  debug.create('create project %s from source template %s', project, template)
 }
 
 /**
@@ -55,7 +55,7 @@ const generate = async ({
  * @todo move to @aiou/workflows
  */
 const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
-  const common = ['CHANGELOG.md']
+  const common = ['CHANGElogger.md']
   const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
   if (await isMonorepo()) {
     common.concat(mono).forEach((filename) => {
@@ -83,11 +83,11 @@ const createTask = ({ template, project, store, latest }: CreateOptions) => {
       task: async (ctx, task) => {
         const offline = await isOffline()
         if (offline) {
-          debugLogger.create('download offline')
+          debug.create('download offline')
           task.skip('Ops, is offline, try create project from local store')
         }
         if (!latest) {
-          debugLogger.create('download offline')
+          debug.create('download offline')
           task.skip('Create project from local store')
         } else {
           task.output = 'Fetching latest template...'

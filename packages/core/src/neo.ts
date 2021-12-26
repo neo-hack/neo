@@ -35,7 +35,8 @@ const handler = (cmdName: string) => {
 
 cli
   .command('create [alias] [project]')
-  .description('Generate a new project from a neo template')
+  .usage('neo create template project')
+  .description('Create a new project from template')
   .alias('c')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'Create templates filtered by presets')
@@ -61,6 +62,7 @@ cli
 
 cli
   .command('add [alias]')
+  .usage('neo add package')
   .description('Load template or preset into the `.neo-store`')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('--preset', 'If true, load `alias` as preset')

@@ -1,6 +1,6 @@
 import { format } from 'util'
 import pc from 'picocolors'
-import debug from 'debug'
+import Debug from 'debug'
 
 /**
  * Log a `message` to the console.
@@ -36,12 +36,12 @@ const success = (...args: [any, ...any[]]) => {
   console.log(msg)
 }
 
-export const debugLogger = {
-  lockfile: debug('neo:lockfile'),
-  pm: debug('neo:pm'),
-  store: debug('neo:store'),
-  add: debug('neo:cmd:add'),
-  create: debug('neo:cmd:create'),
+export const debug = {
+  lockfile: Debug('neo:lockfile'),
+  pm: Debug('neo:pm'),
+  store: Debug('neo:store'),
+  add: Debug('neo:cmd:add'),
+  create: Debug('neo:cmd:create'),
 }
 
 export default {

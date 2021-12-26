@@ -1,5 +1,5 @@
 import { AsyncReturnType, CommonOptions } from '../interface'
-import { debugLogger } from '../utils/logger'
+import { debug } from '../utils/logger'
 import createLockFile from './lock-file'
 import createTemplatePM, { RequestOptions } from './pm'
 
@@ -10,7 +10,7 @@ import path from 'path'
 let store: AsyncReturnType<typeof createStore>
 
 const createStore = async (params: CommonOptions) => {
-  debugLogger.store('init store at %s', params.storeDir)
+  debug.store('init store at %s', params.storeDir)
   const pm = await createTemplatePM(params)
   const lockFile = createLockFile(params)
   return {
@@ -25,7 +25,7 @@ const createStore = async (params: CommonOptions) => {
       }
       await pm.import(dir, files)
       const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
-      debugLogger.store('preset templates list: %O', pkgs)
+      debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
         [params.alias!]: pkgs,
@@ -34,12 +34,12 @@ const createStore = async (params: CommonOptions) => {
     async addTemplate(params: RequestOptions) {
       const fetchResponse = await pm.request(params)
       if (!fetchResponse) {
-        debugLogger.store('template not found')
+        debug.store('template not found')
         return
       }
       const manifest = await fetchResponse?.bundledManifest?.()
       const { id, resolvedVia, normalizedPref } = fetchResponse.body
-      debugLogger.store('add template %s', manifest!.name)
+      debug.store('add template %s', manifest!.name)
       await lockFile.updateTemplates({
         [id]: {
           name: manifest!.name,

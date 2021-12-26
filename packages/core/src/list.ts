@@ -5,7 +5,7 @@ import countby from 'lodash.countby'
 import uniqby from 'lodash.uniqby'
 
 import { CommonOptions, Package } from './interface'
-import log from './utils/logger'
+import logger from './utils/logger'
 import createStore from './store'
 
 type ListOptions = CommonOptions & {
@@ -37,21 +37,21 @@ export const list = async (params: ListOptions) => {
   )
   const counters = countby(templates, 'name')
   if (!templates.length) {
-    log.log(`No templates...`)
+    logger.log(`No templates...`)
     return
   }
-  log.log(`${pc.cyan('Note:')} ${pc.green('cached')}, ${pc.gray('uncached')}\n`)
-  log.log(pc.bold(pc.white(`Found ${templates.length} templates:\n`)))
+  logger.log(`${pc.cyan('Note:')} ${pc.green('cached')}, ${pc.gray('uncached')}\n`)
+  logger.log(pc.bold(pc.white(`Found ${templates.length} templates:\n`)))
   const maps = groupby(templates, 'preset')
   if (!params.preset) {
     Object.keys(maps).forEach((key, index) => {
-      log.log(key === 'undefined' ? 'Not in preset:' : `${key}:`)
-      log.log(cols(colorify(maps[key], counters)))
+      logger.log(key === 'undefined' ? 'Not in preset:' : `${key}:`)
+      logger.log(cols(colorify(maps[key], counters)))
       if (index !== Object.keys(maps).length - 1) {
         console.log()
       }
     })
     return
   }
-  log.log(cols(colorify(templates, counters)))
+  logger.log(cols(colorify(templates, counters)))
 }
