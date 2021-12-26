@@ -1,0 +1,40 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/neo-hack/neo/packages/schema",
+  "title": "Root",
+  "type": "object",
+  "required": ["templates"],
+  "properties": {
+    "templates": {
+      "$id": "#root/templates",
+      "title": "Templates",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$id": "#root/templates/items",
+        "title": "Items",
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "$id": "#root/templates/items/name",
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "examples": ["@aiou/ts-lib-template"],
+            "pattern": "^.*$"
+          },
+          "perf": {
+            "$id": "#root/templates/items/perf",
+            "title": "Perf",
+            "type": "string",
+            "default": "",
+            "examples": ["@aiou/ts-lib-template"],
+            "pattern": "^.*$"
+          }
+        }
+      }
+    }
+  }
+}

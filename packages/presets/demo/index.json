@@ -1,0 +1,12 @@
+{
+  "templates": [
+    {
+      "name": "electron-boilerplate",
+      "pref": "https://github.com/sindresorhus/electron-boilerplate"
+    },
+    {
+      "name": "ts-lib-template",
+      "pref": "https://github.com/egoist/ts-lib-starter"
+    }
+  ]
+}

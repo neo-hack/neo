@@ -55,6 +55,10 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       lockfile.templates = { ...lockfile.templates, ...data }
       return this.write(lockfile)
     },
+    /**
+     * @description read `neo-lock` templates, merge preset template and packages.
+     * will flag package if cached; will flag package original preset
+     */
     async readTemplates({ presetNames }: { presetNames?: string[] } = {}): Promise<
       Partial<Package>[]
     > {
@@ -66,7 +70,11 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       let presetTemplates: Partial<Package>[] = Object.keys(presets)
         .reduce((acc, cur) => {
           return acc.concat(
-            presets[cur].templates.map((tpl) => ({ ...tpl, preset: cur, pref: tpl.name })),
+            presets[cur].templates.map((tpl) => ({
+              ...tpl,
+              preset: cur,
+              pref: tpl.pref || tpl.name,
+            })),
           )
         }, [] as Partial<Package>[])
         .map((tpl) => ({ ...tpl, cached: !!isCached(cachedTemplates, tpl) }))
