@@ -1,5 +1,20 @@
 # @aiou/neo
 
+## 0.0.0-beta-20211126104117
+
+### Minor Changes
+
+- f4ca662: cmd:add - load presets and create repo from cached store
+- 6bd966c: list nested templates and create filter by preset
+
+### Patch Changes
+
+- 5df7be2: fix display project name
+- 3c7d34d: exec cmd:add in tasks
+- cfaa71e: support create template offline
+- Updated dependencies [8afc069]
+  - @aiou/schema@0.0.0-beta-20211126104117
+
 ## 3.1.6
 
 ### Patch Changes
