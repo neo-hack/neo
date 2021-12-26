@@ -17,7 +17,7 @@ describe('create from preset', () => {
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   })
 
-  it.todo('create from preset by npm package name should work', async () => {
+  it('create from preset by npm package name should work', async () => {
     const destDir = tempy.directory()
     await execNeo(['create', '@aiou/ts-lib-template', 'target', '--store-dir', storeDir], {
       cwd: destDir,

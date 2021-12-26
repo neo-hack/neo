@@ -26,7 +26,7 @@
     "lint": "eslint '**/*.{js,ts,tsx,json}'",
     "lint:fix": "eslint . --fix",
     "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
-    "build": "pnpm run build --filter=@aiou/schema && pnpm build -r",
+    "build": "pnpm build -r",
     "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm run build && pnpm changeset publish",
     "upgrade:core": "cd packages/core && ncu --configFilePath ./.ncurc.json",
