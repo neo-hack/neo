@@ -1,6 +1,6 @@
 import { format } from 'util'
-import chalk from 'chalk'
-import debug from 'debug'
+import pc from 'picocolors'
+import Debug from 'debug'
 
 /**
  * Log a `message` to the console.
@@ -9,7 +9,7 @@ import debug from 'debug'
  */
 const log = (...args: [any, ...any[]]) => {
   const msg = format.apply(format, args)
-  console.log(chalk.cyan(msg))
+  console.log(pc.cyan(msg))
 }
 
 /**
@@ -36,12 +36,12 @@ const success = (...args: [any, ...any[]]) => {
   console.log(msg)
 }
 
-export const debugLogger = {
-  lockfile: debug('neo:lockfile'),
-  pm: debug('neo:pm'),
-  store: debug('neo:store'),
-  add: debug('neo:cmd:add'),
-  create: debug('neo:cmd:create'),
+export const debug = {
+  lockfile: Debug('neo:lockfile'),
+  pm: Debug('neo:pm'),
+  store: Debug('neo:store'),
+  add: Debug('neo:cmd:add'),
+  create: Debug('neo:cmd:create'),
 }
 
 export default {

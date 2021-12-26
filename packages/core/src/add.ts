@@ -1,4 +1,4 @@
-import log, { debugLogger } from './utils/logger'
+import logger, { debug } from './utils/logger'
 import createStore from './store'
 import { STORE_PATH } from './utils/constants'
 import { CommonOptions } from './interface'
@@ -16,7 +16,7 @@ export const add = async (
 ) => {
   try {
     const { storeDir, preset } = options
-    debugLogger.add('options is alias %s / options %O', alias, options)
+    debug.add('options is alias %s / options %O', alias, options)
     // init store
     const store = await createStore({ storeDir })
     if (preset) {
@@ -25,6 +25,6 @@ export const add = async (
     }
     store.addTemplate({ alias })
   } catch (e) {
-    log.fatal(e)
+    logger.fatal(e)
   }
 }

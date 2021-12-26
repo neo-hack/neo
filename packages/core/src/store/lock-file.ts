@@ -5,7 +5,7 @@ import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package } from '../interface'
-import { debugLogger } from '../utils/logger'
+import { debug } from '../utils/logger'
 import { isMatchPreset } from '../utils'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
@@ -22,7 +22,7 @@ const isCached = (cachedTemplates: Partial<Package>[], template: Partial<Package
 }
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
-  debugLogger.lockfile('lockfilepath at %s', lockFilePath)
+  debug.lockfile('lockfilepath at %s', lockFilePath)
   return {
     getLockFilePath() {
       return lockFilePath
@@ -39,7 +39,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     },
     async updatePreset(data: any) {
       const lockfile: LockFile = await this.read()
-      debugLogger.lockfile('update preset %O', data)
+      debug.lockfile('update preset %O', data)
       if (!lockfile.presets) {
         lockfile.presets = {}
       }
@@ -48,7 +48,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     },
     async updateTemplates(data: any) {
       const lockfile: LockFile = await this.read()
-      debugLogger.lockfile('update templates %O', data)
+      debug.lockfile('update templates %O', data)
       if (!lockfile.templates) {
         lockfile.templates = {}
       }
@@ -70,14 +70,14 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
           )
         }, [] as Partial<Package>[])
         .map((tpl) => ({ ...tpl, cached: !!isCached(cachedTemplates, tpl) }))
-      debugLogger.lockfile('read templates with %O', presetNames)
+      debug.lockfile('read templates with %O', presetNames)
 
       if (presetNames) {
         presetTemplates = presetTemplates.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
         return presetTemplates
       }
       const allTemplates = presetTemplates.concat(cachedTemplates)
-      debugLogger.lockfile('templates list %O', allTemplates)
+      debug.lockfile('templates list %O', allTemplates)
       return allTemplates
     },
   }

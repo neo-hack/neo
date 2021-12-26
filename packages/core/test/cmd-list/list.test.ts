@@ -5,7 +5,7 @@ beforeAll(async () => {
 })
 
 describe('command list', () => {
-  it('should contain all templates listed in constants', async () => {
+  it('should contain all templates in store', async () => {
     const { stdout } = await execNeo(['list', '--store-dir', storeDir])
     expect(stdout).toMatchSnapshot()
   })

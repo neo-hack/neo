@@ -1,17 +1,15 @@
-import terminalImage from 'terminal-image'
+import { showBanner, showFooter } from './utils/show-brand'
 
-import { r } from './utils'
+import pc from 'picocolors'
 
 /**
  * @description display neo image on terminal
  */
 export const whoami = () => {
   ;(async () => {
-    console.log(
-      await terminalImage.file(r('assets/neo.jpg'), {
-        width: '10%',
-        height: '10%',
-      }),
-    )
+    showBanner()
+    console.log()
+    console.log(pc.blue(' ⎯⎯'))
+    showFooter()
   })()
 }
