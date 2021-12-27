@@ -28,7 +28,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@aiou/schema': workspace:^0.0.1
+      '@aiou/schema': workspace:^1.0.0
       '@pnpm/client': ^6.0.5
       '@pnpm/logger': ^4.0.0
       '@pnpm/package-store': ^12.1.3
@@ -76,6 +76,7 @@ importers:
       terminal-link: ^3.0.0
       ts-jest: ^27.0.5
       ts-node: 10.1.0
+      tsc-progress: ^1.0.0
       tslib: ^2.3.0
       ttypescript: ^1.5.12
       typescript: 4.3.5
@@ -135,6 +136,7 @@ importers:
       pretty-quick: 3.1.1_prettier@2.3.2
       ts-jest: 27.0.5_9a09cb4c16b8b13dc369af09e9c08259
       ts-node: 10.1.0_11f741051fc5aebfd1e77a6b4af6c1cd
+      tsc-progress: 1.0.0
       ttypescript: 1.5.12_ts-node@10.1.0+typescript@4.3.5
       typescript: 4.3.5
       typescript-transform-extensions: 1.0.1
@@ -3834,7 +3836,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       escape-string-regexp: 1.0.5
-    dev: false
 
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
@@ -5927,6 +5928,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /markdown-table/3.0.2:
+    resolution: {integrity: sha512-y8j3a5/DkJCmS5x4dMCQL+OR0+2EAq3DOtio1COSHsmW2BGXnNCK3v12hJt1LrUz5iZH5g0LmuYOjDdI+czghA==}
+    dev: true
+
   /mem/6.1.1:
     resolution: {integrity: sha512-Ci6bIfq/UgcxPTYa8dQQ5FY3BzKkT894bwXWXxC/zqs0XgMO2cT20CGkOqda7gZNkmK5VP4x89IGZ6K7hfbn3Q==}
     engines: {node: '>=8'}
@@ -6761,7 +6766,6 @@ packages:
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-    dev: false
 
   /picomatch/2.3.0:
     resolution: {integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==}
@@ -6900,6 +6904,11 @@ packages:
       mri: 1.1.6
       multimatch: 4.0.0
       prettier: 2.3.2
+    dev: true
+
+  /pretty-time/1.1.0:
+    resolution: {integrity: sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==}
+    engines: {node: '>=4'}
     dev: true
 
   /process-nextick-args/2.0.1:
@@ -8086,6 +8095,17 @@ packages:
       source-map-support: 0.5.19
       typescript: 4.3.5
       yn: 3.1.1
+    dev: true
+
+  /tsc-progress/1.0.0:
+    resolution: {integrity: sha512-TOpOhkp5tV4F1BdhzLDpMdo0Qy7uL6pPrXtKcz6/mIL+epvfjWE/E3hmyhUSYAWO2rjaKbpYWu+mESJQP9sKDw==}
+    dependencies:
+      ansi-escapes: 4.3.2
+      figures: 3.2.0
+      markdown-table: 3.0.2
+      picocolors: 1.0.0
+      pretty-time: 1.1.0
+      wrap-ansi: 7.0.0
     dev: true
 
   /tsconfig-paths/3.11.0:

@@ -21,6 +21,10 @@
       {
         "transform": "typescript-transform-extensions",
         "extensions": { ".ts": ".js" }
+      },
+      {
+        "transform": "tsc-progress",
+        "title": "NEO"
       }
     ]
   },
