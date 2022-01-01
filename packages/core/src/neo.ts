@@ -43,7 +43,10 @@ cli
   .option('--latest', 'Create project from remote latest template', false)
   .option(
     '-m, --mono',
-    `Specify create project in monorepo, see ${tl('here', 'https://github.com')} for more details`,
+    `Specify create project in monorepo, see ${tl(
+      'here',
+      'https://github.com/neo-hack/neo/blob/master/docs/create.md#create-in-monorepo',
+    )} for more details`,
   )
   .action(handler('create'))
 
