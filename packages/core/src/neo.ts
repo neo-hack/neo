@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { program } from 'commander'
 import updateNotifier from 'update-notifier'
+import tl from 'terminal-link'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
@@ -40,6 +41,10 @@ cli
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'Create templates filtered by presets')
   .option('--latest', 'Create project from remote latest template', false)
+  .option(
+    '-m, --mono',
+    `Specify create project in monorepo, see ${tl('here', 'https://github.com')} for more details`,
+  )
   .action(handler('create'))
 
 cli
