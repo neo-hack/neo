@@ -20,6 +20,7 @@ type CreateOptions = {
   store: AsyncReturnType<typeof createStore>
   latest?: boolean
   displayName: string
+  isMono?: boolean
 }
 
 /**
@@ -56,11 +57,15 @@ const generate = async ({
  * @description del files after generate
  * @todo move to @aiou/workflows
  */
-const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
-  const common = ['CHANGElogger.md']
+const postgenerate = async ({
+  project,
+  isMono = false,
+}: Pick<CreateOptions, 'project' | 'isMono'>) => {
+  const common = ['CHANGELOG.md']
   const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
-  if (await isMonorepo()) {
+  if ((await isMonorepo()) || isMono) {
     common.concat(mono).forEach((filename) => {
+      debug.create('clean up %s', path.join(process.cwd(), project, filename))
       fsExtra.removeSync(path.join(process.cwd(), project, filename))
     })
     return
@@ -70,7 +75,7 @@ const postgenerate = async ({ project }: Pick<CreateOptions, 'project'>) => {
   })
 }
 
-const createTask = ({ template, project, store, latest, displayName }: CreateOptions) => {
+const createTask = ({ template, project, store, latest, displayName, isMono }: CreateOptions) => {
   const hooks = {
     validate: {
       title: 'Validate template',
@@ -111,7 +116,7 @@ const createTask = ({ template, project, store, latest, displayName }: CreateOpt
     postgenerate: {
       title: 'Clean up',
       task: async () => {
-        return postgenerate({ project })
+        return postgenerate({ project, isMono })
       },
     },
   }
@@ -129,6 +134,7 @@ export const create = async (
   options: CommonOptions &
     Pick<CreateOptions, 'latest'> & {
       preset: string[]
+      mono?: boolean
     },
 ) => {
   const store = await createStore(options)
@@ -141,6 +147,7 @@ export const create = async (
       store,
       latest: options.latest,
       displayName: pref?.name || template,
+      isMono: options.mono,
     })
     await task.run()
     console.log()
@@ -184,6 +191,7 @@ export const create = async (
           store,
           latest: options.latest,
           displayName: pref?.displayName || pref!.name!,
+          isMono: options.mono,
         })
         await task.run()
         console.log()
