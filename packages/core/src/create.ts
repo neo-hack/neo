@@ -132,8 +132,9 @@ export const create = async (
   template: string,
   project: string,
   options: CommonOptions &
-    Pick<CreateOptions, 'latest' | 'isMono'> & {
+    Pick<CreateOptions, 'latest'> & {
       preset: string[]
+      mono?: boolean
     },
 ) => {
   const store = await createStore(options)
@@ -146,7 +147,7 @@ export const create = async (
       store,
       latest: options.latest,
       displayName: pref?.name || template,
-      isMono: options.isMono,
+      isMono: options.mono,
     })
     await task.run()
     console.log()
@@ -190,7 +191,7 @@ export const create = async (
           store,
           latest: options.latest,
           displayName: pref?.displayName || pref!.name!,
-          isMono: options.isMono,
+          isMono: options.mono,
         })
         await task.run()
         console.log()
