@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.2.2
+
+### Patch Changes
+
+- e013490: options specify monorepo
+
 ## 3.2.1
 
 ### Patch Changes
