@@ -36,7 +36,7 @@ neo list
 - `--preset` - list templates filtered by `preset`. e.g. `neo list --preset=neo`
 
 ### create
-> create <project> from <alias>
+> create project
 
 ```bash
 neo create <alias> <project>
