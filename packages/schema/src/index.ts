@@ -3,6 +3,12 @@ export interface PresetTemplate {
   pref: string
 }
 
+export type RC = {
+  pref: string
+  name: string
+}
+
 export type Preset = {
   templates: PresetTemplate[]
+  configs: RC[]
 }

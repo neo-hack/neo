@@ -88,6 +88,17 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       debug.lockfile('templates list %O', allTemplates)
       return allTemplates
     },
+    /**
+     * @description read `neo-lock` preset config files
+     */
+    async readRcs() {
+      const lockFile = await this.read()
+      const presets: LockFile['presets'] = lockFile.presets || {}
+      let presetConfigs: Partial<Package>[] = Object.keys(presets)
+        .reduce((acc, cur) => {
+          return acc.concat(presets[cur].configs)
+        }, [] as Partial<RC>[])
+    },
   }
 }
 
