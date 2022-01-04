@@ -4,9 +4,10 @@ import groupby from 'lodash.groupby'
 import countby from 'lodash.countby'
 import uniqby from 'lodash.uniqby'
 
-import { CommonOptions, Package } from './interface'
-import logger from './utils/logger'
-import createStore from './store'
+import { CommonOptions, Package } from '../../interface'
+import logger, { debug } from '../../utils/logger'
+import createStore from '../../store'
+import { listConfigs } from './list-configs'
 
 type ListOptions = CommonOptions & {
   preset: string[]
@@ -29,8 +30,14 @@ const colorify = (pkgs: Partial<Package>[], counters: Record<string, number>) =>
  * @description List all templates
  * @todo list template with detail
  */
-export const list = async (params: ListOptions) => {
+export const list = async (config: string, params: ListOptions) => {
   const store = await createStore(params)
+  if (config === 'configs') {
+    debug.list('list config %s', config)
+    await listConfigs(store)
+    return
+  }
+  // list all packages
   const templates = uniqby(
     await store.lockFile.readTemplates({ presetNames: params.preset }),
     'pref',
