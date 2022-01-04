@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 0.0.0-beta-20220415360
+
+### Minor Changes
+
+- e315a71: list configs
+
 ## 1.0.1
 
 ### Patch Changes

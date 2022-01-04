@@ -1,5 +1,16 @@
 # @aiou/neo
 
+## 0.0.0-beta-20220415360
+
+### Minor Changes
+
+- e315a71: list configs
+
+### Patch Changes
+
+- Updated dependencies [e315a71]
+  - @aiou/schema@0.0.0-beta-20220415360
+
 ## 3.2.2
 
 ### Patch Changes
