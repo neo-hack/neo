@@ -1,6 +1,7 @@
 import createStore, { PackageFilesResponse, PackageResponse } from '@pnpm/package-store'
 import createClient from '@pnpm/client'
 import path from 'path'
+import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 import { CommonOptions } from '../interface'
 import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
@@ -61,7 +62,10 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       )
       return fetchResponse
     },
-    async request({ alias, pref, latest }: RequestOptions): Promise<PackageResponse> {
+    async request(params: RequestOptions): Promise<PackageResponse> {
+      const { alias, pref: parsedPref } = (parseWantedDependency as any).default(params.alias!)
+      const latest = params.latest
+      const pref = params.pref || parsedPref
       debug.pm(`request %s with %s`, alias, pref)
       // try download as npm package
       let fetchResponse = await this.fetch({ alias, pref, latest }).catch(() => undefined)

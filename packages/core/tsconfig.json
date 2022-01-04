@@ -4,9 +4,9 @@
     "module": "ESNext",
     "lib": ["ESNext"],
     "outDir": "lib",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,7 +15,6 @@
     "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "plugins": [
       {
