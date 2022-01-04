@@ -1,6 +1,6 @@
 {
   "name": "@aiou/schema",
-  "version": "1.0.0",
+  "version": "0.0.0-beta-20220415360",
   "description": "schema and types of project neo",
   "keywords": [
     "types",
