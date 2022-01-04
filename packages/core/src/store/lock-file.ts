@@ -96,7 +96,8 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const presets: LockFile['presets'] = lockFile.presets || {}
       return Object.keys(presets).reduce((acc, cur) => {
         // inject original preset
-        return acc.concat(presets[cur].configs.map((config) => ({ ...config, preset: cur })))
+        const configs = presets[cur]?.configs || []
+        return acc.concat(configs.map((config) => ({ ...config, preset: cur })))
       }, [] as Partial<Config & { preset: string }>[])
     },
   }

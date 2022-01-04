@@ -20,8 +20,7 @@ const cli = program
 
 const commands = {
   create: async () => await import('./create').then((res) => res.create),
-  list: async () => await import('./list').then((res) => res.list),
-  listConfigs: async () => await import('./list-configs').then((res) => res.listConfigs),
+  list: async () => await import('./commands/list').then((res) => res.list),
   add: async () => await import('./add').then((res) => res.add),
   prepack: async () => await import('./prepack').then((res) => res.prepack),
   whoami: async () => await import('./whoami').then((res) => res.whoami),
@@ -52,7 +51,7 @@ cli
   .action(handler('create'))
 
 cli
-  .command('list')
+  .command('list [configs]')
   .description('List all templates')
   .alias('l')
   .option('--store-dir [storeDir]', 'Set store dir')

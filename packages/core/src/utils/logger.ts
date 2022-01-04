@@ -42,6 +42,7 @@ export const debug = {
   store: Debug('neo:store'),
   add: Debug('neo:cmd:add'),
   create: Debug('neo:cmd:create'),
+  list: Debug('neo:cmd:list'),
 }
 
 export default {
