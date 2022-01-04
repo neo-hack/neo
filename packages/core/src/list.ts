@@ -31,6 +31,7 @@ const colorify = (pkgs: Partial<Package>[], counters: Record<string, number>) =>
  */
 export const list = async (params: ListOptions) => {
   const store = await createStore(params)
+  // list all packages
   const templates = uniqby(
     await store.lockFile.readTemplates({ presetNames: params.preset }),
     'pref',

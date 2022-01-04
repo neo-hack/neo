@@ -1,7 +1,7 @@
 import type { ResolveResult } from '@pnpm/package-store'
 import type { PresetTemplate, Preset } from '@aiou/schema'
 
-export type { RC } from '@aiou/schema'
+export type { Config } from '@aiou/schema'
 
 export type CommonOptions = {
   storeDir?: string

@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
-import { CommonOptions, LockFile, Package } from '../interface'
+import { CommonOptions, LockFile, Package, Config } from '../interface'
 import { debug } from '../utils/logger'
 import { isMatchPreset } from '../utils'
 
@@ -91,13 +91,13 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     /**
      * @description read `neo-lock` preset config files
      */
-    async readRcs() {
+    async readConfigs() {
       const lockFile = await this.read()
       const presets: LockFile['presets'] = lockFile.presets || {}
-      let presetConfigs: Partial<Package>[] = Object.keys(presets)
-        .reduce((acc, cur) => {
-          return acc.concat(presets[cur].configs)
-        }, [] as Partial<RC>[])
+      return Object.keys(presets).reduce((acc, cur) => {
+        // inject original preset
+        return acc.concat(presets[cur].configs.map((config) => ({ ...config, preset: cur })))
+      }, [] as Partial<Config & { preset: string }>[])
     },
   }
 }
