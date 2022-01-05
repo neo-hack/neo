@@ -7,6 +7,11 @@ export type CommonOptions = {
   storeDir?: string
 }
 
+export type ListOptions = CommonOptions & {
+  preset: string[]
+  interactive?: boolean
+}
+
 export interface Package extends PresetTemplate {
   resolvedVia?: ResolveResult['resolvedVia']
   version: string

@@ -16,6 +16,12 @@ export const mockLockFile = async () => {
   const lockFile = createLockFile({ storeDir })
   await lockFile.updatePreset({
     neo: {
+      configs: [
+        {
+          name: 'CI',
+          pref: './assets/ci.yaml',
+        },
+      ],
       templates: [
         {
           name: '@aiou/ts-lib-template',

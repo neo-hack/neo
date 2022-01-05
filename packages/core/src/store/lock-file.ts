@@ -91,14 +91,19 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     /**
      * @description read `neo-lock` preset config files
      */
-    async readConfigs() {
+    async readConfigs({ presetNames }: { presetNames?: string[] } = {}) {
       const lockFile = await this.read()
       const presets: LockFile['presets'] = lockFile.presets || {}
-      return Object.keys(presets).reduce((acc, cur) => {
+      let configs = Object.keys(presets).reduce((acc, cur) => {
         // inject original preset
         const configs = presets[cur]?.configs || []
         return acc.concat(configs.map((config) => ({ ...config, preset: cur })))
       }, [] as Partial<Config & { preset: string }>[])
+      if (presetNames) {
+        configs = configs.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
+        return configs
+      }
+      return configs
     },
   }
 }

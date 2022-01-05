@@ -52,10 +52,11 @@ cli
 
 cli
   .command('list [configs]')
-  .description('List all templates')
+  .description('List all templates or configs')
   .alias('l')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'List templates filtered by presets')
+  .option('--no-interactive', 'List configs without interactive', false)
   .action(handler('list'))
 
 cli.command('whoami').alias('docs').description('What is neo?').action(handler('whoami'))

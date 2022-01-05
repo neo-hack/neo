@@ -4,37 +4,22 @@ import groupby from 'lodash.groupby'
 import countby from 'lodash.countby'
 import uniqby from 'lodash.uniqby'
 
-import { CommonOptions, Package } from '../../interface'
+import { ListOptions } from '../../interface'
 import logger, { debug } from '../../utils/logger'
 import createStore from '../../store'
 import { listConfigs } from './list-configs'
-
-type ListOptions = CommonOptions & {
-  preset: string[]
-}
-
-const colorify = (pkgs: Partial<Package>[], counters: Record<string, number>) => {
-  return pkgs.map((pkg) => {
-    if (pkg.cached) {
-      return counters[pkg.name!] > 1 && pkg.pref
-        ? `${pc.green(pkg.name)} ${pc.gray(`(${pkg.pref})`)}`
-        : pc.green(pkg.name)
-    }
-    return counters[pkg.name!] > 1 && pkg.pref
-      ? `${pc.gray(pkg.name)} ${pc.gray(`(${pkg.pref})`)}`
-      : pc.gray(pkg.name)
-  })
-}
+import { colorify } from '../../utils'
 
 /**
  * @description List all templates
  * @todo list template with detail
  */
 export const list = async (config: string, params: ListOptions) => {
+  debug.list('list config options %O', params)
   const store = await createStore(params)
   if (config === 'configs') {
-    debug.list('list config %s', config)
-    await listConfigs(store)
+    debug.list('list configs')
+    await listConfigs(store, params)
     return
   }
   // list all packages
