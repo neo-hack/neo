@@ -25,8 +25,6 @@ const createStore = async (params: CommonOptions) => {
       }
       await pm.import(dir, files)
       const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
-      console.log(path.join(dir, 'assets/workflows/ci.yaml'))
-      console.log(fs.readFileSync(path.join(dir, 'assets/workflows/ci.yaml')).toString())
       debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
