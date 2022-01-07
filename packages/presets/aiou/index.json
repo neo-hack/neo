@@ -1,8 +1,24 @@
 {
   "configs": [
     {
-      "name": "Pnpm CI workflow",
-      "pref": "./assets/workflows/ci.yaml"
+      "name": "PNPM CI workflow",
+      "pref": "./assets/workflows/pnpm/ci.yaml"
+    },
+    {
+      "name": "PNPM Release workflow",
+      "pref": "./assets/workflows/pnpm/release.yaml"
+    },
+    {
+      "name": "PNPM Snapshot Release workflow",
+      "pref": "./assets/workflows/pnpm/snapshot-release.yaml"
+    },
+    {
+      "name": "Rust CI workflow",
+      "pref": "./assets/workflows/rust/ci.yaml"
+    },
+    {
+      "name": "Rust Release workflow",
+      "pref": "./assets/workflows/rust/release.yaml"
     }
   ],
   "templates": [
