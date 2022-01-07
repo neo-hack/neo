@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { program } from 'commander'
 import updateNotifier from 'update-notifier'
 import tl from 'terminal-link'
@@ -19,11 +18,11 @@ const cli = program
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
 const commands = {
-  create: async () => await import('./create').then((res) => res.create),
+  create: async () => await import('./commands/create').then((res) => res.create),
   list: async () => await import('./commands/list').then((res) => res.list),
-  add: async () => await import('./add').then((res) => res.add),
-  prepack: async () => await import('./prepack').then((res) => res.prepack),
-  whoami: async () => await import('./whoami').then((res) => res.whoami),
+  add: async () => await import('./commands/add').then((res) => res.add),
+  prepack: async () => await import('./commands/prepack').then((res) => res.prepack),
+  whoami: async () => await import('./commands/whoami').then((res) => res.whoami),
 }
 
 const handler = (cmdName: string) => {

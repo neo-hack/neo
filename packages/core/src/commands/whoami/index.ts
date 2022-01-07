@@ -1,4 +1,4 @@
-import { showBanner, showFooter } from './utils/show-brand'
+import { showBanner, showFooter } from '../../utils/show-brand'
 
 import pc from 'picocolors'
 

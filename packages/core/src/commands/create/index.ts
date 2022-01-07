@@ -9,10 +9,10 @@ import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
 import isOffline from 'is-offline-node'
 
-import { isMonorepo } from './utils'
-import logger, { debug } from './utils/logger'
-import { CommonOptions, AsyncReturnType } from './interface'
-import createStore from './store'
+import { isMonorepo } from '../../utils'
+import logger, { debug } from '../../utils/logger'
+import { CommonOptions, AsyncReturnType } from '../../interface'
+import createStore from '../../store'
 
 type CreateOptions = {
   template: string
