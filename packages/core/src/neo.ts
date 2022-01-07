@@ -20,7 +20,7 @@ const cli = program
 
 const commands = {
   create: async () => await import('./create').then((res) => res.create),
-  list: async () => await import('./list').then((res) => res.list),
+  list: async () => await import('./commands/list').then((res) => res.list),
   add: async () => await import('./add').then((res) => res.add),
   prepack: async () => await import('./prepack').then((res) => res.prepack),
   whoami: async () => await import('./whoami').then((res) => res.whoami),
@@ -51,11 +51,12 @@ cli
   .action(handler('create'))
 
 cli
-  .command('list')
-  .description('List all templates')
+  .command('list [configs]')
+  .description('List all templates or configs')
   .alias('l')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'List templates filtered by presets')
+  .option('--no-interactive', 'List configs without interactive', false)
   .action(handler('list'))
 
 cli.command('whoami').alias('docs').description('What is neo?').action(handler('whoami'))

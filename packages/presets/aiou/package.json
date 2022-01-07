@@ -23,6 +23,10 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
+  "files": [
+    "assets",
+    "index.json"
+  ],
   "main": "index.json",
   "scripts": {
     "build": "echo build",
