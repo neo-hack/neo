@@ -55,6 +55,7 @@ importers:
       clipboardy: ^3.0.0
       commander: 8.0.0
       comparedir-test: 1.0.3
+      consola: ^2.15.3
       debug: 4.3.2
       esbuild: ^0.14.10
       execa: ^5.1.1
@@ -79,6 +80,7 @@ importers:
       rollup: ^2.63.0
       rollup-plugin-esbuild: ^4.8.2
       rollup-plugin-size: ^0.2.2
+      rollup-plugin-typescript2: ^0.31.1
       tempy: ^2.0.0
       terminal-link: ^3.0.0
       ts-jest: ^27.0.5
@@ -114,6 +116,7 @@ importers:
       clipboardy: 3.0.0
       commander: 8.0.0
       comparedir-test: 1.0.3
+      consola: 2.15.3
       debug: 4.3.2
       esbuild: 0.14.10
       execa: 5.1.1
@@ -138,6 +141,7 @@ importers:
       rollup: 2.63.0
       rollup-plugin-esbuild: 4.8.2_esbuild@0.14.10+rollup@2.63.0
       rollup-plugin-size: 0.2.2
+      rollup-plugin-typescript2: 0.31.1_48c98a5c9484a63d0fcb446eab7d782c
       tempy: 2.0.0
       terminal-link: 3.0.0
       ts-jest: 27.0.5_9a09cb4c16b8b13dc369af09e9c08259
@@ -1653,6 +1657,17 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
+  /@ts-type/package-dts/1.0.56_@types+node@16.3.3:
+    resolution: {integrity: sha512-nBjbCaVV+R81jk7q/6sRuNYOhDAbBOmaCkPI2quK0Rnye2f4FUHX+4JL+3rDPiRPHxgX3pNfVKKHBlPAHiRddw==}
+    dependencies:
+      '@types/semver': 7.3.9
+      ts-type: 2.1.2_@types+node@16.3.3
+    transitivePeerDependencies:
+      - '@types/bluebird'
+      - '@types/node'
+      - ts-toolbelt
+    dev: true
+
   /@tsconfig/node10/1.0.8:
     resolution: {integrity: sha512-6XFfSQmMgq0CFLY1MslA/CPUfhIL919M1rMsa5lP2P097N2Wd1sSX0tx1u4olM16fLNhtHZpRhedZJphNJqmZg==}
     dev: true
@@ -1875,6 +1890,10 @@ packages:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
     dev: true
 
+  /@types/semver/7.3.9:
+    resolution: {integrity: sha512-L/TMpyURfBkf+o/526Zb6kd/tchUP3iBDEPjqjb+U2MAJhVRxxrmr2fwpe08E7QsV7YLcpq0tUaQ9O9x97ZIxQ==}
+    dev: true
+
   /@types/ssri/7.1.1:
     resolution: {integrity: sha512-DPP/jkDaqGiyU75MyMURxLWyYLwKSjnAuGe9ZCsLp9QZOpXmDfuevk769F0BS86TmRuD5krnp06qw9nSoNO+0g==}
     dependencies:
@@ -2017,6 +2036,19 @@ packages:
     dependencies:
       '@typescript-eslint/types': 4.30.0
       eslint-visitor-keys: 2.1.0
+    dev: true
+
+  /@yarn-tool/resolve-package/1.0.41_@types+node@16.3.3:
+    resolution: {integrity: sha512-ybJqQztdSkTr9Z0BkPo5OlQBZoHlXHHXxssPJgFT8lFgyOxlhkjUg3WBFn7MSK6JMUoXU32wd2KKFBL/Fgsb8Q==}
+    dependencies:
+      '@ts-type/package-dts': 1.0.56_@types+node@16.3.3
+      pkg-dir: 5.0.0
+      tslib: 2.3.1
+      upath2: 3.1.12_@types+node@16.3.3
+    transitivePeerDependencies:
+      - '@types/bluebird'
+      - '@types/node'
+      - ts-toolbelt
     dev: true
 
   /@zkochan/hosted-git-info/4.0.2:
@@ -2978,6 +3010,10 @@ packages:
       unique-string: 2.0.0
       write-file-atomic: 3.0.3
       xdg-basedir: 4.0.0
+    dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /console-control-strings/1.1.0:
@@ -4280,6 +4316,15 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
+
+  /find-cache-dir/3.3.2:
+    resolution: {integrity: sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==}
+    engines: {node: '>=8'}
+    dependencies:
+      commondir: 1.0.1
+      make-dir: 3.1.0
+      pkg-dir: 4.2.0
     dev: true
 
   /find-up/2.1.0:
@@ -7304,6 +7349,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /path-is-network-drive/1.0.13:
+    resolution: {integrity: sha512-Hg74mRN6mmXV+gTm3INjFK40ncAmC/Lo4qoQaSZ+GT3hZzlKdWQSqAjqyPeW0SvObP2W073WyYEBWY9d3wOm3A==}
+    dependencies:
+      tslib: 2.3.1
+    dev: true
+
   /path-key/2.0.1:
     resolution: {integrity: sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=}
     engines: {node: '>=4'}
@@ -7320,6 +7371,12 @@ packages:
 
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
+    dev: true
+
+  /path-strip-sep/1.0.10:
+    resolution: {integrity: sha512-JpCy+8LAJQQTO1bQsb/84s1g+/Stm3h39aOpPRBQ/paMUGVPPZChLTOTKHoaCkc/6sKuF7yVsnq5Pe1S6xQGcA==}
+    dependencies:
+      tslib: 2.3.1
     dev: true
 
   /path-temp/2.0.0:
@@ -7391,6 +7448,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: true
+
+  /pkg-dir/5.0.0:
+    resolution: {integrity: sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==}
+    engines: {node: '>=10'}
+    dependencies:
+      find-up: 5.0.0
     dev: true
 
   /pkg-up/2.0.0:
@@ -7929,6 +7993,26 @@ packages:
     engines: {node: '>=10.0.0'}
     dependencies:
       size-plugin-core: 0.0.7
+    dev: true
+
+  /rollup-plugin-typescript2/0.31.1_48c98a5c9484a63d0fcb446eab7d782c:
+    resolution: {integrity: sha512-sklqXuQwQX+stKi4kDfEkneVESPi3YM/2S899vfRdF9Yi40vcC50Oq4A4cSZJNXsAQE/UsBZl5fAOsBLziKmjw==}
+    peerDependencies:
+      rollup: '>=1.26.3'
+      typescript: '>=2.4.0'
+    dependencies:
+      '@rollup/pluginutils': 4.1.2
+      '@yarn-tool/resolve-package': 1.0.41_@types+node@16.3.3
+      find-cache-dir: 3.3.2
+      fs-extra: 8.1.0
+      resolve: 1.20.0
+      rollup: 2.63.0
+      tslib: 2.2.0
+      typescript: 4.3.5
+    transitivePeerDependencies:
+      - '@types/bluebird'
+      - '@types/node'
+      - ts-toolbelt
     dev: true
 
   /rollup/2.63.0:
@@ -8797,6 +8881,18 @@ packages:
       yn: 3.1.1
     dev: true
 
+  /ts-type/2.1.2_@types+node@16.3.3:
+    resolution: {integrity: sha512-64/2XoaipFXa/bidwXChQCSJ3VaCUVKrEaRPXiP5gLIlkPoAHfnwOMC0EWr42DsTm/+qYYuNwzxc0VQroeDs+g==}
+    peerDependencies:
+      '@types/bluebird': '*'
+      '@types/node': '*'
+      ts-toolbelt: ^9.6.0
+    dependencies:
+      '@types/node': 16.3.3
+      tslib: 2.3.1
+      typedarray-dts: 1.0.0
+    dev: true
+
   /tsc-progress/1.0.2:
     resolution: {integrity: sha512-eGubAgFl+vZ7ensEWAACTdVcEQlU9cHCzAjde6cPA1HCPP/HAkVJ6tYIPWaADksizG/7jbURShZrTEIGeKtETw==}
     dependencies:
@@ -8823,6 +8919,14 @@ packages:
 
   /tslib/2.1.0:
     resolution: {integrity: sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==}
+    dev: true
+
+  /tslib/2.2.0:
+    resolution: {integrity: sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==}
+    dev: true
+
+  /tslib/2.3.1:
+    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
 
   /tsutils/3.21.0_typescript@4.3.5:
@@ -8935,6 +9039,10 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
+  /typedarray-dts/1.0.0:
+    resolution: {integrity: sha512-Ka0DBegjuV9IPYFT1h0Qqk5U4pccebNIJCGl8C5uU7xtOs+jpJvKGAY4fHGK25hTmXZOEUl9Cnsg5cS6K/b5DA==}
+    dev: true
+
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
     dependencies:
@@ -9011,6 +9119,17 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
+    dev: true
+
+  /upath2/3.1.12_@types+node@16.3.3:
+    resolution: {integrity: sha512-yC3eZeCyCXFWjy7Nu4pgjLhXNYjuzuUmJiRgSSw6TJp8Emc+E4951HGPJf+bldFC5SL7oBLeNbtm1fGzXn2gxw==}
+    peerDependencies:
+      '@types/node': '*'
+    dependencies:
+      '@types/node': 16.3.3
+      path-is-network-drive: 1.0.13
+      path-strip-sep: 1.0.10
+      tslib: 2.3.1
     dev: true
 
   /update-notifier/5.1.0:

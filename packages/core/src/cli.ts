@@ -1,19 +1,20 @@
 import { program } from 'commander'
-import updateNotifier from 'update-notifier'
+// import updateNotifier from 'update-notifier'
 import tl from 'terminal-link'
+import consola from 'consola'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
 
 const pkg = readPkg()
-const notifier = updateNotifier({
-  pkg: { name: pkg!.name, version: pkg!.version },
-})
+// const notifier = updateNotifier({
+//   pkg: { name: pkg!.name, version: pkg!.version },
+// })
 
 const cli = program
   .version(pkg?.version || '', '-v, --version')
   .hook('preAction', () => {
-    notifier.notify()
+    // notifier.notify()
   })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
@@ -27,8 +28,12 @@ const commands = {
 
 const handler = (cmdName: string) => {
   return async function (...args: any[]) {
-    const cmd = await commands[cmdName]()
-    await cmd(...args)
+    try {
+      const cmd = await commands[cmdName]()
+      await cmd(...args)
+    } catch (e) {
+      consola.error(e)
+    }
   }
 }
 
@@ -76,3 +81,7 @@ cli
   .action(handler('add'))
 
 program.parse(process.argv)
+
+consola.wrapConsole()
+process.on('unhandledRejection', (err) => consola.error('[unhandledRejection]', err))
+process.on('uncaughtException', (err) => consola.error('[uncaughtException]', err))
