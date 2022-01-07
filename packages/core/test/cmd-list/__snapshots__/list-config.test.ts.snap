@@ -6,3 +6,9 @@ exports[`command list config list configs should list all 1`] = `
 neo
 CI"
 `;
+
+exports[`command list config list configs should list filtered by preset 1`] = `
+"Found 1 configs:
+
+CI"
+`;
