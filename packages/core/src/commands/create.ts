@@ -1,6 +1,6 @@
 import path from 'path'
 import inquirer from 'inquirer'
-import globby from 'globby'
+import { globbySync } from 'globby'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
@@ -9,10 +9,10 @@ import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
 import isOffline from 'is-offline-node'
 
-import { isMonorepo } from '../../utils'
-import logger, { debug } from '../../utils/logger'
-import { CommonOptions, AsyncReturnType } from '../../interface'
-import createStore from '../../store'
+import { isMonorepo } from '../utils'
+import logger, { debug } from '../utils/logger'
+import { CommonOptions, AsyncReturnType } from '../interface'
+import createStore from '../store'
 
 type CreateOptions = {
   template: string
@@ -38,7 +38,7 @@ const generate = async ({
   await store.pm.import(project, await templateResponse.files?.())
   // generate config files from dest.template folder
   const tplPath = path.join(process.cwd(), project, 'template')
-  const tpls = globby.sync('*.tpl', {
+  const tpls = globbySync('*.tpl', {
     cwd: tplPath,
     dot: true,
   })

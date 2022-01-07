@@ -32,7 +32,8 @@
     "upgrade:core": "cd packages/core && ncu --configFilePath ./.ncurc.json",
     "ci:snapshot": "pnpx changeset version --snapshot beta",
     "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "**/**/*.{js,ts,tsx,vue,json}": [
@@ -41,16 +42,18 @@
   },
   "devDependencies": {
     "@aiou/eslint-config": "^0.3.2",
-    "@changesets/cli": "^2.16.0",
+    "@changesets/cli": "^2.19.0",
+    "@milahu/patch-package-with-pnpm-support": "6.4.8",
     "cz-emoji": "^1.3.1",
-    "eslint": "^7.18.0",
+    "eslint": "^8.6.0",
     "fs-extra": "^10.0.0",
-    "husky": "^7.0.0",
-    "lint-staged": "^11.1.0",
-    "npm-check-updates": "^11.5.1",
-    "prettier": "^2.3.2",
+    "glob": "7.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.5",
+    "npm-check-updates": "^12.1.0",
+    "prettier": "^2.5.1",
     "tsc-progress": "^1.0.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.5.4"
   },
   "config": {
     "commitizen": {

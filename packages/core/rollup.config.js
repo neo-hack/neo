@@ -17,11 +17,10 @@ export default defineConfig([
   {
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
+    external: [
+      'listr'
+    ],
     plugins: [
-      esbuild({
-        minify: false, // process.env.BUILD === 'production',
-        sourceMap: true,
-      }),
       // ts({
       //   check: false,
       // }),
@@ -33,8 +32,13 @@ export default defineConfig([
           { find: 'readable-stream', replacement: 'stream' },
         ],
       }),
-      commonjs(),
       nodeResolve({ preferBuiltins: true }),
+      commonjs(),
+      esbuild({
+        minify: false, // process.env.BUILD === 'production',
+        sourceMap: true,
+        target: 'ES2020',
+      }),
       json(),
       size(),
     ],

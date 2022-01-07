@@ -2,9 +2,14 @@ import { program } from 'commander'
 // import updateNotifier from 'update-notifier'
 import tl from 'terminal-link'
 import consola from 'consola'
+import Observable from 'zen-observable';
+import register from 'any-observable/register'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
+
+global.Observable = Observable;
+register('global.Observable')
 
 const pkg = readPkg()
 // const notifier = updateNotifier({
