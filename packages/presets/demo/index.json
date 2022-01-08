@@ -1,4 +1,10 @@
 {
+  "configs": [
+    {
+      "name": "PNPM CI workflow",
+      "pref": "./assets/ci.yaml"
+    }
+  ],
   "templates": [
     {
       "name": "@aiou/ts-lib-template"
