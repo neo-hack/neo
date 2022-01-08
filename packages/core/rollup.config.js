@@ -16,7 +16,6 @@ export default defineConfig([
   {
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
-    external: ['listr'],
     plugins: [
       esbuild({
         minify: false, // process.env.BUILD === 'production',
@@ -27,8 +26,10 @@ export default defineConfig([
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [
           { find: '@/', replacement: './src/' },
-          // https://github.com/MatrixAI/js-virtualfs/issues/4
+          // fix: https://github.com/MatrixAI/js-virtualfs/issues/4
           { find: 'readable-stream', replacement: 'stream' },
+          // fix: https://github.com/SamVerschueren/stream-to-observable/issues/2
+          { find: 'any-observable', replacement: 'zen-observable' },
         ],
       }),
       nodeResolve({ preferBuiltins: true, exportConditions: ['node'] }),
@@ -40,15 +41,9 @@ export default defineConfig([
       {
         sourcemap: true,
         entryFileNames: '[name].mjs',
-        // TODO: listr into cjs format
-        // manualChunks: (id) => {
-        //   if (id.includes('listr')) {
-        //     return 'listr.cjs'
-        //   }
-        // },
         manualChunks: (id) => {
-          if (id.includes('clipboardy')) {
-            return 'clipboardy'
+          if (id.includes('listr')) {
+            return 'listr'
           }
         },
         dir: 'lib',
