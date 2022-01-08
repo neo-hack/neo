@@ -1,5 +1,4 @@
 import { program } from 'commander'
-// import updateNotifier from 'update-notifier'
 import tl from 'terminal-link'
 import consola from 'consola'
 import { fileURLToPath } from 'url'
@@ -10,15 +9,9 @@ import { getBanner } from './utils/show-brand'
 global.__filename = fileURLToPath(import.meta.url)
 
 const pkg = readPkg()
-// const notifier = updateNotifier({
-//   pkg: { name: pkg!.name, version: pkg!.version },
-// })
 
 const cli = program
   .version(pkg?.version || '', '-v, --version')
-  .hook('preAction', () => {
-    // notifier.notify()
-  })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
 const commands = {

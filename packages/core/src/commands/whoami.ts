@@ -1,4 +1,5 @@
-import { showBanner, showFooter } from '../utils/show-brand'
+import { getBanner, showFooter } from '../utils/show-brand'
+import logger from '../utils/logger'
 
 import pc from 'picocolors'
 
@@ -7,9 +8,8 @@ import pc from 'picocolors'
  */
 export const whoami = () => {
   ;(async () => {
-    showBanner()
-    console.log()
-    console.log(pc.blue(' ⎯⎯'))
+    logger.log(`${getBanner()}\n`)
+    logger.log(pc.blue(' ⎯⎯'))
     showFooter()
   })()
 }
