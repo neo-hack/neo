@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
 
+// polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
 
 const pkg = readPkg()

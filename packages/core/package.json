@@ -17,6 +17,7 @@
     "neo": "bin/index.mjs"
   },
   "files": [
+    "bin",
     "lib",
     "assets"
   ],
@@ -25,7 +26,7 @@
   },
   "scripts": {
     "clean": "rimraf lib",
-    "build": "pnpm run clean && rollup -c --environment BUILD:production",
+    "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "prepublish": "pnpm run build",
