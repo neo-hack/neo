@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 1.1.0
+
+### Minor Changes
+
+- e9ebb3f: list configs
+
 ## 1.0.1
 
 ### Patch Changes
