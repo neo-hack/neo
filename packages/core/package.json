@@ -26,7 +26,6 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "pnpm run clean && rollup -c --environment BUILD:production",
-    "unbuild": "pnpm run clean && unbuild",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "prepublish": "pnpm run build",

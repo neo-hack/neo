@@ -5,7 +5,7 @@ import createLockFile from '../../src/store/lock-file'
 import tempy from 'tempy'
 import path from 'path'
 
-import execa, { CommonOptions } from 'execa'
+import { CommonOptions, execa } from 'execa'
 const cli = r('lib/neo.js')
 export const storeDir = path.join(tempy.directory(), '.store')
 

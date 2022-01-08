@@ -18,7 +18,7 @@ export default defineConfig([
     preserveEntrySignatures: 'strict',
     plugins: [
       esbuild({
-        minify: false, // process.env.BUILD === 'production',
+        minify: process.env.BUILD === 'production',
         sourceMap: true,
         target: 'ES2020',
       }),
