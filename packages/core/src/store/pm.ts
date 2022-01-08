@@ -1,6 +1,7 @@
 import createStore, { PackageFilesResponse, PackageResponse } from '@pnpm/package-store'
 import createClient from '@pnpm/client'
 import path from 'path'
+import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 import { CommonOptions } from '../interface'
 import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
@@ -20,13 +21,13 @@ const createCtrl = async ({
   offline,
 }: CommonOptions & { offline: boolean }) => {
   // @ts-ignore
-  const { resolve, fetchers } = createClient.default({
+  const { resolve, fetchers } = createClient({
     authConfig,
     cacheDir: path.join(STORE_PATH, CACHE_DIRNAME),
     preferOffline: offline,
   })
   // @ts-ignore
-  const storeCtrl = await createStore.default(resolve, fetchers, {
+  const storeCtrl = await createStore(resolve, fetchers, {
     storeDir,
     verifyStoreIntegrity: true,
   })
@@ -46,10 +47,7 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
     async fetch({ alias, pref, latest = true }: RequestOptions): Promise<PackageResponse> {
       const storeCtrl = await this.getCtrl({ latest })
       const fetchResponse = await storeCtrl!.requestPackage(
-        {
-          alias,
-          pref,
-        },
+        { alias: alias!, pref: pref! },
         {
           downloadPriority: 0,
           lockfileDir: storeDir,
@@ -61,7 +59,10 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       )
       return fetchResponse
     },
-    async request({ alias, pref, latest }: RequestOptions): Promise<PackageResponse> {
+    async request(params: RequestOptions): Promise<PackageResponse> {
+      const { alias, pref: parsedPref } = parseWantedDependency(params.alias!)
+      const latest = params.latest
+      const pref = params.pref || parsedPref
       debug.pm(`request %s with %s`, alias, pref)
       // try download as npm package
       let fetchResponse = await this.fetch({ alias, pref, latest }).catch(() => undefined)

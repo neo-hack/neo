@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
-import { CommonOptions, LockFile, Package } from '../interface'
+import { CommonOptions, LockFile, Package, Config } from '../interface'
 import { debug } from '../utils/logger'
 import { isMatchPreset } from '../utils'
 
@@ -87,6 +87,23 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const allTemplates = presetTemplates.concat(cachedTemplates)
       debug.lockfile('templates list %O', allTemplates)
       return allTemplates
+    },
+    /**
+     * @description read `neo-lock` preset config files
+     */
+    async readConfigs({ presetNames }: { presetNames?: string[] } = {}) {
+      const lockFile = await this.read()
+      const presets: LockFile['presets'] = lockFile.presets || {}
+      let configs = Object.keys(presets).reduce((acc, cur) => {
+        // inject original preset
+        const configs = presets[cur]?.configs || []
+        return acc.concat(configs.map((config) => ({ ...config, preset: cur })))
+      }, [] as Partial<Config & { preset: string }>[])
+      if (presetNames) {
+        configs = configs.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
+        return configs
+      }
+      return configs
     },
   }
 }
