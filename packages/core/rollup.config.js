@@ -5,7 +5,6 @@ import json from '@rollup/plugin-json'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
 import esbuild from 'rollup-plugin-esbuild'
-// import ts from 'rollup-plugin-typescript2'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -17,13 +16,13 @@ export default defineConfig([
   {
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
-    external: [
-      'listr'
-    ],
+    external: ['listr'],
     plugins: [
-      // ts({
-      //   check: false,
-      // }),
+      esbuild({
+        minify: false, // process.env.BUILD === 'production',
+        sourceMap: true,
+        target: 'ES2020',
+      }),
       alias({
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [
@@ -32,13 +31,8 @@ export default defineConfig([
           { find: 'readable-stream', replacement: 'stream' },
         ],
       }),
-      nodeResolve({ preferBuiltins: true }),
+      nodeResolve({ preferBuiltins: true, exportConditions: ['node'] }),
       commonjs(),
-      esbuild({
-        minify: false, // process.env.BUILD === 'production',
-        sourceMap: true,
-        target: 'ES2020',
-      }),
       json(),
       size(),
     ],
@@ -46,8 +40,19 @@ export default defineConfig([
       {
         sourcemap: true,
         entryFileNames: '[name].mjs',
+        // TODO: listr into cjs format
+        // manualChunks: (id) => {
+        //   if (id.includes('listr')) {
+        //     return 'listr.cjs'
+        //   }
+        // },
+        manualChunks: (id) => {
+          if (id.includes('clipboardy')) {
+            return 'clipboardy'
+          }
+        },
         dir: 'lib',
-        chunkFileNames: 'chunks/[name].mjs',
+        chunkFileNames: 'chunks/[name].js',
         format: 'esm',
       },
     ],

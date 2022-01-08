@@ -18,10 +18,10 @@
   "author": {
     "name": "jiangweixian"
   },
+  "main": "index.js",
   "files": [
     "packages/core"
   ],
-  "main": "index.js",
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx,json}'",
     "lint:fix": "eslint . --fix",
@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "@aiou/eslint-config": "^0.3.2",
+    "@aiou/eslint-config": "^0.4.0",
     "@changesets/cli": "^2.19.0",
     "@milahu/patch-package-with-pnpm-support": "6.4.8",
     "cz-emoji": "^1.3.1",
@@ -49,7 +49,7 @@
     "fs-extra": "^10.0.0",
     "glob": "7.2.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.5",
+    "lint-staged": "^12.1.7",
     "npm-check-updates": "^12.1.0",
     "prettier": "^2.5.1",
     "tsc-progress": "^1.0.2",

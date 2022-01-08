@@ -2,7 +2,7 @@
  * @fileoverview prepack ci, lint, etc...
  */
 
-import { r } from '../../utils'
+import { r } from '../utils'
 
 import Listr from 'listr'
 import pc from 'picocolors'

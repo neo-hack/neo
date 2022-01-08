@@ -13,6 +13,9 @@
     "name": "JW"
   },
   "type": "module",
+  "bin": {
+    "neo": "bin/index.mjs"
+  },
   "files": [
     "lib",
     "assets"
@@ -20,13 +23,10 @@
   "engines": {
     "node": ">=12"
   },
-  "bin": {
-    "neo": "bin/index.mjs"
-  },
   "scripts": {
     "clean": "rimraf lib",
     "build": "pnpm run clean && rollup -c --environment BUILD:production",
-    "nbuild": "pnpm run clean && ncc build ./src/cli.ts -o lib --target es2020",
+    "unbuild": "pnpm run clean && unbuild",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "prepublish": "pnpm run build",
@@ -57,7 +57,6 @@
     "@types/node": "17.0.8",
     "@types/rimraf": "3.0.2",
     "@types/update-notifier": "^5.1.0",
-    "@vercel/ncc": "^0.33.1",
     "any-observable": "^0.5.1",
     "cli-columns": "^4.0.0",
     "clipboardy": "^3.0.0",
@@ -82,7 +81,6 @@
     "lodash.groupby": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
     "minimatch": "^3.0.4",
-    "ncc": "^0.3.6",
     "picocolors": "^1.0.0",
     "read-pkg-up": "^9.0.0",
     "read-yaml-file": "^2.1.0",
@@ -99,6 +97,7 @@
     "ttypescript": "^1.5.13",
     "typescript": "4.5.4",
     "typescript-transform-extensions": "^1.0.1",
+    "unbuild": "^0.6.7",
     "update-notifier": "^5.1.0",
     "write-yaml-file": "^4.2.0",
     "zen-observable": "^0.8.15"
