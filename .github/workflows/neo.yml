@@ -2,11 +2,11 @@ on:
   push:
     paths:
       - 'packages/core/**'
-    branches: [master]
+    branches: [master,prerelease]
   pull_request:
     paths:
       - 'packages/core/**'
-    branches: [master]
+    branches: [master,prerelease]
 
 jobs:
   build:
