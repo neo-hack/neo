@@ -40,7 +40,7 @@ In default, `neo list` only display templates.
 
 #### list configs
 
-**Require add preset to local store first**, list all configs from `preset`, see config list format [here](https://github.com/neo-hack/neo/blob/master/packages/presets/demo/index.json). Copy config file content after select specific config file.
+***Require add preset to local store first**, list all configs from `preset`, see config list format [here](https://github.com/neo-hack/neo/blob/master/packages/presets/demo/index.json). Copy config file content after select specific config file.*
 
 ```bash
 neo list configs
