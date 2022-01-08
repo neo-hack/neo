@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 0.0.0-beta-20220108051756
+
+### Minor Changes
+
+- 687a13c: list configs
+
 ## 3.2.2
 
 ### Patch Changes
