@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.3.0
+
+### Minor Changes
+
+- 00ecc10: list configs
+
 ## 3.2.2
 
 ### Patch Changes
