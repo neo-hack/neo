@@ -12,10 +12,6 @@ export const getBanner = () => {
   return pc.green(banner)
 }
 
-export const showBanner = () => {
-  console.log(getBanner())
-}
-
 export const showFooter = () => {
   const pkg = readPkg()
   const link = tl('Homepage', pkg?.homepage || '')

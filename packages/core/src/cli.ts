@@ -1,35 +1,36 @@
-#!/usr/bin/env node
 import { program } from 'commander'
-import updateNotifier from 'update-notifier'
 import tl from 'terminal-link'
+import consola from 'consola'
+import { fileURLToPath } from 'url'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
 
+// polyfill node12 & 14 global variable
+global.__filename = fileURLToPath(import.meta.url)
+
 const pkg = readPkg()
-const notifier = updateNotifier({
-  pkg: { name: pkg!.name, version: pkg!.version },
-})
 
 const cli = program
   .version(pkg?.version || '', '-v, --version')
-  .hook('preAction', () => {
-    notifier.notify()
-  })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
 const commands = {
-  create: async () => await import('./create').then((res) => res.create),
-  list: async () => await import('./list').then((res) => res.list),
-  add: async () => await import('./add').then((res) => res.add),
-  prepack: async () => await import('./prepack').then((res) => res.prepack),
-  whoami: async () => await import('./whoami').then((res) => res.whoami),
+  create: async () => await import('./commands/create').then((res) => res.create),
+  list: async () => await import('./commands/list').then((res) => res.list),
+  add: async () => await import('./commands/add').then((res) => res.add),
+  prepack: async () => await import('./commands/prepack').then((res) => res.prepack),
+  whoami: async () => await import('./commands/whoami').then((res) => res.whoami),
 }
 
 const handler = (cmdName: string) => {
   return async function (...args: any[]) {
-    const cmd = await commands[cmdName]()
-    await cmd(...args)
+    try {
+      const cmd = await commands[cmdName]()
+      await cmd(...args)
+    } catch (e) {
+      consola.error(e)
+    }
   }
 }
 
@@ -51,11 +52,12 @@ cli
   .action(handler('create'))
 
 cli
-  .command('list')
-  .description('List all templates')
+  .command('list [configs]')
+  .description('List all templates or configs')
   .alias('l')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'List templates filtered by presets')
+  .option('--no-interactive', 'List configs without interactive', false)
   .action(handler('list'))
 
 cli.command('whoami').alias('docs').description('What is neo?').action(handler('whoami'))
@@ -76,3 +78,7 @@ cli
   .action(handler('add'))
 
 program.parse(process.argv)
+
+consola.wrapConsole()
+process.on('unhandledRejection', (err) => consola.error('[unhandledRejection]', err))
+process.on('uncaughtException', (err) => consola.error('[uncaughtException]', err))

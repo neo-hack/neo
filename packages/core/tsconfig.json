@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext"],
+    "target": "ES2019",
+    "module": "ES2020",
+    "lib": ["ES2020", "ES2019"],
     "outDir": "lib",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,7 +15,6 @@
     "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "plugins": [
       {

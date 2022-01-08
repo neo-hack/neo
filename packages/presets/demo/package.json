@@ -24,6 +24,10 @@
     "url": "https://twitter.com/jiangweixian"
   },
   "main": "index.json",
+  "files": [
+    "assets",
+    "index.json"
+  ],
   "scripts": {
     "build": "echo build",
     "test": "echo test"
