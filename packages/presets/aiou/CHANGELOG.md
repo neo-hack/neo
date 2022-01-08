@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 0.0.0-beta-20220108051756
+
+### Minor Changes
+
+- 687a13c: list configs
+
 ## 1.0.1
 
 ### Patch Changes
