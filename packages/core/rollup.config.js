@@ -4,7 +4,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
-import esbuild from 'rollup-plugin-esbuild'
+import ts from 'rollup-plugin-typescript2'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -17,10 +17,8 @@ export default defineConfig([
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
     plugins: [
-      esbuild({
-        minify: process.env.BUILD === 'production',
-        sourceMap: true,
-        target: 'ES2020',
+      ts({
+        check: false,
       }),
       alias({
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
