@@ -5,6 +5,7 @@ import json from '@rollup/plugin-json'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
 import ts from 'rollup-plugin-typescript2'
+import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -33,11 +34,12 @@ export default defineConfig([
       nodeResolve({ preferBuiltins: true, exportConditions: ['node'] }),
       commonjs(),
       json(),
+      terser(),
       size(),
     ],
     output: [
       {
-        sourcemap: true,
+        sourcemap: false,
         entryFileNames: '[name].mjs',
         manualChunks: (id) => {
           if (id.includes('listr')) {

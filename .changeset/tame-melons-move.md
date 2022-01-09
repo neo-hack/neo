@@ -1,0 +1,5 @@
+---
+"@aiou/neo": patch
+---
+
+minify
