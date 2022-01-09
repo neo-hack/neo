@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.3.1
+
+### Patch Changes
+
+- b9129dc: minify
+
 ## 3.3.0
 
 ### Minor Changes
