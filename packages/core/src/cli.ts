@@ -55,6 +55,7 @@ cli
   .command('list [configs]')
   .description('List all templates or configs')
   .alias('l')
+  .alias('ls')
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('-ps, --preset [presets...]', 'List templates filtered by presets')
   .option('--no-interactive', 'List configs without interactive', false)
