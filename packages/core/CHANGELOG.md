@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.3.2
+
+### Patch Changes
+
+- 2b29e37: alias ls
+
 ## 3.3.1
 
 ### Patch Changes
