@@ -1,0 +1,12 @@
+jobs:
+  REPLACE:
+    paths: "test/**/*.js"
+    steps:
+      - name: REPLACE JS Files
+      - action: replace
+        with:
+          - patterns:
+            - match: one
+              replacement: one target
+            - match: two
+              replacement: two targets

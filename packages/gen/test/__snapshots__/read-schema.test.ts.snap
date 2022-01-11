@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`read schema read complete workflow schema 1`] = `
+Object {
+  "jobs": Object {
+    "REPLACE": Object {
+      "paths": "test/**/*.js",
+      "steps": Array [
+        Object {
+          "name": "REPLACE JS Files",
+        },
+        Object {
+          "action": "replace",
+          "with": Array [
+            Object {
+              "patterns": Array [
+                Object {
+                  "match": "one",
+                  "replacement": "one target",
+                },
+                Object {
+                  "match": "two",
+                  "replacement": "two targets",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`read schema read schema takes array as input 1`] = `
+Object {
+  "with": Array [
+    Object {
+      "find": "one",
+      "replace": "one target",
+    },
+    Object {
+      "find": "two",
+      "replace": "two targets",
+    },
+  ],
+}
+`;

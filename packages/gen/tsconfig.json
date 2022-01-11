@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "ESNext",
+    "lib": ["ES2019", "ESNext"],
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "baseUrl": "./",
+    "plugins": [
+      // Display tsc progress bar
+      { "transform": "tsc-progress", "title": "GEN", "color": "blue" },
+      {
+        "transform": "typescript-transform-extensions",
+        "extensions": { ".ts": ".mjs" }
+      }
+    ]
+  },
+  "include": ["src", "test"]
+}

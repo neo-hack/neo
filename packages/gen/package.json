@@ -1,0 +1,74 @@
+{
+  "name": "@aiou/gen",
+  "version": "0.0.0",
+  "description": "generator of neo",
+  "keywords": [
+    "neo",
+    "generator"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git",
+    "directory": "packages/gen"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "schema2types": "json2ts --input ./assets/github.json --output ./assets/github.d.ts",
+    "build": "rimraf lib && rollup -c --silent",
+    "dev": "rimraf lib && ttsc -w",
+    "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "pnpm run build && pnpm run jest",
+    "pretest": "pnpm run build",
+    "ci:publish": "pnpm run build && pnpx changeset publish",
+    "ci:version": "pnpx changeset version",
+    "ci:snapshot": "pnpx changeset version --snapshot beta",
+    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "globby": "12.0.2",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.1.3",
+    "gulp-replace-task": "^2.0.1",
+    "hookable": "^5.1.1",
+    "read-yaml-file": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-replace": "^1.1.0",
+    "@types/jest": "26.0.23",
+    "eslint": "^7.30.0",
+    "esno": "^0.13.0",
+    "execa": "^6.0.0",
+    "husky": "^7.0.0",
+    "jest": "27.0.6",
+    "json-schema-to-typescript": "^10.1.5",
+    "rimraf": "3.0.2",
+    "rollup": "2.58.0",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
+    "rollup-plugin-multi-input": "^1.3.1",
+    "rollup-plugin-size": "^0.2.2",
+    "rollup-plugin-typescript2": "0.30.0",
+    "ts-jest": "27.0.3",
+    "ts-node": "10.0.0",
+    "tsc-progress": "^1.0.2",
+    "tslib": "2.3.0",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.5.4",
+    "typescript-transform-extensions": "^1.0.1",
+    "typescript-transform-paths": "^3.0.2"
+  }
+}

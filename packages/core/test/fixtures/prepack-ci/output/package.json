@@ -7,15 +7,15 @@
     "name": "JW"
   },
   "type": "module",
+  "bin": {
+    "neo": "lib/neo.js"
+  },
   "files": [
     "lib",
     "assets"
   ],
   "engines": {
     "node": ">=12"
-  },
-  "bin": {
-    "neo": "lib/neo.js"
   },
   "scripts": {
     "clean": "rimraf lib",
