@@ -5,7 +5,7 @@ jobs:
       - name: REPLACE JS Files
       - action: replace
         with:
-          - patterns:
+          patterns:
             - match: one
               replacement: one target
             - match: two

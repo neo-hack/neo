@@ -1,13 +1,11 @@
-import Replace from 'gulp-replace-task'
+import Replace from 'gulp-replace'
 
 type ReplaceOptions = {
-  patterns: {
-    match: string
-    replacement: string
-  }[]
+  match: string
+  replacement: string
 }
 
 export const replace = (options: ReplaceOptions) => {
   console.log(options)
-  return Replace(options)
+  return Replace(options.match, options.replacement)
 }

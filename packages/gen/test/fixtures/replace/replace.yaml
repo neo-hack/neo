@@ -1,12 +1,9 @@
 jobs:
   REPLACE:
-    paths: "test/**/*.js"
+    paths: "input/**/*.ts"
     steps:
       - name: REPLACE JS Files
       - action: replace
         with:
-          - patterns:
-            - match: one
-              replacement: one target
-            - match: two
-              replacement: two targets
+          match: one
+          replacement: target

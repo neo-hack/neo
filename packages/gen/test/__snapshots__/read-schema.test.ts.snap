@@ -11,20 +11,18 @@ Object {
         },
         Object {
           "action": "replace",
-          "with": Array [
-            Object {
-              "patterns": Array [
-                Object {
-                  "match": "one",
-                  "replacement": "one target",
-                },
-                Object {
-                  "match": "two",
-                  "replacement": "two targets",
-                },
-              ],
-            },
-          ],
+          "with": Object {
+            "patterns": Array [
+              Object {
+                "match": "one",
+                "replacement": "one target",
+              },
+              Object {
+                "match": "two",
+                "replacement": "two targets",
+              },
+            ],
+          },
         },
       ],
     },
