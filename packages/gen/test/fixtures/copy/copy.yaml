@@ -1,0 +1,8 @@
+jobs:
+  REPLACE:
+    paths: "input/**/*.ts"
+    steps:
+      - name: Copy Action
+      - action: copy
+        with:
+          output: output

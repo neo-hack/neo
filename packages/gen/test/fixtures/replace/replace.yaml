@@ -2,7 +2,7 @@ jobs:
   REPLACE:
     paths: "input/**/*.ts"
     steps:
-      - name: REPLACE JS Files
+      - name: Replace Action
       - action: replace
         with:
           match: one

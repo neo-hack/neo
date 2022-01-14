@@ -85,3 +85,9 @@ export interface Workflow {
    */
   jobs?: Record<string, Job>
 }
+
+export type Context = {
+  cwd: string
+}
+
+export type Action<T> = (args: T, ctx: Context) => any

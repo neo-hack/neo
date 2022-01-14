@@ -14,7 +14,7 @@ export const readWorkflowSchema = async (filepath: string) => {
 }
 
 type CreateJobOptions = {
-  runAction: (id: string, type: 'action' | 'uses', args: any) => any
+  runAction: (id: string, type: 'action' | 'uses', args: any, ctx: { cwd?: string }) => any
   job: Job
   cwd?: string
 }
@@ -29,13 +29,12 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
         continue
       }
       const type = step.action ? 'action' : 'uses'
-      stream = stream.pipe(options.runAction?.(id, type, step.with))
+      stream = stream.pipe(options.runAction?.(id, type, step.with, { cwd: options.cwd }))
     }
     // TODO:
     // stream = stream.pipe(gulp.dest('output'))
     stream = stream.pipe(
       gulp.dest((file) => {
-        console.log(file.base)
         return file.base
       }),
     )
@@ -43,7 +42,7 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
   }
 }
 
-const runAction: CreateJobOptions['runAction'] = (id, type, args) => {
+const runAction: CreateJobOptions['runAction'] = (id, type, args, ctx) => {
   if (type === 'uses') {
     // dynamic load action not support now
     return false
@@ -52,7 +51,7 @@ const runAction: CreateJobOptions['runAction'] = (id, type, args) => {
   if (!action) {
     return false
   }
-  return action(args)
+  return action(args, ctx)
 }
 
 export type CreateWorkflowOptions = {
@@ -60,13 +59,17 @@ export type CreateWorkflowOptions = {
   cwd?: CreateJobOptions['cwd']
 }
 
-export const createWorkflow = async ({ schema, ...options }: CreateWorkflowOptions) => {
+export const createWorkflow = async ({
+  schema,
+  cwd = process.cwd(),
+  ...options
+}: CreateWorkflowOptions) => {
   const jobNames = Object.keys(schema.jobs || {})
   return async () => {
     hooks.callHook(LIFE_CYCLES.START)
     for (const name of jobNames) {
       hooks.callHook(LIFE_CYCLES.BEFORE_JOB, { name })
-      const job = createJob({ job: schema.jobs![name], runAction, ...options })
+      const job = createJob({ job: schema.jobs![name], runAction, cwd, ...options })
       await job()
       hooks.callHook(LIFE_CYCLES.AFTER_JOB, { name })
     }

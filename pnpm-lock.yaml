@@ -164,6 +164,7 @@ importers:
       execa: ^6.0.0
       globby: 12.0.2
       gulp: ^4.0.2
+      gulp-copy: ^4.0.1
       gulp-replace: ^1.1.3
       gulp-replace-task: ^2.0.1
       hookable: ^5.1.1
@@ -188,6 +189,7 @@ importers:
     dependencies:
       globby: 12.0.2
       gulp: 4.0.2
+      gulp-copy: 4.0.1
       gulp-replace: 1.1.3
       gulp-replace-task: 2.0.1
       hookable: 5.1.1
@@ -2467,6 +2469,13 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /ansi-cyan/0.1.1:
+    resolution: {integrity: sha1-U4rlKK+JgvKK4w2G8vF0VtJgmHM=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      ansi-wrap: 0.1.0
+    dev: false
+
   /ansi-escapes/2.0.0:
     resolution: {integrity: sha1-W65SvkJIeN2Xg+iRDj/Cki6DyBs=}
     engines: {node: '>=4'}
@@ -2493,6 +2502,13 @@ packages:
 
   /ansi-gray/0.1.1:
     resolution: {integrity: sha1-KWLPVOyXksSFEKPetSRDaGHvclE=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      ansi-wrap: 0.1.0
+    dev: false
+
+  /ansi-red/0.1.1:
+    resolution: {integrity: sha1-jGOPnRCAgAo1PJwoyKgcpHBdlGw=}
     engines: {node: '>=0.10.0'}
     dependencies:
       ansi-wrap: 0.1.0
@@ -2626,6 +2642,14 @@ packages:
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
+  /arr-diff/1.1.0:
+    resolution: {integrity: sha1-aHwydYFjWI/vfeezb6vklesaOZo=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      arr-flatten: 1.1.0
+      array-slice: 0.2.3
+    dev: false
+
   /arr-diff/4.0.0:
     resolution: {integrity: sha1-1kYQdP6/7HHn4VI1dhoyml3HxSA=}
     engines: {node: '>=0.10.0'}
@@ -2648,6 +2672,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       make-iterator: 1.0.1
+    dev: false
+
+  /arr-union/2.1.0:
+    resolution: {integrity: sha1-IPnqtexw9cfSFbEHexw5Fh0pLH0=}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /arr-union/3.1.0:
@@ -2684,6 +2713,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       is-number: 4.0.0
+    dev: false
+
+  /array-slice/0.2.3:
+    resolution: {integrity: sha1-3Tz7gO15c6dRF82sabC5nshhhvU=}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /array-slice/1.1.0:
@@ -5150,6 +5184,13 @@ packages:
     dependencies:
       type: 2.5.0
 
+  /extend-shallow/1.1.4:
+    resolution: {integrity: sha1-Gda/lN/AnXa6cR85uHLSH/TdkHE=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      kind-of: 1.1.0
+    dev: false
+
   /extend-shallow/2.0.1:
     resolution: {integrity: sha1-Ua99YUrZqfYQ6huvu5idaxxWiQ8=}
     engines: {node: '>=0.10.0'}
@@ -5873,6 +5914,14 @@ packages:
       semver-greatest-satisfied-range: 1.1.0
       v8flags: 3.2.0
       yargs: 7.1.2
+    dev: false
+
+  /gulp-copy/4.0.1:
+    resolution: {integrity: sha512-UbdAwmEiVNNv55KAiUYWOP6Za7h8JPHNNyekNx8Gyc5XRlpUzTrlEclps939nOeiDPsd6jUtT2LmfavJirbZQg==}
+    dependencies:
+      gulp: 4.0.2
+      plugin-error: 0.1.2
+      through2: 2.0.5
     dev: false
 
   /gulp-replace-task/2.0.1:
@@ -7651,6 +7700,11 @@ packages:
       json-buffer: 3.0.0
     dev: true
 
+  /kind-of/1.1.0:
+    resolution: {integrity: sha1-FAo9LUGjbS78+pN3tiwk+ElaXEQ=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /kind-of/3.2.2:
     resolution: {integrity: sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=}
     engines: {node: '>=0.10.0'}
@@ -9313,6 +9367,17 @@ packages:
     dependencies:
       find-up: 5.0.0
     dev: true
+
+  /plugin-error/0.1.2:
+    resolution: {integrity: sha1-O5uzM1zPAPQl4HQ34ZJ2ln2kes4=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      ansi-cyan: 0.1.1
+      ansi-red: 0.1.1
+      arr-diff: 1.1.0
+      arr-union: 2.1.0
+      extend-shallow: 1.1.4
+    dev: false
 
   /plugin-error/1.0.1:
     resolution: {integrity: sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==}
