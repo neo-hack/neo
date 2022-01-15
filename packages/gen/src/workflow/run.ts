@@ -6,6 +6,6 @@ export type RunOptions = {
   quiet?: boolean
 }
 
-export const run: Action<RunOptions> = ({ commands = [], ...options }) => {
-  return Shell(typeof commands === 'string' ? [commands] : commands, options)
+export const run: Action<RunOptions> = ({ commands = [], ...options }, ctx) => {
+  return Shell(typeof commands === 'string' ? [commands] : commands, { cwd: ctx.cwd, ...options })
 }

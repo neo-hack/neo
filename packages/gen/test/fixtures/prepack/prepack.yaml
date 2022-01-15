@@ -61,8 +61,9 @@ jobs:
       - name: Setup changeset
         run: pnpx changeset init
 
-  Precommit:
-    name: Setup precommit
-    steps:
-      # - name: Setup Husky
-      #   run: pnpx husky-init
+  # Precommit:
+  #   name: Setup precommit
+  #   steps:
+  #     - name: Setup Husky
+  #       run: pnpx husky-init
+  #       continue-on-error: true
