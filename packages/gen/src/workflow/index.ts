@@ -26,7 +26,7 @@ type CreateJobOptions = {
 export const createJob = async ({ job, ...options }: CreateJobOptions) => {
   return async () => {
     hooks.callHook(LIFE_CYCLES.JOB, { job: job.name })
-    let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd!, dot: true })
+    let stream = gulp.src(job.paths ? [job.paths] : ['*'], { cwd: options.cwd!, dot: true })
     for (const step of job.steps || []) {
       if (!step.uses && !step.run) {
         continue

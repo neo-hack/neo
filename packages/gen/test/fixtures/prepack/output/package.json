@@ -17,6 +17,14 @@
   },
   "main": "index.js",
   "files": ["packages/core"],
-  "scripts": {},
-  "devDependencies": {}
+  "scripts": {
+    "ci:version": "pnpm changeset version"
+  },
+  "devDependencies": {
+    "@changesets/cli": "latest",
+    "husky": "latest"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+  }
 }
