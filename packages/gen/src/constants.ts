@@ -3,5 +3,6 @@ export const LIFE_CYCLES = {
   BEFORE_JOB: 'beforeJob',
   JOB: 'job',
   AFTER_JOB: 'afterJob',
+  STEP: 'step',
   FINISH: 'finish',
 }

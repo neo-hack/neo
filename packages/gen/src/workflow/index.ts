@@ -25,7 +25,7 @@ type CreateJobOptions = {
 
 export const createJob = ({ job, ...options }: CreateJobOptions) => {
   return async () => {
-    hooks.callHook(LIFE_CYCLES.JOB, { name: job.name })
+    hooks.callHook(LIFE_CYCLES.JOB, { job: job.name })
     debug.job('create job %s on cwd %s', job.name, options.cwd)
     let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd! })
     for (const step of job.steps || []) {
@@ -34,6 +34,7 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
       }
       try {
         // run action
+        hooks.callHook(LIFE_CYCLES.STEP, { step: step.name })
         if (step.uses) {
           const cb = options.runAction?.(step.uses, step.with, {
             cwd: options.cwd!,
@@ -100,10 +101,10 @@ export const createWorkflow = async ({
   return async () => {
     hooks.callHook(LIFE_CYCLES.START)
     for (const name of jobNames) {
-      hooks.callHook(LIFE_CYCLES.BEFORE_JOB, { name })
+      hooks.callHook(LIFE_CYCLES.BEFORE_JOB, { job: name })
       const job = createJob({ job: schema.jobs![name], runAction, runShell, cwd, ...options })
       await job()
-      hooks.callHook(LIFE_CYCLES.AFTER_JOB, { name })
+      hooks.callHook(LIFE_CYCLES.AFTER_JOB, { job: name })
     }
     hooks.callHook(LIFE_CYCLES.FINISH)
   }
