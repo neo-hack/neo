@@ -7,6 +7,7 @@ import { Workflow, Job, Context } from '../interface'
 import { LIFE_CYCLES } from '../constants'
 import { builtInUses } from './uses'
 import { run, RunOptions } from './run'
+import { debug } from '../utils/logger'
 
 const hooks = createHooks<any>()
 
@@ -25,6 +26,7 @@ type CreateJobOptions = {
 export const createJob = ({ job, ...options }: CreateJobOptions) => {
   return async () => {
     hooks.callHook(LIFE_CYCLES.JOB, { name: job.name })
+    debug.job('create job %s on cwd %s', job.name, options.cwd)
     let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd! })
     for (const step of job.steps || []) {
       if (!step.uses && !step.run) {
@@ -33,7 +35,10 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
       try {
         // run action
         if (step.uses) {
-          const cb = options.runAction?.(step.uses, step.with, { cwd: options.cwd! })
+          const cb = options.runAction?.(step.uses, step.with, {
+            cwd: options.cwd!,
+            debug: debug.uses,
+          })
           if (!cb) {
             continue
           }
@@ -41,7 +46,10 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
         }
         // exec shell
         if (step.run) {
-          const cb = options.runShell?.({ commands: step.run, ...step.with }, { cwd: options.cwd! })
+          const cb = options.runShell?.(
+            { commands: step.run, ...step.with },
+            { cwd: options.cwd!, debug: debug.run },
+          )
           if (!cb) {
             continue
           }
@@ -64,6 +72,7 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
 }
 
 const runAction: CreateJobOptions['runAction'] = (id, args, ctx) => {
+  debug.uses('run uses %s with %O', id, args)
   const action = builtInUses[id]
   if (!action) {
     consola.warn(`${action} not built-in, dynamic import not support now`)
@@ -73,6 +82,7 @@ const runAction: CreateJobOptions['runAction'] = (id, args, ctx) => {
 }
 
 const runShell: CreateJobOptions['runShell'] = (args, ctx) => {
+  debug.run('exec command %O', args)
   return run(args, ctx)
 }
 

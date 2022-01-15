@@ -1,3 +1,5 @@
+import type Debug from 'debug'
+
 export type WebhookEvent = string
 
 /**
@@ -88,6 +90,7 @@ export interface Workflow {
 
 export type Context = {
   cwd: string
+  debug: Debug.Debugger
 }
 
 export type Action<T> = (args: T, ctx: Context) => any

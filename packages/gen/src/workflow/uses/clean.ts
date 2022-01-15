@@ -6,6 +6,5 @@ type CleanOptions = {
 }
 
 export const clean: Action<CleanOptions> = (options, ctx) => {
-  console.log(options)
   del(options.paths || [], { cwd: ctx.cwd })
 }
