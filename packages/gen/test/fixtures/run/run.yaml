@@ -1,8 +1,8 @@
 jobs:
   RUN:
-    paths: "input/**/*.ts"
+    paths: "output/*"
     steps:
       - name: Run Shell
         run: echo <%= file.path %>
         with:
-          quiet: true
+          quiet: false

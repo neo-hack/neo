@@ -1,0 +1,22 @@
+{
+  "name": "aiou",
+  "version": "1.0.0",
+  "description": "templates",
+  "keywords": ["templates", "neo"],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues"
+  },
+  "author": {
+    "name": "jiangweixian"
+  },
+  "main": "index.js",
+  "files": ["packages/core"],
+  "scripts": {},
+  "devDependencies": {}
+}

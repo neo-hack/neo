@@ -1,6 +1,6 @@
 jobs:
   JSON EDITOR:
-    paths: "input/**/*.json"
+    paths: "output/**/*.json"
     steps:
       - name: Json Editor Action
       - uses: json-editor

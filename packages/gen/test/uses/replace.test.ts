@@ -1,10 +1,14 @@
 import { r } from '../helpers'
 
 import { execa } from 'execa'
+import fs from 'fs-extra'
+import { compare } from 'comparedir-test'
 
-describe('workflow.actions.replace', () => {
-  it('replace action should work', async () => {
-    const { stdout } = await execa('esmo', [r('test/fixtures/replace/replace.ts')])
-    console.log(stdout)
-  })
+beforeAll(() => {
+  fs.copySync(r('test/fixtures/replace/input'), r('test/fixtures/replace/output'))
+})
+
+it('uses replace should work', async () => {
+  await execa('esmo', [r('test/fixtures/replace/replace.ts')])
+  await compare(r('test/fixtures/replace/expected'), r('test/fixtures/replace/output'))
 })

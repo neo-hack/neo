@@ -74,15 +74,6 @@ export interface Workflow {
    */
   name?: string
   /**
-   * The name of the GitHub event that triggers the workflow
-   */
-  on:
-    | WebhookEvent
-    | WebhookEvent[]
-    | {
-        [k: string]: unknown
-      }
-  /**
    * A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the jobs.<job_id>.needs keyword.
    */
   jobs?: Record<string, Job>

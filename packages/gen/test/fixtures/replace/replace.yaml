@@ -1,6 +1,6 @@
 jobs:
   REPLACE:
-    paths: "input/**/*.ts"
+    paths: "output/**/*.ts"
     steps:
       - name: Replace Action
       - uses: replace

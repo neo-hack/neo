@@ -1,8 +1,9 @@
 jobs:
   COPY:
-    paths: "input/**/*.ts"
+    paths: "assets.ts"
     steps:
-      - name: Copy Action
+      - name: COPY
       - uses: copy
         with:
           output: output
+            

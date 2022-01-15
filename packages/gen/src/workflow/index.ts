@@ -23,11 +23,10 @@ type CreateJobOptions = {
   cwd?: string
 }
 
-export const createJob = ({ job, ...options }: CreateJobOptions) => {
+export const createJob = async ({ job, ...options }: CreateJobOptions) => {
   return async () => {
     hooks.callHook(LIFE_CYCLES.JOB, { job: job.name })
-    debug.job('create job %s on cwd %s', job.name, options.cwd)
-    let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd! })
+    let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd!, dot: true })
     for (const step of job.steps || []) {
       if (!step.uses && !step.run) {
         continue
@@ -36,7 +35,7 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
         // run action
         hooks.callHook(LIFE_CYCLES.STEP, { step: step.name })
         if (step.uses) {
-          const cb = options.runAction?.(step.uses, step.with, {
+          const cb = await options.runAction?.(step.uses, step.with, {
             cwd: options.cwd!,
             debug: debug.uses,
           })
@@ -72,14 +71,15 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
   }
 }
 
-const runAction: CreateJobOptions['runAction'] = (id, args, ctx) => {
+const runAction: CreateJobOptions['runAction'] = async (id, args, ctx) => {
   debug.uses('run uses %s with %O', id, args)
   const action = builtInUses[id]
   if (!action) {
     consola.error(`${action} not found, dynamic import not support now!`)
     return false
   }
-  return action(args, ctx)
+  const cb = await action(args, ctx)
+  return cb
 }
 
 const runShell: CreateJobOptions['runShell'] = (args, ctx) => {
@@ -102,7 +102,8 @@ export const createWorkflow = async ({
     hooks.callHook(LIFE_CYCLES.START)
     for (const name of jobNames) {
       hooks.callHook(LIFE_CYCLES.BEFORE_JOB, { job: name })
-      const job = createJob({ job: schema.jobs![name], runAction, runShell, cwd, ...options })
+      debug.job('create job %s on cwd %s', name, cwd)
+      const job = await createJob({ job: schema.jobs![name], runAction, runShell, cwd, ...options })
       await job()
       hooks.callHook(LIFE_CYCLES.AFTER_JOB, { job: name })
     }
