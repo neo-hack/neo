@@ -75,7 +75,7 @@ const runAction: CreateJobOptions['runAction'] = (id, args, ctx) => {
   debug.uses('run uses %s with %O', id, args)
   const action = builtInUses[id]
   if (!action) {
-    consola.warn(`${action} not built-in, dynamic import not support now`)
+    consola.error(`${action} not found, dynamic import not support now!`)
     return false
   }
   return action(args, ctx)
