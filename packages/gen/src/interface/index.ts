@@ -24,6 +24,7 @@ export type Job = {
      */
     name?: string
     /**
+     * TODO: dynamic load action not support now
      * Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use follow built-in actions
      * - replace
      * - copy
@@ -38,12 +39,14 @@ export type Job = {
       [k: string]: unknown
     }
     /**
+     * TODO: env setup not support now
      * Sets environment variables for steps to use in the virtual environment. Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the secrets context.
      */
     env?: {
       [k: string]: unknown
     }
     /**
+     * TODO: condition not support
      * Identifies any steps that must complete successfully before this step will run. It can be a string or an array of strings. If a step fails, all steps that need it will also fail unless the steps use a conditional statement that causes the step to continue.
      */
     if?: string
@@ -52,6 +55,7 @@ export type Job = {
      */
     run?: string
     /**
+     * TODO: working-directory not support
      * The default directory that the action uses in a job's workspace.
      */
     'working-directory'?: string

@@ -30,23 +30,30 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
       if (!step.uses && !step.run) {
         continue
       }
-      if (step.uses) {
-        const cb = options.runAction?.(step.uses, step.with, { cwd: options.cwd! })
-        if (!cb) {
-          continue
+      try {
+        // run action
+        if (step.uses) {
+          const cb = options.runAction?.(step.uses, step.with, { cwd: options.cwd! })
+          if (!cb) {
+            continue
+          }
+          stream = stream.pipe(cb)
         }
-        stream = stream.pipe(cb)
-      }
-      if (step.run) {
-        const cb = options.runShell?.({ commands: step.run, ...step.with }, { cwd: options.cwd! })
-        if (!cb) {
-          continue
+        // exec shell
+        if (step.run) {
+          const cb = options.runShell?.({ commands: step.run, ...step.with }, { cwd: options.cwd! })
+          if (!cb) {
+            continue
+          }
+          stream = stream.pipe(cb)
         }
-        stream = stream.pipe(cb)
+      } catch (e) {
+        consola.error(e)
+        if (!step['continue-on-error']) {
+          throw e
+        }
       }
     }
-    // TODO:
-    // stream = stream.pipe(gulp.dest('output'))
     stream = stream.pipe(
       gulp.dest((file) => {
         return file.base
