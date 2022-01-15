@@ -17,6 +17,7 @@ export default defineConfig([
       excludeDependenciesFromBundle(),
       multiple(),
       typescript({
+        check: false,
         tsconfig: './tsconfig.build.json',
       }), // so Rollup can convert TypeScript to JavaScript
       bundleSize(),

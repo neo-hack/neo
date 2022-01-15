@@ -29,15 +29,19 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
         continue
       }
       const type = step.action ? 'action' : 'uses'
-      stream = stream.pipe(options.runAction?.(id, type, step.with, { cwd: options.cwd }))
+      const cb = options.runAction?.(id, type, step.with, { cwd: options.cwd })
+      if (!cb) {
+        continue
+      }
+      stream = stream.pipe(cb)
     }
     // TODO:
-    // stream = stream.pipe(gulp.dest('output'))
-    stream = stream.pipe(
-      gulp.dest((file) => {
-        return file.base
-      }),
-    )
+    stream = stream.pipe(gulp.dest('output'))
+    // stream = stream.pipe(
+    //   gulp.dest((file) => {
+    //     return file.base
+    //   }),
+    // )
     return stream
   }
 }

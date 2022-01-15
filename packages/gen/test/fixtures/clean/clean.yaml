@@ -1,0 +1,9 @@
+jobs:
+  CLEAN:
+    paths: "input/**/*.ts"
+    steps:
+      - name: Clean Action
+      - action: clean
+        with:
+          paths:
+            - "input/**/*.ts"
