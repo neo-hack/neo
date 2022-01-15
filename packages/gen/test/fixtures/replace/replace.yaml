@@ -3,7 +3,7 @@ jobs:
     paths: "input/**/*.ts"
     steps:
       - name: Replace Action
-      - action: replace
+      - uses: replace
         with:
           match: one
           replacement: target

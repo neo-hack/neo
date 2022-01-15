@@ -24,17 +24,13 @@ export type Job = {
      */
     name?: string
     /**
-     * Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a published Docker container image.
-     */
-    uses?: string
-    /**
-     * Builtin action to run as part of a step in your job.
+     * Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use follow built-in actions
      * - replace
      * - copy
      * - mv
      * - rm
      */
-    action?: string
+    uses?: string
     /**
      * A map of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with INPUT_ and converted to upper case.
      */

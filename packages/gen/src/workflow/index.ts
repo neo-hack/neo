@@ -1,5 +1,6 @@
 import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
+import consola from 'consola'
 import { createHooks } from 'hookable'
 
 import { Workflow, Job } from '../interface'
@@ -36,23 +37,20 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
       stream = stream.pipe(cb)
     }
     // TODO:
-    stream = stream.pipe(gulp.dest('output'))
-    // stream = stream.pipe(
-    //   gulp.dest((file) => {
-    //     return file.base
-    //   }),
-    // )
+    // stream = stream.pipe(gulp.dest('output'))
+    stream = stream.pipe(
+      gulp.dest((file) => {
+        return file.base
+      }),
+    )
     return stream
   }
 }
 
 const runAction: CreateJobOptions['runAction'] = (id, type, args, ctx) => {
-  if (type === 'uses') {
-    // dynamic load action not support now
-    return false
-  }
   const action = builtIn[id]
   if (!action) {
+    consola.warn(`${action} not built-in, dynamic import not support now`)
     return false
   }
   return action(args, ctx)

@@ -3,6 +3,6 @@ jobs:
     paths: "input/**/*.ts"
     steps:
       - name: Copy Action
-      - action: copy
+      - uses: copy
         with:
           output: output

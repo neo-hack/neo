@@ -3,7 +3,7 @@ jobs:
     paths: "input/**/*.ts"
     steps:
       - name: Clean Action
-      - action: clean
+      - uses: clean
         with:
           paths:
             - "input/**/*.ts"

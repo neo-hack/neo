@@ -3,7 +3,7 @@ jobs:
     paths: "input/**/*.json"
     steps:
       - name: Json Editor Action
-      - action: json-editor
+      - uses: json-editor
         with:
           content:
             version: "1.0.0"
