@@ -3,9 +3,10 @@ import gulp from 'gulp'
 import consola from 'consola'
 import { createHooks } from 'hookable'
 
-import { Workflow, Job } from '../interface'
+import { Workflow, Job, Context } from '../interface'
 import { LIFE_CYCLES } from '../constants'
-import { builtIn } from './actions'
+import { builtInUses } from './uses'
+import { run, RunOptions } from './run'
 
 const hooks = createHooks<any>()
 
@@ -15,7 +16,8 @@ export const readWorkflowSchema = async (filepath: string) => {
 }
 
 type CreateJobOptions = {
-  runAction: (id: string, type: 'action' | 'uses', args: any, ctx: { cwd?: string }) => any
+  runAction: (id: string, args: any, ctx: Context) => any
+  runShell: (args: RunOptions, ctx: Context) => any
   job: Job
   cwd?: string
 }
@@ -23,18 +25,25 @@ type CreateJobOptions = {
 export const createJob = ({ job, ...options }: CreateJobOptions) => {
   return async () => {
     hooks.callHook(LIFE_CYCLES.JOB, { name: job.name })
-    let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd })
+    let stream = gulp.src(job.paths ? [job.paths] : [], { cwd: options.cwd! })
     for (const step of job.steps || []) {
-      const id = step.action || step.uses
-      if (!id) {
+      if (!step.uses && !step.run) {
         continue
       }
-      const type = step.action ? 'action' : 'uses'
-      const cb = options.runAction?.(id, type, step.with, { cwd: options.cwd })
-      if (!cb) {
-        continue
+      if (step.uses) {
+        const cb = options.runAction?.(step.uses, step.with, { cwd: options.cwd! })
+        if (!cb) {
+          continue
+        }
+        stream = stream.pipe(cb)
       }
-      stream = stream.pipe(cb)
+      if (step.run) {
+        const cb = options.runShell?.({ commands: step.run, ...step.with }, { cwd: options.cwd! })
+        if (!cb) {
+          continue
+        }
+        stream = stream.pipe(cb)
+      }
     }
     // TODO:
     // stream = stream.pipe(gulp.dest('output'))
@@ -47,13 +56,17 @@ export const createJob = ({ job, ...options }: CreateJobOptions) => {
   }
 }
 
-const runAction: CreateJobOptions['runAction'] = (id, type, args, ctx) => {
-  const action = builtIn[id]
+const runAction: CreateJobOptions['runAction'] = (id, args, ctx) => {
+  const action = builtInUses[id]
   if (!action) {
     consola.warn(`${action} not built-in, dynamic import not support now`)
     return false
   }
   return action(args, ctx)
+}
+
+const runShell: CreateJobOptions['runShell'] = (args, ctx) => {
+  return run(args, ctx)
 }
 
 export type CreateWorkflowOptions = {
@@ -71,7 +84,7 @@ export const createWorkflow = async ({
     hooks.callHook(LIFE_CYCLES.START)
     for (const name of jobNames) {
       hooks.callHook(LIFE_CYCLES.BEFORE_JOB, { name })
-      const job = createJob({ job: schema.jobs![name], runAction, cwd, ...options })
+      const job = createJob({ job: schema.jobs![name], runAction, runShell, cwd, ...options })
       await job()
       hooks.callHook(LIFE_CYCLES.AFTER_JOB, { name })
     }
