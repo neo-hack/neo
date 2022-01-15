@@ -159,6 +159,7 @@ importers:
       '@types/gulp-json-editor': ^2.2.33
       '@types/gulp-replace': ^1.1.0
       '@types/jest': 26.0.23
+      '@types/lodash.set': ^4.3.6
       comparedir-test: 1.2.0
       consola: ^2.15.3
       debug: 4.3.3
@@ -178,6 +179,7 @@ importers:
       husky: ^7.0.0
       jest: 27.0.6
       json-schema-to-typescript: ^10.1.5
+      lodash.set: ^4.3.2
       read-yaml-file: ^2.1.0
       rimraf: 3.0.2
       rollup: 2.58.0
@@ -205,6 +207,7 @@ importers:
       gulp-replace-task: 2.0.1
       gulp-shell: 0.8.0
       hookable: 5.1.1
+      lodash.set: 4.3.2
       read-yaml-file: 2.1.0
     devDependencies:
       '@types/gulp': 4.0.9
@@ -212,6 +215,7 @@ importers:
       '@types/gulp-json-editor': 2.2.33
       '@types/gulp-replace': 1.1.0
       '@types/jest': 26.0.23
+      '@types/lodash.set': 4.3.6
       comparedir-test: 1.2.0
       eslint: 7.32.0
       esno: 0.13.0_typescript@4.5.4
@@ -2019,6 +2023,12 @@ packages:
 
   /@types/lodash.groupby/4.6.6:
     resolution: {integrity: sha512-kwg3T7Ia63KtDNoQQR8hKrLHCAgrH4I44l5uEMuA6JCbj7DiSccaV4tNV1vbjtAOpX990SolVthJCmBVtRVRgw==}
+    dependencies:
+      '@types/lodash': 4.14.178
+    dev: true
+
+  /@types/lodash.set/4.3.6:
+    resolution: {integrity: sha512-ZeGDDlnRYTvS31Laij0RsSaguIUSBTYIlJFKL3vm3T2OAZAQj2YpSvVWJc0WiG4jqg9fGX6PAPGvDqBcHfSgFg==}
     dependencies:
       '@types/lodash': 4.14.178
     dev: true
@@ -7863,6 +7873,10 @@ packages:
   /lodash.partialright/4.2.1:
     resolution: {integrity: sha1-ATDYDoM2MmTUAHTzKbij56ihzEs=}
     dev: true
+
+  /lodash.set/4.3.2:
+    resolution: {integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=}
+    dev: false
 
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=}

@@ -22,22 +22,25 @@ jobs:
       - name: Setup CI Scripts
         uses: json-editor
         with:
-          content:
-            scripts: ci
-  # Lint:
-  #   name: Setup eslint
-  #   paths: input/eslint/*
-  #   steps:
-  #     - name: ESLint
-  #       uses: copy
-  #       with:
-  #         output: output
-  #     - name: Setup CI Scripts
-  #       uses: json-editor
-  #       with:
-  #         content:
-  #           lint-staged:
-  #             "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+          pairs:
+            - path: "scripts.ci:version"
+              value: "pnpm changeset version"
+  Lint:
+    name: Setup eslint
+    paths: input/eslint/*
+    steps:
+      - name: ESLint
+        uses: copy
+        with:
+          output: output
+      - name: Setup CI Scripts
+        uses: json-editor
+        with:
+          pairs:
+            - path: "lint-staged.**/**/*.{js,ts,tsx,vue,json}"
+              value: ["eslint --fix"]
+            # lint-staged:
+            #   "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
   # Changeset:
   #   name: Setup Changeset
   #   steps:
