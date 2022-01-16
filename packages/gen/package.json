@@ -26,7 +26,17 @@
     "node": ">=12"
   },
   "type": "module",
-  "exports": "./lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./helpers": "./lib/utils/helpers.mjs"
+  },
+  "typesVersions": {
+    "*": {
+      "helpers": [
+        "lib/utils/helpers.d.ts"
+      ]
+    }
+  },
   "main": "lib/index.mjs",
   "module": "lib/index.mjs",
   "typings": "lib/index.d.ts",
@@ -42,6 +52,10 @@
     "ci:snapshot": "pnpx changeset version --snapshot beta",
     "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
     "lint:fix": "eslint . --fix"
+  },
+  "peerDependencies": {
+    "listr": "^0.14.3",
+    "zen-observable": "^0.8.15"
   },
   "dependencies": {
     "consola": "^2.15.3",
@@ -73,6 +87,7 @@
     "husky": "^7.0.0",
     "jest": "27.0.6",
     "json-schema-to-typescript": "^10.1.5",
+    "listr": "^0.14.3",
     "rimraf": "3.0.2",
     "rollup": "2.58.0",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
@@ -86,6 +101,7 @@
     "ttypescript": "^1.5.12",
     "typescript": "^4.5.4",
     "typescript-transform-extensions": "^1.0.1",
-    "typescript-transform-paths": "^3.0.2"
+    "typescript-transform-paths": "^3.0.2",
+    "zen-observable": "^0.8.15"
   }
 }

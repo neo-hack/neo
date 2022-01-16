@@ -34,6 +34,7 @@ importers:
     specifiers:
       '@aiou/gen': workspace:^0.0.0
       '@aiou/schema': workspace:^1.1.0
+      '@changesets/cli': latest
       '@pnpm/client': ^6.1.0
       '@pnpm/logger': ^4.0.0
       '@pnpm/package-store': ^12.1.7
@@ -53,6 +54,7 @@ importers:
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
       '@types/update-notifier': ^5.1.0
+      '@types/zen-observable': ^0.8.3
       cli-columns: ^4.0.0
       clipboardy: ^3.0.0
       commander: 8.3.0
@@ -97,6 +99,7 @@ importers:
       '@aiou/gen': link:../gen
     devDependencies:
       '@aiou/schema': link:../schema
+      '@changesets/cli': 2.19.0
       '@pnpm/client': 6.1.0_@pnpm+logger@4.0.0
       '@pnpm/logger': 4.0.0
       '@pnpm/package-store': 12.1.7_@pnpm+logger@4.0.0
@@ -116,6 +119,7 @@ importers:
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
       '@types/update-notifier': 5.1.0
+      '@types/zen-observable': 0.8.3
       cli-columns: 4.0.0
       clipboardy: 3.0.0
       commander: 8.3.0
@@ -184,6 +188,7 @@ importers:
       husky: ^7.0.0
       jest: 27.0.6
       json-schema-to-typescript: ^10.1.5
+      listr: ^0.14.3
       lodash.set: ^4.3.2
       read-yaml-file: ^2.1.0
       rimraf: 3.0.2
@@ -200,6 +205,7 @@ importers:
       typescript: ^4.5.4
       typescript-transform-extensions: ^1.0.1
       typescript-transform-paths: ^3.0.2
+      zen-observable: ^0.8.15
     dependencies:
       consola: 2.15.3
       debug: 4.3.3
@@ -229,6 +235,7 @@ importers:
       husky: 7.0.4
       jest: 27.0.6_ts-node@10.0.0
       json-schema-to-typescript: 10.1.5
+      listr: 0.14.3_zen-observable@0.8.15
       rimraf: 3.0.2
       rollup: 2.58.0
       rollup-plugin-exclude-dependencies-from-bundle: 1.1.22_rollup@2.58.0
@@ -243,6 +250,7 @@ importers:
       typescript: 4.5.4
       typescript-transform-extensions: 1.0.1
       typescript-transform-paths: 3.3.1_typescript@4.5.4
+      zen-observable: 0.8.15
 
   packages/presets/aiou:
     specifiers: {}
@@ -2162,6 +2170,10 @@ packages:
     resolution: {integrity: sha512-T8Yc9wt/5LbJyCaLiHPReJa0kApcIgJ7Bn735GjItUfh08Z1pJvu8QZqb9s+mMvKV6WUQRV7K2R46YbjMXTTJw==}
     dependencies:
       '@types/yargs-parser': 20.2.1
+    dev: true
+
+  /@types/zen-observable/0.8.3:
+    resolution: {integrity: sha512-fbF6oTd4sGGy0xjHPKAt+eS2CrxJ3+6gQ3FGcBoIJR2TLAyCkCyI8JqZNy+FeON0AhVgNJoUumVoZQjBFUqHkw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.9.0_bd2fd93dbcc607ad2f21b784bccfe0c8:

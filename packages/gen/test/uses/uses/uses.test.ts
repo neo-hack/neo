@@ -7,4 +7,8 @@ describe('workflow uses', () => {
     const { stderr } = await execa('esmo', [r('test/uses/uses/uses.ts')])
     expect(stderr).toBeDefined()
   })
+  it('continue on error should work', async () => {
+    const { stderr } = await execa('esmo', [r('test/uses/uses/uses.ts')])
+    expect(stderr).toBeDefined()
+  })
 })

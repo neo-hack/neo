@@ -1,5 +1,5 @@
 jobs:
-  Repo:
+  repo:
     name: Setup github templates
     paths: assets/templates/**/*.md
     steps:
@@ -7,7 +7,7 @@ jobs:
         uses: copy
         with:
           output: output/templates
-  CI:
+  ci:
     name: Setup ci workflow
     paths: assets/workflows/*
     steps:

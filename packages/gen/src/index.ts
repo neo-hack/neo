@@ -1,6 +1,5 @@
 import { createWorkflow, readWorkflowSchema, CreateWorkflowOptions } from './workflow'
 export { hooks } from './utils/hooks'
-export { LIFE_CYCLES } from './constants'
 
 export const create = async (
   filepath: string,
@@ -9,6 +8,7 @@ export const create = async (
   const schema = await readWorkflowSchema(filepath)
   const workflow = await createWorkflow({ schema, ...options })
   return {
+    schema,
     start: async () => {
       await workflow()
     },
