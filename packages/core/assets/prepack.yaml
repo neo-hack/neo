@@ -60,6 +60,8 @@ jobs:
     steps:
       - name: Setup changeset
         run: pnpx changeset init
+        with:
+          quiet: true
 
   # Precommit:
   #   name: Setup precommit

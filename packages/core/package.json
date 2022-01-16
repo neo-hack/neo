@@ -26,6 +26,7 @@
   },
   "scripts": {
     "clean": "rimraf lib",
+    "esmo": "esmo",
     "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
@@ -35,11 +36,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@aiou/gen": "workspace:^0.0.0"
   },
   "devDependencies": {
     "@aiou/schema": "workspace:^1.1.0",
+    "@changesets/cli": "latest",
     "@pnpm/client": "^6.1.0",
     "@pnpm/logger": "^4.0.0",
     "@pnpm/package-store": "^12.1.7",

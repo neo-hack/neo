@@ -6,4 +6,4 @@ export const run = async (alias: string) => {
   await workflow.start()
 }
 
-run(r('assets/prorepack.yaml'))
+run(r('assets/prepack.yaml'))
