@@ -22,6 +22,9 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "type": "module",
   "exports": "./lib/index.mjs",
   "main": "lib/index.mjs",

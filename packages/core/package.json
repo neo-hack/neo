@@ -65,6 +65,7 @@
     "comparedir-test": "1.2.0",
     "consola": "^2.15.3",
     "debug": "4.3.3",
+    "esno": "^0.13.0",
     "execa": "^6.0.0",
     "find-up": "^6.2.0",
     "fs-extra": "10.0.0",
