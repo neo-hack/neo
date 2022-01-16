@@ -35,6 +35,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@aiou/gen": "workspace:^0.0.0"
+  },
   "devDependencies": {
     "@aiou/schema": "workspace:^1.1.0",
     "@pnpm/client": "^6.1.0",
