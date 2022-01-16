@@ -1,4 +1,6 @@
 import { createWorkflow, readWorkflowSchema, CreateWorkflowOptions } from './workflow'
+export { hooks } from './utils/hooks'
+export { LIFE_CYCLES } from './constants'
 
 export const create = async (
   filepath: string,

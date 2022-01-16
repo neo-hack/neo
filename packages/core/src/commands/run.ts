@@ -1,5 +1,11 @@
-import { create } from '@aiou/gen'
+import { create, hooks, LIFE_CYCLES } from '@aiou/gen'
 import { r } from '../utils'
+
+hooks.addHooks({
+  [LIFE_CYCLES.STEP]: (...args) => {
+    console.log(args)
+  },
+})
 
 export const run = async (alias: string) => {
   const workflow = await create(alias)

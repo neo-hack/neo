@@ -1,15 +1,13 @@
 import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola from 'consola'
-import { createHooks } from 'hookable'
 
+import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context } from '../interface'
 import { LIFE_CYCLES } from '../constants'
 import { builtInUses } from './uses'
 import { run, RunOptions } from './run'
 import { debug } from '../utils/logger'
-
-const hooks = createHooks<any>()
 
 export const readWorkflowSchema = async (filepath: string) => {
   const workflow = await readYaml<Workflow>(filepath)
