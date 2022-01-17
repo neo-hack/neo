@@ -5,6 +5,7 @@ import json from '@rollup/plugin-json'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
 import ts from 'rollup-plugin-typescript2'
+import replace from '@rollup/plugin-replace'
 import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig([
@@ -21,17 +22,27 @@ export default defineConfig([
       ts({
         check: false,
       }),
+      // fix: https://github.com/rollup/rollup/issues/1507
+      replace({
+        delimiters: ['', ''],
+        values: {
+          [`require('readable-stream/transform')`]: `require('stream').Transform`,
+          [`require('readable-stream/readable')`]: `require('stream').Readable`,
+          [`require('readable-stream/passthrough')`]: `require('stream').PassThrough`,
+          'readable-stream': 'stream',
+        },
+      }),
       alias({
-        resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [
           { find: '@/', replacement: './src/' },
-          // fix: https://github.com/MatrixAI/js-virtualfs/issues/4
-          { find: 'readable-stream', replacement: 'stream' },
           // fix: https://github.com/SamVerschueren/stream-to-observable/issues/2
           { find: 'any-observable', replacement: 'zen-observable' },
         ],
       }),
-      nodeResolve({ preferBuiltins: true, exportConditions: ['node'] }),
+      nodeResolve({
+        preferBuiltins: true,
+        exportConditions: ['node'],
+      }),
       commonjs(),
       json(),
       terser(),
