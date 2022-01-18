@@ -1,1 +1,2 @@
 - [ ] - continue-on-error
+- [ ] - ignore node_modules

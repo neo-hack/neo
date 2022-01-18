@@ -25,6 +25,7 @@ export default defineConfig([
       // fix: https://github.com/rollup/rollup/issues/1507
       replace({
         delimiters: ['', ''],
+        preventAssignment: true,
         values: {
           [`require('readable-stream/transform')`]: `require('stream').Transform`,
           [`require('readable-stream/readable')`]: `require('stream').Readable`,
