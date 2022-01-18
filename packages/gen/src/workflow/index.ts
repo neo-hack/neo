@@ -1,6 +1,7 @@
 import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola from 'consola'
+import filter from 'gulp-filter'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context } from '../interface'
@@ -30,6 +31,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
       const pipes = async () => {
         let stream = gulp.src(job.paths ? [job.paths] : ['*'], { cwd: options.cwd!, dot: true })
         for (const step of job.steps || []) {
+          stream = stream.pipe(filter(['**', '!**/node_modules/**']))
           if (!step.uses && !step.run) {
             continue
           }
