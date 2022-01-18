@@ -18,21 +18,23 @@ export default defineConfig([
   {
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
+    external: ['readable-stream'],
     plugins: [
       ts({
         check: false,
       }),
+      // TODO: external or include
       // fix: https://github.com/rollup/rollup/issues/1507
-      replace({
-        delimiters: ['', ''],
-        preventAssignment: true,
-        values: {
-          [`require('readable-stream/transform')`]: `require('stream').Transform`,
-          [`require('readable-stream/readable')`]: `require('stream').Readable`,
-          [`require('readable-stream/passthrough')`]: `require('stream').PassThrough`,
-          'readable-stream': 'stream',
-        },
-      }),
+      // replace({
+      //   delimiters: ['', ''],
+      //   preventAssignment: true,
+      //   values: {
+      //     [`require('readable-stream/transform')`]: `require('stream').Transform`,
+      //     [`require('readable-stream/readable')`]: `require('stream').Readable`,
+      //     [`require('readable-stream/passthrough')`]: `require('stream').PassThrough`,
+      //     'readable-stream': 'stream',
+      //   },
+      // }),
       alias({
         entries: [
           { find: '@/', replacement: './src/' },

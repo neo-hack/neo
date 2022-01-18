@@ -1,0 +1,9 @@
+jobs:
+  Continue:
+    name: Setup Husky
+    steps:
+      - name: Setup Husky
+        run: pnpx --yes husky-init
+        continue-on-error: true
+        with:
+          quiet: false

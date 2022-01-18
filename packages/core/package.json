@@ -42,9 +42,10 @@
     ]
   },
   "dependencies": {
-    "@aiou/gen": "workspace:^0.0.0"
+    "readable-stream": "^3.6.0"
   },
   "devDependencies": {
+    "@aiou/gen": "workspace:^0.0.0",
     "@aiou/schema": "workspace:^1.1.0",
     "@changesets/cli": "latest",
     "@pnpm/client": "^6.1.0",

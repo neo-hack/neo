@@ -1,9 +1,0 @@
-jobs:
-  RUN:
-    paths: "*"
-    steps:
-      - name: Run Shell
-        run: echo <%= file.path %>
-        with:
-          quiet: false
-        continue-on-error: true

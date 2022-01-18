@@ -1,9 +1,11 @@
 import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
-import consola from 'consola'
+import consola, { Consola } from 'consola'
+import filter from 'gulp-filter'
+import plumber from 'gulp-plumber'
 
 import { hooks } from '../utils/hooks'
-import { Workflow, Job, Context } from '../interface'
+import { Workflow, Job, Context, Step } from '../interface'
 import { LIFE_CYCLES } from '../constants'
 import { builtInUses } from './uses'
 import { run, RunOptions } from './run'
@@ -15,8 +17,8 @@ export const readWorkflowSchema = async (filepath: string) => {
 }
 
 type CreateJobOptions = {
-  runAction: (id: string, args: any, ctx: Context) => any
-  runShell: (args: RunOptions, ctx: Context) => any
+  runAction: (id: string, args: any, options: Step, ctx: Context) => any
+  runShell: (args: RunOptions, options: Step, ctx: Context) => any
   // job name fallback
   key: string
   job: Job
@@ -28,42 +30,50 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
     const taskName = job.name || key
     const task = async () => {
       const pipes = async () => {
-        let stream = gulp.src(job.paths ? [job.paths] : ['*'], { cwd: options.cwd!, dot: true })
+        let stream = gulp.src(job.paths ? job.paths : ['*'], {
+          cwd: options.cwd!,
+          allowEmpty: true,
+          dot: true,
+        })
         for (const step of job.steps || []) {
+          stream = stream.pipe(filter(['**', '!**/node_modules/**']))
+          stream = stream.pipe(
+            plumber({
+              errorHandler(error) {
+                consola.error(error)
+                // if (!step['continue-on-error']) {
+                // }
+                hooks.callHook(taskName, { job: taskName, error })
+              },
+            }),
+          )
           if (!step.uses && !step.run) {
             continue
           }
-          try {
-            // run action
-            if (step.uses) {
-              const cb = await options.runAction?.(step.uses, step.with, {
-                cwd: options.cwd!,
-                debug: debug.uses,
-              })
-              if (!cb) {
-                continue
-              }
-              stream = stream.pipe(cb)
+          const extra: Step = { 'continue-on-error': step['continue-on-error'] }
+          if (step.uses) {
+            const cb = await options.runAction?.(step.uses, step.with, extra, {
+              cwd: options.cwd!,
+              debug: debug.uses,
+            })
+            if (!cb) {
+              continue
             }
-            // exec shell
-            if (step.run) {
-              const cb = options.runShell?.(
-                { commands: step.run, ...step.with },
-                { cwd: options.cwd!, debug: debug.run },
-              )
-              if (!cb) {
-                continue
-              }
-              stream = stream.pipe(cb)
-            }
-            step.name && hooks.callHook(step.name, { step: step.name })
-            hooks.callHook(LIFE_CYCLES.STEP, { step: step.name })
-          } catch (e) {
-            consola.error(e)
-            if (!step['continue-on-error']) {
-              throw e
-            }
+            stream = stream.pipe(cb)
+            // TODO: fail task
+            // if (!step['continue-on-error']) {
+            //   stream = stream.pipe(plumber.stop())
+            // }
           }
+          // exec shell
+          if (step.run) {
+            const cb = options.runShell?.({ commands: step.run, ...step.with }, extra, {
+              cwd: options.cwd!,
+              debug: debug.run,
+            })
+            stream = stream.pipe(cb)
+          }
+          hooks.callHook(LIFE_CYCLES.STEP, { step: step.name })
         }
         stream = stream.pipe(
           gulp.dest((file) => {
@@ -72,11 +82,13 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
         )
         return stream
       }
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         pipes().then((stream) => {
           stream.on('end', resolve)
+          stream.on('error', reject)
         })
       }).then(() => {
+        // TODO: failed listr task
         hooks.callHook(taskName, { job: taskName })
       })
     }
@@ -87,7 +99,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
   }
 }
 
-const runAction: CreateJobOptions['runAction'] = async (id, args, ctx) => {
+const runAction: CreateJobOptions['runAction'] = async (id, args, _options, ctx) => {
   debug.uses('run uses %s with %O', id, args)
   const action = builtInUses[id]
   if (!action) {
@@ -98,14 +110,15 @@ const runAction: CreateJobOptions['runAction'] = async (id, args, ctx) => {
   return cb
 }
 
-const runShell: CreateJobOptions['runShell'] = (args, ctx) => {
+const runShell: CreateJobOptions['runShell'] = (args, options, ctx) => {
   debug.run('exec command %O', args)
-  return run(args, ctx)
+  return run({ ...args, ignoreErrors: options['continue-on-error'] }, ctx)
 }
 
 export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
+  logLevel?: Consola['level']
 }
 
 export const createWorkflow = async ({
@@ -114,11 +127,13 @@ export const createWorkflow = async ({
   ...options
 }: CreateWorkflowOptions) => {
   const keys = Object.keys(schema.jobs || {})
+  consola.level = options.logLevel ?? consola.level
   return async () => {
     hooks.callHook(LIFE_CYCLES.START)
     const jobs: string[] = []
     for (const key of keys) {
       debug.job('create job %s on cwd %s', key, cwd)
+      // TODO: curry is wild
       const job = await createJob({
         job: schema.jobs![key],
         runAction,
