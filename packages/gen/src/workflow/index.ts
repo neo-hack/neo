@@ -1,6 +1,6 @@
 import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
-import consola from 'consola'
+import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
 
 import { hooks } from '../utils/hooks'
@@ -29,7 +29,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
     const taskName = job.name || key
     const task = async () => {
       const pipes = async () => {
-        let stream = gulp.src(job.paths ? [job.paths] : ['*'], { cwd: options.cwd!, dot: true })
+        let stream = gulp.src(job.paths ? job.paths : ['*'], { cwd: options.cwd!, dot: true })
         for (const step of job.steps || []) {
           stream = stream.pipe(filter(['**', '!**/node_modules/**']))
           if (!step.uses && !step.run) {
@@ -108,6 +108,7 @@ const runShell: CreateJobOptions['runShell'] = (args, ctx) => {
 export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
+  logLevel?: Consola['level']
 }
 
 export const createWorkflow = async ({
@@ -116,6 +117,7 @@ export const createWorkflow = async ({
   ...options
 }: CreateWorkflowOptions) => {
   const keys = Object.keys(schema.jobs || {})
+  consola.level = options.logLevel ?? consola.level
   return async () => {
     hooks.callHook(LIFE_CYCLES.START)
     const jobs: string[] = []

@@ -180,7 +180,7 @@ importers:
       del: ^6.0.0
       eslint: ^7.30.0
       esno: ^0.13.0
-      esrua: 0.0.0-beta-202201721613
+      esrua: 0.2.1
       execa: ^6.0.0
       fs-extra: ^10.0.0
       gulp: ^4.0.2
@@ -239,7 +239,7 @@ importers:
       comparedir-test: 1.2.0
       eslint: 7.32.0
       esno: 0.13.0_typescript@4.5.4
-      esrua: 0.0.0-beta-202201721613
+      esrua: 0.2.1
       execa: 6.0.0
       fs-extra: 10.0.0
       husky: 7.0.4
@@ -5047,8 +5047,8 @@ packages:
       estraverse: 5.3.0
     dev: true
 
-  /esrua/0.0.0-beta-202201721613:
-    resolution: {integrity: sha512-WswINn0eFUdEDe+C7zNSIUfJgV+jd0kt3N3vHOcKSxQX0NLKTf2GjN8t+142WgUg6WXb74z2eq78cjxV/YUQpg==}
+  /esrua/0.2.1:
+    resolution: {integrity: sha512-/8gAFv/XrRgcHvnx7saYLbG5+Lvab/7u7c7OoinNeiQTEppcl7yuOMGVqCeDDYUJsmIrl6m0I5yzQnrp8hitjQ==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3

@@ -86,3 +86,5 @@ program.parse(process.argv)
 consola.wrapConsole()
 process.on('unhandledRejection', (err) => consola.error('[unhandledRejection]', err))
 process.on('uncaughtException', (err) => consola.error('[uncaughtException]', err))
+// @ts-ignore http://nodejs.cn/api/process/process_nodeprecation.html
+process.noDeprecation = true

@@ -1,2 +1,3 @@
 - [ ] - continue-on-error
-- [ ] - ignore node_modules
+- [x] - ignore node_modules
+- [ ] - gulp-if (created as issue)
