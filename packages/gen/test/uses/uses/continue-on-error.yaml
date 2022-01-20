@@ -3,7 +3,7 @@ jobs:
     name: Setup Husky
     steps:
       - name: Setup Husky
-        run: pnpx husky-init
+        run: pnpx --yes husky-init
         continue-on-error: true
         with:
           quiet: false
