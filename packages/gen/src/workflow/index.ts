@@ -2,7 +2,7 @@ import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
-import plumber from 'gulp-plumber'
+// import plumber from 'gulp-plumber'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context, Step } from '../interface'
@@ -35,22 +35,22 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
           allowEmpty: true,
           dot: true,
         })
+        stream = stream.pipe(filter(['**', '!**/node_modules/**']))
+        // stream = stream.pipe(
+        //   plumber({
+        //     errorHandler(error) {
+        //       consola.error(error)
+        //       // if (!extra['continue-on-error']) {
+        //       // }
+        //       hooks.callHook(taskName, { job: taskName, error })
+        //     },
+        //   }),
+        // )
         for (const step of job.steps || []) {
-          stream = stream.pipe(filter(['**', '!**/node_modules/**']))
-          stream = stream.pipe(
-            plumber({
-              errorHandler(error) {
-                consola.error(error)
-                // if (!step['continue-on-error']) {
-                // }
-                hooks.callHook(taskName, { job: taskName, error })
-              },
-            }),
-          )
+          const extra: Step = { 'continue-on-error': step['continue-on-error'] }
           if (!step.uses && !step.run) {
             continue
           }
-          const extra: Step = { 'continue-on-error': step['continue-on-error'] }
           if (step.uses) {
             const cb = await options.runAction?.(step.uses, step.with, extra, {
               cwd: options.cwd!,
@@ -59,11 +59,14 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
             if (!cb) {
               continue
             }
-            stream = stream.pipe(cb)
-            // TODO: fail task
-            // if (!step['continue-on-error']) {
-            //   stream = stream.pipe(plumber.stop())
-            // }
+            stream = stream.pipe(cb).on('error', function (this: any, error: Error) {
+              if (!extra['continue-on-error']) {
+                hooks.callHook(taskName, { job: taskName, error })
+                stream.emit('error')
+              } else {
+                stream.emit('success')
+              }
+            })
           }
           // exec shell
           if (step.run) {
@@ -85,6 +88,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
       return new Promise((resolve, reject) => {
         pipes().then((stream) => {
           stream.on('end', resolve)
+          stream.on('success', resolve)
           stream.on('error', reject)
         })
       }).then(() => {
