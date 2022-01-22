@@ -21,7 +21,7 @@
     "baseUrl": "./",
     "plugins": [
       // Display tsc progress bar
-      { "transform": "tsc-progress", "title": "GEN", "color": "blue" },
+      { "transform": "tsc-progress", "title": "mario", "color": "blue" },
       {
         "transform": "typescript-transform-extensions",
         "extensions": { ".ts": ".mjs" }

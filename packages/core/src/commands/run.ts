@@ -1,5 +1,5 @@
-import { create } from '@aiou/gen'
-import { toListr } from '@aiou/gen/helpers'
+import { create } from '@aiou/mario'
+import { toListr } from '@aiou/mario/helpers'
 import Listr from 'listr'
 import path from 'path'
 

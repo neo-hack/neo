@@ -32,7 +32,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@aiou/gen': workspace:^0.0.0
+      '@aiou/mario': workspace:^0.0.0
       '@aiou/schema': workspace:^1.1.0
       '@changesets/cli': latest
       '@pnpm/client': ^6.1.0
@@ -101,7 +101,7 @@ importers:
     dependencies:
       readable-stream: 3.6.0
     devDependencies:
-      '@aiou/gen': link:../gen
+      '@aiou/mario': link:../mario
       '@aiou/schema': link:../schema
       '@changesets/cli': 2.19.0
       '@pnpm/client': 6.1.0_@pnpm+logger@4.0.0
@@ -167,7 +167,7 @@ importers:
       write-yaml-file: 4.2.0
       zen-observable: 0.8.15
 
-  packages/gen:
+  packages/mario:
     specifiers:
       '@types/gulp': ^4.0.9
       '@types/gulp-filter': ^3.0.34
@@ -5909,7 +5909,7 @@ packages:
       '@types/vinyl': 2.0.6
       istextorbinary: 3.3.0
       replacestream: 4.0.3
-      yargs-parser: 20.2.9
+      yargs-parser: 21.0.0
 
   /gulp-shell/0.8.0:
     resolution: {integrity: sha512-wHNCgmqbWkk1c6Gc2dOL5SprcoeujQdeepICwfQRo91DIylTE7a794VEE+leq3cE2YDoiS5ulvRfKVIEMazcTQ==}
@@ -10598,7 +10598,7 @@ packages:
     resolution: {integrity: sha512-b85NUNzTSdodShTIbky6ZF02e8STtVVfD+fu4aXXShEELpozH+bCpJLYMPZbsABN2wDH7fJpqIoXxJpzbf0NqQ==}
     dependencies:
       es5-ext: 0.10.53
-      next-tick: 1.0.0
+      next-tick: 1.1.0
     dev: true
 
   /tmp/0.0.33:
@@ -11539,11 +11539,11 @@ packages:
   /yargs-parser/20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
     engines: {node: '>=10'}
+    dev: true
 
   /yargs-parser/21.0.0:
     resolution: {integrity: sha512-z9kApYUOCwoeZ78rfRYYWdiU/iNL6mwwYlkkZfJoyMR1xps+NEBX5X7XmRpxkZHhXJ6+Ey00IwKxBBSW9FIjyA==}
     engines: {node: '>=12'}
-    dev: true
 
   /yargs-parser/5.0.1:
     resolution: {integrity: sha512-wpav5XYiddjXxirPoCTUPbqM0PXvJ9hiBMvuJgInvo4/lAOTZzUprArw17q2O1P2+GHhbBr18/iQwjL5Z9BqfA==}

@@ -1,5 +1,5 @@
 import { Workflow } from '../interface'
-import { hooks } from '../utils/hooks'
+import { hooks } from './hooks'
 
 import Observable from 'zen-observable'
 import type Listr from 'listr'

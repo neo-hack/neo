@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`workflow.run run shell should work 1`] = `"/Users/jiangwei/projects/neo/packages/gen/test/run/output/input.ts"`;

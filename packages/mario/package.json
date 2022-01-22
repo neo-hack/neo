@@ -1,5 +1,5 @@
 {
-  "name": "@aiou/gen",
+  "name": "@aiou/mario",
   "version": "0.0.0",
   "description": "generator of neo",
   "keywords": [
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neo-hack/neo.git",
-    "directory": "packages/gen"
+    "directory": "packages/mario"
   },
   "bugs": {
     "url": "https://github.com/neo-hack/neo/issues",

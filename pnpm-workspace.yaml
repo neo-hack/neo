@@ -1,4 +1,4 @@
 packages:
   - 'packages/**'
   - '!**/fixtures/**'
-  - '!packages/gen/test/workflow/**'
+  - '!packages/mario/test/workflow/**'
