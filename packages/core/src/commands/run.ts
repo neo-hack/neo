@@ -5,6 +5,7 @@ import path from 'path'
 import fs from 'fs-extra'
 
 import { debug } from '../utils/logger'
+import { usage } from '../utils/show-usage'
 import createStore from '../store'
 import { CommonOptions } from '../interface'
 import { isYaml } from '../utils'
@@ -22,6 +23,10 @@ const runMario = async (filepath: string, options: Pick<RunOptions, 'module'>) =
 
 export const run = async (alias: string, params: RunOptions) => {
   debug.run('run options %O', params)
+  if (!alias) {
+    console.log(usage.run())
+    return
+  }
   if (isYaml(alias)) {
     await runMario(alias, { module: params.module })
     return

@@ -51,6 +51,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
                 debug: debug.uses,
               })
               .catch((error: Error) => {
+                consola.error(error)
                 if (!extra['continue-on-error']) {
                   hooks.callHook(taskName, { job: taskName, error })
                   stream.emit('error')

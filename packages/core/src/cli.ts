@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
+import { usage } from './utils/show-usage'
 
 // polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
@@ -67,10 +68,14 @@ cli
   .command('run [generator]')
   .alias('prepack')
   .description(
-    'Run generator workflow, if generator not define, will start `generator-pnpm` including ci, lint, husky, etc.. to your project',
+    `Run ${tl(
+      '@aiou/mario',
+      'https://github.com/neo-hack/neo/tree/master/packages/mario',
+    )} generator`,
   )
-  .option('-m, --module [modules...]', 'Prepack partial of ci, lint, husky, etc... to your project')
+  .option('-m, --module [modules...]', 'Partial modules of workflow will run')
   .action(handler('run'))
+  .addHelpText('after', usage.run())
 
 cli
   .command('add [alias]')
