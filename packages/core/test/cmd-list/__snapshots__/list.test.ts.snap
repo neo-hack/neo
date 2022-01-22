@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`command list should contain all templates in store 1`] = `
-"[log] Note: cached, uncached
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] Note: cached, uncached
 
 [log] Found 2 templates:
 
@@ -10,10 +12,16 @@ exports[`command list should contain all templates in store 1`] = `
 ts-lib-template"
 `;
 
-exports[`command list should show empty template list with wrong preset 1`] = `"[log] No templates..."`;
+exports[`command list should show empty template list with wrong preset 1`] = `
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] No templates..."
+`;
 
 exports[`command list should show template list filter by preset 1`] = `
-"[log] Note: cached, uncached
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] Note: cached, uncached
 
 [log] Found 2 templates:
 
