@@ -7,3 +7,8 @@ jobs:
         continue-on-error: true
         with:
           quiet: false
+  Echo:
+    name: Echo
+    steps:
+      - name: Echo
+        run: echo hello world

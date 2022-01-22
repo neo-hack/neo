@@ -2,7 +2,6 @@ import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
-// import plumber from 'gulp-plumber'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context, Step } from '../interface'
@@ -36,16 +35,6 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
           dot: true,
         })
         stream = stream.pipe(filter(['**', '!**/node_modules/**']))
-        // stream = stream.pipe(
-        //   plumber({
-        //     errorHandler(error) {
-        //       consola.error(error)
-        //       // if (!extra['continue-on-error']) {
-        //       // }
-        //       hooks.callHook(taskName, { job: taskName, error })
-        //     },
-        //   }),
-        // )
         for (const step of job.steps || []) {
           const extra: Step = { 'continue-on-error': step['continue-on-error'] }
           if (!step.uses && !step.run) {
@@ -92,7 +81,6 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
           stream.on('error', reject)
         })
       }).then(() => {
-        // TODO: failed listr task
         hooks.callHook(taskName, { job: taskName })
       })
     }
