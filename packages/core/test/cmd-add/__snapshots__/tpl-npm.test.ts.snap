@@ -2,11 +2,11 @@
 
 exports[`load template from npm should work 1`] = `
 "templates:
-  registry.npmjs.org/@aiou/ts-lib-template/0.5.2:
+  registry.npmjs.org/@aiou/ts-lib-template/0.5.3:
     name: '@aiou/ts-lib-template'
-    version: 0.5.2
+    version: 0.5.3
     resolvedVia: npm-registry
-    id: registry.npmjs.org/@aiou/ts-lib-template/0.5.2
+    id: registry.npmjs.org/@aiou/ts-lib-template/0.5.3
     pref: '@aiou/ts-lib-template'
 "
 `;
