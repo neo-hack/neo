@@ -8,26 +8,27 @@ import { debug } from '../utils/logger'
 import createStore from '../store'
 import { CommonOptions } from '../interface'
 import { isYaml } from '../utils'
+import { LogLevel } from 'consola'
 
-const runMario = async (filepath: string) => {
-  const workflow = await create(filepath)
+type RunOptions = CommonOptions & { module: string[] }
+
+const runMario = async (filepath: string, options: Pick<RunOptions, 'module'>) => {
+  const workflow = await create(filepath, { logLevel: LogLevel.Silent, jobs: options.module })
   const tasks: Listr.ListrTask[] = toListr(workflow.schema)
   const list = new Listr(tasks, { concurrent: false, exitOnError: true })
   list.run()
   await workflow.start()
 }
 
-type RunOptions = CommonOptions & { module: string[] }
-
 export const run = async (alias: string, params: RunOptions) => {
   debug.run('run options %O', params)
   if (isYaml(alias)) {
-    await runMario(alias)
+    await runMario(alias, { module: params.module })
     return
   }
   const neoTempDir = path.join(process.cwd(), '.neo')
   const isNeoExit = fs.existsSync(neoTempDir)
-  const target = path.join(neoTempDir, alias)
+  const target = path.join(neoTempDir, '.mario')
   fs.ensureDirSync(target)
   const store = await createStore(params)
   const prepare = new Listr([
@@ -41,7 +42,7 @@ export const run = async (alias: string, params: RunOptions) => {
     },
   ])
   await prepare.run()
-  await runMario(path.join(target, 'index.yaml'))
+  await runMario(path.join(target, 'index.yaml'), { module: params.module })
   if (isNeoExit) {
     fs.removeSync(target)
   } else {

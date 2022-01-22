@@ -127,8 +127,6 @@ export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
   logLevel?: Consola['level']
-  // filter workflow.jobs by job keys
-  jobs?: string[]
 }
 
 export const createWorkflow = async ({
@@ -141,9 +139,6 @@ export const createWorkflow = async ({
   return async () => {
     const jobs: string[] = []
     for (const key of keys) {
-      if (options.jobs && !options.jobs?.includes(key)) {
-        continue
-      }
       debug.job('create job %s on cwd %s', key, cwd)
       // TODO: curry is wild
       const job = await createJob({
