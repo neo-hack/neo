@@ -9,6 +9,6 @@ beforeAll(() => {
 })
 
 it('use jsoneditor should work', async () => {
-  await execa('esmo', [r('test/uses/json-editor/json-editor.ts')])
+  await execa('esmrua', [r('test/uses/json-editor/json-editor.ts'), 'main'])
   await compare(r('test/uses/json-editor/expected'), r('test/uses/json-editor/output'))
 })

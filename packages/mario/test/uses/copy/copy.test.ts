@@ -9,6 +9,6 @@ beforeAll(() => {
 })
 
 it('copy action should work', async () => {
-  await execa('esmo', [r('test/uses/copy/copy.ts')])
+  await execa('esmrua', [r('test/uses/copy/copy.ts'), 'main'])
   await compare(r('test/uses/copy/expected'), r('test/uses/copy/output'))
 })

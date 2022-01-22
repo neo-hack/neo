@@ -14,8 +14,3 @@ export const continueOnError = async () => {
   })
   await workflow.start()
 }
-
-// const workflow = await create(r('test/uses/uses/continue-on-error.yaml'), {
-//   cwd: r('test/uses/uses'),
-// })
-// await workflow.start()

@@ -8,6 +8,6 @@ beforeAll(() => {
 })
 
 it('uses clean should work', async () => {
-  await execa('esmo', [r('test/uses/clean/clean.ts')])
+  await execa('esmrua', [r('test/uses/clean/clean.ts'), 'main'])
   expect(fs.existsSync(r('test/uses/clean/output/index.ts'))).toBe(false)
 })
