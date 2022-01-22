@@ -1,6 +1,6 @@
 import Debug from 'debug'
 
-const prefix = 'gen'
+export const prefix = 'mario'
 
 export const debug = {
   workflow: Debug(`${prefix}:workflow`),

@@ -2,13 +2,14 @@ import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
+import gulpDebug from 'gulp-debug'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context, Step } from '../interface'
 import { LIFE_CYCLES } from '../constants'
 import { builtInUses } from './uses'
 import { run, RunOptions } from './run'
-import { debug } from '../utils/logger'
+import { debug, prefix } from '../utils/logger'
 
 export const readWorkflowSchema = async (filepath: string) => {
   const workflow = await readYaml<Workflow>(filepath)
@@ -35,6 +36,9 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
           dot: true,
         })
         stream = stream.pipe(filter(['**', '!**/node_modules/**']))
+        if (process.env.DEBUG?.includes(`${prefix}:job`)) {
+          stream = stream.pipe(gulpDebug({ title: 'mario' }))
+        }
         for (const step of job.steps || []) {
           const extra: Step = { 'continue-on-error': step['continue-on-error'] }
           if (!step.uses && !step.run) {
@@ -48,13 +52,16 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
             if (!cb) {
               continue
             }
-            stream = stream.pipe(cb).on('error', function (this: any, error: Error) {
-              if (!extra['continue-on-error']) {
-                hooks.callHook(taskName, { job: taskName, error })
-                stream.emit('error')
-              } else {
-                stream.emit('success')
-              }
+            const cbs = Array.isArray(cb) ? cb : [cb]
+            cbs.forEach((cb) => {
+              stream = stream.pipe(cb).on('error', function (this: any, error: Error) {
+                if (!extra['continue-on-error']) {
+                  hooks.callHook(taskName, { job: taskName, error })
+                  stream.emit('error')
+                } else {
+                  stream.emit('success')
+                }
+              })
             })
           }
           // exec shell

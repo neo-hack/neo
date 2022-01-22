@@ -10,6 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export const r = (pathname = '.') => path.resolve(__dirname, '..', '..', pathname)
 
 export const isMonorepo = () => findUp('pnpm-workspace.yaml')
+export const isYaml = (filepath: string) => ['.yaml', '.yml'].includes(path.extname(filepath))
 
 /**
  * @description
