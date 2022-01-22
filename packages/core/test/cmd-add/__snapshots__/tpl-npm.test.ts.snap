@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`load template from npm should work 1`] = `
+"templates:
+  registry.npmjs.org/@aiou/ts-lib-template/0.5.2:
+    name: '@aiou/ts-lib-template'
+    version: 0.5.2
+    resolvedVia: npm-registry
+    id: registry.npmjs.org/@aiou/ts-lib-template/0.5.2
+    pref: '@aiou/ts-lib-template'
+"
+`;

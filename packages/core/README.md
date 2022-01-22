@@ -14,7 +14,7 @@
     - [list configs](#list-configs)
   - [create](#create)
   - [add](#add)
-  - [prepack](#prepack)
+  - [run](#run)
   - [whoami](#whoami)
 
 ## install
@@ -82,24 +82,20 @@ neo add <alias> --preset
 neo add <alias>
 ```
 
-### prepack
-> prepack `ci & lint & precommit` into packages
+### run
+> run [`@aiou/mario`]('https://github.com/neo-hack/neo/tree/master/packages/mario) generator
 
 ```bash
-neo prepack
+neo run @aiou/generator-pnpm-ci
 ```
 
-including...
+check [@aiou/generator-pnpm-ci](https://github.com/neo-hack/neo/tree/master/packages/generators/pnpm-ci) for more detail
 
-- `release.yml` - publish package with `changeset`
-- `snapshot-release.yml` - publish prerelease package with `changeset`
-- `.husky & lint-staged` - lint-staged precommit
-- `.eslintrc.js` - eslint config [@aiou/eslint-config](https://github.com/JiangWeixian/eslint-config)
-- `ISSUE_TEMPLATE & PR_REQUEST_TEMPLATE` - see [here](https://github.com/neo-hack/neo/tree/master/packages/core/assets/templates) for more details
+or yaml filepath
 
-`options`
-
-- `--module` - prepack part of `ci, lint, issue, pr, husky`, e.g `neo prepack --module ci`
+```bash
+neo run <filepath>.yaml
+```
 
 ### whoami
 

@@ -1,0 +1,28 @@
+{
+  "name": "@aiou/generator-pnpm-ci",
+  "version": "0.0.0",
+  "description": "demo generator design for for basic pnpm project",
+  "keywords": [
+    "aiou",
+    "mario",
+    "pnpm",
+    "basic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git",
+    "directory": "packages/generators/pnpm"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "main": "lib/index.yaml"
+}

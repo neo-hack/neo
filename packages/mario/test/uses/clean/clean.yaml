@@ -1,0 +1,9 @@
+jobs:
+  CLEAN:
+    paths: "*.ts"
+    steps:
+      - name: Clean Action
+      - uses: clean
+        with:
+          paths:
+            - "output/*"

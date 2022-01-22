@@ -1,0 +1,16 @@
+jobs:
+  JSON EDITOR:
+    paths: "output/**/*.json"
+    steps:
+      - name: Json Editor Action
+      - uses: json-editor
+        with:
+          content:
+            version: "1.0.0"
+          pairs:
+            - path: "scripts.ci:prepare"
+              value: "pnpm publish"
+            - path: "lint-staged"
+              value:
+                "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+            

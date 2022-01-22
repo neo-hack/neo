@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "scripts": {
+    "ci:prepare": "pnpm publish"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+  }
+}

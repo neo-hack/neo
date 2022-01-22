@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
+import { usage } from './utils/show-usage'
 
 // polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
@@ -19,7 +20,7 @@ const commands = {
   create: async () => await import('./commands/create').then((res) => res.create),
   list: async () => await import('./commands/list').then((res) => res.list),
   add: async () => await import('./commands/add').then((res) => res.add),
-  prepack: async () => await import('./commands/prepack').then((res) => res.prepack),
+  run: async () => await import('./commands/run').then((res) => res.run),
   whoami: async () => await import('./commands/whoami').then((res) => res.whoami),
 }
 
@@ -64,11 +65,17 @@ cli
 cli.command('whoami').alias('docs').description('What is neo?').action(handler('whoami'))
 
 cli
-  .command('prepack')
-  .alias('p')
-  .description('Prepack neo ci, lint, husky, etc.. to your project')
-  .option('-m, --module [modules...]', 'Prepack partial of ci, lint, husky, etc... to your project')
-  .action(handler('prepack'))
+  .command('run [generator]')
+  .alias('prepack')
+  .description(
+    `Run ${tl(
+      '@aiou/mario',
+      'https://github.com/neo-hack/neo/tree/master/packages/mario',
+    )} generator`,
+  )
+  .option('-m, --module [modules...]', 'Partial modules of workflow will run')
+  .action(handler('run'))
+  .addHelpText('after', usage.run())
 
 cli
   .command('add [alias]')
@@ -83,3 +90,5 @@ program.parse(process.argv)
 consola.wrapConsole()
 process.on('unhandledRejection', (err) => consola.error('[unhandledRejection]', err))
 process.on('uncaughtException', (err) => consola.error('[uncaughtException]', err))
+// @ts-ignore http://nodejs.cn/api/process/process_nodeprecation.html
+process.noDeprecation = true

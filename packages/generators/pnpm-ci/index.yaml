@@ -1,0 +1,93 @@
+jobs:
+  Issue template:
+    name: Setup github issue templates
+    paths: .neo/**/assets/templates/ISSUE_TEMPLATE/*.md
+    steps:
+      - name: Issue templates
+        uses: copy
+        with:
+          output: .github/ISSUE_TEMPLATE
+  PR template:
+    name: Setup github pr templates
+    paths: .neo/**/assets/templates/*.md
+    steps:
+      - name: PR templates
+        uses: copy
+        with:
+          output: .github
+  CI:
+    name: Setup ci workflow
+    paths: .neo/**/assets/workflows/*
+    steps:
+      - name: CI Workflows
+        uses: copy
+        with:
+          output: .github/workflows
+  Lint:
+    name: Setup eslint
+    paths: .neo/**/assets/eslint/.*
+    steps:
+      - name: ESLint
+        uses: copy
+          
+  Setup Pkg:
+    paths: package.json
+    name: Setup lint config
+    steps:
+      - name: Add CI Scripts
+        uses: json-editor
+        with:
+          pairs:
+            - path: "scripts.ci:version"
+              value: "pnpm changeset version"
+            - path: "scripts.ci:publish"
+              value: "pnpm run build && pnpm changeset publish"
+            - path: "ci:snapshot"
+              value: "pnpx changeset version --snapshot beta"
+            - path: "ci:prerelease"
+              value: "pnpm run build && pnpx changeset publish --tag beta"
+      - name: Add lint-staged
+        uses: json-editor
+        with:
+          pairs:
+            - path: "lint-staged"
+              value:
+                "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+
+      - name: Add changeset
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.@changesets/cli"
+              value: "latest"
+
+      - name: Add husky
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.husky"
+              value: "latest"
+
+      - name: Add lint:fix
+        uses: json-editor
+        with:
+          pairs:
+            - path: "scripts.lint:fix"
+              value: "eslint . --fix"
+  Changeset:
+    name: Setup Changeset
+    steps:
+      - name: Setup changeset
+        run: pnpx changeset init
+        with:
+          quiet: true
+
+  Precommit:
+    paths: .git
+    name: Setup precommit
+    steps:
+      - name: Setup Husky
+        run: pnpx --yes husky-init
+        continue-on-error: true
+        with:
+          quiet: true
