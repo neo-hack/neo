@@ -1,28 +1,34 @@
 jobs:
-  repo:
-    name: Setup github templates
-    paths: assets/templates/**/*.md
+  Issue template:
+    name: Setup github issue templates
+    paths: .neo/**/assets/templates/ISSUE_TEMPLATE/*.md
     steps:
-      - name: PR and Issue templates
+      - name: Issue templates
         uses: copy
         with:
-          output: output/templates
-  ci:
+          output: .github/ISSUE_TEMPLATE
+  PR template:
+    name: Setup github pr templates
+    paths: .neo/**/assets/templates/*.md
+    steps:
+      - name: PR templates
+        uses: copy
+        with:
+          output: .github
+  CI:
     name: Setup ci workflow
-    paths: assets/workflows/*
+    paths: .neo/**/assets/workflows/*
     steps:
       - name: CI Workflows
         uses: copy
         with:
-          output: output/workflows
+          output: .github/workflows
   Lint:
     name: Setup eslint
-    paths: assets/eslint/*
+    paths: .neo/**/assets/eslint/.*
     steps:
       - name: ESLint
         uses: copy
-        with:
-          output: output
           
   Setup Pkg:
     paths: package.json

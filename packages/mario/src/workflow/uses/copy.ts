@@ -10,9 +10,12 @@ type CopyOptions = {
   'keep-depth'?: boolean
 }
 
-export const copy: Action<CopyOptions> = (options: CopyOptions, ctx) => {
+export const copy: Action<CopyOptions> = (
+  options: CopyOptions = { output: process.cwd() },
+  ctx,
+) => {
   if (options['keep-depth']) {
-    return CopyTo(path.join(ctx.cwd, options.output))
+    return CopyTo(path.resolve(ctx.cwd, options.output))
   }
   return [rename({ dirname: '' }), gulp.dest(options.output, { cwd: ctx.cwd })]
 }

@@ -35,9 +35,9 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
           allowEmpty: true,
           dot: true,
         })
-        stream = stream.pipe(filter(['**', '!**/node_modules/**']))
+        stream = stream.pipe(filter(['**', '.**', '!**/node_modules/**']))
         if (process.env.DEBUG?.includes(`${prefix}:job`)) {
-          stream = stream.pipe(gulpDebug({ title: 'mario' }))
+          stream = stream.pipe(gulpDebug({ title: taskName }))
         }
         for (const step of job.steps || []) {
           const extra: Step = { 'continue-on-error': step['continue-on-error'] }
@@ -45,10 +45,19 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
             continue
           }
           if (step.uses) {
-            const cb = await options.runAction?.(step.uses, step.with, extra, {
-              cwd: options.cwd!,
-              debug: debug.uses,
-            })
+            const cb = await options
+              .runAction?.(step.uses, step.with, extra, {
+                cwd: options.cwd!,
+                debug: debug.uses,
+              })
+              .catch((error: Error) => {
+                if (!extra['continue-on-error']) {
+                  hooks.callHook(taskName, { job: taskName, error })
+                  stream.emit('error')
+                } else {
+                  stream.emit('success')
+                }
+              })
             if (!cb) {
               continue
             }
