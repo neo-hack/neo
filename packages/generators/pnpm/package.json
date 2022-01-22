@@ -1,6 +1,6 @@
 {
   "name": "@aiou/generator-pnpm-ci",
-  "version": "0.0.0",
+  "version": "0.0.0-beta-20220122035241",
   "description": "demo generator design for for basic pnpm project",
   "keywords": [
     "aiou",
