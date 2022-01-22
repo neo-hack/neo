@@ -1,0 +1,5 @@
+with:
+  - find: one
+    replace: one target
+  - find: two
+    replace: two targets

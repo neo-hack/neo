@@ -1,0 +1,9 @@
+jobs:
+  REPLACE:
+    paths: "output/**/*.ts"
+    steps:
+      - name: Replace Action
+      - uses: replace
+        with:
+          match: one
+          replacement: target

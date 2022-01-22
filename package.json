@@ -25,11 +25,9 @@
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx,json}'",
     "lint:fix": "eslint . --fix",
-    "ncu": "ncu pretty-quick --packageFile 'packages/**/package.json'",
     "build": "pnpm build -r",
     "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm run build && pnpm changeset publish",
-    "upgrade:core": "cd packages/core && ncu --configFilePath ./.ncurc.json",
     "ci:snapshot": "pnpx changeset version --snapshot beta",
     "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
     "prepare": "husky install",
@@ -50,7 +48,6 @@
     "glob": "7.2.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
-    "npm-check-updates": "^12.1.0",
     "prettier": "^2.5.1",
     "tsc-progress": "^1.0.2",
     "typescript": "^4.5.4"

@@ -10,7 +10,7 @@ import path from 'path'
 let store: AsyncReturnType<typeof createStore>
 
 const createStore = async (params: CommonOptions) => {
-  debug.store('init store at %s', params.storeDir)
+  debug.store('init store at %s', params.storeDir || 'default')
   const pm = await createTemplatePM(params)
   const lockFile = createLockFile(params)
   return {
