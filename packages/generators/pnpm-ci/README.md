@@ -1,4 +1,4 @@
-# pnpm-basic
+# pnpm-ci
 
 ## features
 
