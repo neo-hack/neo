@@ -8,7 +8,7 @@ export const run = async (alias: string) => {
   // 2. alias is relative workflow filepath
   const workflow = await create(path.resolve(process.cwd(), alias))
   const tasks: Listr.ListrTask[] = toListr(workflow.schema)
-  const list = new Listr(tasks, { concurrent: false })
+  const list = new Listr(tasks, { concurrent: false, exitOnError: true })
   list.run()
   await workflow.start()
 }

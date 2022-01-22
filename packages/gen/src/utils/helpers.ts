@@ -22,12 +22,11 @@ export const toListr = (schema: Workflow) => {
           [LIFE_CYCLES.STEP]: (args: { step: string }) => {
             ob.next(args.step)
           },
-          [taskName]: (args: { error: any }) => {
+          [taskName]: (args: { error: Error }) => {
             if (!args.error) {
               ob.complete()
               return
             }
-            // TODO: failed task
             ob.error(args.error)
           },
         })

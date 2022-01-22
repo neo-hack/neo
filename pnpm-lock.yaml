@@ -100,7 +100,6 @@ importers:
       write-yaml-file: ^4.2.0
       zen-observable: ^0.8.15
     dependencies:
-      gulp-plumber: 1.2.1
       readable-stream: 3.6.0
     devDependencies:
       '@aiou/gen': link:../gen
