@@ -1,0 +1,37 @@
+{
+  "name": "aiou",
+  "version": "1.0.0",
+  "description": "templates",
+  "keywords": [
+    "templates",
+    "neo"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues"
+  },
+  "author": {
+    "name": "jiangweixian"
+  },
+  "main": "index.js",
+  "files": [
+    "packages/core"
+  ],
+  "scripts": {
+    "ci:version": "pnpm changeset version"
+  },
+  "lint-staged": {
+    "**/**/*.{js,ts,tsx,vue,json}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@changesets/cli": "latest",
+    "husky": "latest"
+  }
+}

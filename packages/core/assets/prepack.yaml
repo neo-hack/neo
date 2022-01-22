@@ -1,0 +1,71 @@
+jobs:
+  repo:
+    name: Setup github templates
+    paths: assets/templates/**/*.md
+    steps:
+      - name: PR and Issue templates
+        uses: copy
+        with:
+          output: output/templates
+  ci:
+    name: Setup ci workflow
+    paths: assets/workflows/*
+    steps:
+      - name: CI Workflows
+        uses: copy
+        with:
+          output: output/workflows
+  Lint:
+    name: Setup eslint
+    paths: assets/eslint/*
+    steps:
+      - name: ESLint
+        uses: copy
+        with:
+          output: output
+          
+  Setup Pkg:
+    paths: package.json
+    name: Setup lint config
+    steps:
+      - name: Add CI Scripts
+        uses: json-editor
+        with:
+          pairs:
+            - path: "scripts.ci:version"
+              value: "pnpm changeset version"
+      - name: Add lint-staged
+        uses: json-editor
+        with:
+          pairs:
+            - path: "lint-staged"
+              value:
+                "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+
+      - name: Add changeset
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.@changesets/cli"
+              value: "latest"
+
+      - name: Add husky
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.husky"
+              value: "latest"
+  Changeset:
+    name: Setup Changeset
+    steps:
+      - name: Setup changeset
+        run: pnpx changeset init
+        with:
+          quiet: true
+
+  # Precommit:
+  #   name: Setup precommit
+  #   steps:
+  #     - name: Setup Husky
+  #       run: pnpx husky-init
+  #       continue-on-error: true

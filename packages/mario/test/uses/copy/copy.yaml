@@ -1,0 +1,9 @@
+jobs:
+  COPY:
+    paths: "assets.ts"
+    steps:
+      - name: COPY
+      - uses: copy
+        with:
+          output: output
+            

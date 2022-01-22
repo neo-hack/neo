@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`workflow.run run shell should work 1`] = `"/Users/jiangwei/projects/neo/packages/mario/test/run/output/input.ts"`;

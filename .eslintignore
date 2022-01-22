@@ -7,3 +7,4 @@ jest
 coverage
 .eslintrc.js,
 size-plugin.json
+fixtures
