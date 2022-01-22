@@ -1,5 +1,12 @@
 # @aiou/neo
 
+## 0.0.0-beta-20220122125303
+
+### Minor Changes
+
+- de33e0d: refractor prepack command
+- 2bfd0e8: print version before cmd
+
 ## 3.3.2
 
 ### Patch Changes
