@@ -69,8 +69,7 @@ cli
   .description(
     'Run generator workflow, if generator not define, will start `generator-pnpm` including ci, lint, husky, etc.. to your project',
   )
-  // TODO: support module
-  // .option('-m, --module [modules...]', 'Prepack partial of ci, lint, husky, etc... to your project')
+  .option('-m, --module [modules...]', 'Prepack partial of ci, lint, husky, etc... to your project')
   .action(handler('run'))
 
 cli

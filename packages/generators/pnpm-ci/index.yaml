@@ -40,6 +40,12 @@ jobs:
           pairs:
             - path: "scripts.ci:version"
               value: "pnpm changeset version"
+            - path: "scripts.ci:publish"
+              value: "pnpm run build && pnpm changeset publish"
+            - path: "ci:snapshot"
+              value: "pnpx changeset version --snapshot beta"
+            - path: "ci:prerelease"
+              value: "pnpm run build && pnpx changeset publish --tag beta"
       - name: Add lint-staged
         uses: json-editor
         with:
@@ -61,6 +67,13 @@ jobs:
           pairs:
             - path: "devDependencies.husky"
               value: "latest"
+
+      - name: Add lint:fix
+        uses: json-editor
+        with:
+          pairs:
+            - path: "scripts.lint:fix"
+              value: "eslint . --fix"
   Changeset:
     name: Setup Changeset
     steps:

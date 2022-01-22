@@ -127,6 +127,8 @@ export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
   logLevel?: Consola['level']
+  // filter workflow.jobs by job keys
+  jobs?: string[]
 }
 
 export const createWorkflow = async ({
@@ -137,9 +139,11 @@ export const createWorkflow = async ({
   const keys = Object.keys(schema.jobs || {})
   consola.level = options.logLevel ?? consola.level
   return async () => {
-    hooks.callHook(LIFE_CYCLES.START)
     const jobs: string[] = []
     for (const key of keys) {
+      if (options.jobs && !options.jobs?.includes(key)) {
+        continue
+      }
       debug.job('create job %s on cwd %s', key, cwd)
       // TODO: curry is wild
       const job = await createJob({
@@ -154,10 +158,6 @@ export const createWorkflow = async ({
       jobs.push(name)
     }
     gulp.series(...jobs)((error) => {
-      if (!error) {
-        hooks.callHook(LIFE_CYCLES.FINISH)
-        return
-      }
       consola.error(error)
     })
   }

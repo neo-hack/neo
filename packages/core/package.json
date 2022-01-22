@@ -80,8 +80,6 @@
     "find-up": "^6.2.0",
     "fs-extra": "10.0.0",
     "globby": "12.0.2",
-    "husky": "latest",
-    "husky-init": "^7.0.0",
     "inquirer": "8.2.0",
     "inquirer-search-list": "^1.2.6",
     "is-offline-node": "^1.0.0",

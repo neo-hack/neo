@@ -6,7 +6,7 @@ import fs from 'fs-extra'
 
 import { debug } from '../utils/logger'
 import createStore from '../store'
-import { ListOptions } from '../interface'
+import { CommonOptions } from '../interface'
 import { isYaml } from '../utils'
 
 const runMario = async (filepath: string) => {
@@ -17,14 +17,16 @@ const runMario = async (filepath: string) => {
   await workflow.start()
 }
 
-export const run = async (alias: string, params: ListOptions) => {
+type RunOptions = CommonOptions & { module: string[] }
+
+export const run = async (alias: string, params: RunOptions) => {
   debug.run('run options %O', params)
   if (isYaml(alias)) {
     await runMario(alias)
     return
   }
   const neoTempDir = path.join(process.cwd(), '.neo')
-  // const isNeoExit = fs.existsSync(neoTempDir)
+  const isNeoExit = fs.existsSync(neoTempDir)
   const target = path.join(neoTempDir, alias)
   fs.ensureDirSync(target)
   const store = await createStore(params)
@@ -32,7 +34,7 @@ export const run = async (alias: string, params: ListOptions) => {
     {
       title: `Download mario generator ${alias}`,
       task: async () => {
-        const res = await store.pm.request({ alias })
+        const res = await store.pm.request({ alias, latest: true })
         await store.pm.import(target, await res.files?.())
         return true
       },
@@ -40,9 +42,9 @@ export const run = async (alias: string, params: ListOptions) => {
   ])
   await prepare.run()
   await runMario(path.join(target, 'index.yaml'))
-  // if (isNeoExit) {
-  //   fs.removeSync(target)
-  // } else {
-  //   fs.removeSync(neoTempDir)
-  // }
+  if (isNeoExit) {
+    fs.removeSync(target)
+  } else {
+    fs.removeSync(neoTempDir)
+  }
 }
