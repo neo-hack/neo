@@ -23,6 +23,14 @@ describe('command create', () => {
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 30000)
+
+  it('create on empty store', async () => {
+    const destDir = tempy.directory()
+    const { stdout } = await execNeo(['create', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    expect(stdout).toMatchSnapshot()
+  }, 30000)
 })
 
 describe('command create postcreate', () => {
