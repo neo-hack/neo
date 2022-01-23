@@ -25,6 +25,7 @@ const commands = {
   list: async () => await import('./commands/list').then((res) => res.list),
   add: async () => await import('./commands/add').then((res) => res.add),
   run: async () => await import('./commands/run').then((res) => res.run),
+  prepack: async () => await import('./commands/prepack').then((res) => res.prepack),
   whoami: async () => await import('./commands/whoami').then((res) => res.whoami),
 }
 
@@ -70,7 +71,6 @@ cli.command('whoami').alias('docs').description('What is neo?').action(handler('
 
 cli
   .command('run [generator]')
-  .alias('prepack')
   .description(
     `Run ${tl(
       '@aiou/mario',
@@ -80,6 +80,11 @@ cli
   .option('-m, --module [modules...]', 'Partial modules of workflow will run')
   .action(handler('run'))
   .addHelpText('after', usage.run())
+
+cli
+  .command('prepack')
+  .option('-m, --module [modules...]', 'Partial modules of workflow will run')
+  .action(handler('prepack'))
 
 cli
   .command('add [alias]')

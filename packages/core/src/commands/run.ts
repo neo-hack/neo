@@ -11,7 +11,7 @@ import { CommonOptions } from '../interface'
 import { isYaml } from '../utils'
 import { LogLevel } from 'consola'
 
-type RunOptions = CommonOptions & { module: string[] }
+export type RunOptions = CommonOptions & { module?: string[] }
 
 const runMario = async (filepath: string, options: Pick<RunOptions, 'module'>) => {
   const workflow = await create(filepath, { logLevel: LogLevel.Silent, jobs: options.module })
