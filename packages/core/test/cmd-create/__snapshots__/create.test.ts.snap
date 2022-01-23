@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`command create create on empty store 1`] = `
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] No templates found, use follow commands load remote template or preset first
+[log] 
+Example:
+$ neo add @aiou/preset-demo --preset
+$ neo add @aiou/ts-lib-template
+      "
+`;

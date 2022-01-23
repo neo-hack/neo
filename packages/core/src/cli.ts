@@ -93,6 +93,7 @@ cli
   .option('--store-dir [storeDir]', 'Set store dir')
   .option('--preset', 'If true, load `alias` as preset')
   .action(handler('add'))
+  .addHelpText('after', usage.add())
 
 program.parse(process.argv)
 
