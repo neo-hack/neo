@@ -1,0 +1,8 @@
+jobs:
+  RUN:
+    paths: "output/*"
+    steps:
+      - name: Run Shell
+        run: echo <%= file.path %>
+        with:
+          quiet: false

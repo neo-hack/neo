@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create workflow should filtered by jobs 1`] = `
+Object {
+  "jobs": Object {
+    "CI": Object {
+      "name": "Setup ci workflow",
+      "paths": "input/workflows/*",
+      "steps": Array [
+        Object {
+          "name": "CI Workflows",
+          "uses": "copy",
+          "with": Object {
+            "output": "output/workflows",
+          },
+        },
+      ],
+    },
+  },
+}
+`;

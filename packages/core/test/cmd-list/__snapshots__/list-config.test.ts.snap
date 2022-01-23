@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`command list config list configs should list all 1`] = `
-"[log] Found 1 configs:
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] Found 1 configs:
 
 [log] neo
 [log] CI"
 `;
 
 exports[`command list config list configs should list filtered by preset 1`] = `
-"[log] Found 1 configs:
+"NEO v3.3.2 (​https://github.com/neo-hack/neo​)
+
+[log] Found 1 configs:
 
 [log] CI"
 `;

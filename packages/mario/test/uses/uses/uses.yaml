@@ -1,0 +1,8 @@
+jobs:
+  RUN:
+    paths: "input/**/*.ts"
+    steps:
+      - name: Run Shell
+        uses: not-found
+        with:
+          quiet: true
