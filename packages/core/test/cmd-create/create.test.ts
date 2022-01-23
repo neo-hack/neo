@@ -7,6 +7,14 @@ import { execNeo } from '../helpers'
 const storeDir = path.join(tempy.directory(), '.store')
 
 describe('command create', () => {
+  it('create on empty store', async () => {
+    const destDir = tempy.directory()
+    const { stdout } = await execNeo(['create', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    expect(stdout).toMatchSnapshot()
+  }, 30000)
+
   it('create project from npm', async () => {
     const destDir = tempy.directory()
     await execNeo(['create', '@aiou/bin-template', 'target', '--store-dir', storeDir], {
@@ -22,14 +30,6 @@ describe('command create', () => {
       cwd: destDir,
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
-  }, 30000)
-
-  it('create on empty store', async () => {
-    const destDir = tempy.directory()
-    const { stdout } = await execNeo(['create', '--store-dir', storeDir], {
-      cwd: destDir,
-    })
-    expect(stdout).toMatchSnapshot()
   }, 30000)
 })
 
