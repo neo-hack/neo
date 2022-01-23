@@ -5,7 +5,7 @@ import { r } from '../src/utils'
 import { execNeo } from './helpers'
 
 describe('command run', () => {
-  it('prepack ci part should work', async () => {
+  it('run ci part should work', async () => {
     await execNeo(['run', '@aiou/generator-pnpm-ci@0.0.0-beta-20220122074125', '--module', 'CI'], {
       cwd: path.resolve(r('test/fixtures/prepack-ci/output')),
     })
