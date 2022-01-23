@@ -13,6 +13,7 @@ import { isMonorepo } from '../utils'
 import logger, { debug } from '../utils/logger'
 import { CommonOptions, AsyncReturnType } from '../interface'
 import createStore from '../store'
+import { usage } from '../utils/show-usage'
 
 type CreateOptions = {
   template: string
@@ -153,6 +154,11 @@ export const create = async (
     console.log()
     logger.success(`  🎉 ${project} created, Happy hacking!`)
   } else {
+    if (choices.length === 0) {
+      logger.log('No templates found, use follow commands load remote template or preset first')
+      console.log(usage.add())
+      return
+    }
     const counters = countby(choices, 'name')
     choices = choices.map((ch) => ({
       ...ch,
