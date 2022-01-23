@@ -40,18 +40,16 @@
   "main": "lib/index.mjs",
   "module": "lib/index.mjs",
   "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "schema2types": "json2ts --input ./assets/github.json --output ./assets/github.d.ts",
-    "esmo": "esmo ./test/uses/uses/uses.ts",
     "build": "rimraf lib && rollup -c --silent",
     "dev": "rimraf lib && ttsc -w",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "pretest": "pnpm run build",
-    "ci:publish": "pnpm run build && pnpx changeset publish",
-    "ci:version": "pnpx changeset version",
-    "ci:snapshot": "pnpx changeset version --snapshot beta",
-    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {

@@ -7,6 +7,7 @@
 
 - 🖐️ Similar syntax like github workflow, check supported syntax [here](https://github.com/neo-hack/neo/tree/master/packages/mario/src/interface/index.ts)
 - 📦 Builtin most use actions like `replace/copy/clean/json-editor`
+- 📝 Work with [listr](https://github.com/neo-hack/neo/blob/master/packages/mario/docs/recipes.md)
 
 ## install
 
@@ -52,7 +53,7 @@ gulp.task('Setup github issue templates', function () {
 ## TODO
 
 - [ ] dynamic load external uses action
-- [ ] more github workflow syntax
+- [ ] more github workflow syntax, e.g. if
 
 # 
 <div align='right'>
