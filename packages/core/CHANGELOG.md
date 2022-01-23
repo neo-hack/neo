@@ -1,5 +1,17 @@
 # @aiou/neo
 
+## 3.4.0
+
+### Minor Changes
+
+- b9a5243: refractor prepack command
+- b9a5243: print version before cmd
+
+### Patch Changes
+
+- b9a5243: fix create when empty store
+- b9a5243: deprecated prepack
+
 ## 3.3.2
 
 ### Patch Changes
