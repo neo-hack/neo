@@ -6,6 +6,7 @@ import createTemplatePM, { RequestOptions } from './pm'
 import tempy from 'tempy'
 import fs from 'fs-extra'
 import path from 'path'
+import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 let store: AsyncReturnType<typeof createStore>
 
@@ -16,8 +17,18 @@ const createStore = async (params: CommonOptions) => {
   return {
     pm,
     lockFile,
+    async request(params: RequestOptions) {
+      const { alias, pref: parsedPref } = parseWantedDependency(params.alias!)
+      const pref = params.pref || parsedPref
+      const response = await pm.request({ ...params, alias, pref })
+      return {
+        response,
+        alias,
+        pref,
+      }
+    },
     async addPreset(params: RequestOptions) {
-      const response = await pm.request(params)
+      const { response, alias } = await this.request(params)
       const dir = tempy.directory()
       const files = await response?.files?.()
       if (!files) {
@@ -28,17 +39,17 @@ const createStore = async (params: CommonOptions) => {
       debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
-        [params.alias!]: pkgs,
+        [alias!]: pkgs,
       })
     },
     async addTemplate(params: RequestOptions & { displayName?: string }) {
-      const fetchResponse = await pm.request(params)
-      if (!fetchResponse) {
+      const { response, alias } = await this.request(params)
+      if (!response) {
         debug.store('template not found')
         return
       }
-      const manifest = await fetchResponse?.bundledManifest?.()
-      const { id, resolvedVia } = fetchResponse.body
+      const manifest = await response?.bundledManifest?.()
+      const { id, resolvedVia } = response.body
       debug.store('add template %s', manifest!.name)
       await lockFile.updateTemplates({
         [id]: {
@@ -46,10 +57,10 @@ const createStore = async (params: CommonOptions) => {
           version: manifest!.version,
           resolvedVia,
           id,
-          pref: params.alias,
+          pref: alias,
         },
       })
-      return fetchResponse
+      return response
     },
   }
 }

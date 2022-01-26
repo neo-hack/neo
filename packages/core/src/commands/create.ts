@@ -22,6 +22,7 @@ type CreateOptions = {
   latest?: boolean
   displayName: string
   isMono?: boolean
+  version?: string
 }
 
 /**
@@ -76,7 +77,15 @@ const postgenerate = async ({
   })
 }
 
-const createTask = ({ template, project, store, latest, displayName, isMono }: CreateOptions) => {
+const createTask = ({
+  template,
+  project,
+  store,
+  latest,
+  displayName,
+  isMono,
+  version,
+}: CreateOptions) => {
   const hooks = {
     validate: {
       title: 'Validate template',
@@ -94,14 +103,19 @@ const createTask = ({ template, project, store, latest, displayName, isMono }: C
           debug.create('offline')
           task.skip('Ops, is offline, try create project from local store')
         } else {
-          if (!latest) {
+          if (!latest && version) {
             debug.create('download from local')
             task.skip('Create project from local store')
           } else {
             task.output = 'Fetching latest template...'
           }
         }
-        ctx.templateResponse = await store.addTemplate({ alias: template, latest, displayName })
+        ctx.templateResponse = await store.addTemplate({
+          alias: template,
+          pref: version,
+          latest,
+          displayName,
+        })
       },
     },
     generate: {
@@ -149,6 +163,7 @@ export const create = async (
       latest: options.latest,
       displayName: pref?.name || template,
       isMono: options.mono,
+      version: pref?.version,
     })
     await task.run()
     console.log()
@@ -198,6 +213,7 @@ export const create = async (
           latest: options.latest,
           displayName: pref?.displayName || pref!.name!,
           isMono: options.mono,
+          version: pref?.version,
         })
         await task.run()
         console.log()

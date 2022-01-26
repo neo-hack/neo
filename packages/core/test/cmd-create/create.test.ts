@@ -31,6 +31,18 @@ describe('command create', () => {
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 30000)
+
+  it('create project from local store in default', async () => {
+    const destDir = tempy.directory()
+    await execNeo(['add', '@aiou/webext-template@0.1.0', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    await execNeo(['create', '@aiou/webext-template', 'target', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
+    expect(pkg.version).toBe('0.1.0')
+  }, 10000)
 })
 
 describe('command create postcreate', () => {

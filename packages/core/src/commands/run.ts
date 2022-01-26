@@ -40,8 +40,8 @@ export const run = async (alias: string, params: RunOptions) => {
     {
       title: `Download mario generator ${alias}`,
       task: async () => {
-        const res = await store.pm.request({ alias, latest: true })
-        await store.pm.import(target, await res.files?.())
+        const { response } = await store.request({ alias, latest: true })
+        await store.pm.import(target, await response.files?.())
         return true
       },
     },

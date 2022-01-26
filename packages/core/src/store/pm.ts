@@ -1,7 +1,6 @@
 import createStore, { PackageFilesResponse, PackageResponse } from '@pnpm/package-store'
 import createClient from '@pnpm/client'
 import path from 'path'
-import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 import { CommonOptions } from '../interface'
 import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
@@ -23,7 +22,7 @@ const createCtrl = async ({
   // @ts-ignore
   const { resolve, fetchers } = createClient({
     authConfig,
-    cacheDir: path.join(STORE_PATH, CACHE_DIRNAME),
+    cacheDir: path.join(storeDir, CACHE_DIRNAME),
     preferOffline: offline,
   })
   // @ts-ignore
@@ -60,9 +59,9 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       return fetchResponse
     },
     async request(params: RequestOptions): Promise<PackageResponse> {
-      const { alias, pref: parsedPref } = parseWantedDependency(params.alias!)
       const latest = params.latest
-      const pref = params.pref || parsedPref
+      const pref = params.pref
+      const alias = params.alias
       debug.pm(`request %s with %s`, alias, pref)
       // try download as npm package
       let fetchResponse = await this.fetch({ alias, pref, latest }).catch(() => undefined)
