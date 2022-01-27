@@ -5,7 +5,6 @@ import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
-import uniqby from 'lodash.uniqby'
 import countby from 'lodash.countby'
 import isOffline from 'is-offline-node'
 
@@ -153,7 +152,7 @@ export const create = async (
     },
 ) => {
   const store = await createStore(options)
-  let choices = uniqby(await store.lockFile.readTemplates({ presetNames: options.preset }), 'pref')
+  let choices = await store.lockFile.readTemplates({ presetNames: options.preset })
   if (template && project) {
     const pref = choices.find((choice) => choice.name === template)
     const task = createTask({

@@ -42,7 +42,19 @@ describe('command create', () => {
     })
     const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
     expect(pkg.version).toBe('0.1.0')
-  }, 10000)
+  })
+
+  it('create project with latest', async () => {
+    const destDir = tempy.directory()
+    await execNeo(
+      ['create', '@aiou/webext-template', 'target', '--store-dir', storeDir, '--latest'],
+      {
+        cwd: destDir,
+      },
+    )
+    const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
+    expect(pkg.version).not.toBe('0.1.0')
+  })
 })
 
 describe('command create postcreate', () => {

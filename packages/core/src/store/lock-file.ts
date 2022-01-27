@@ -6,7 +6,7 @@ import fs from 'fs-extra'
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
 import { debug } from '../utils/logger'
-import { isMatchPreset } from '../utils'
+import { isMatchPreset, makeUniqId } from '../utils'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
@@ -14,11 +14,8 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
 
 let lockFile: ReturnType<typeof createLockFile>
 
-const isCached = (cachedTemplates: Partial<Package>[], template: Partial<Package>) => {
-  const { pref } = template
-  return cachedTemplates.find((tpl) => {
-    return tpl.pref === pref
-  })
+const isCached = (cachedTemplates: Map<string, Package>, template: Partial<Package>) => {
+  return cachedTemplates.has(makeUniqId(template))
 }
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
@@ -57,14 +54,17 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
     },
     /**
      * @description read `neo-lock` templates, merge preset template and packages.
-     * will flag package if cached; will flag package original preset
+     * will flag package if cached; will inject package original preset
      */
     async readTemplates({ presetNames }: { presetNames?: string[] } = {}): Promise<
       Partial<Package>[]
     > {
       const lockFile = await this.read()
       const templates: LockFile['templates'] = lockFile.templates || {}
-      const cachedTemplates = Object.values(templates).map((tpl) => ({ ...tpl, cached: true }))
+      const cachedTemplates = new Map<string, Package>()
+      Object.values(templates).forEach((tpl) => {
+        cachedTemplates.set(makeUniqId(tpl), { ...tpl, cached: true })
+      })
 
       const presets: LockFile['presets'] = lockFile.presets || {}
       let presetTemplates: Partial<Package>[] = Object.keys(presets)
@@ -77,14 +77,20 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
             })),
           )
         }, [] as Partial<Package>[])
-        .map((tpl) => ({ ...tpl, cached: !!isCached(cachedTemplates, tpl) }))
+        .map((tpl) => {
+          const cached = !!isCached(cachedTemplates, tpl)
+          if (cached) {
+            cachedTemplates.delete(makeUniqId(tpl))
+          }
+          return { ...tpl, cached }
+        })
       debug.lockfile('read templates with %O', presetNames)
 
       if (presetNames) {
         presetTemplates = presetTemplates.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
         return presetTemplates
       }
-      const allTemplates = presetTemplates.concat(cachedTemplates)
+      const allTemplates = presetTemplates.concat([...cachedTemplates.values()])
       debug.lockfile('templates list %O', allTemplates)
       return allTemplates
     },

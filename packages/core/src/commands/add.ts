@@ -45,7 +45,7 @@ export const add = async (
     const task = new Listr([
       {
         title: `Add template ${alias}`,
-        task: () => store.addTemplate({ alias, latest: true }),
+        task: () => store.addTemplate({ alias, displayName: alias, latest: true }),
       },
     ])
     await task.run()

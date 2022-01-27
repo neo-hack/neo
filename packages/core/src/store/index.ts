@@ -51,9 +51,11 @@ const createStore = async (params: CommonOptions) => {
       const manifest = await response?.bundledManifest?.()
       const { id, resolvedVia } = response.body
       debug.store('add template %s', manifest!.name)
+      // strip version
+      const { alias: displayName } = parseWantedDependency(params.displayName!)
       await lockFile.updateTemplates({
         [id]: {
-          name: params.displayName || manifest!.name,
+          name: displayName || params.displayName || manifest!.name,
           version: manifest!.version,
           resolvedVia,
           id,
