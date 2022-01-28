@@ -9,7 +9,6 @@ export const parseWantedPackage = (input: string) => {
     name: alias || input,
     alias,
     version: pref,
-    // TODO: make sure
     pref: alias || input,
   }
 }

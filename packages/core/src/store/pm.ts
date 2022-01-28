@@ -23,7 +23,6 @@ const createCtrl = async ({
     authConfig,
     cacheDir: path.join(storeDir, CACHE_DIRNAME),
     preferOffline: offline,
-    // TODO: is work?
     offline,
   })
   const storeCtrl = await createStore(resolve, fetchers, {

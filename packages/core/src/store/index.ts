@@ -67,14 +67,12 @@ const createStore = async (params: CommonOptions) => {
         debug.store('template not found')
         return
       }
-      const manifest = await response?.bundledManifest?.()
-      console.log(response, manifest)
       const { id, resolvedVia } = response.body
-      debug.store('add template %s', manifest!.name)
+      debug.store('add template %s', params.alias)
       await lockFile.updateTemplates({
         [id]: {
-          name: params.name || manifest!.name,
-          version: manifest!.version,
+          name: params.name,
+          version: response.body.manifest?.version,
           resolvedVia,
           id,
           pref: params.pref,
