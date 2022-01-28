@@ -23,7 +23,7 @@ export interface Package extends PresetTemplate {
   // inject from read lock file
   displayName?: string
   // inject from read lock file
-  _id?: string
+  _name?: string
 }
 
 export type LockFile = {

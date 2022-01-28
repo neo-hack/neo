@@ -6,9 +6,14 @@ import createTemplatePM, { RequestOptions } from './pm'
 import tempy from 'tempy'
 import fs from 'fs-extra'
 import path from 'path'
-import parseWantedDependency from '@pnpm/parse-wanted-dependency'
+import { parseWantedPackage } from '../utils/find-pref-package'
 
 let store: AsyncReturnType<typeof createStore>
+
+type Options = RequestOptions & {
+  name: string
+  version?: string
+}
 
 const createStore = async (params: CommonOptions) => {
   debug.store('init store at %s', params.storeDir || 'default')
@@ -17,33 +22,47 @@ const createStore = async (params: CommonOptions) => {
   return {
     pm,
     lockFile,
-    async request(params: RequestOptions) {
-      const { alias, pref: parsedPref } = parseWantedDependency(params.alias!)
-      const pref = params.pref || parsedPref
-      const response = await pm.request({ ...params, alias, pref })
-      return {
-        response,
-        alias,
-        pref,
+    async add(params: { type?: 'preset' | 'template'; pref: string }) {
+      const pkg = parseWantedPackage(params.pref)
+      if (params.type === 'preset') {
+        await this.addPreset({
+          alias: pkg.alias,
+          name: pkg.name,
+          pref: params.pref,
+          version: pkg.version,
+        })
+        return
       }
+      await this.addTemplate({
+        alias: pkg.alias,
+        name: pkg.name,
+        pref: params.pref,
+        version: pkg.version,
+      })
     },
-    async addPreset(params: RequestOptions) {
-      const { response, alias } = await this.request(params)
+    async addPreset(params: Options) {
+      const response = await pm.request({
+        alias: params.alias,
+        pref: params.version,
+      })
       const dir = tempy.directory()
       const files = await response?.files?.()
-      if (!files) {
-        throw new Error(`${params.alias} response empty`)
-      }
       await pm.import(dir, files)
+      if (!fs.existsSync(path.join(dir, 'index.json'))) {
+        throw new Error(`preset not found`)
+      }
       const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
       debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
-        [alias!]: pkgs,
+        [params.name!]: pkgs,
       })
     },
-    async addTemplate(params: RequestOptions & { displayName?: string }) {
-      const { response, alias } = await this.request(params)
+    async addTemplate(params: Options) {
+      const response = await pm.request({
+        alias: params.alias,
+        pref: params.version,
+      })
       if (!response) {
         debug.store('template not found')
         return
@@ -51,15 +70,13 @@ const createStore = async (params: CommonOptions) => {
       const manifest = await response?.bundledManifest?.()
       const { id, resolvedVia } = response.body
       debug.store('add template %s', manifest!.name)
-      // strip version
-      const { alias: displayName } = parseWantedDependency(params.displayName!)
       await lockFile.updateTemplates({
         [id]: {
-          name: displayName || params.displayName || manifest!.name,
+          name: params.name || manifest!.name,
           version: manifest!.version,
           resolvedVia,
           id,
-          pref: alias,
+          pref: params.pref,
         },
       })
       return response

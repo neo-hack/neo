@@ -64,7 +64,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const templates: LockFile['templates'] = lockFile.templates || {}
       const cachedTemplates = new Map<string, Package>()
       Object.values(templates).forEach((tpl) => {
-        cachedTemplates.set(makeUniqId(tpl), { ...tpl, cached: true })
+        cachedTemplates.set(makeUniqId(tpl), { ...tpl, _name: tpl.name, cached: true })
       })
 
       // normalize preset template to Package
@@ -76,6 +76,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
               presets[cur].templates.map((tpl) => ({
                 ...tpl,
                 preset: cur,
+                _name: tpl.name,
                 pref: tpl.pref || tpl.name,
               })),
             )

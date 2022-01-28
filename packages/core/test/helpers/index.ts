@@ -27,6 +27,12 @@ export const mockLockFile = async () => {
   await lockFile.write({
     presets: {
       neo: {
+        configs: [
+          {
+            name: 'CI',
+            pref: './assets/ci.yaml',
+          },
+        ],
         templates: [
           {
             name: '@aiou/webext-template',

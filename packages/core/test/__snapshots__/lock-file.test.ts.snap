@@ -3,24 +3,28 @@
 exports[`read lock file read templates should work 1`] = `
 Array [
   Object {
+    "_name": "@aiou/webext-template",
     "cached": false,
     "name": "@aiou/webext-template",
     "pref": "@aiou/webext-template",
     "preset": "neo",
   },
   Object {
+    "_name": "ts-lib-template",
     "cached": false,
     "name": "ts-lib-template (@aiou/ts-lib-template)",
     "pref": "@aiou/ts-lib-template",
     "preset": "neo",
   },
   Object {
+    "_name": "ts-lib-template",
     "cached": false,
     "name": "ts-lib-template (https://github.com/egoist/ts-lib-starter)",
     "pref": "https://github.com/egoist/ts-lib-starter",
     "preset": "neo",
   },
   Object {
+    "_name": "bin-template#unbundle",
     "cached": true,
     "id": "id3",
     "name": "bin-template#unbundle",
@@ -30,6 +34,7 @@ Array [
     "version": "2.1.0",
   },
   Object {
+    "_name": "bin-template#bundle",
     "cached": true,
     "id": "id2",
     "name": "bin-template#bundle",
@@ -39,6 +44,7 @@ Array [
     "version": "1.0.0",
   },
   Object {
+    "_name": "react-template",
     "cached": true,
     "id": "id4",
     "name": "react-template",
@@ -52,24 +58,28 @@ Array [
 exports[`read lock file read with preset filter should work 1`] = `
 Array [
   Object {
+    "_name": "@aiou/webext-template",
     "cached": false,
     "name": "@aiou/webext-template",
     "pref": "@aiou/webext-template",
     "preset": "neo",
   },
   Object {
+    "_name": "ts-lib-template",
     "cached": false,
     "name": "ts-lib-template (@aiou/ts-lib-template)",
     "pref": "@aiou/ts-lib-template",
     "preset": "neo",
   },
   Object {
+    "_name": "ts-lib-template",
     "cached": false,
     "name": "ts-lib-template (https://github.com/egoist/ts-lib-starter)",
     "pref": "https://github.com/egoist/ts-lib-starter",
     "preset": "neo",
   },
   Object {
+    "_name": "bin-template#unbundle",
     "cached": true,
     "id": "id3",
     "name": "bin-template#unbundle",
@@ -79,6 +89,7 @@ Array [
     "version": "2.1.0",
   },
   Object {
+    "_name": "bin-template#bundle",
     "cached": true,
     "id": "id2",
     "name": "bin-template#bundle",

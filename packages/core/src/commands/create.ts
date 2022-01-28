@@ -5,23 +5,22 @@ import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
-import countby from 'lodash.countby'
 import isOffline from 'is-offline-node'
 
 import { isMonorepo } from '../utils'
 import logger, { debug } from '../utils/logger'
-import { CommonOptions, AsyncReturnType } from '../interface'
+import { CommonOptions, AsyncReturnType, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
+import { findPrefPackageByPk } from '../utils/find-pref-package'
 
-type CreateOptions = {
-  template: string
+type CreateOptions = Pick<Package, 'name' | 'pref'> & {
+  version?: Package['version']
+  alias: string
   project: string
   store: AsyncReturnType<typeof createStore>
   latest?: boolean
-  displayName: string
   isMono?: boolean
-  version?: string
 }
 
 /**
@@ -30,10 +29,10 @@ type CreateOptions = {
  */
 const generate = async ({
   project,
-  template,
+  alias,
   templateResponse,
   store,
-}: Omit<CreateOptions, 'displayName'> & {
+}: Omit<CreateOptions, 'name' | 'pref'> & {
   templateResponse: PackageResponse
 }) => {
   await store.pm.import(project, await templateResponse.files?.())
@@ -51,7 +50,7 @@ const generate = async ({
   })
   // remove template folder
   fsExtra.removeSync(tplPath)
-  debug.create('create project %s from source template %s', project, template)
+  debug.create('create project %s from source template %s', project, alias)
 }
 
 /**
@@ -77,11 +76,12 @@ const postgenerate = async ({
 }
 
 const createTask = ({
-  template,
+  alias,
   project,
   store,
   latest,
-  displayName,
+  name,
+  pref,
   isMono,
   version,
 }: CreateOptions) => {
@@ -110,10 +110,11 @@ const createTask = ({
           }
         }
         ctx.templateResponse = await store.addTemplate({
-          alias: template,
-          pref: version,
+          alias,
+          version,
           latest,
-          displayName,
+          name,
+          pref,
         })
       },
     },
@@ -123,7 +124,7 @@ const createTask = ({
         if (!ctx.templateResponse) {
           throw new Error('template not found')
         }
-        return generate({ project, store, templateResponse: ctx.templateResponse, template })
+        return generate({ project, store, templateResponse: ctx.templateResponse, alias })
       },
     },
     // postgenerate
@@ -152,17 +153,18 @@ export const create = async (
     },
 ) => {
   const store = await createStore(options)
-  let choices = await store.lockFile.readTemplates({ presetNames: options.preset })
+  const choices = await store.lockFile.readTemplates({ presetNames: options.preset })
   if (template && project) {
-    const pref = choices.find((choice) => choice.name === template)
+    const pkg = findPrefPackageByPk(choices, { input: template })
     const task = createTask({
-      template: pref?.pref || template,
+      alias: pkg?.pref || template,
       project,
       store,
       latest: options.latest,
-      displayName: pref?.name || template,
+      name: pkg?._name || template,
       isMono: options.mono,
-      version: pref?.version,
+      version: pkg?.version,
+      pref: pkg.pref!,
     })
     await task.run()
     console.log()
@@ -173,12 +175,6 @@ export const create = async (
       console.log(usage.add())
       return
     }
-    const counters = countby(choices, 'name')
-    choices = choices.map((ch) => ({
-      ...ch,
-      displayName: ch.name,
-      name: counters[ch.name!] > 1 && ch.pref ? `${ch.name} (${ch.pref})` : ch.name,
-    }))
     inquirer
       .prompt<{ template: string; project: string }>([
         {
@@ -204,15 +200,16 @@ export const create = async (
         },
       ])
       .then(async (answers) => {
-        const pref = choices.find((choice) => choice.name === answers.template)
+        const pkg = findPrefPackageByPk(choices, { input: answers.template })
         const task = createTask({
-          template: pref?.pref || answers.template,
+          alias: pkg.alias!,
           project: answers.project,
           store,
           latest: options.latest,
-          displayName: pref?.displayName || pref!.name!,
+          name: pkg._name || pkg.name!,
           isMono: options.mono,
-          version: pref?.version,
+          version: pkg?.version,
+          pref: pkg.pref!,
         })
         await task.run()
         console.log()
