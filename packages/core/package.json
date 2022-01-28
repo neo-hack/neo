@@ -25,7 +25,7 @@
     "node": ">=12"
   },
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib compiled",
     "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",
     "dev": "rollup -c --watch",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
@@ -42,6 +42,8 @@
     ]
   },
   "dependencies": {
+    "@types/lodash.compact": "^3.0.6",
+    "lodash.compact": "^3.0.1",
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {

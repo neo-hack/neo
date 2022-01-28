@@ -19,13 +19,13 @@ const createCtrl = async ({
   storeDir = STORE_PATH,
   offline,
 }: CommonOptions & { offline: boolean }) => {
-  // @ts-ignore
   const { resolve, fetchers } = createClient({
     authConfig,
     cacheDir: path.join(storeDir, CACHE_DIRNAME),
     preferOffline: offline,
+    // TODO: is work?
+    offline,
   })
-  // @ts-ignore
   const storeCtrl = await createStore(resolve, fetchers, {
     storeDir,
     verifyStoreIntegrity: true,
@@ -34,7 +34,6 @@ const createCtrl = async ({
 }
 
 export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
-  // @ts-ignore
   const storeCtrls = {
     offline: await createCtrl({ storeDir, offline: true }),
     online: await createCtrl({ storeDir, offline: false }),

@@ -31,6 +31,27 @@ preset package type define
 - name: display name
 - perf: valid npm-package define, e.g `npm@version, npm, github:user/repo`
 
+in the future, I want load templates from `nextjs` repo, which contain templates under `examples`
+
+```ts
+// nextjs preset package
+{
+  name: string
+  perf?: string
+  templates: [
+    // glob patterns
+    "examples/**"
+  ]
+}
+```
+
+1. select `nextjs` first
+2. then load examples into
+
+or 
+
+1. select `nextjs/xx`, will try to load templates from `nextjs`
+
 package type define in `neo-lock.yaml`
 
 ```ts

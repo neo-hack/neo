@@ -1,21 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lock file read templates should work 1`] = `
+exports[`read lock file read templates should work 1`] = `
 Array [
   Object {
     "cached": false,
-    "name": "@aiou/bin-template",
-    "pref": "@aiou/bin-template",
+    "name": "@aiou/webext-template",
+    "pref": "@aiou/webext-template",
+    "preset": "neo",
+  },
+  Object {
+    "cached": false,
+    "name": "ts-lib-template (@aiou/ts-lib-template)",
+    "pref": "@aiou/ts-lib-template",
+    "preset": "neo",
+  },
+  Object {
+    "cached": false,
+    "name": "ts-lib-template (https://github.com/egoist/ts-lib-starter)",
+    "pref": "https://github.com/egoist/ts-lib-starter",
     "preset": "neo",
   },
   Object {
     "cached": true,
-    "name": "@aiou/ts-lib-template",
+    "id": "id3",
+    "name": "bin-template#unbundle",
+    "pref": "@aiou/bin-template@2.x",
+    "preset": "neo",
+    "resolvedVia": "npm-registry",
+    "version": "2.1.0",
+  },
+  Object {
+    "cached": true,
+    "id": "id2",
+    "name": "bin-template#bundle",
+    "pref": "@aiou/bin-template",
+    "preset": "neo",
+    "resolvedVia": "npm-registry",
+    "version": "1.0.0",
+  },
+  Object {
+    "cached": true,
+    "id": "id4",
+    "name": "react-template",
+    "pref": "@aiou/react-template",
+    "resolvedVia": "npm-registry",
+    "version": "1.0.0",
   },
 ]
 `;
 
-exports[`lock file update preset should work 1`] = `
+exports[`read lock file read with preset filter should work 1`] = `
+Array [
+  Object {
+    "cached": false,
+    "name": "@aiou/webext-template",
+    "pref": "@aiou/webext-template",
+    "preset": "neo",
+  },
+  Object {
+    "cached": false,
+    "name": "ts-lib-template (@aiou/ts-lib-template)",
+    "pref": "@aiou/ts-lib-template",
+    "preset": "neo",
+  },
+  Object {
+    "cached": false,
+    "name": "ts-lib-template (https://github.com/egoist/ts-lib-starter)",
+    "pref": "https://github.com/egoist/ts-lib-starter",
+    "preset": "neo",
+  },
+  Object {
+    "cached": true,
+    "id": "id3",
+    "name": "bin-template#unbundle",
+    "pref": "@aiou/bin-template@2.x",
+    "preset": "neo",
+    "resolvedVia": "npm-registry",
+    "version": "2.1.0",
+  },
+  Object {
+    "cached": true,
+    "id": "id2",
+    "name": "bin-template#bundle",
+    "pref": "@aiou/bin-template",
+    "preset": "neo",
+    "resolvedVia": "npm-registry",
+    "version": "1.0.0",
+  },
+]
+`;
+
+exports[`write lock file update preset should work 1`] = `
 Object {
   "presets": Object {
     "neo": Object {
@@ -29,7 +104,7 @@ Object {
 }
 `;
 
-exports[`lock file update templates should work 1`] = `
+exports[`write lock file update templates should work 1`] = `
 Object {
   "presets": Object {
     "neo": Object {

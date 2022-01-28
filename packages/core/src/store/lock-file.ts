@@ -2,6 +2,8 @@ import writeYamlFile from 'write-yaml-file'
 import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
+import countby from 'lodash.countby'
+import compact from 'lodash.compact'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
@@ -13,10 +15,6 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
 }
 
 let lockFile: ReturnType<typeof createLockFile>
-
-const isCached = (cachedTemplates: Map<string, Package>, template: Partial<Package>) => {
-  return cachedTemplates.has(makeUniqId(template))
-}
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
   debug.lockfile('lockfilepath at %s', lockFilePath)
@@ -53,8 +51,11 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       return this.write(lockfile)
     },
     /**
-     * @description read `neo-lock` templates, merge preset template and packages.
-     * will flag package if cached; will inject package original preset
+     * @description read `neo-lock` templates, flat preset template and packages.
+     * will flag package if cached
+     * will inject package original preset
+     * uniq package by makeUniqId
+     * perf cached latest version
      */
     async readTemplates({ presetNames }: { presetNames?: string[] } = {}): Promise<
       Partial<Package>[]
@@ -66,33 +67,55 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
         cachedTemplates.set(makeUniqId(tpl), { ...tpl, cached: true })
       })
 
+      // normalize preset template to Package
       const presets: LockFile['presets'] = lockFile.presets || {}
-      let presetTemplates: Partial<Package>[] = Object.keys(presets)
-        .reduce((acc, cur) => {
-          return acc.concat(
-            presets[cur].templates.map((tpl) => ({
-              ...tpl,
-              preset: cur,
-              pref: tpl.pref || tpl.name,
-            })),
-          )
-        }, [] as Partial<Package>[])
-        .map((tpl) => {
-          const cached = !!isCached(cachedTemplates, tpl)
-          if (cached) {
-            cachedTemplates.delete(makeUniqId(tpl))
-          }
-          return { ...tpl, cached }
-        })
+      let presetTemplates: Partial<Package>[] = compact(
+        Object.keys(presets)
+          .reduce((acc, cur) => {
+            return acc.concat(
+              presets[cur].templates.map((tpl) => ({
+                ...tpl,
+                preset: cur,
+                pref: tpl.pref || tpl.name,
+              })),
+            )
+          }, [] as Partial<Package>[])
+          .map((tpl) => {
+            const cachedTemplate = cachedTemplates.get(makeUniqId(tpl))
+            if (cachedTemplate) {
+              cachedTemplates.delete(makeUniqId(tpl))
+              return { ...tpl, ...cachedTemplate, cached: true }
+            }
+            return { ...tpl, cached: false }
+          }),
+      )
       debug.lockfile('read templates with %O', presetNames)
 
       if (presetNames) {
         presetTemplates = presetTemplates.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
-        return presetTemplates
+        const counters = countby(presetTemplates, 'name')
+        return presetTemplates.map((tpl) => {
+          if (counters[tpl.name!] > 1) {
+            return {
+              ...tpl,
+              name: makeUniqId(tpl),
+            }
+          }
+          return tpl
+        })
       }
       const allTemplates = presetTemplates.concat([...cachedTemplates.values()])
+      const counters = countby(allTemplates, 'name')
       debug.lockfile('templates list %O', allTemplates)
-      return allTemplates
+      return allTemplates.map((tpl) => {
+        if (counters[tpl.name!] > 1) {
+          return {
+            ...tpl,
+            name: makeUniqId(tpl),
+          }
+        }
+        return tpl
+      })
     },
     /**
      * @description read `neo-lock` preset config files
