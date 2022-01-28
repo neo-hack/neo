@@ -41,6 +41,7 @@ const createStore = async (params: CommonOptions) => {
       })
     },
     async addPreset(params: Options) {
+      debug.store('add preset with params %O', params)
       const response = await pm.request({
         alias: params.alias,
         pref: params.version,
@@ -59,6 +60,7 @@ const createStore = async (params: CommonOptions) => {
       })
     },
     async addTemplate(params: Options) {
+      debug.store('add template with params %O', params)
       const response = await pm.request({
         alias: params.alias,
         pref: params.version,
@@ -68,7 +70,6 @@ const createStore = async (params: CommonOptions) => {
         return
       }
       const { id, resolvedVia } = response.body
-      debug.store('add template %s', params.alias)
       await lockFile.updateTemplates({
         [id]: {
           name: params.name,
