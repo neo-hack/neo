@@ -18,3 +18,10 @@ jobs:
           pairs:
             - path: "version"
               value: "0.0.0"
+
+  Clear unused files:
+    name: clear unused files
+    paths: templates/**
+    steps:
+      - name: clear templates
+      - uses: clear
