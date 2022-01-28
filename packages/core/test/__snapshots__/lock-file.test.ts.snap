@@ -14,7 +14,7 @@ Array [
     "cached": false,
     "name": "ts-lib-template (@aiou/ts-lib-template)",
     "pref": "@aiou/ts-lib-template",
-    "preset": "neo",
+    "preset": "demo",
   },
   Object {
     "_name": "ts-lib-template",
@@ -67,14 +67,7 @@ Array [
   Object {
     "_name": "ts-lib-template",
     "cached": false,
-    "name": "ts-lib-template (@aiou/ts-lib-template)",
-    "pref": "@aiou/ts-lib-template",
-    "preset": "neo",
-  },
-  Object {
-    "_name": "ts-lib-template",
-    "cached": false,
-    "name": "ts-lib-template (https://github.com/egoist/ts-lib-starter)",
+    "name": "ts-lib-template",
     "pref": "https://github.com/egoist/ts-lib-starter",
     "preset": "neo",
   },

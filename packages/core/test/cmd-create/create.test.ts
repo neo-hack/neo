@@ -23,14 +23,14 @@ describe('command create', () => {
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   }, 10000)
 
-  it('create package from github should work', async () => {
-    const destDir = tempy.directory()
-    const url = 'https://github.com/neo-hack/bin-template'
-    await execNeo(['create', url, 'target', '--store-dir', storeDir], {
-      cwd: destDir,
-    })
-    expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
-  }, 30000)
+  // it('create package from github should work', async () => {
+  //   const destDir = tempy.directory()
+  //   const url = 'https://github.com/neo-hack/bin-template'
+  //   await execNeo(['create', url, 'target', '--store-dir', storeDir], {
+  //     cwd: destDir,
+  //   })
+  //   expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
+  // }, 30000)
 
   it('create project from local store in default', async () => {
     const destDir = tempy.directory()
@@ -42,7 +42,7 @@ describe('command create', () => {
     })
     const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
     expect(pkg.version).toBe('0.1.0')
-  })
+  }, 10000)
 
   it('create project with latest', async () => {
     const destDir = tempy.directory()

@@ -16,7 +16,7 @@ import { findPrefPackageByPk } from '../utils/find-pref-package'
 
 type CreateOptions = Pick<Package, 'name' | 'pref'> & {
   version?: Package['version']
-  alias: string
+  alias?: string
   project: string
   store: AsyncReturnType<typeof createStore>
   latest?: boolean
@@ -106,12 +106,12 @@ const createTask = ({
             debug.create('download from local')
             task.skip('Create project from local store')
           } else {
-            task.output = 'Fetching latest template...'
+            task.output = 'Fetching template...'
           }
         }
         ctx.templateResponse = await store.addTemplate({
           alias,
-          version,
+          version: latest ? undefined : version,
           latest,
           name,
           pref,
@@ -157,7 +157,7 @@ export const create = async (
   if (template && project) {
     const pkg = findPrefPackageByPk(choices, { input: template })
     const task = createTask({
-      alias: pkg?.pref || template,
+      alias: pkg?.alias,
       project,
       store,
       latest: options.latest,

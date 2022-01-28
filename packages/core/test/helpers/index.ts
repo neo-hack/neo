@@ -55,6 +55,14 @@ export const mockLockFile = async () => {
           },
         ],
       },
+      demo: {
+        templates: [
+          {
+            name: 'ts-lib-template',
+            pref: '@aiou/ts-lib-template',
+          },
+        ],
+      },
     },
     templates: {
       id: {
