@@ -32,7 +32,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@aiou/mario': workspace:^0.0.0
+      '@aiou/mario': workspace:^0.1.0
       '@aiou/schema': workspace:^1.1.0
       '@changesets/cli': latest
       '@pnpm/client': ^6.1.0
@@ -49,8 +49,10 @@ importers:
       '@types/inquirer': 8.1.3
       '@types/jest': ^27.4.0
       '@types/listr': ^0.14.4
+      '@types/lodash.compact': ^3.0.6
       '@types/lodash.countby': ^4.6.6
       '@types/lodash.groupby': ^4.6.6
+      '@types/lodash.sortby': ^4.7.6
       '@types/lodash.uniqby': ^4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
@@ -67,15 +69,15 @@ importers:
       find-up: ^6.2.0
       fs-extra: 10.0.0
       globby: 12.0.2
-      husky: latest
-      husky-init: ^7.0.0
       inquirer: 8.2.0
       inquirer-search-list: ^1.2.6
       is-offline-node: ^1.0.0
       jest: ^27.4.7
       listr: ^0.14.3
+      lodash.compact: ^3.0.1
       lodash.countby: ^4.6.0
       lodash.groupby: ^4.6.0
+      lodash.sortby: ^4.7.0
       lodash.uniqby: ^4.7.0
       minimatch: ^3.0.4
       picocolors: ^1.0.0
@@ -99,11 +101,13 @@ importers:
       write-yaml-file: ^4.2.0
       zen-observable: ^0.8.15
     dependencies:
+      '@types/lodash.compact': 3.0.6
+      lodash.compact: 3.0.1
       readable-stream: 3.6.0
     devDependencies:
       '@aiou/mario': link:../mario
       '@aiou/schema': link:../schema
-      '@changesets/cli': 2.19.0
+      '@changesets/cli': 2.20.0
       '@pnpm/client': 6.1.0_@pnpm+logger@4.0.0
       '@pnpm/logger': 4.0.0
       '@pnpm/package-store': 12.1.7_@pnpm+logger@4.0.0
@@ -120,6 +124,7 @@ importers:
       '@types/listr': 0.14.4
       '@types/lodash.countby': 4.6.6
       '@types/lodash.groupby': 4.6.6
+      '@types/lodash.sortby': 4.7.6
       '@types/lodash.uniqby': 4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
@@ -136,8 +141,6 @@ importers:
       find-up: 6.2.0
       fs-extra: 10.0.0
       globby: 12.0.2
-      husky: 7.0.4
-      husky-init: 7.0.0
       inquirer: 8.2.0
       inquirer-search-list: 1.2.6
       is-offline-node: 1.0.0
@@ -145,6 +148,7 @@ importers:
       listr: 0.14.3_zen-observable@0.8.15
       lodash.countby: 4.6.0
       lodash.groupby: 4.6.0
+      lodash.sortby: 4.7.0
       lodash.uniqby: 4.7.0
       minimatch: 3.0.4
       picocolors: 1.0.0
@@ -166,6 +170,9 @@ importers:
       vite-compatible-readable-stream: 3.6.0
       write-yaml-file: 4.2.0
       zen-observable: 0.8.15
+
+  packages/generators/pnpm-ci:
+    specifiers: {}
 
   packages/mario:
     specifiers:
@@ -740,12 +747,41 @@ packages:
       semver: 5.7.1
     dev: true
 
+  /@changesets/apply-release-plan/5.0.4:
+    resolution: {integrity: sha512-czayDIrgC8qBnqwClvh9nxjCMem+XZG7xtfdYwq3dxpzA30qGppcI0i088VYug5RCFR+l1N+HUvkujSZuBK65w==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/config': 1.6.4
+      '@changesets/get-version-range-type': 0.3.2
+      '@changesets/git': 1.3.0
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+      detect-indent: 6.1.0
+      fs-extra: 7.0.1
+      lodash.startcase: 4.4.0
+      outdent: 0.5.0
+      prettier: 1.19.1
+      resolve-from: 5.0.0
+      semver: 5.7.1
+    dev: true
+
   /@changesets/assemble-release-plan/5.0.4:
     resolution: {integrity: sha512-kn0UecLXiif6DzB2EBEOrS54BWSo2nPC4111I4a42ut0Tpeu5z4dEOGmREMd2lMQjx9EE/q9VudkfFa12SFdwA==}
     dependencies:
       '@babel/runtime': 7.16.7
       '@changesets/errors': 0.1.4
       '@changesets/get-dependents-graph': 1.2.4
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+      semver: 5.7.1
+    dev: true
+
+  /@changesets/assemble-release-plan/5.0.5:
+    resolution: {integrity: sha512-ejCVSM4I1jgaNi30we3/qltj2NQtS68w7C3H8Gvb6ZOvbIpAW/Tr0uMmPgRj4Vzkez5+fx0If02AvOdssz1btA==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/errors': 0.1.4
+      '@changesets/get-dependents-graph': 1.3.0
       '@changesets/types': 4.0.2
       '@manypkg/get-packages': 1.1.3
       semver: 5.7.1
@@ -788,11 +824,59 @@ packages:
       tty-table: 2.8.13
     dev: true
 
+  /@changesets/cli/2.20.0:
+    resolution: {integrity: sha512-IUYSgZKtS+wXPD5hxfnCfZ1JWCbBI0CRrhxpkgVKcXDwpxiRU8stCwuSuVj14kiYlThuH2zL0/ZuGvhF4r28Gg==}
+    hasBin: true
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/apply-release-plan': 5.0.4
+      '@changesets/assemble-release-plan': 5.0.5
+      '@changesets/config': 1.6.4
+      '@changesets/errors': 0.1.4
+      '@changesets/get-dependents-graph': 1.3.0
+      '@changesets/get-release-plan': 3.0.5
+      '@changesets/git': 1.3.0
+      '@changesets/logger': 0.0.5
+      '@changesets/pre': 1.0.9
+      '@changesets/read': 0.5.3
+      '@changesets/types': 4.0.2
+      '@changesets/write': 0.1.6
+      '@manypkg/get-packages': 1.1.3
+      '@types/is-ci': 3.0.0
+      '@types/semver': 6.2.3
+      chalk: 2.4.2
+      enquirer: 2.3.6
+      external-editor: 3.1.0
+      fs-extra: 7.0.1
+      human-id: 1.0.2
+      is-ci: 3.0.1
+      meow: 6.1.1
+      outdent: 0.5.0
+      p-limit: 2.3.0
+      preferred-pm: 3.0.3
+      semver: 5.7.1
+      spawndamnit: 2.0.0
+      term-size: 2.2.1
+      tty-table: 2.8.13
+    dev: true
+
   /@changesets/config/1.6.3:
     resolution: {integrity: sha512-J1PwxgAdvUZpvASFnzPQ1ixl20Pn42UmaqozqBlWENQDbCO/VlmianctCmwwBeR0RR/cx7oIC/ACbR1fy7mXTw==}
     dependencies:
       '@changesets/errors': 0.1.4
       '@changesets/get-dependents-graph': 1.2.4
+      '@changesets/logger': 0.0.5
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+      fs-extra: 7.0.1
+      micromatch: 4.0.4
+    dev: true
+
+  /@changesets/config/1.6.4:
+    resolution: {integrity: sha512-WWa8eR8GzS/p2atLc/+5UEDn7fsRCZ+/sShLkB/3efVbTkSTB1PwoKwQRXLYXM1DY289T7UnJT4HLZA3Gcreww==}
+    dependencies:
+      '@changesets/errors': 0.1.4
+      '@changesets/get-dependents-graph': 1.3.0
       '@changesets/logger': 0.0.5
       '@changesets/types': 4.0.2
       '@manypkg/get-packages': 1.1.3
@@ -816,6 +900,16 @@ packages:
       semver: 5.7.1
     dev: true
 
+  /@changesets/get-dependents-graph/1.3.0:
+    resolution: {integrity: sha512-4VHQWEluWySPgDdkL94YNxrEjDb9nwNFw515sWDmVrlfpQN5qaP1hdaotrp4mJm4ky85t4cTlrWSP+CTY7IDbw==}
+    dependencies:
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+      chalk: 2.4.2
+      fs-extra: 7.0.1
+      semver: 5.7.1
+    dev: true
+
   /@changesets/get-release-plan/3.0.4:
     resolution: {integrity: sha512-XEMI1WlB2crtXHLrpF8qLteZDe6ZIvuj9J3Pc9EkCo1QbVonx74zOC65KFPqNJOTpcYrex6MzOueUn2Vp32gwA==}
     dependencies:
@@ -828,12 +922,35 @@ packages:
       '@manypkg/get-packages': 1.1.3
     dev: true
 
+  /@changesets/get-release-plan/3.0.5:
+    resolution: {integrity: sha512-67td3LA1RTJpY5Q+wJaTTRtAjZ2suAhDfj3VRjFv0gCgUPXs8rNx17n9UPbegPTQjeTS1r7hVRVifycmT0fQtA==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/assemble-release-plan': 5.0.5
+      '@changesets/config': 1.6.4
+      '@changesets/pre': 1.0.9
+      '@changesets/read': 0.5.3
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+    dev: true
+
   /@changesets/get-version-range-type/0.3.2:
     resolution: {integrity: sha512-SVqwYs5pULYjYT4op21F2pVbcrca4qA/bAA3FmFXKMN7Y+HcO8sbZUTx3TAy2VXulP2FACd1aC7f2nTuqSPbqg==}
     dev: true
 
   /@changesets/git/1.2.1:
     resolution: {integrity: sha512-Qkubed8zg4/YOXnR97ZOocKXncjLMc185jSKu3ah5TgCpwMcK1EMkGcmpf3U8EHtQbh9pRKAxlfGq376WPPyPA==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/errors': 0.1.4
+      '@changesets/types': 4.0.2
+      '@manypkg/get-packages': 1.1.3
+      is-subdir: 1.2.0
+      spawndamnit: 2.0.0
+    dev: true
+
+  /@changesets/git/1.3.0:
+    resolution: {integrity: sha512-Ydj4lWX33d2PCDaTXOMSbyTjgk1go1V6EyXjKTmOV7nB/qvgKdDZLSt+AexKWKp3Ac2FTrtVnl9G5gMNVYNmuQ==}
     dependencies:
       '@babel/runtime': 7.16.7
       '@changesets/errors': 0.1.4
@@ -856,6 +973,13 @@ packages:
       js-yaml: 3.14.1
     dev: true
 
+  /@changesets/parse/0.3.11:
+    resolution: {integrity: sha512-w5/X8KijcCrvv5lHimXIBR9o35c78niiBoesBjBUlWeifwPz0DHc/lzVYJKRkA5w0BGqft6T/9hKI68GaYj5wA==}
+    dependencies:
+      '@changesets/types': 4.0.2
+      js-yaml: 3.14.1
+    dev: true
+
   /@changesets/pre/1.0.9:
     resolution: {integrity: sha512-F3+qMun89KlynecBD15fEpwGT/KxbYb3WGeut6w1xhZb0u7V/jdcPy9b+kJ2xmBqFZLn1WteWIP96IjxS57H7A==}
     dependencies:
@@ -873,6 +997,19 @@ packages:
       '@changesets/git': 1.2.1
       '@changesets/logger': 0.0.5
       '@changesets/parse': 0.3.10
+      '@changesets/types': 4.0.2
+      chalk: 2.4.2
+      fs-extra: 7.0.1
+      p-filter: 2.1.0
+    dev: true
+
+  /@changesets/read/0.5.3:
+    resolution: {integrity: sha512-zoj5NjNR4AhiGXz6aHTxsBLojChHgDOSbz6VfAVxMKX7tF7UhyNYptG2VEbSjxeamNKABx6k1pkM2IyVVlOcbQ==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      '@changesets/git': 1.3.0
+      '@changesets/logger': 0.0.5
+      '@changesets/parse': 0.3.11
       '@changesets/types': 4.0.2
       chalk: 2.4.2
       fs-extra: 7.0.1
@@ -2089,6 +2226,12 @@ packages:
       rxjs: 6.6.7
     dev: true
 
+  /@types/lodash.compact/3.0.6:
+    resolution: {integrity: sha512-0pDKTX4alTyxH85Y5Al4YzS8oriqBQykADW6zLAHkZwNBMPXFIhdE2ctg0Z2GVcZsABxo5CI/J3vmHrFkdQBfA==}
+    dependencies:
+      '@types/lodash': 4.14.178
+    dev: false
+
   /@types/lodash.countby/4.6.6:
     resolution: {integrity: sha512-buriykJ1CVPuYe2BVZjWNCq8oY66kgrGCLMvwXD3llirKym0GO4B4qSCzXtpnCskj+z0W2G1jZWVx0RZf68Qag==}
     dependencies:
@@ -2113,6 +2256,12 @@ packages:
       '@types/lodash': 4.14.178
     dev: true
 
+  /@types/lodash.sortby/4.7.6:
+    resolution: {integrity: sha512-EnvAOmKvEg7gdYpYrS6+fVFPw5dL9rBnJi3vcKI7wqWQcLJVF/KRXK9dH29HjGNVvFUj0s9prRP3J8jEGnGKDw==}
+    dependencies:
+      '@types/lodash': 4.14.178
+    dev: true
+
   /@types/lodash.uniqby/4.7.6:
     resolution: {integrity: sha512-9wBhrm1y6asW50Joj6tsySCNUgzK2tCqL7vtKIej0E9RyeBFdcte7fxUosmFuMoOU0eHqOMK76kCCrK99jxHgg==}
     dependencies:
@@ -2121,7 +2270,6 @@ packages:
 
   /@types/lodash/4.14.178:
     resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==}
-    dev: true
 
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
@@ -6190,14 +6338,6 @@ packages:
       ms: 2.1.3
     dev: true
 
-  /husky-init/7.0.0:
-    resolution: {integrity: sha512-SUlmIjn/WOsqviqr/Mu9xH9wxD64hEeStdu4G9Ynv+9M6mwJkT/YZCV8pp/bWW6UaJJ7Iyc/mjB845QvDmTs3g==}
-    engines: {node: '>=12'}
-    hasBin: true
-    dependencies:
-      husky: 7.0.4
-    dev: true
-
   /husky/7.0.4:
     resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
@@ -7979,6 +8119,10 @@ packages:
     resolution: {integrity: sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=}
     dev: false
 
+  /lodash.compact/3.0.1:
+    resolution: {integrity: sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=}
+    dev: false
+
   /lodash.countby/4.6.0:
     resolution: {integrity: sha1-U1HyTeFnJKAFm1YfkgsNgK94ozw=}
     dev: true
@@ -8014,6 +8158,10 @@ packages:
   /lodash.set/4.3.2:
     resolution: {integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=}
     dev: false
+
+  /lodash.sortby/4.7.0:
+    resolution: {integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=}
+    dev: true
 
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=}

@@ -25,9 +25,9 @@
     "node": ">=12"
   },
   "scripts": {
-    "clean": "rimraf lib",
-    "esmo": "esmo",
+    "clean": "rimraf lib compiled",
     "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",
+    "dev": "rollup -c --watch",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "prepublish": "pnpm run build",
@@ -42,6 +42,8 @@
     ]
   },
   "dependencies": {
+    "@types/lodash.compact": "^3.0.6",
+    "lodash.compact": "^3.0.1",
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
@@ -64,6 +66,7 @@
     "@types/listr": "^0.14.4",
     "@types/lodash.countby": "^4.6.6",
     "@types/lodash.groupby": "^4.6.6",
+    "@types/lodash.sortby": "^4.7.6",
     "@types/lodash.uniqby": "^4.7.6",
     "@types/node": "17.0.8",
     "@types/rimraf": "3.0.2",
@@ -87,6 +90,7 @@
     "listr": "^0.14.3",
     "lodash.countby": "^4.6.0",
     "lodash.groupby": "^4.6.0",
+    "lodash.sortby": "^4.7.0",
     "lodash.uniqby": "^4.7.0",
     "minimatch": "^3.0.4",
     "picocolors": "^1.0.0",

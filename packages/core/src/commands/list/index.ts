@@ -2,7 +2,6 @@ import pc from 'picocolors'
 import cols from 'cli-columns'
 import groupby from 'lodash.groupby'
 import countby from 'lodash.countby'
-import uniqby from 'lodash.uniqby'
 
 import { ListOptions } from '../../interface'
 import logger, { debug } from '../../utils/logger'
@@ -23,10 +22,7 @@ export const list = async (config: string, params: ListOptions) => {
     return
   }
   // list all packages
-  const templates = uniqby(
-    await store.lockFile.readTemplates({ presetNames: params.preset }),
-    'pref',
-  )
+  const templates = await store.lockFile.readTemplates({ presetNames: params.preset })
   const counters = countby(templates, 'name')
   if (!templates.length) {
     logger.log(`No templates...`)

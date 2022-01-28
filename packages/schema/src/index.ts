@@ -1,6 +1,6 @@
 export interface PresetTemplate {
   name: string
-  pref: string
+  pref?: string
 }
 
 export type Config = {
@@ -10,5 +10,5 @@ export type Config = {
 
 export type Preset = {
   templates: PresetTemplate[]
-  configs: Config[]
+  configs?: Config[]
 }

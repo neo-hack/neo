@@ -9,3 +9,4 @@ coverage
 size-plugin.json
 fixtures
 **/test/**/*.json
+compiled

@@ -59,8 +59,8 @@ export const listConfigs = async (
     debug.list('config not found in preset')
     return
   }
-  const fileResponse = await store.pm.request({ alias: pref.preset })
-  const files = await fileResponse?.files?.()
+  const { response } = await store.request({ alias: pref.preset })
+  const files = await response?.files?.()
   if (!files) {
     return
   }

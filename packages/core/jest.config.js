@@ -18,6 +18,9 @@ export default {
   restoreMocks: true,
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
+    '@pnpm/parse-wanted-dependency': '<rootDir>/compiled/parse-wanted-dependency.mjs',
+    '@pnpm/client': '<rootDir>/compiled/client.mjs',
+    '@pnpm/package-store': '<rootDir>/compiled/store.mjs',
   },
   roots: ['<rootDir>/test'],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],

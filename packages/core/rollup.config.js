@@ -66,4 +66,38 @@ export default defineConfig([
       },
     ],
   },
+  {
+    input: {
+      'parse-wanted-dependency': require.resolve('@pnpm/parse-wanted-dependency'),
+      client: require.resolve('@pnpm/client'),
+      store: require.resolve('@pnpm/package-store'),
+    },
+    preserveEntrySignatures: 'strict',
+    plugins: [
+      // fix: https://github.com/rollup/rollup/issues/1507
+      replace({
+        delimiters: ['', ''],
+        preventAssignment: true,
+        values: {
+          [`require('readable-stream/transform')`]: `require('stream').Transform`,
+          [`require('readable-stream/readable')`]: `require('stream').Readable`,
+          [`require('readable-stream/passthrough')`]: `require('stream').PassThrough`,
+          'readable-stream': 'stream',
+        },
+      }),
+      nodeResolve({
+        preferBuiltins: true,
+        exportConditions: ['node'],
+      }),
+      commonjs(),
+      json(),
+    ],
+    output: [
+      {
+        dir: 'compiled',
+        entryFileNames: '[name].mjs',
+        format: 'esm',
+      },
+    ],
+  },
 ])

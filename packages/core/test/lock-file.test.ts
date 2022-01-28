@@ -2,15 +2,13 @@ import createLockFile from '../src/store/lock-file'
 
 import path from 'path'
 import tempy from 'tempy'
+import { mockLockFile } from './helpers'
 
 const storeDir = path.join(tempy.directory(), '.store')
 
 const lockFile = createLockFile({ storeDir })
 
-describe('lock file', () => {
-  it('read non exit lockfile should return empty', async () => {
-    expect(await lockFile.read()).toMatchObject({})
-  })
+describe('write lock file', () => {
   it('update preset should work', async () => {
     await lockFile.updatePreset({
       neo: {
@@ -31,8 +29,23 @@ describe('lock file', () => {
     })
     expect(await lockFile.read()).toMatchSnapshot()
   })
+})
+
+it('read non exit lockfile should return empty', async () => {
+  expect(await lockFile.read()).toMatchObject({})
+})
+
+describe('read lock file', () => {
+  let complexLockFile: any
+  beforeAll(async () => {
+    complexLockFile = await mockLockFile()
+  })
   it('read templates should work', async () => {
-    const tpls = await lockFile.readTemplates()
+    const tpls = await complexLockFile.readTemplates()
+    expect(tpls).toMatchSnapshot()
+  })
+  it('read with preset filter should work', async () => {
+    const tpls = await complexLockFile.readTemplates({ presetNames: ['neo'] })
     expect(tpls).toMatchSnapshot()
   })
 })

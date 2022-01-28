@@ -1,4 +1,8 @@
-import { execNeo, readLockFile, storeDir } from '../helpers'
+import { clearLockFile, execNeo, readLockFile, storeDir } from '../helpers'
+
+afterEach(() => {
+  clearLockFile()
+})
 
 describe('load preset', () => {
   it('load preset from npm package should work', async () => {
