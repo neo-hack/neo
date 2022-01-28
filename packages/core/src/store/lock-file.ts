@@ -3,6 +3,7 @@ import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
 import countby from 'lodash.countby'
+import sortby from 'lodash.sortby'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
@@ -62,7 +63,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const lockFile = await this.read()
       const templates: LockFile['templates'] = lockFile.templates || {}
       const cachedTemplates = new Map<string, Partial<Package>>()
-      Object.values(templates).forEach((tpl) => {
+      sortby(Object.values(templates), 'version').forEach((tpl) => {
         cachedTemplates.set(makeUniqId(tpl), {
           ...tpl,
           pref: tpl.pref || tpl.name,

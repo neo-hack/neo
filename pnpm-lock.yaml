@@ -52,6 +52,7 @@ importers:
       '@types/lodash.compact': ^3.0.6
       '@types/lodash.countby': ^4.6.6
       '@types/lodash.groupby': ^4.6.6
+      '@types/lodash.sortby': ^4.7.6
       '@types/lodash.uniqby': ^4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
@@ -76,6 +77,7 @@ importers:
       lodash.compact: ^3.0.1
       lodash.countby: ^4.6.0
       lodash.groupby: ^4.6.0
+      lodash.sortby: ^4.7.0
       lodash.uniqby: ^4.7.0
       minimatch: ^3.0.4
       picocolors: ^1.0.0
@@ -122,6 +124,7 @@ importers:
       '@types/listr': 0.14.4
       '@types/lodash.countby': 4.6.6
       '@types/lodash.groupby': 4.6.6
+      '@types/lodash.sortby': 4.7.6
       '@types/lodash.uniqby': 4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
@@ -145,6 +148,7 @@ importers:
       listr: 0.14.3_zen-observable@0.8.15
       lodash.countby: 4.6.0
       lodash.groupby: 4.6.0
+      lodash.sortby: 4.7.0
       lodash.uniqby: 4.7.0
       minimatch: 3.0.4
       picocolors: 1.0.0
@@ -2248,6 +2252,12 @@ packages:
 
   /@types/lodash.set/4.3.6:
     resolution: {integrity: sha512-ZeGDDlnRYTvS31Laij0RsSaguIUSBTYIlJFKL3vm3T2OAZAQj2YpSvVWJc0WiG4jqg9fGX6PAPGvDqBcHfSgFg==}
+    dependencies:
+      '@types/lodash': 4.14.178
+    dev: true
+
+  /@types/lodash.sortby/4.7.6:
+    resolution: {integrity: sha512-EnvAOmKvEg7gdYpYrS6+fVFPw5dL9rBnJi3vcKI7wqWQcLJVF/KRXK9dH29HjGNVvFUj0s9prRP3J8jEGnGKDw==}
     dependencies:
       '@types/lodash': 4.14.178
     dev: true
@@ -8148,6 +8158,10 @@ packages:
   /lodash.set/4.3.2:
     resolution: {integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=}
     dev: false
+
+  /lodash.sortby/4.7.0:
+    resolution: {integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=}
+    dev: true
 
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=}
