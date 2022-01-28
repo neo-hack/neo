@@ -104,7 +104,7 @@ const createTask = ({
         } else {
           if (!latest && version) {
             debug.create('download from local')
-            task.skip('Create project from local store')
+            task.output = 'Create project from local store'
           } else {
             task.output = 'Fetching template...'
           }

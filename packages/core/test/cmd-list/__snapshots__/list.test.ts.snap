@@ -11,8 +11,10 @@ exports[`command list should contain all templates in store 1`] = `
 [log] @aiou/webext-template
 bin-template#bundle
 bin-template#unbundle
-ts-lib-template (@aiou/ts-lib-template)
 ts-lib-template (https://github.com/egoist/ts-lib-starter)
+[log]
+[log] demo:
+[log] ts-lib-template (@aiou/ts-lib-template)
 [log]
 [log] Not in preset:
 [log] react-template"
@@ -29,11 +31,10 @@ exports[`command list should show template list filter by preset 1`] = `
 
 [log] Note: cached, uncached
 
-[log] Found 5 templates:
+[log] Found 4 templates:
 
 [log] @aiou/webext-template
 bin-template#bundle
 bin-template#unbundle
-ts-lib-template (@aiou/ts-lib-template)
-ts-lib-template (https://github.com/egoist/ts-lib-starter)"
+ts-lib-template"
 `;

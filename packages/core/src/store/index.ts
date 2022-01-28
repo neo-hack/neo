@@ -68,6 +68,7 @@ const createStore = async (params: CommonOptions) => {
         return
       }
       const manifest = await response?.bundledManifest?.()
+      console.log(response, manifest)
       const { id, resolvedVia } = response.body
       debug.store('add template %s', manifest!.name)
       await lockFile.updateTemplates({
