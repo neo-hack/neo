@@ -1,6 +1,5 @@
 import path from 'path'
 import inquirer from 'inquirer'
-import { globbySync } from 'globby'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
@@ -25,32 +24,15 @@ type CreateOptions = Pick<Package, 'name' | 'pref'> & {
 
 /**
  * @description generate template files
- * @todo move tpl parts to @aiou/workflows
  */
 const generate = async ({
   project,
-  alias,
   templateResponse,
   store,
 }: Omit<CreateOptions, 'name' | 'pref'> & {
   templateResponse: PackageResponse
 }) => {
   await store.pm.import(project, await templateResponse.files?.())
-  // generate config files from dest.template folder
-  const tplPath = path.join(process.cwd(), project, 'template')
-  const tpls = globbySync('*.tpl', {
-    cwd: tplPath,
-    dot: true,
-  })
-  tpls.forEach((f) => {
-    fsExtra.outputFileSync(
-      path.join(process.cwd(), project, f.replace('.tpl', '')),
-      fsExtra.readFileSync(path.join(tplPath, f)).toString(),
-    )
-  })
-  // remove template folder
-  fsExtra.removeSync(tplPath)
-  debug.create('create project %s from source template %s', project, alias)
 }
 
 /**
@@ -124,7 +106,7 @@ const createTask = ({
         if (!ctx.templateResponse) {
           throw new Error('template not found')
         }
-        return generate({ project, store, templateResponse: ctx.templateResponse, alias })
+        return generate({ project, store, templateResponse: ctx.templateResponse })
       },
     },
     // postgenerate
