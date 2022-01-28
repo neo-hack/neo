@@ -1,0 +1,20 @@
+jobs:
+  Replace outdated:
+    name: Replace outdated
+    steps:
+      - name: Replace outdated org
+      - uses: replace
+        with:
+          match: spring-catponents
+          replacement: neo-hack
+
+  Reset:
+    name: Reset
+    paths: package.json
+    steps:
+      - name: Reset version
+      - uses: json-editor
+        with:
+          pairs:
+            - path: "version"
+              value: "0.0.0"
