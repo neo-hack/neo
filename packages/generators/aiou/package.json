@@ -1,0 +1,26 @@
+{
+  "name": "@aiou/generator-aiou",
+  "version": "0.1.0",
+  "description": "Common generator design for @aiou/* templates",
+  "keywords": [
+    "aiou",
+    "mario"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neo-hack/neo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-hack/neo.git",
+    "directory": "packages/generators/aiou"
+  },
+  "bugs": {
+    "url": "https://github.com/neo-hack/neo/issues",
+    "email": "jiangweixian1994@gmail.com"
+  },
+  "author": {
+    "name": "JW",
+    "email": "jiangweixian1994@gmail.com",
+    "url": "https://twitter.com/jiangweixian"
+  },
+  "main": "lib/index.yaml"
+}

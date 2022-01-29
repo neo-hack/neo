@@ -84,6 +84,7 @@ export interface Workflow {
 export type Context = {
   cwd: string
   debug: Debug.Debugger
+  variables?: Record<string, any>
 }
 
-export type Action<T> = (args: T, ctx: Context) => any
+export type Action<T = Record<string, string>> = (args: T, ctx: Context) => any

@@ -1,8 +1,8 @@
-import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
 import gulpDebug from 'gulp-debug'
+import readYaml from 'read-yaml-file'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context, Step } from '../interface'
@@ -23,6 +23,7 @@ type CreateJobOptions = {
   key: string
   job: Job
   cwd?: string
+  variables?: Context['variables']
 }
 
 export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
@@ -49,6 +50,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
               .runAction?.(step.uses, step.with, extra, {
                 cwd: options.cwd!,
                 debug: debug.uses,
+                variables: options.variables,
               })
               .catch((error: Error) => {
                 consola.error(error)
@@ -128,6 +130,7 @@ export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
   logLevel?: Consola['level']
+  variables?: Context['variables']
 }
 
 export const createWorkflow = async ({

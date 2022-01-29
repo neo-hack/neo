@@ -22,6 +22,8 @@ export interface Package extends PresetTemplate {
   preset?: string
   // inject from read lock file
   displayName?: string
+  // inject from read lock file
+  _name?: string
 }
 
 export type LockFile = {
@@ -34,3 +36,7 @@ export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extend
 ) => Promise<infer R>
   ? R
   : any
+
+export type AppConfig = {
+  mario: string
+}

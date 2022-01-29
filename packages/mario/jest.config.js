@@ -7,6 +7,7 @@ export default {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*'],
   coverageDirectory: './jest/coverage',
+  testTimeout: 600000,
   preset: 'ts-jest',
   globals: {
     'ts-jest': {

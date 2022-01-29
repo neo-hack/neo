@@ -1,5 +1,11 @@
 # pnpm-ci
 
+## usage
+
+```console
+neo run @aiou/generator-pnpm-ci
+```
+
 ## features
 
 prepack follow parts into your project

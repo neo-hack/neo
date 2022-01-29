@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store add preset 1`] = `
+"presets:
+  aiou:
+    configs:
+      - name: PNPM CI workflow
+        pref: ./assets/workflows/pnpm/ci.yaml
+      - name: PNPM Release workflow
+        pref: ./assets/workflows/pnpm/release.yaml
+      - name: PNPM Snapshot Release workflow
+        pref: ./assets/workflows/pnpm/snapshot-release.yaml
+      - name: Rust CI workflow
+        pref: ./assets/workflows/rust/ci.yaml
+      - name: Rust Release workflow
+        pref: ./assets/workflows/rust/release.yaml
+    templates:
+      - name: '@aiou/ts-lib-template'
+      - name: '@aiou/actions-template'
+      - name: '@aiou/rollup-plugin-template'
+      - name: '@aiou/rollup-template'
+      - name: '@aiou/dayjs-plugin-template'
+      - name: '@aiou/bin-template'
+      - name: '@aiou/webext-template'
+      - name: '@aiou/eslint-config-template'
+      - name: '@aiou/webpack-loader-template'
+      - name: '@aiou/react-template'
+      - name: '@aiou/react-components-lib-template'
+      - name: '@aiou/original-html-template'
+      - name: '@aiou/chrome-extenstion-template'
+"
+`;
+
+exports[`store add template 1`] = `
+"templates:
+  registry.npmjs.org/@aiou/bin-template/3.0.0:
+    name: bin
+    version: 3.0.0
+    resolvedVia: npm-registry
+    id: registry.npmjs.org/@aiou/bin-template/3.0.0
+    pref: bin-template#bundle
+"
+`;
+
+exports[`store add(type=preset) 1`] = `
+"presets:
+  '@aiou/preset-aiou':
+    configs:
+      - name: PNPM CI workflow
+        pref: ./assets/workflows/pnpm/ci.yaml
+      - name: PNPM Release workflow
+        pref: ./assets/workflows/pnpm/release.yaml
+      - name: PNPM Snapshot Release workflow
+        pref: ./assets/workflows/pnpm/snapshot-release.yaml
+      - name: Rust CI workflow
+        pref: ./assets/workflows/rust/ci.yaml
+      - name: Rust Release workflow
+        pref: ./assets/workflows/rust/release.yaml
+    templates:
+      - name: '@aiou/ts-lib-template'
+      - name: '@aiou/actions-template'
+      - name: '@aiou/rollup-plugin-template'
+      - name: '@aiou/rollup-template'
+      - name: '@aiou/dayjs-plugin-template'
+      - name: '@aiou/bin-template'
+      - name: '@aiou/webext-template'
+      - name: '@aiou/eslint-config-template'
+      - name: '@aiou/webpack-loader-template'
+      - name: '@aiou/react-template'
+      - name: '@aiou/react-components-lib-template'
+      - name: '@aiou/original-html-template'
+      - name: '@aiou/chrome-extenstion-template'
+"
+`;
+
+exports[`store add(type=template) 1`] = `
+"templates:
+  registry.npmjs.org/@aiou/bin-template/3.0.0:
+    name: '@aiou/bin-template'
+    version: 3.0.0
+    resolvedVia: npm-registry
+    id: registry.npmjs.org/@aiou/bin-template/3.0.0
+    pref: '@aiou/bin-template'
+"
+`;

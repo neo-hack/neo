@@ -13,9 +13,9 @@ type AddOptions = CommonOptions & {
 const showSuccessInfo = (alias: string, type: 'preset' | 'template') => {
   console.log()
   logger.success(
-    `  Happy hacking, ${type} ${pc.green(alias)} already added, try \`${pc.green(
+    `  ${type} ${pc.green(alias)} already added, try \`${pc.green(
       'neo',
-    )} list\` to checkout templates`,
+    )} list\` to checkout templates. Happy hacking!`,
   )
 }
 
@@ -23,33 +23,33 @@ const showSuccessInfo = (alias: string, type: 'preset' | 'template') => {
  * @description add preset or template into the store
  */
 export const add = async (
-  alias: string,
+  pref: string,
   options: AddOptions = { storeDir: STORE_PATH, preset: false },
 ) => {
   try {
     const { storeDir, preset } = options
-    debug.add('options is alias %s / options %O', alias, options)
+    debug.add('options is alias %s / options %O', pref, options)
     // init store
     const store = await createStore({ storeDir })
     if (preset) {
       const task = new Listr([
         {
-          title: `Add preset ${alias}`,
-          task: () => store.addPreset({ alias, latest: true }),
+          title: `Add preset ${pref}`,
+          task: () => store.add({ pref, type: 'preset' }),
         },
       ])
       await task.run()
-      showSuccessInfo(alias, 'preset')
+      showSuccessInfo(pref, 'preset')
       return
     }
     const task = new Listr([
       {
-        title: `Add template ${alias}`,
-        task: () => store.addTemplate({ alias, latest: true }),
+        title: `Add template ${pref}`,
+        task: () => store.add({ pref, type: 'template' }),
       },
     ])
     await task.run()
-    showSuccessInfo(alias, 'template')
+    showSuccessInfo(pref, 'template')
   } catch (e) {
     logger.fatal(e)
   }

@@ -24,23 +24,75 @@ export const clearLockFile = () => {
 
 export const mockLockFile = async () => {
   const lockFile = createLockFile({ storeDir })
-  await lockFile.updatePreset({
-    neo: {
-      configs: [
-        {
-          name: 'CI',
-          pref: './assets/ci.yaml',
-        },
-      ],
-      templates: [
-        {
-          name: '@aiou/ts-lib-template',
-        },
-        {
-          name: 'ts-lib-template',
-          pref: 'https://github.com/egoist/ts-lib-starter',
-        },
-      ],
+  await lockFile.write({
+    presets: {
+      neo: {
+        configs: [
+          {
+            name: 'CI',
+            pref: './assets/ci.yaml',
+          },
+        ],
+        templates: [
+          {
+            name: '@aiou/webext-template',
+          },
+          {
+            name: 'ts-lib-template',
+            pref: '@aiou/ts-lib-template',
+          },
+          {
+            name: 'ts-lib-template',
+            pref: 'https://github.com/egoist/ts-lib-starter',
+          },
+          {
+            name: 'bin-template#unbundle',
+            pref: '@aiou/bin-template@2.x',
+          },
+          {
+            name: 'bin-template#bundle',
+            pref: '@aiou/bin-template',
+          },
+        ],
+      },
+      demo: {
+        templates: [
+          {
+            name: 'ts-lib-template',
+            pref: '@aiou/ts-lib-template',
+          },
+        ],
+      },
+    },
+    templates: {
+      id: {
+        name: 'bin-template#unbundle',
+        version: '2.0.0',
+        resolvedVia: 'npm-registry',
+        id: 'id',
+        pref: '@aiou/bin-template@2.x',
+      },
+      id3: {
+        name: 'bin-template#unbundle',
+        version: '2.1.0',
+        resolvedVia: 'npm-registry',
+        id: 'id3',
+        pref: '@aiou/bin-template@2.x',
+      },
+      id2: {
+        name: 'bin-template#bundle',
+        version: '1.0.0',
+        resolvedVia: 'npm-registry',
+        id: 'id2',
+        pref: '@aiou/bin-template',
+      },
+      id4: {
+        name: 'react-template',
+        version: '1.0.0',
+        resolvedVia: 'npm-registry',
+        id: 'id4',
+        pref: '@aiou/react-template',
+      },
     },
   })
   return lockFile

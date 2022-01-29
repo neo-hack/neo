@@ -4,6 +4,7 @@ import { findUp } from 'find-up'
 import minimatch from 'minimatch'
 import pc from 'picocolors'
 import { readPackageUpSync } from 'read-pkg-up'
+import { Package } from '../interface'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -28,6 +29,14 @@ export const readPkg = () => {
   return pkg
 }
 
+/**
+ * @description Generate pkg uniq id
+ * in default
+ */
+export const makeUniqId = (pkg: Partial<Package>) => {
+  return `${pkg.name} (${pkg.pref || pkg.name})`
+}
+
 export const colorify = (
   pkgs: Partial<{ name: string; pref: string; cached: boolean }>[],
   counters: Record<string, number> = {},
@@ -35,11 +44,9 @@ export const colorify = (
   return pkgs.map((pkg) => {
     if (pkg.cached) {
       return counters[pkg.name!] > 1 && pkg.pref
-        ? `${pc.green(pkg.name)} ${pc.gray(`(${pkg.pref})`)}`
+        ? `${pc.green(makeUniqId(pkg))}`
         : pc.green(pkg.name)
     }
-    return counters[pkg.name!] > 1 && pkg.pref
-      ? `${pc.gray(pkg.name)} ${pc.gray(`(${pkg.pref})`)}`
-      : pc.gray(pkg.name)
+    return counters[pkg.name!] > 1 && pkg.pref ? `${pc.gray(makeUniqId(pkg))}` : pc.gray(pkg.name)
   })
 }

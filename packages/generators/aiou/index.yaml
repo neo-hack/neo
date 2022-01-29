@@ -1,0 +1,94 @@
+jobs:
+  Replace template name:
+    name: Replace outdated
+    steps:
+      - name: Replace org
+      - uses: replace
+        with:
+          pairs:
+            - match: neo-hack
+              replacement: ${{ inputs.user.name }}
+            - match: spring-catponents
+              replacement: ${{ inputs.user.name }}
+      - name: Replace template name
+      - uses: replace
+        with:
+          pairs:
+            - match: "@aiou/ts-lib-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/actions-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/rollup-plugin-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/rollup-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/dayjs-plugin-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/bin-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/webext-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/eslint-config-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/webpack-loader-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/react-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/react-components-lib-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/original-html-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/original-html-template"
+              replacement: ${{ inputs.project }}
+            - match: "@aiou/chrome-extenstion-template"
+              replacement: ${{ inputs.project }}
+            - match: "ts-lib-template"
+              replacement: ${{ inputs.project }}
+            - match: "actions-template"
+              replacement: ${{ inputs.project }}
+            - match: "rollup-plugin-template"
+              replacement: ${{ inputs.project }}
+            - match: "rollup-template"
+              replacement: ${{ inputs.project }}
+            - match: "dayjs-plugin-template"
+              replacement: ${{ inputs.project }}
+            - match: "bin-template"
+              replacement: ${{ inputs.project }}
+            - match: "webext-template"
+              replacement: ${{ inputs.project }}
+            - match: "eslint-config-template"
+              replacement: ${{ inputs.project }}
+            - match: "webpack-loader-template"
+              replacement: ${{ inputs.project }}
+            - match: "react-template"
+              replacement: ${{ inputs.project }}
+            - match: "react-components-lib-template"
+              replacement: ${{ inputs.project }}
+            - match: "original-html-template"
+              replacement: ${{ inputs.project }}
+            - match: "chrome-extenstion-template"
+              replacement: ${{ inputs.project }}
+
+  Init package:
+    name: Init package
+    paths: package.json
+    steps:
+      - name: Reset version
+      - uses: json-editor
+        with:
+          pairs:
+            - path: "version"
+              value: "0.0.0"
+      - name: Setup project name
+      - uses: json-editor
+        with:
+          pairs:
+            - path: "name"
+              value: ${{ inputs.project }}
+
+  Clear unused files:
+    name: clear unused files
+    paths: templates/**
+    steps:
+      - name: clear templates
+      - uses: clear

@@ -9,6 +9,7 @@ beforeAll(() => {
 })
 
 it('uses replace should work', async () => {
-  await execa('esmrua', [r('test/uses/replace/replace.ts'), 'main'])
+  const { stdout } = await execa('esmrua', [r('test/uses/replace/replace.ts'), 'main'])
+  console.log(stdout)
   await compare(r('test/uses/replace/expected'), r('test/uses/replace/output'))
 })
