@@ -28,6 +28,7 @@ const createCtrl = async ({
   const storeCtrl = await createStore(resolve, fetchers, {
     storeDir,
     verifyStoreIntegrity: true,
+    packageImportMethod: 'copy',
   })
   return storeCtrl
 }

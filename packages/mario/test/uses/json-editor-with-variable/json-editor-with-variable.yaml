@@ -1,0 +1,11 @@
+jobs:
+  JSON EDITOR:
+    paths: "output/**/*.json"
+    steps:
+      - name: Json Editor Action
+      - uses: json-editor
+        with:
+          pairs:
+            - path: "name"
+              value: ${{ inputs.project }}
+            

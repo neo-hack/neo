@@ -1,18 +1,22 @@
 import path from 'path'
 import inquirer from 'inquirer'
-import { globbySync } from 'globby'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
+import pc from 'picocolors'
+import gitconfig from 'gitconfig'
+import { merge } from 'lodash-es'
 
-import { isMonorepo } from '../utils'
+import { isMonorepo, isYaml } from '../utils'
 import logger, { debug } from '../utils/logger'
 import { CommonOptions, AsyncReturnType, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
 import { findPrefPackageByPk } from '../utils/find-pref-package'
+import { runMario } from '../utils/mario'
+import { loadConfig } from '../utils/load-config'
 
 type CreateOptions = Pick<Package, 'name' | 'pref'> & {
   version?: Package['version']
@@ -25,37 +29,20 @@ type CreateOptions = Pick<Package, 'name' | 'pref'> & {
 
 /**
  * @description generate template files
- * @todo move tpl parts to @aiou/workflows
  */
 const generate = async ({
   project,
-  alias,
   templateResponse,
   store,
 }: Omit<CreateOptions, 'name' | 'pref'> & {
   templateResponse: PackageResponse
 }) => {
   await store.pm.import(project, await templateResponse.files?.())
-  // generate config files from dest.template folder
-  const tplPath = path.join(process.cwd(), project, 'template')
-  const tpls = globbySync('*.tpl', {
-    cwd: tplPath,
-    dot: true,
-  })
-  tpls.forEach((f) => {
-    fsExtra.outputFileSync(
-      path.join(process.cwd(), project, f.replace('.tpl', '')),
-      fsExtra.readFileSync(path.join(tplPath, f)).toString(),
-    )
-  })
-  // remove template folder
-  fsExtra.removeSync(tplPath)
-  debug.create('create project %s from source template %s', project, alias)
 }
 
 /**
  * @description del files after generate
- * @todo move to @aiou/workflows
+ * @todo move to @aiou/generator-aiou
  */
 const postgenerate = async ({
   project,
@@ -73,6 +60,40 @@ const postgenerate = async ({
   common.forEach((filename) => {
     fsExtra.removeSync(path.join(process.cwd(), project, filename))
   })
+}
+
+const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
+  const root = path.join(process.cwd(), project)
+  const neoTempDir = path.join(root, '.neo')
+  const config = await loadConfig(neoTempDir)
+  let variables = { inputs: { project } }
+  if (config?.mario) {
+    // TODO: maybe change in the future
+    const github = await gitconfig.get({ location: 'global' })
+    variables = merge(variables, { inputs: github })
+    console.log()
+    console.log(`❯ Run mario ${pc.green(config.mario)}`)
+    if (isYaml(config.mario)) {
+      await runMario(path.resolve(neoTempDir, config.mario), { cwd: root, variables })
+      return
+    }
+    const alias = config.mario
+    const target = path.join(neoTempDir, '.mario')
+    fsExtra.ensureDirSync(target)
+    const prepare = new Listr([
+      {
+        title: `Download mario generator ${alias}`,
+        task: async () => {
+          const response = await store.pm.request({ alias, latest: true })
+          await store.pm.import(target, await response.files?.())
+          return true
+        },
+      },
+    ])
+    await prepare.run()
+    await runMario(path.join(target, 'index.yaml'), { cwd: root, variables })
+    // fsExtra.removeSync(neoTempDir)
+  }
 }
 
 const createTask = ({
@@ -124,7 +145,7 @@ const createTask = ({
         if (!ctx.templateResponse) {
           throw new Error('template not found')
         }
-        return generate({ project, store, templateResponse: ctx.templateResponse, alias })
+        return generate({ project, store, templateResponse: ctx.templateResponse })
       },
     },
     // postgenerate
@@ -167,6 +188,7 @@ export const create = async (
       pref: pkg.pref!,
     })
     await task.run()
+    await runTemplateMario({ project, store })
     console.log()
     logger.success(`  🎉 ${project} created, Happy hacking!`)
   } else {
@@ -212,6 +234,7 @@ export const create = async (
           pref: pkg.pref!,
         })
         await task.run()
+        await runTemplateMario({ project: answers.project, store })
         console.log()
         logger.success(`  🎉 ${answers.project} created, Happy hacking!`)
       })

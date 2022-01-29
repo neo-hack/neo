@@ -1,7 +1,6 @@
 import pc from 'picocolors'
 import cols from 'cli-columns'
-import groupby from 'lodash.groupby'
-import countby from 'lodash.countby'
+import { groupBy, countBy } from 'lodash-es'
 
 import { ListOptions } from '../../interface'
 import logger, { debug } from '../../utils/logger'
@@ -23,14 +22,14 @@ export const list = async (config: string, params: ListOptions) => {
   }
   // list all packages
   const templates = await store.lockFile.readTemplates({ presetNames: params.preset })
-  const counters = countby(templates, 'name')
+  const counters = countBy(templates, 'name')
   if (!templates.length) {
     logger.log(`No templates...`)
     return
   }
   logger.log(`${pc.cyan('Note:')} ${pc.green('cached')}, ${pc.gray('uncached')}\n`)
   logger.log(pc.bold(pc.white(`Found ${templates.length} templates:\n`)))
-  const maps = groupby(templates, 'preset')
+  const maps = groupBy(templates, 'preset')
   if (!params.preset) {
     Object.keys(maps).forEach((key, index) => {
       logger.log(key === 'undefined' ? 'Not in preset:' : `${key}:`)

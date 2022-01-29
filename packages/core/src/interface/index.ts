@@ -36,3 +36,7 @@ export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extend
 ) => Promise<infer R>
   ? R
   : any
+
+export type AppConfig = {
+  mario: string
+}

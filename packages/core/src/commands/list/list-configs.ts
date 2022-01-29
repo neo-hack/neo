@@ -14,7 +14,7 @@ import { AsyncReturnType, ListOptions } from '../../interface'
 import type createStore from '../../store'
 import logger, { debug } from '../../utils/logger'
 import { colorify } from '../../utils'
-import groupBy from 'lodash.groupby'
+import { groupBy } from 'lodash-es'
 
 inquirer.registerPrompt('search-list', InquirerSearchList)
 
@@ -59,7 +59,7 @@ export const listConfigs = async (
     debug.list('config not found in preset')
     return
   }
-  const { response } = await store.request({ alias: pref.preset })
+  const response = await store.pm.request({ alias: pref.preset })
   const files = await response?.files?.()
   if (!files) {
     return

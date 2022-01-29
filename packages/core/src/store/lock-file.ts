@@ -2,8 +2,7 @@ import writeYamlFile from 'write-yaml-file'
 import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
-import countby from 'lodash.countby'
-import sortby from 'lodash.sortby'
+import { countBy, sortBy } from 'lodash-es'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
@@ -63,7 +62,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const lockFile = await this.read()
       const templates: LockFile['templates'] = lockFile.templates || {}
       const cachedTemplates = new Map<string, Partial<Package>>()
-      sortby(Object.values(templates), 'version').forEach((tpl) => {
+      sortBy(Object.values(templates), 'version').forEach((tpl) => {
         cachedTemplates.set(makeUniqId(tpl), {
           ...tpl,
           pref: tpl.pref || tpl.name,
@@ -101,7 +100,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
         const filterTemplates = [...presetTemplates.values()].filter((tpl) =>
           isMatchPreset(tpl.preset, presetNames),
         )
-        const counters = countby(filterTemplates, 'name')
+        const counters = countBy(filterTemplates, 'name')
         return filterTemplates.map((tpl) => {
           if (counters[tpl.name!] > 1) {
             return {
@@ -113,7 +112,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
         })
       }
       const allTemplates = [...presetTemplates.values(), ...cachedTemplates.values()]
-      const counters = countby(allTemplates, 'name')
+      const counters = countBy(allTemplates, 'name')
       debug.lockfile('templates list %O', allTemplates)
       return allTemplates.map((tpl) => {
         if (counters[tpl.name!] > 1) {
