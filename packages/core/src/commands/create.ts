@@ -7,13 +7,14 @@ import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
 import pc from 'picocolors'
 
-import { isMonorepo } from '../utils'
+import { isMonorepo, isYaml } from '../utils'
 import logger, { debug } from '../utils/logger'
 import { CommonOptions, AsyncReturnType, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
 import { findPrefPackageByPk } from '../utils/find-pref-package'
 import { runMario } from '../utils/mario'
+import { loadConfig } from '../utils/load-config'
 
 type CreateOptions = Pick<Package, 'name' | 'pref'> & {
   version?: Package['version']
@@ -61,12 +62,17 @@ const postgenerate = async ({
 
 const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
   const root = path.join(process.cwd(), project)
-  const pkg = fsExtra.readJsonSync(path.join(root, 'package.json'))
-  if (pkg.neo.mario) {
+  const neoTempDir = path.join(root, '.neo')
+  const config = await loadConfig(neoTempDir)
+  const variables = { inputs: { project } }
+  if (config.mario) {
     console.log()
-    console.log(`❯ Run mario ${pc.green(pkg.neo.mario)}`)
-    const alias = pkg.neo.mario
-    const neoTempDir = path.join(root, '.neo')
+    console.log(`❯ Run mario ${pc.green(config.mario)}`)
+    if (isYaml(config.mario)) {
+      await runMario(path.resolve(neoTempDir, config.mario), { cwd: root, variables })
+      return
+    }
+    const alias = config.mario
     const isNeoExit = fsExtra.existsSync(neoTempDir)
     const target = path.join(neoTempDir, '.mario')
     fsExtra.ensureDirSync(target)
@@ -81,7 +87,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
       },
     ])
     await prepare.run()
-    await runMario(path.join(target, 'index.yaml'), { cwd: root })
+    await runMario(path.join(target, 'index.yaml'), { cwd: root, variables })
     // TODO: make sure
     if (isNeoExit) {
       fsExtra.removeSync(target)

@@ -5,12 +5,11 @@ import { Workflow } from './interface'
 export { hooks } from './utils/hooks'
 // export { LogLevel } from 'consola'
 
-export const create = async (
-  filepath: string,
-  options: Omit<CreateWorkflowOptions, 'schema'> & {
-    jobs?: string[]
-  } = {},
-) => {
+export type CreateOptions = Omit<CreateWorkflowOptions, 'schema'> & {
+  jobs?: string[]
+}
+
+export const create = async (filepath: string, options: CreateOptions = {}) => {
   const schema = await readWorkflowSchema(filepath)
   if (options.jobs) {
     schema.jobs = pick(schema.jobs, options.jobs) as Workflow['jobs']
