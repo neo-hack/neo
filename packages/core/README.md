@@ -57,6 +57,8 @@ see `@aiou/preset-aiou` detail [here](https://github.com/neo-hack/neo/blob/maste
 
 Then, `neo create` invoke interactive templates list ui, and `neo list configs` invoke interactive configs list ui. Also you can publish your own preset~
 
+[Find more recipes](https://github.com/neo-hack/neo/blob/master/docs/create.md)
+
 
 ## commands
 
