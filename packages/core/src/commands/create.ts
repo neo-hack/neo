@@ -6,6 +6,8 @@ import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
 import pc from 'picocolors'
+import gitconfig from 'gitconfig'
+import { merge } from 'lodash-es'
 
 import { isMonorepo, isYaml } from '../utils'
 import logger, { debug } from '../utils/logger'
@@ -64,8 +66,11 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
   const root = path.join(process.cwd(), project)
   const neoTempDir = path.join(root, '.neo')
   const config = await loadConfig(neoTempDir)
-  const variables = { inputs: { project } }
+  let variables = { inputs: { project } }
   if (config?.mario) {
+    // TODO: maybe change in the future
+    const github = await gitconfig.get({ location: 'global' })
+    variables = merge(variables, { inputs: github })
     console.log()
     console.log(`❯ Run mario ${pc.green(config.mario)}`)
     if (isYaml(config.mario)) {
@@ -73,7 +78,6 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
       return
     }
     const alias = config.mario
-    const isNeoExit = fsExtra.existsSync(neoTempDir)
     const target = path.join(neoTempDir, '.mario')
     fsExtra.ensureDirSync(target)
     const prepare = new Listr([
@@ -88,12 +92,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
     ])
     await prepare.run()
     await runMario(path.join(target, 'index.yaml'), { cwd: root, variables })
-    // TODO: make sure
-    if (isNeoExit) {
-      fsExtra.removeSync(target)
-    } else {
-      fsExtra.removeSync(neoTempDir)
-    }
+    // fsExtra.removeSync(neoTempDir)
   }
 }
 
