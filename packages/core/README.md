@@ -9,6 +9,9 @@
 
 - [table of contents](#table-of-contents)
 - [install](#install)
+- [get started](#get-started)
+  - [basic](#basic)
+  - [advanced](#advanced)
 - [commands](#commands)
   - [list](#list)
     - [list configs](#list-configs)
@@ -22,6 +25,40 @@
 ```bash
 npm install @aiou/neo -g
 ```
+
+## get started
+
+### basic
+
+Create project from remote `npm-package` as template
+
+```bash
+neo create @aiou/bin-template project
+```
+
+Or save `@aiou/bin-template` into store first
+
+
+```bash
+neo add @aiou/bin-template
+```
+
+In the next time, `neo create` will prefer load template from local store. It's fast ⚡
+
+### advanced
+
+Load collection of templates and config files.
+
+```bash
+neo add @aiou/preset-aiou --preset
+```
+
+see `@aiou/preset-aiou` detail [here](https://github.com/neo-hack/neo/blob/master/packages/presets/aiou/index.json). 
+
+Then, `neo create` invoke interactive templates list ui, and `neo list configs` invoke interactive configs list ui. Also you can publish your own preset~
+
+[Find more recipes](https://github.com/neo-hack/neo/blob/master/docs/create.md)
+
 
 ## commands
 

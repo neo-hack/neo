@@ -1,5 +1,10 @@
 # @aiou/preset-aiou
 
+## configs
+
+- `pnpm` release and ci yamls
+- `rust` application release and ci yamls
+
 ## templates
 
 ### `bin-template`
@@ -11,6 +16,7 @@
 - Use [**commander**](https://github.com/tj/commander.js/) build cli application
 - Interaction interface with [**inquirer**](https://github.com/SBoudrias/Inquirer.js/)
 - Display loading status with [**ora**](https://github.com/sindresorhus/ora)
+- Build in `Bundle` and with esbuild
 
 ### `actions-template`
 
