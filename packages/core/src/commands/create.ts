@@ -42,7 +42,7 @@ const generate = async ({
 
 /**
  * @description del files after generate
- * @todo move to @aiou/workflows
+ * @todo move to @aiou/generator-aiou
  */
 const postgenerate = async ({
   project,
