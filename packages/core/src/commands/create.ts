@@ -65,7 +65,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
   const neoTempDir = path.join(root, '.neo')
   const config = await loadConfig(neoTempDir)
   const variables = { inputs: { project } }
-  if (config.mario) {
+  if (config?.mario) {
     console.log()
     console.log(`❯ Run mario ${pc.green(config.mario)}`)
     if (isYaml(config.mario)) {

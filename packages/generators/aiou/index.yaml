@@ -7,9 +7,14 @@ jobs:
         with:
           match: spring-catponents
           replacement: neo-hack
+      - name: Replace template name
+      - uses: replace
+        with:
+          match: webext-template
+          replacement: ${{ inputs.project }}
 
-  Reset:
-    name: Reset
+  Package:
+    name: Package setup
     paths: package.json
     steps:
       - name: Reset version
@@ -18,6 +23,12 @@ jobs:
           pairs:
             - path: "version"
               value: "0.0.0"
+      - name: Setup project name
+      - uses: json-editor
+        with:
+          pairs:
+            - path: "name"
+              value: ${{ inputs.project }}
 
   Clear unused files:
     name: clear unused files
