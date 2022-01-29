@@ -5,6 +5,7 @@ import InquirerSearchList from 'inquirer-search-list'
 import Listr, { ListrTask } from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
+import pc from 'picocolors'
 
 import { isMonorepo } from '../utils'
 import logger, { debug } from '../utils/logger'
@@ -12,6 +13,7 @@ import { CommonOptions, AsyncReturnType, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
 import { findPrefPackageByPk } from '../utils/find-pref-package'
+import { runMario } from '../utils/mario'
 
 type CreateOptions = Pick<Package, 'name' | 'pref'> & {
   version?: Package['version']
@@ -55,6 +57,38 @@ const postgenerate = async ({
   common.forEach((filename) => {
     fsExtra.removeSync(path.join(process.cwd(), project, filename))
   })
+}
+
+const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
+  const root = path.join(process.cwd(), project)
+  const pkg = fsExtra.readJsonSync(path.join(root, 'package.json'))
+  if (pkg.neo.mario) {
+    console.log()
+    console.log(`❯ Run mario ${pc.green(pkg.neo.mario)}`)
+    const alias = pkg.neo.mario
+    const neoTempDir = path.join(root, '.neo')
+    const isNeoExit = fsExtra.existsSync(neoTempDir)
+    const target = path.join(neoTempDir, '.mario')
+    fsExtra.ensureDirSync(target)
+    const prepare = new Listr([
+      {
+        title: `Download mario generator ${alias}`,
+        task: async () => {
+          const response = await store.pm.request({ alias, latest: true })
+          await store.pm.import(target, await response.files?.())
+          return true
+        },
+      },
+    ])
+    await prepare.run()
+    await runMario(path.join(target, 'index.yaml'), { cwd: root })
+    // TODO: make sure
+    if (isNeoExit) {
+      fsExtra.removeSync(target)
+    } else {
+      fsExtra.removeSync(neoTempDir)
+    }
+  }
 }
 
 const createTask = ({
@@ -149,6 +183,7 @@ export const create = async (
       pref: pkg.pref!,
     })
     await task.run()
+    await runTemplateMario({ project, store })
     console.log()
     logger.success(`  🎉 ${project} created, Happy hacking!`)
   } else {
@@ -194,6 +229,7 @@ export const create = async (
           pref: pkg.pref!,
         })
         await task.run()
+        await runTemplateMario({ project: answers.project, store })
         console.log()
         logger.success(`  🎉 ${answers.project} created, Happy hacking!`)
       })
