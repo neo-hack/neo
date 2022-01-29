@@ -7,3 +7,12 @@ jobs:
         with:
           match: one
           replacement: target
+
+      - name: Replace Action
+      - uses: replace
+        with:
+          pairs:
+            - match: two
+              replacement: target
+            - match: three
+              replacement: target

@@ -1,5 +1,5 @@
 import Shell from 'gulp-shell'
-import { Action } from 'src/interface'
+import { Action } from '../interface'
 
 export type RunOptions = {
   commands?: string[] | string

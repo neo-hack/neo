@@ -3,7 +3,7 @@ import { hooks } from './hooks'
 
 import Observable from 'zen-observable'
 import type Listr from 'listr'
-import { LIFE_CYCLES } from 'src/constants'
+import { LIFE_CYCLES } from '../constants'
 
 /**
  * @description convert schema to listr

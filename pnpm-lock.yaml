@@ -49,11 +49,6 @@ importers:
       '@types/inquirer': 8.1.3
       '@types/jest': ^27.4.0
       '@types/listr': ^0.14.4
-      '@types/lodash.compact': ^3.0.6
-      '@types/lodash.countby': ^4.6.6
-      '@types/lodash.groupby': ^4.6.6
-      '@types/lodash.sortby': ^4.7.6
-      '@types/lodash.uniqby': ^4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
       '@types/update-notifier': ^5.1.0
@@ -77,11 +72,6 @@ importers:
       jest: ^27.4.7
       listr: ^0.14.3
       lodash-es: ^4.17.21
-      lodash.compact: ^3.0.1
-      lodash.countby: ^4.6.0
-      lodash.groupby: ^4.6.0
-      lodash.sortby: ^4.7.0
-      lodash.uniqby: ^4.7.0
       minimatch: ^3.0.4
       picocolors: ^1.0.0
       read-pkg-up: ^9.0.0
@@ -123,11 +113,6 @@ importers:
       '@types/inquirer': 8.1.3
       '@types/jest': 27.4.0
       '@types/listr': 0.14.4
-      '@types/lodash.compact': 3.0.6
-      '@types/lodash.countby': 4.6.6
-      '@types/lodash.groupby': 4.6.6
-      '@types/lodash.sortby': 4.7.6
-      '@types/lodash.uniqby': 4.7.6
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
       '@types/update-notifier': 5.1.0
@@ -151,11 +136,6 @@ importers:
       jest: 27.4.7_ts-node@10.4.0
       listr: 0.14.3_zen-observable@0.8.15
       lodash-es: 4.17.21
-      lodash.compact: 3.0.1
-      lodash.countby: 4.6.0
-      lodash.groupby: 4.6.0
-      lodash.sortby: 4.7.0
-      lodash.uniqby: 4.7.0
       minimatch: 3.0.4
       picocolors: 1.0.0
       read-pkg-up: 9.0.0
@@ -177,6 +157,9 @@ importers:
       write-yaml-file: 4.2.0
       zen-observable: 0.8.15
 
+  packages/generators/aiou:
+    specifiers: {}
+
   packages/generators/pnpm-ci:
     specifiers: {}
 
@@ -191,9 +174,6 @@ importers:
       '@types/gulp-rename': ^2.0.1
       '@types/jest': 26.0.23
       '@types/lodash-es': ^4.17.5
-      '@types/lodash.pick': ^4.4.6
-      '@types/lodash.set': ^4.3.6
-      '@types/lodash.template': ^4.5.0
       comparedir-test: 1.2.0
       consola: ^2.15.3
       debug: 4.3.3
@@ -217,9 +197,6 @@ importers:
       json-schema-to-typescript: ^10.1.5
       listr: ^0.14.3
       lodash-es: ^4.17.21
-      lodash.pick: ^4.4.0
-      lodash.set: ^4.3.2
-      lodash.template: ^4.5.0
       read-yaml-file: ^2.1.0
       rimraf: 3.0.2
       rollup: 2.58.0
@@ -240,6 +217,7 @@ importers:
       consola: 2.15.3
       debug: 4.3.3
       del: 6.0.0
+      fs-extra: 10.0.0
       gulp: 4.0.2
       gulp-copy: 4.0.1
       gulp-debug: 4.0.0_gulp@4.0.2
@@ -250,9 +228,6 @@ importers:
       gulp-shell: 0.8.0
       hookable: 5.1.1
       lodash-es: 4.17.21
-      lodash.pick: 4.4.0
-      lodash.set: 4.3.2
-      lodash.template: 4.5.0
       read-yaml-file: 2.1.0
     devDependencies:
       '@types/gulp': 4.0.9
@@ -264,15 +239,11 @@ importers:
       '@types/gulp-rename': 2.0.1
       '@types/jest': 26.0.23
       '@types/lodash-es': 4.17.5
-      '@types/lodash.pick': 4.4.6
-      '@types/lodash.set': 4.3.6
-      '@types/lodash.template': 4.5.0
       comparedir-test: 1.2.0
       eslint: 7.32.0
       esno: 0.13.0_typescript@4.5.4
       esrua: 0.2.1
       execa: 6.0.0
-      fs-extra: 10.0.0
       husky: 7.0.4
       jest: 27.0.6_ts-node@10.0.0
       json-schema-to-typescript: 10.1.5
@@ -2231,54 +2202,6 @@ packages:
 
   /@types/lodash-es/4.17.5:
     resolution: {integrity: sha512-SHBoI8/0aoMQWAgUHMQ599VM6ZiSKg8sh/0cFqqlQQMyY9uEplc0ULU5yQNzcvdR4ZKa0ey8+vFmahuRbOCT1A==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.compact/3.0.6:
-    resolution: {integrity: sha512-0pDKTX4alTyxH85Y5Al4YzS8oriqBQykADW6zLAHkZwNBMPXFIhdE2ctg0Z2GVcZsABxo5CI/J3vmHrFkdQBfA==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.countby/4.6.6:
-    resolution: {integrity: sha512-buriykJ1CVPuYe2BVZjWNCq8oY66kgrGCLMvwXD3llirKym0GO4B4qSCzXtpnCskj+z0W2G1jZWVx0RZf68Qag==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.groupby/4.6.6:
-    resolution: {integrity: sha512-kwg3T7Ia63KtDNoQQR8hKrLHCAgrH4I44l5uEMuA6JCbj7DiSccaV4tNV1vbjtAOpX990SolVthJCmBVtRVRgw==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.pick/4.4.6:
-    resolution: {integrity: sha512-u8bzA16qQ+8dY280z3aK7PoWb3fzX5ATJ0rJB6F+uqchOX2VYF02Aqa+8aYiHiHgPzQiITqCgeimlyKFy4OA6g==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.set/4.3.6:
-    resolution: {integrity: sha512-ZeGDDlnRYTvS31Laij0RsSaguIUSBTYIlJFKL3vm3T2OAZAQj2YpSvVWJc0WiG4jqg9fGX6PAPGvDqBcHfSgFg==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.sortby/4.7.6:
-    resolution: {integrity: sha512-EnvAOmKvEg7gdYpYrS6+fVFPw5dL9rBnJi3vcKI7wqWQcLJVF/KRXK9dH29HjGNVvFUj0s9prRP3J8jEGnGKDw==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.template/4.5.0:
-    resolution: {integrity: sha512-4LgHxK16IPbGR7TmXpPvNT7iNGsLCdQY6Rc0mi1a/JECt8et/D4hx6NMVAJej/d932sj1mJsg0QYHKL189O0Qw==}
-    dependencies:
-      '@types/lodash': 4.14.178
-    dev: true
-
-  /@types/lodash.uniqby/4.7.6:
-    resolution: {integrity: sha512-9wBhrm1y6asW50Joj6tsySCNUgzK2tCqL7vtKIej0E9RyeBFdcte7fxUosmFuMoOU0eHqOMK76kCCrK99jxHgg==}
     dependencies:
       '@types/lodash': 4.14.178
     dev: true
@@ -5793,7 +5716,6 @@ packages:
       graceful-fs: 4.2.9
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: true
 
   /fs-extra/7.0.1:
     resolution: {integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==}
@@ -7942,7 +7864,6 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.9
-    dev: true
 
   /jsx-ast-utils/3.2.1:
     resolution: {integrity: sha512-uP5vu8xfy2F9A6LGC22KO7e2/vGTS1MhP+18f++ZNlf0Ohaxbc9nIEwHAsejlJKyzfZzU5UIhe5ItYkitcZnZA==}
@@ -8238,20 +8159,8 @@ packages:
     resolution: {integrity: sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=}
     dev: false
 
-  /lodash.compact/3.0.1:
-    resolution: {integrity: sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=}
-    dev: true
-
-  /lodash.countby/4.6.0:
-    resolution: {integrity: sha1-U1HyTeFnJKAFm1YfkgsNgK94ozw=}
-    dev: true
-
   /lodash.get/4.4.2:
     resolution: {integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=}
-    dev: true
-
-  /lodash.groupby/4.6.0:
-    resolution: {integrity: sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=}
     dev: true
 
   /lodash.invoke/4.5.2:
@@ -8274,18 +8183,6 @@ packages:
     resolution: {integrity: sha1-ATDYDoM2MmTUAHTzKbij56ihzEs=}
     dev: true
 
-  /lodash.pick/4.4.0:
-    resolution: {integrity: sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=}
-    dev: false
-
-  /lodash.set/4.3.2:
-    resolution: {integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=}
-    dev: false
-
-  /lodash.sortby/4.7.0:
-    resolution: {integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=}
-    dev: true
-
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=}
     dev: true
@@ -8305,10 +8202,6 @@ packages:
 
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=}
-    dev: true
-
-  /lodash.uniqby/4.7.0:
-    resolution: {integrity: sha1-2ZwHpmnp5tJOE2Lf4mbGdhavEwI=}
     dev: true
 
   /lodash/4.17.21:
@@ -11477,7 +11370,6 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
-    dev: true
 
   /unset-value/1.0.0:
     resolution: {integrity: sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=}

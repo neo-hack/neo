@@ -1,8 +1,8 @@
-import readYaml from 'read-yaml-file'
 import gulp from 'gulp'
 import consola, { Consola } from 'consola'
 import filter from 'gulp-filter'
 import gulpDebug from 'gulp-debug'
+import readYaml from 'read-yaml-file'
 
 import { hooks } from '../utils/hooks'
 import { Workflow, Job, Context, Step } from '../interface'
