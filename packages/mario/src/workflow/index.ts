@@ -23,6 +23,7 @@ type CreateJobOptions = {
   key: string
   job: Job
   cwd?: string
+  variables?: Context['variables']
 }
 
 export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
@@ -49,6 +50,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
               .runAction?.(step.uses, step.with, extra, {
                 cwd: options.cwd!,
                 debug: debug.uses,
+                variables: options.variables,
               })
               .catch((error: Error) => {
                 consola.error(error)
@@ -128,6 +130,7 @@ export type CreateWorkflowOptions = {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
   logLevel?: Consola['level']
+  variables?: Context['variables']
 }
 
 export const createWorkflow = async ({

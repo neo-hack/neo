@@ -1,5 +1,5 @@
 import { createWorkflow, readWorkflowSchema, CreateWorkflowOptions } from './workflow'
-import pick from 'lodash.pick'
+import { pick } from 'lodash-es'
 import { Workflow } from './interface'
 
 export { hooks } from './utils/hooks'

@@ -1,5 +1,5 @@
 import JsonEditor from 'gulp-json-editor'
-import set from 'lodash.set'
+import { set } from 'lodash-es'
 
 import { Action } from '../../interface'
 
