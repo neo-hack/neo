@@ -12,4 +12,4 @@ it('uses replace should work', async () => {
   const { stdout } = await execa('esmrua', [r('test/uses/replace/replace.ts'), 'main'])
   console.log(stdout)
   await compare(r('test/uses/replace/expected'), r('test/uses/replace/output'))
-}, 10000)
+})

@@ -10,5 +10,5 @@ describe('workflow uses', () => {
   it('continue on error should work', async () => {
     const { stdout } = await execa('esmrua', [r('test/uses/uses/uses.ts'), 'continueOnError'])
     expect(stdout.includes('hello world')).toBeDefined()
-  }, 20000)
+  })
 })

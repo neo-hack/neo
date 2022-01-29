@@ -11,9 +11,4 @@ describe('read schema', () => {
     const schema = await readWorkflowSchema(r('test/assets/workflow.yaml'))
     expect(schema).toMatchSnapshot()
   })
-
-  it('read workflow contain regexp', async () => {
-    const schema = await readWorkflowSchema(r('test/assets/regexp.yaml'))
-    expect(schema).toMatchSnapshot()
-  })
 })
