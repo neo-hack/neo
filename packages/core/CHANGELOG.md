@@ -1,5 +1,15 @@
 # @aiou/neo
 
+## 3.5.0
+
+### Minor Changes
+
+- e6f595b: support exec mario after create project
+
+### Patch Changes
+
+- e6f595b: fix create from local store in default
+
 ## 3.4.0
 
 ### Minor Changes
