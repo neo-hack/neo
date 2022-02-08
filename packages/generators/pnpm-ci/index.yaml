@@ -42,9 +42,9 @@ jobs:
               value: "pnpm changeset version"
             - path: "scripts.ci:publish"
               value: "pnpm run build && pnpm changeset publish"
-            - path: "ci:snapshot"
+            - path: "scripts.ci:snapshot"
               value: "pnpx changeset version --snapshot beta"
-            - path: "ci:prerelease"
+            - path: "scripts.ci:prerelease"
               value: "pnpm run build && pnpx changeset publish --tag beta"
       - name: Add lint-staged
         uses: json-editor
