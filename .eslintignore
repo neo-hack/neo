@@ -5,8 +5,11 @@ scripts
 *.d.ts
 jest
 coverage
-.eslintrc.js,
+.eslintrc.js
 size-plugin.json
 fixtures
 **/test/**/*.json
 compiled
+assets
+**/test/**/*.yaml
+**/test/**/*.yml

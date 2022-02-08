@@ -18,7 +18,7 @@ export const create = async (filepath: string, options: CreateOptions = {}) => {
   return {
     schema,
     start: async () => {
-      await workflow()
+      return workflow()
     },
   }
 }
