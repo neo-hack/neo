@@ -1,5 +1,11 @@
 # @aiou/mario
 
+## 0.2.1
+
+### Patch Changes
+
+- 0b301df: resolve after gulp tasks finished
+
 ## 0.2.0
 
 ### Minor Changes
