@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.1
+
+### Patch Changes
+
+- 0b301df: upgrade mario
+
 ## 3.5.0
 
 ### Minor Changes

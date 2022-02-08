@@ -1,6 +1,6 @@
 {
   "name": "@aiou/neo",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "templates cli",
   "license": "MIT",
   "homepage": "https://github.com/neo-hack/neo#readme",
@@ -45,7 +45,7 @@
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
-    "@aiou/mario": "workspace:^0.2.0",
+    "@aiou/mario": "workspace:^0.2.1",
     "@aiou/schema": "workspace:^1.1.0",
     "@changesets/cli": "latest",
     "@pnpm/client": "^6.1.0",
