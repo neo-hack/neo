@@ -140,7 +140,7 @@ export const createWorkflow = async ({
 }: CreateWorkflowOptions) => {
   const keys = Object.keys(schema.jobs || {})
   consola.level = options.logLevel ?? consola.level
-  return async () => {
+  return async (): Promise<boolean> => {
     const jobs: string[] = []
     for (const key of keys) {
       debug.job('create job %s on cwd %s', key, cwd)
@@ -156,8 +156,14 @@ export const createWorkflow = async ({
       const { job: name } = await job()
       jobs.push(name)
     }
-    gulp.series(...jobs)((error) => {
-      consola.error(error)
+    return new Promise((resolve, reject) => {
+      gulp.series(...jobs)((error) => {
+        if (error) {
+          consola.error(error)
+          reject(error)
+        }
+        resolve(true)
+      })
     })
   }
 }

@@ -46,7 +46,7 @@
   "scripts": {
     "schema2types": "json2ts --input ./assets/github.json --output ./assets/github.d.ts",
     "build": "rimraf lib && rollup -c --silent",
-    "dev": "rimraf lib && ttsc -w",
+    "dev": "rimraf lib && rollup -c --watch",
     "jest": "NO_COLOR=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test": "pnpm run build && pnpm run jest",
     "pretest": "pnpm run build",
