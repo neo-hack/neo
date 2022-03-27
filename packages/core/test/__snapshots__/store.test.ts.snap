@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`store add preset 1`] = `
+exports[`store > add preset 1`] = `
 "presets:
   aiou:
     configs:
@@ -31,7 +31,7 @@ exports[`store add preset 1`] = `
 "
 `;
 
-exports[`store add template 1`] = `
+exports[`store > add template 1`] = `
 "templates:
   registry.npmjs.org/@aiou/bin-template/3.0.0:
     name: bin
@@ -42,7 +42,7 @@ exports[`store add template 1`] = `
 "
 `;
 
-exports[`store add(type=preset) 1`] = `
+exports[`store > add(type=preset) 1`] = `
 "presets:
   '@aiou/preset-aiou':
     configs:
@@ -73,7 +73,7 @@ exports[`store add(type=preset) 1`] = `
 "
 `;
 
-exports[`store add(type=template) 1`] = `
+exports[`store > add(type=template) 1`] = `
 "templates:
   registry.npmjs.org/@aiou/bin-template/3.0.0:
     name: '@aiou/bin-template'
