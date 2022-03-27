@@ -1,8 +1,7 @@
 import { r } from '../../helpers'
+import { create } from '../../../src'
 
-import { execa } from 'execa'
 import fs from 'fs-extra'
-import { compare } from 'comparedir-test'
 
 beforeAll(() => {
   fs.copySync(
@@ -12,12 +11,15 @@ beforeAll(() => {
 })
 
 it('use jsoneditor should work', async () => {
-  await execa('esmrua', [
-    r('test/uses/json-editor-with-variable/json-editor-with-variable.ts'),
-    'main',
-  ])
-  await compare(
-    r('test/uses/json-editor-with-variable/expected'),
-    r('test/uses/json-editor-with-variable/output'),
+  const workflow = await create(
+    r('test/uses/json-editor-with-variable/json-editor-with-variable.yaml'),
+    {
+      cwd: r('test/uses/json-editor-with-variable'),
+      variables: { inputs: { project: 'project' } },
+    },
+  )
+  await workflow.start()
+  expect(r('test/uses/json-editor-with-variable/expected/input.json')).toMatchFile(
+    r('test/uses/json-editor-with-variable/output/input.json'),
   )
 })

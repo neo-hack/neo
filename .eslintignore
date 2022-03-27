@@ -13,3 +13,4 @@ compiled
 assets
 **/test/**/*.yaml
 **/test/**/*.yml
+setup.config.ts

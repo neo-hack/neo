@@ -81,7 +81,7 @@ describe('mapValuesDeep', () => {
   })
 })
 
-describe('wrapOptions', () => {
+it('wrapOptions', () => {
   const result = wrapOptions(
     { match: '${{ inputs.variable }}', replacement: '${{ inputs.variable }}' },
     {

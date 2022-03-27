@@ -1,15 +1,18 @@
 import { r } from '../../helpers'
+import { create } from '../../../src'
 
-import { execa } from 'execa'
 import fs from 'fs-extra'
-import { compare } from 'comparedir-test'
 
 beforeAll(() => {
   fs.copySync(r('test/uses/replace/input'), r('test/uses/replace/output'))
 })
 
 it('uses replace should work', async () => {
-  const { stdout } = await execa('esmrua', [r('test/uses/replace/replace.ts'), 'main'])
-  console.log(stdout)
-  await compare(r('test/uses/replace/expected'), r('test/uses/replace/output'))
+  const workflow = await create(r('test/uses/replace/replace.yaml'), {
+    cwd: r('test/uses/replace'),
+  })
+  await workflow.start()
+  expect(r('test/uses/replace/output/index.ts')).toMatchFile(
+    r('test/uses/replace/expected/index.ts'),
+  )
 })

@@ -1,16 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`create workflow should filtered by jobs 1`] = `
-Object {
-  "jobs": Object {
-    "CI": Object {
+exports[`create > workflow should filtered by jobs 1`] = `
+{
+  "jobs": {
+    "CI": {
       "name": "Setup ci workflow",
       "paths": "input/workflows/*",
-      "steps": Array [
-        Object {
+      "steps": [
+        {
           "name": "CI Workflows",
           "uses": "copy",
-          "with": Object {
+          "with": {
             "output": "output/workflows",
           },
         },
