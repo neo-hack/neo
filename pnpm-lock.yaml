@@ -56,7 +56,6 @@ importers:
       cli-columns: ^4.0.0
       clipboardy: ^3.0.0
       commander: 8.3.0
-      comparedir-test: 1.2.0
       consola: ^2.15.3
       cosmiconfig: ^7.0.1
       debug: 4.3.3
@@ -89,6 +88,7 @@ importers:
       update-notifier: ^5.1.0
       vite-compatible-readable-stream: ^3.6.0
       vitest: ^0.7.7
+      vitest-extra: ^0.0.1
       write-yaml-file: ^4.2.0
       zen-observable: ^0.8.15
     dependencies:
@@ -118,7 +118,6 @@ importers:
       cli-columns: 4.0.0
       clipboardy: 3.0.0
       commander: 8.3.0
-      comparedir-test: 1.2.0
       consola: 2.15.3
       cosmiconfig: 7.0.1
       debug: 4.3.3
@@ -150,6 +149,7 @@ importers:
       update-notifier: 5.1.0
       vite-compatible-readable-stream: 3.6.0
       vitest: 0.7.7_c8@7.11.0
+      vitest-extra: 0.0.1_vitest@0.7.7
       write-yaml-file: 4.2.0
       zen-observable: 0.8.15
 
@@ -205,6 +205,7 @@ importers:
       typescript-transform-extensions: ^1.0.1
       typescript-transform-paths: ^3.0.2
       vitest: ^0.7.7
+      vitest-extra: ^0.0.1
       zen-observable: ^0.8.15
     dependencies:
       consola: 2.15.3
@@ -252,6 +253,7 @@ importers:
       typescript-transform-extensions: 1.0.1
       typescript-transform-paths: 3.3.1_typescript@4.5.4
       vitest: 0.7.7
+      vitest-extra: 0.0.1_vitest@0.7.7
       zen-observable: 0.8.15
 
   packages/presets/aiou:
@@ -4819,6 +4821,17 @@ packages:
     resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
     dev: true
 
+  /fast-glob/3.2.11:
+    resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.4
+    dev: true
+
   /fast-glob/3.2.9:
     resolution: {integrity: sha512-MBwILhhD92sziIrMQwpqcuGERF+BH99ei2a3XsGJuqEKcSycAL+w0HWokFenZXona+kjFr82Lf71eTxNRC06XQ==}
     engines: {node: '>=8.6.0'}
@@ -5097,6 +5110,15 @@ packages:
       jsonfile: 6.1.0
       universalify: 2.0.0
 
+  /fs-extra/10.0.1:
+    resolution: {integrity: sha512-NbdoVMZso2Lsrn/QwLXOy6rm0ufY2zEOKCDzJR/0kBsb0E6qed0P3iYK+Ath3BfvXEeu4JhEtXLgILx5psUfag==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.9
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs-extra/7.0.1:
     resolution: {integrity: sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==}
     engines: {node: '>=6 <7 || >=8'}
@@ -5363,6 +5385,17 @@ packages:
       array-union: 3.0.1
       dir-glob: 3.0.1
       fast-glob: 3.2.9
+      ignore: 5.2.0
+      merge2: 1.4.1
+      slash: 4.0.0
+    dev: true
+
+  /globby/13.1.1:
+    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dir-glob: 3.0.1
+      fast-glob: 3.2.11
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 4.0.0
@@ -10014,6 +10047,18 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /vitest-extra/0.0.1_vitest@0.7.7:
+    resolution: {integrity: sha512-F2977LUpFxDzOVZrxCGreLvscTCTpOI+4tJTvieYzjCN3LXfrUv8impLOEy+Ml0mokLYPhjjSXRwxCl9kU5Zcg==}
+    peerDependencies:
+      vitest: '>=0.7.7'
+    dependencies:
+      fs-extra: 10.0.1
+      globby: 13.1.1
+      vitest: 0.7.7
+    dev: true
+    bundledDependencies:
+      - lodash-es
 
   /vitest/0.7.7:
     resolution: {integrity: sha512-xU7BTB7T7GbcjFBdbZAAp/dIQUwn8bygI+cbw6Yq1oXj60oGRJ+nJ7AXvSOJyaHMTmglEoaqazyDGnCHJBXftw==}
