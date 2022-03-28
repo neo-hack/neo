@@ -41,6 +41,25 @@
       "eslint --fix"
     ]
   },
+  "bundledDependencies": [
+    "@pnpm/parse-wanted-dependency",
+    "@pnpm/package-store",
+    "@pnpm/client",
+    "cosmiconfig",
+    "fs-extra",
+    "picocolors",
+    "debug",
+    "listr",
+    "consola",
+    "terminal-link",
+    "tempy",
+    "write-yaml-file",
+    "read-yaml-file",
+    "lodash-es",
+    "cli-columns",
+    "@aiou/mario",
+    "@aiou/schema"
+  ],
   "dependencies": {
     "readable-stream": "^3.6.0"
   },
@@ -94,11 +113,7 @@
     "rollup-plugin-typescript2": "^0.31.1",
     "tempy": "^2.0.0",
     "terminal-link": "^3.0.0",
-    "ttypescript": "^1.5.13",
     "typescript": "4.5.4",
-    "typescript-transform-extensions": "^1.0.1",
-    "update-notifier": "^5.1.0",
-    "vite-compatible-readable-stream": "^3.6.0",
     "vitest": "^0.7.7",
     "vitest-extra": "^0.0.2",
     "write-yaml-file": "^4.2.0",

@@ -16,17 +16,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
-    "types": ["vitest/globals", "vitest-extra/types"],
-    "plugins": [
-      {
-        "transform": "typescript-transform-extensions",
-        "extensions": { ".ts": ".js" }
-      },
-      {
-        "transform": "tsc-progress",
-        "title": "NEO"
-      }
-    ]
+    "types": ["vitest/globals", "vitest-extra/types"]
   },
   "include": ["src", "test"]
 }
