@@ -17,13 +17,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "plugins": [
-      {
-        "transform": "typescript-transform-extensions",
-        "extensions": { ".ts": ".js" }
-      }
-    ]
+    "noUnusedLocals": true
   },
   "include": ["src"]
 }
