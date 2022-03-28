@@ -5,7 +5,6 @@ import json from '@rollup/plugin-json'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
 import ts from 'rollup-plugin-typescript2'
-import replace from '@rollup/plugin-replace'
 import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig([
@@ -63,40 +62,6 @@ export default defineConfig([
         },
         dir: 'lib',
         chunkFileNames: 'chunks/[name].js',
-        format: 'esm',
-      },
-    ],
-  },
-  {
-    input: {
-      'parse-wanted-dependency': require.resolve('@pnpm/parse-wanted-dependency'),
-      client: require.resolve('@pnpm/client'),
-      store: require.resolve('@pnpm/package-store'),
-    },
-    preserveEntrySignatures: 'strict',
-    plugins: [
-      // fix: https://github.com/rollup/rollup/issues/1507
-      replace({
-        delimiters: ['', ''],
-        preventAssignment: true,
-        values: {
-          [`require('readable-stream/transform')`]: `require('stream').Transform`,
-          [`require('readable-stream/readable')`]: `require('stream').Readable`,
-          [`require('readable-stream/passthrough')`]: `require('stream').PassThrough`,
-          'readable-stream': 'stream',
-        },
-      }),
-      nodeResolve({
-        preferBuiltins: true,
-        exportConditions: ['node'],
-      }),
-      commonjs(),
-      json(),
-    ],
-    output: [
-      {
-        dir: 'compiled',
-        entryFileNames: '[name].mjs',
         format: 'esm',
       },
     ],
