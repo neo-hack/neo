@@ -1,7 +1,7 @@
 import { r } from '../../helpers'
+import { create } from '../../../src'
 
-import { execa } from 'execa'
-import { compare } from 'comparedir-test'
+import { expect } from 'vitest'
 import fs from 'fs-extra'
 
 beforeAll(() => {
@@ -9,6 +9,9 @@ beforeAll(() => {
 })
 
 it('copy action should work', async () => {
-  await execa('esmrua', [r('test/uses/copy/copy.ts'), 'main'])
-  await compare(r('test/uses/copy/expected'), r('test/uses/copy/output'))
+  const workflow = await create(r('test/uses/copy/copy.yaml'), {
+    cwd: r('test/uses/copy'),
+  })
+  await workflow.start()
+  expect(r('test/uses/copy/output/assets.ts')).toMatchFile(r('test/uses/copy/expected/assets.ts'))
 })

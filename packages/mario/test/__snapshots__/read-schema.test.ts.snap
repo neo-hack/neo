@@ -1,23 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`read schema read complete workflow schema 1`] = `
-Object {
-  "jobs": Object {
-    "REPLACE": Object {
+exports[`read schema > read complete workflow schema 1`] = `
+{
+  "jobs": {
+    "REPLACE": {
       "paths": "test/**/*.js",
-      "steps": Array [
-        Object {
+      "steps": [
+        {
           "name": "REPLACE JS Files",
         },
-        Object {
+        {
           "action": "replace",
-          "with": Object {
-            "patterns": Array [
-              Object {
+          "with": {
+            "patterns": [
+              {
                 "match": "one",
                 "replacement": "one target",
               },
-              Object {
+              {
                 "match": "two",
                 "replacement": "two targets",
               },
@@ -30,14 +30,14 @@ Object {
 }
 `;
 
-exports[`read schema read schema takes array as input 1`] = `
-Object {
-  "with": Array [
-    Object {
+exports[`read schema > read schema takes array as input 1`] = `
+{
+  "with": [
+    {
       "find": "one",
       "replace": "one target",
     },
-    Object {
+    {
       "find": "two",
       "replace": "two targets",
     },

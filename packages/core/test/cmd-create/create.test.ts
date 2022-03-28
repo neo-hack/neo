@@ -44,6 +44,7 @@ describe('command create', () => {
     expect(pkg.version).toBe('0.1.0')
   }, 10000)
 
+  // TODO: check it later
   it('create project with latest', async () => {
     const destDir = tempy.directory()
     await execNeo(

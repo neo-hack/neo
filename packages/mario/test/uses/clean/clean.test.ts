@@ -1,6 +1,6 @@
 import { r } from '../../helpers'
+import { create } from '../../../src'
 
-import { execa } from 'execa'
 import fs from 'fs-extra'
 
 beforeAll(() => {
@@ -8,6 +8,9 @@ beforeAll(() => {
 })
 
 it('uses clean should work', async () => {
-  await execa('esmrua', [r('test/uses/clean/clean.ts'), 'main'])
+  const workflow = await create(r('test/uses/clean/clean.yaml'), {
+    cwd: r('test/uses/clean'),
+  })
+  await workflow.start()
   expect(fs.existsSync(r('test/uses/clean/output/index.ts'))).toBe(false)
 })

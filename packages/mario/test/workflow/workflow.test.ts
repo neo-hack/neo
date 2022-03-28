@@ -1,7 +1,9 @@
 import { r } from '../helpers'
-
-import { execa } from 'execa'
+import { create } from '../../src'
 
 it('prepack workflow', async () => {
-  await execa('esmrua', [r('test/workflow/prepack.ts'), 'main'])
-})
+  const workflow = await create(r('test/workflow/prepack.yaml'), {
+    cwd: r('test/workflow'),
+  })
+  await workflow.start()
+}, 100000)

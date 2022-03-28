@@ -22,6 +22,7 @@ export default defineConfig([
     plugins: [
       ts({
         check: false,
+        tsconfig: './tsconfig.build.json',
       }),
       // TODO: external or include
       // fix: https://github.com/rollup/rollup/issues/1507

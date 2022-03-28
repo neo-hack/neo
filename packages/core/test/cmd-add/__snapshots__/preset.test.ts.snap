@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`load preset load preset from npm package should work 1`] = `
+exports[`load preset > load preset from npm package should work 1`] = `
 "presets:
   '@aiou/preset-aiou':
     configs:

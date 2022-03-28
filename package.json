@@ -32,7 +32,7 @@
     "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
     "prepare": "husky install",
     "postinstall": "patch-package",
-    "test": "pnpm jest -r"
+    "test": "pnpm vitest -r"
   },
   "lint-staged": {
     "**/**/*.{js,ts,tsx,vue,json}": [
