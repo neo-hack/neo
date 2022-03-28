@@ -41,25 +41,6 @@
       "eslint --fix"
     ]
   },
-  "bundledDependencies": [
-    "@pnpm/parse-wanted-dependency",
-    "@pnpm/package-store",
-    "@pnpm/client",
-    "cosmiconfig",
-    "fs-extra",
-    "picocolors",
-    "debug",
-    "listr",
-    "consola",
-    "terminal-link",
-    "tempy",
-    "write-yaml-file",
-    "read-yaml-file",
-    "lodash-es",
-    "cli-columns",
-    "@aiou/mario",
-    "@aiou/schema"
-  ],
   "dependencies": {
     "readable-stream": "^3.6.0"
   },
