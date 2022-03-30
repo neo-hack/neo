@@ -58,9 +58,11 @@ const postgenerate = async ({
     return
   }
   // issue: https://github.com/neo-hack/neo/issues/343
-  const pkg = fsExtra.readJSONSync(path.join(process.cwd(), project, 'package.json'))
-  pkg.readme = undefined
-  fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg)
+  if (fsExtra.existsSync(path.join(process.cwd(), project, 'package.json'))) {
+    const pkg = fsExtra.readJSONSync(path.join(process.cwd(), project, 'package.json'))
+    pkg.readme = undefined
+    fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg)
+  }
   common.forEach((filename) => {
     fsExtra.removeSync(path.join(process.cwd(), project, filename))
   })
