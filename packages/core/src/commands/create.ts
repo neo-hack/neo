@@ -63,11 +63,15 @@ const postgenerate = async ({
     pkg.readme = undefined
     fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg)
   }
+  // clear up
   common.forEach((filename) => {
     fsExtra.removeSync(path.join(process.cwd(), project, filename))
   })
 }
 
+/**
+ * @description apply @aiou/mario based on project `.neo`
+ */
 const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
   const root = path.join(process.cwd(), project)
   const neoTempDir = path.join(root, '.neo')
@@ -81,6 +85,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
     console.log(`❯ Run mario ${pc.green(config.mario)}`)
     if (isYaml(config.mario)) {
       await runMario(path.resolve(neoTempDir, config.mario), { cwd: root, variables })
+      fsExtra.removeSync(neoTempDir)
       return
     }
     const alias = config.mario
@@ -98,7 +103,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
     ])
     await prepare.run()
     await runMario(path.join(target, 'index.yaml'), { cwd: root, variables })
-    // fsExtra.removeSync(neoTempDir)
+    fsExtra.removeSync(neoTempDir)
   }
 }
 

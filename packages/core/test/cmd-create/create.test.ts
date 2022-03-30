@@ -44,7 +44,6 @@ describe('command create', () => {
     expect(pkg.version).toBe('0.1.0')
   }, 10000)
 
-  // TODO: check it later
   it('create project with latest', async () => {
     const destDir = tempy.directory()
     await execNeo(
@@ -79,4 +78,14 @@ describe('command create postcreate', () => {
     const checkresult = mono.map((file) => !fs.existsSync(path.join(destDir, './target', file)))
     expect(checkresult.every((v) => v)).toBe(true)
   }, 10000)
+})
+
+describe('command create with template contain .neo', () => {
+  it('should del after create', async () => {
+    const destDir = tempy.directory()
+    await execNeo(['create', '@aiou/rollup-template', 'target', '--store-dir', storeDir], {
+      cwd: destDir,
+    })
+    expect(fs.existsSync(path.join(destDir, './target/.neo'))).toBe(false)
+  })
 })
