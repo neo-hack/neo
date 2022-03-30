@@ -86,6 +86,7 @@ describe('command create with template contain .neo', () => {
     await execNeo(['create', '@aiou/rollup-template', 'target', '--store-dir', storeDir], {
       cwd: destDir,
     })
+    // :( sync expect failed on ci
     setTimeout(() => {
       expect(fs.existsSync(path.join(destDir, './target/.neo'))).toBe(false)
     }, 1000)
