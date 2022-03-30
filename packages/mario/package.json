@@ -47,8 +47,9 @@
     "schema2types": "json2ts --input ./assets/github.json --output ./assets/github.d.ts",
     "build": "rimraf lib && rollup -c --silent",
     "dev": "rimraf lib && rollup -c --watch",
-    "vitest": "NO_COLOR=1 vitest",
-    "test": "pnpm run build && pnpm run vitest",
+    "vitest": "vitest",
+    "vitest:ci": "NO_COLOR=1 vitest",
+    "test": "pnpm run build && pnpm run vitest:ci",
     "pretest": "pnpm run build",
     "lint:fix": "eslint . --fix"
   },

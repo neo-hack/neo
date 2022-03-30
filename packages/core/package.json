@@ -28,8 +28,9 @@
     "clean": "rimraf lib compiled",
     "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",
     "dev": "rollup -c --watch",
-    "vitest": "NO_COLOR=1 vitest",
-    "test": "pnpm run build && pnpm run vitest",
+    "vitest": "DEBUG=neo* vitest",
+    "vitest:ci": "NO_COLOR=1 vitest",
+    "test": "pnpm run build && pnpm run vitest:ci",
     "prepublish": "pnpm run build",
     "release:beta": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch"
   },

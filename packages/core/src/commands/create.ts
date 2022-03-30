@@ -49,13 +49,19 @@ const postgenerate = async ({
   isMono = false,
 }: Pick<CreateOptions, 'project' | 'isMono'>) => {
   const common = ['CHANGELOG.md']
-  const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
+  const mono = ['.eslintignore', '.eslintrc', '.eslintrc.js', '.changeset', '.github', '.husky']
   if ((await isMonorepo()) || isMono) {
     common.concat(mono).forEach((filename) => {
       debug.create('clean up %s', path.join(process.cwd(), project, filename))
       fsExtra.removeSync(path.join(process.cwd(), project, filename))
     })
     return
+  }
+  // issue: https://github.com/neo-hack/neo/issues/343
+  if (fsExtra.existsSync(path.join(process.cwd(), project, 'package.json'))) {
+    const pkg = fsExtra.readJSONSync(path.join(process.cwd(), project, 'package.json'))
+    pkg.readme = undefined
+    fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg)
   }
   common.forEach((filename) => {
     fsExtra.removeSync(path.join(process.cwd(), project, filename))
@@ -106,7 +112,7 @@ const createTask = ({
   isMono,
   version,
 }: CreateOptions) => {
-  const hooks = {
+  const tasks = {
     validate: {
       title: 'Validate template',
       task: () => {
@@ -150,13 +156,13 @@ const createTask = ({
     },
     // postgenerate
     postgenerate: {
-      title: 'Clean up',
+      title: 'Clean Up',
       task: async () => {
         return postgenerate({ project, isMono })
       },
     },
   }
-  return new Listr(Object.values(hooks) as ListrTask<any>[])
+  return new Listr(Object.values(tasks) as ListrTask<any>[])
 }
 
 inquirer.registerPrompt('search-list', InquirerSearchList)
