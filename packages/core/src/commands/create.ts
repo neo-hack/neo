@@ -85,7 +85,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
     console.log(`❯ Run mario ${pc.green(config.mario)}`)
     if (isYaml(config.mario)) {
       await runMario(path.resolve(neoTempDir, config.mario), { cwd: root, variables })
-      fsExtra.removeSync(neoTempDir)
+      await fsExtra.remove(neoTempDir)
       return
     }
     const alias = config.mario
@@ -103,7 +103,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
     ])
     await prepare.run()
     await runMario(path.join(target, 'index.yaml'), { cwd: root, variables })
-    fsExtra.removeSync(neoTempDir)
+    await fsExtra.remove(neoTempDir)
   }
 }
 
