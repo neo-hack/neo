@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.2
+
+### Patch Changes
+
+- 3ef7e51: fix #343, rm .neo after create repo
+
 ## 3.5.1
 
 ### Patch Changes
