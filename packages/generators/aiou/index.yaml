@@ -90,5 +90,5 @@ jobs:
     name: clear unused files
     paths: templates/**
     steps:
-      - name: clear templates
+      - name: Clear templates
       - uses: clear
