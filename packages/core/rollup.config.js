@@ -6,7 +6,6 @@ import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
 import ts from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
-import { externals } from 'rollup-plugin-node-externals'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -20,10 +19,6 @@ export default defineConfig([
     preserveEntrySignatures: 'strict',
     external: ['readable-stream'],
     plugins: [
-      externals({
-        devDeps: false,
-        builtinsPrefix: 'strip',
-      }),
       ts({
         check: false,
         tsconfig: './tsconfig.build.json',
@@ -45,6 +40,8 @@ export default defineConfig([
           { find: '@/', replacement: './src/' },
           // fix: https://github.com/SamVerschueren/stream-to-observable/issues/2
           { find: 'any-observable', replacement: 'zen-observable' },
+          // TODO: in next major version, use rollup-plugin-node-externals
+          { find: /^node:(.+)$/, replacement: '$1' },
         ],
       }),
       nodeResolve({
