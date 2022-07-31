@@ -40,6 +40,8 @@ export default defineConfig([
           { find: '@/', replacement: './src/' },
           // fix: https://github.com/SamVerschueren/stream-to-observable/issues/2
           { find: 'any-observable', replacement: 'zen-observable' },
+          // TODO: in next major version, use rollup-plugin-node-externals
+          { find: /^node:(.+)$/, replacement: '$1' },
         ],
       }),
       nodeResolve({
