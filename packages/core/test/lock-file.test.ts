@@ -44,6 +44,11 @@ describe('read lock file', () => {
     const tpls = await complexLockFile.readTemplates()
     expect(tpls).toMatchSnapshot()
   })
+  it('should contain latest version template', async () => {
+    const tpls = await complexLockFile.readTemplates()
+    const rts = tpls.filter((tpl) => tpl.name === 'bin-template#unbundle')
+    expect(rts.version).toBe('2.10.0')
+  })
   it('read with preset filter should work', async () => {
     const tpls = await complexLockFile.readTemplates({ presetNames: ['neo'] })
     expect(tpls).toMatchSnapshot()

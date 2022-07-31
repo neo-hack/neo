@@ -26,12 +26,12 @@ exports[`read lock file > read templates should work 1`] = `
   {
     "_name": "bin-template#unbundle",
     "cached": true,
-    "id": "id3",
+    "id": "id",
     "name": "bin-template#unbundle",
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
     "resolvedVia": "npm-registry",
-    "version": "2.1.0",
+    "version": "2.9.0",
   },
   {
     "_name": "bin-template#bundle",
@@ -74,12 +74,12 @@ exports[`read lock file > read with preset filter should work 1`] = `
   {
     "_name": "bin-template#unbundle",
     "cached": true,
-    "id": "id3",
+    "id": "id",
     "name": "bin-template#unbundle",
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
     "resolvedVia": "npm-registry",
-    "version": "2.1.0",
+    "version": "2.9.0",
   },
   {
     "_name": "bin-template#bundle",

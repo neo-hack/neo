@@ -62,6 +62,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const lockFile = await this.read()
       const templates: LockFile['templates'] = lockFile.templates || {}
       const cachedTemplates = new Map<string, Partial<Package>>()
+      // latest version should be last one
       sortBy(Object.values(templates), 'version').forEach((tpl) => {
         cachedTemplates.set(makeUniqId(tpl), {
           ...tpl,

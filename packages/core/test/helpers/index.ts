@@ -67,14 +67,14 @@ export const mockLockFile = async () => {
     templates: {
       id: {
         name: 'bin-template#unbundle',
-        version: '2.0.0',
+        version: '2.9.0',
         resolvedVia: 'npm-registry',
         id: 'id',
         pref: '@aiou/bin-template@2.x',
       },
       id3: {
         name: 'bin-template#unbundle',
-        version: '2.1.0',
+        version: '2.10.0',
         resolvedVia: 'npm-registry',
         id: 'id3',
         pref: '@aiou/bin-template@2.x',
