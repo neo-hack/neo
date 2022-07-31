@@ -1,7 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`command create > create on empty store 1`] = `
-"NEO v3.5.1 (​https://github.com/neo-hack/neo​)
+"NEO v3.5.2 (​https://github.com/neo-hack/neo​)
 
 [log] No templates found, use follow commands load remote template or preset first
 [log] 
