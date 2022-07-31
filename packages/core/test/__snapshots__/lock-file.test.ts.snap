@@ -31,7 +31,7 @@ exports[`read lock file > read templates should work 1`] = `
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
     "resolvedVia": "npm-registry",
-    "version": "2.1.0",
+    "version": "2.10.0",
   },
   {
     "_name": "bin-template#bundle",
@@ -79,7 +79,7 @@ exports[`read lock file > read with preset filter should work 1`] = `
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
     "resolvedVia": "npm-registry",
-    "version": "2.1.0",
+    "version": "2.10.0",
   },
   {
     "_name": "bin-template#bundle",
