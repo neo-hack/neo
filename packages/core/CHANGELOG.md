@@ -1,5 +1,13 @@
 # @aiou/neo
 
+## 3.5.3
+
+### Patch Changes
+
+- 5265eea: remove type:module, use mjs instead
+- 090dfa0: sort versions by semver compare
+- 7545023: strip node: protocol
+
 ## 3.5.2
 
 ### Patch Changes
