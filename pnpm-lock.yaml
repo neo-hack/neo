@@ -75,7 +75,6 @@ importers:
       readable-stream: ^3.6.0
       rimraf: 3.0.2
       rollup: ^2.64.0
-      rollup-plugin-node-externals: ^4.1.1
       rollup-plugin-size: ^0.2.2
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.1
@@ -134,7 +133,6 @@ importers:
       read-yaml-file: 2.1.0
       rimraf: 3.0.2
       rollup: 2.64.0
-      rollup-plugin-node-externals: 4.1.1_rollup@2.64.0
       rollup-plugin-size: 0.2.2
       rollup-plugin-terser: 7.0.2_rollup@2.64.0
       rollup-plugin-typescript2: 0.31.1_b958aaa64ad9cbf4847a71077033cd6a
@@ -4061,6 +4059,8 @@ packages:
     dependencies:
       debug: 3.2.7
       resolve: 1.22.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-module-utils/2.7.2_fad0c77310252709ab35faa698769d4c:
@@ -8148,16 +8148,6 @@ packages:
       core-js: 3.20.2
       fast-glob: 3.2.9
       lodash: 4.17.21
-    dev: true
-
-  /rollup-plugin-node-externals/4.1.1_rollup@2.64.0:
-    resolution: {integrity: sha512-hiGCMTKHVoueaTmtcUv1KR0/dlNBuI9GYzHUlSHQbMd7T7yomYdXCFnBisoBqdZYy61EGAIfz8AvJaWWBho3Pg==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.60.0
-    dependencies:
-      find-up: 5.0.0
-      rollup: 2.64.0
     dev: true
 
   /rollup-plugin-size/0.2.2:
