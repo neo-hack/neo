@@ -3,7 +3,7 @@ import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
 import { countBy } from 'lodash-es'
-import semverSort from 'semver/functions/sort'
+import { compare } from 'semver'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
@@ -65,7 +65,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const cachedTemplates = new Map<string, Partial<Package>>()
       // latest version should be last one
       Object.values(templates)
-        .sort((a, b) => semverSort(a.version, b.version))
+        .sort((a, b) => compare(a.version, b.version))
         .forEach((tpl) => {
           cachedTemplates.set(makeUniqId(tpl), {
             ...tpl,
