@@ -63,7 +63,7 @@ export default defineConfig([
           }
         },
         dir: 'lib',
-        chunkFileNames: 'chunks/[name].js',
+        chunkFileNames: 'chunks/[name].mjs',
         format: 'esm',
       },
     ],
