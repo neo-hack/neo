@@ -2,7 +2,8 @@ import writeYamlFile from 'write-yaml-file'
 import readYamlFile from 'read-yaml-file'
 import path from 'path'
 import fs from 'fs-extra'
-import { countBy, sortBy } from 'lodash-es'
+import { countBy } from 'lodash-es'
+import semverSort from 'semver/functions/sort'
 
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { CommonOptions, LockFile, Package, Config } from '../interface'
@@ -63,14 +64,16 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const templates: LockFile['templates'] = lockFile.templates || {}
       const cachedTemplates = new Map<string, Partial<Package>>()
       // latest version should be last one
-      sortBy(Object.values(templates), 'version').forEach((tpl) => {
-        cachedTemplates.set(makeUniqId(tpl), {
-          ...tpl,
-          pref: tpl.pref || tpl.name,
-          _name: tpl.name,
-          cached: true,
+      Object.values(templates)
+        .sort((a, b) => semverSort(a.version, b.version))
+        .forEach((tpl) => {
+          cachedTemplates.set(makeUniqId(tpl), {
+            ...tpl,
+            pref: tpl.pref || tpl.name,
+            _name: tpl.name,
+            cached: true,
+          })
         })
-      })
 
       // normalize preset template to Package
       const presets: LockFile['presets'] = lockFile.presets || {}
