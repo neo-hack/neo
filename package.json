@@ -28,8 +28,8 @@
     "build": "pnpm build -r",
     "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm run build && pnpm changeset publish",
-    "ci:snapshot": "pnpx changeset version --snapshot beta",
-    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
+    "ci:snapshot": "pnpm changeset version --snapshot beta",
+    "ci:prerelease": "pnpm run build && pnpm changeset publish --tag beta",
     "prepare": "husky install",
     "postinstall": "patch-package",
     "test": "pnpm vitest:ci -r"
