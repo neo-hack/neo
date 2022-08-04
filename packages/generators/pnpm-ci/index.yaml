@@ -78,7 +78,7 @@ jobs:
     name: Setup Changeset
     steps:
       - name: Setup changeset
-        run: pnpx @changeset/cli init
+        run: pnpx @changesets/cli init
         with:
           quiet: true
 
