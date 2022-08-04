@@ -78,7 +78,7 @@ jobs:
     name: Setup Changeset
     steps:
       - name: Setup changeset
-        run: pnpx changeset init
+        run: pnpx @changeset/cli init
         with:
           quiet: true
 
@@ -87,7 +87,7 @@ jobs:
     name: Setup precommit
     steps:
       - name: Setup Husky
-        run: pnpx --yes husky-init
+        run: pnpx husky-init --yes
         continue-on-error: true
         with:
           quiet: true
