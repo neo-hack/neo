@@ -59,7 +59,7 @@ jobs:
     name: Setup Changeset
     steps:
       - name: Setup changeset
-        run: pnpx changeset init
+        run: pnpx @changeset/cli init
 
   # Precommit:
   #   name: Setup precommit
