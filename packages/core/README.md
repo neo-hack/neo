@@ -19,6 +19,7 @@
   - [add](#add)
   - [run](#run)
   - [whoami](#whoami)
+- [contribute](#contribute)
 
 ## install
 
@@ -139,3 +140,10 @@ neo run <filepath>.yaml
 ```bash
 neo whoami
 ```
+
+## contribute
+
+environment require 
+
+- `pnpm@^7.4.0`
+- `node^14`
