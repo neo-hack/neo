@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  glob@7.2.0:
+    hash: a4nplcs6vv6dtpugrxebm4q7jm
+    path: patches/glob@7.2.0.patch
+
 importers:
 
   .:
@@ -11,7 +16,7 @@ importers:
       eslint: ^8.12.0
       fs-extra: ^10.0.0
       glob: 7.2.0
-      husky: ^7.0.4
+      husky: ^8.0.0
       lint-staged: ^12.1.7
       prettier: ^2.5.1
       typescript: ^4.5.4
@@ -22,8 +27,8 @@ importers:
       cz-emoji: 1.3.1
       eslint: 8.12.0
       fs-extra: 10.0.0
-      glob: 7.2.0
-      husky: 7.0.4
+      glob: 7.2.0_a4nplcs6vv6dtpugrxebm4q7jm
+      husky: 8.0.1
       lint-staged: 12.1.7
       prettier: 2.5.1
       typescript: 4.5.4
@@ -5128,6 +5133,17 @@ packages:
       once: 1.4.0
       path-is-absolute: 1.0.1
 
+  /glob/7.2.0_a4nplcs6vv6dtpugrxebm4q7jm:
+    resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 3.0.4
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    patched: true
+
   /global-modules/1.0.0:
     resolution: {integrity: sha512-sKzpEkf11GpOFuw0Zzjzmt4B4UZwjOcG757PPvrfhxcLFbq0wpsgpOqxpxtxFiCG4DtG93M6XRVbF2oGdev7bg==}
     engines: {node: '>=0.10.0'}
@@ -5518,6 +5534,12 @@ packages:
   /husky/7.0.4:
     resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
+    hasBin: true
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
@@ -8152,14 +8174,14 @@ packages:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
     hasBin: true
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.0_a4nplcs6vv6dtpugrxebm4q7jm
     dev: true
 
   /rimraf/3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.0_a4nplcs6vv6dtpugrxebm4q7jm
 
   /rollup-plugin-exclude-dependencies-from-bundle/1.1.22_rollup@2.58.0:
     resolution: {integrity: sha512-MV+3dpnQYilq6czsui0eJjDZEZIDORc5cBxOZ8Dm7XPjOaygAc+4AGZDC3qn4g9p13vYc0XRQ2T8JFdUmSQvXw==}
