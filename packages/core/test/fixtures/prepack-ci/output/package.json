@@ -24,10 +24,10 @@
     "test": "pnpm run build && jest",
     "prepublish": "pnpm run build",
     "release:beta": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch",
-    "ci:publish": "pnpm run build && pnpx changeset publish",
-    "ci:version": "pnpx changeset version",
-    "ci:snapshot": "pnpx changeset version --snapshot beta",
-    "ci:prerelease": "pnpx changeset publish --tag beta"
+    "ci:publish": "pnpm run build && pnpm changeset publish",
+    "ci:version": "pnpm changeset version",
+    "ci:snapshot": "pnpm changeset version --snapshot beta",
+    "ci:prerelease": "pnpm changeset publish --tag beta"
   },
   "publishConfig": {
     "access": "public"
