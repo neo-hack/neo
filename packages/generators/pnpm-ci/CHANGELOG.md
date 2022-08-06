@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 1.0.0
+
+### Major Changes
+
+- 8cc8e1e: use pnpm7 syntax
+
 ## 0.1.2
 
 ### Patch Changes
