@@ -33,11 +33,11 @@ exports[`store > add preset 1`] = `
 
 exports[`store > add template 1`] = `
 "templates:
-  registry.npmjs.org/@aiou/bin-template/3.0.0:
+  registry.npmjs.org/@aiou/bin-template/3.0.1:
     name: bin
-    version: 3.0.0
+    version: 3.0.1
     resolvedVia: npm-registry
-    id: registry.npmjs.org/@aiou/bin-template/3.0.0
+    id: registry.npmjs.org/@aiou/bin-template/3.0.1
     pref: bin-template#bundle
 "
 `;
@@ -75,11 +75,11 @@ exports[`store > add(type=preset) 1`] = `
 
 exports[`store > add(type=template) 1`] = `
 "templates:
-  registry.npmjs.org/@aiou/bin-template/3.0.0:
+  registry.npmjs.org/@aiou/bin-template/3.0.1:
     name: '@aiou/bin-template'
-    version: 3.0.0
+    version: 3.0.1
     resolvedVia: npm-registry
-    id: registry.npmjs.org/@aiou/bin-template/3.0.0
+    id: registry.npmjs.org/@aiou/bin-template/3.0.1
     pref: '@aiou/bin-template'
 "
 `;
