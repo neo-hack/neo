@@ -2,8 +2,8 @@ import fs from 'fs-extra'
 import pc from 'picocolors'
 import tl from 'terminal-link'
 
-import { ASSETS_BANNER } from './constants'
-import { r, readPkg } from './index'
+import { ASSETS_BANNER, HOMEPAGE } from './constants'
+import { r } from './index'
 import logger from './logger'
 
 const banner = fs.readFileSync(r(ASSETS_BANNER)).toString()
@@ -13,7 +13,6 @@ export const getBanner = () => {
 }
 
 export const showFooter = () => {
-  const pkg = readPkg()
-  const link = tl('Homepage', pkg?.homepage || '')
+  const link = tl('Homepage', HOMEPAGE)
   logger.log(` ${link}`)
 }

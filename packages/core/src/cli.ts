@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import { readPkg } from './utils'
 import { getBanner } from './utils/show-brand'
 import { usage } from './utils/show-usage'
+import { HOMEPAGE } from './utils/constants'
 import logger from './utils/logger'
 
 // polyfill node12 & 14 global variable
@@ -16,7 +17,7 @@ const pkg = readPkg()
 const cli = program
   .version(pkg?.version || '', '-v, --version')
   .hook('preAction', () => {
-    logger.log(`${tl(`NEO v${pkg?.version}`, 'https://github.com/neo-hack/neo')}\n`)
+    logger.log(`${tl(`NEO v${pkg?.version}`, HOMEPAGE)}\n`)
   })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
