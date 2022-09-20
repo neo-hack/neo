@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.4
+
+### Patch Changes
+
+- 17d0596: update docs url
+
 ## 3.5.3
 
 ### Patch Changes
