@@ -54,6 +54,21 @@ jobs:
               value:
                 "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
 
+      - name: Add lint pkgs
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.typescript"
+              value: "^4"
+            - path: "devDependencies.eslint"
+              value: "^8"
+            - path: "devDependencies.prettier"
+              value: "latest"
+            - path: "devDependencies.@aiou/eslint-config"
+              value: "latest"
+            - path: "devDependencies.lint-staged"
+              value: "latest"
+
       - name: Add changeset
         uses: json-editor
         with:
