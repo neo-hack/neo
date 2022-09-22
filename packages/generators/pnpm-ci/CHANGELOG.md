@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 2.0.0
+
+### Major Changes
+
+- 03c8e01: deprecate node12
+
 ## 1.0.0
 
 ### Major Changes
