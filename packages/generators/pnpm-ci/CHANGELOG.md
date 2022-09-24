@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 2.0.1
+
+### Patch Changes
+
+- d7ff7a0: add lint pkgs
+
 ## 2.0.0
 
 ### Major Changes
