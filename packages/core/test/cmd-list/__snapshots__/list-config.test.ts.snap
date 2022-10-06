@@ -1,18 +1,14 @@
 // Vitest Snapshot v1
 
 exports[`command list config > list configs should list all 1`] = `
-"NEO v3.5.3 (​https://neo-docs.netlify.app​)
-
-[log] Found 1 configs:
+"[log] Found 1 configs:
 
 [log] neo
 [log] CI"
 `;
 
 exports[`command list config > list configs should list filtered by preset 1`] = `
-"NEO v3.5.3 (​https://neo-docs.netlify.app​)
-
-[log] Found 1 configs:
+"[log] Found 1 configs:
 
 [log] CI"
 `;
