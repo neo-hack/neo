@@ -11,7 +11,8 @@ jobs:
     runs-on: 'ubuntu-18.04'
     strategy:
       matrix:
-        node-version: [14, 16]
+        # pin node version: https://github.com/JiangWeixian/esrua/issues/12
+        node-version: [14, 16.13.1]
     name: NEO
     steps:
       - uses: actions/checkout@v2
