@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.5
+
+### Patch Changes
+
+- 5b277a0: disable display version during vitest
+
 ## 3.5.4
 
 ### Patch Changes
