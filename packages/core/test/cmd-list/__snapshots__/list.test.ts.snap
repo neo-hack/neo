@@ -1,9 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`command list > should contain all templates in store 1`] = `
-"NEO v3.5.3 (​https://neo-docs.netlify.app​)
-
-[log] Note: cached, uncached
+"[log] Note: cached, uncached
 
 [log] Found 6 templates:
 
@@ -20,16 +18,10 @@ ts-lib-template (https://github.com/egoist/ts-lib-starter)
 [log] react-template"
 `;
 
-exports[`command list > should show empty template list with wrong preset 1`] = `
-"NEO v3.5.3 (​https://neo-docs.netlify.app​)
-
-[log] No templates..."
-`;
+exports[`command list > should show empty template list with wrong preset 1`] = `"[log] No templates..."`;
 
 exports[`command list > should show template list filter by preset 1`] = `
-"NEO v3.5.3 (​https://neo-docs.netlify.app​)
-
-[log] Note: cached, uncached
+"[log] Note: cached, uncached
 
 [log] Found 4 templates:
 

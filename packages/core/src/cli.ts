@@ -17,7 +17,8 @@ const pkg = readPkg()
 const cli = program
   .version(pkg?.version || '', '-v, --version')
   .hook('preAction', () => {
-    logger.log(`${tl(`NEO v${pkg?.version}`, HOMEPAGE)}\n`)
+    // disable display version during vitest https://vitest.dev/config/#configuring-vitest
+    !process.env.VITEST && logger.log(`${tl(`NEO v${pkg?.version}`, HOMEPAGE)}\n`)
   })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 

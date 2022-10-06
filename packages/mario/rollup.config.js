@@ -1,7 +1,8 @@
 import typescript from 'rollup-plugin-typescript2'
-import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
+import { externals } from 'rollup-plugin-node-externals'
 import bundleSize from 'rollup-plugin-size'
 import { defineConfig } from 'rollup'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import multiple from 'rollup-plugin-multi-input'
 
 export default defineConfig([
@@ -14,12 +15,15 @@ export default defineConfig([
   {
     input: ['src/**/*.ts', '!src/**/*.d.ts'],
     plugins: [
-      excludeDependenciesFromBundle(),
+      externals({
+        devDeps: false,
+      }),
       multiple(),
       typescript({
         check: false,
         tsconfig: './tsconfig.build.json',
       }), // so Rollup can convert TypeScript to JavaScript
+      nodeResolve({ preferBuiltins: true }),
       bundleSize(),
     ],
     output: [{ dir: 'lib', entryFileNames: '[name].mjs', format: 'es' }],
