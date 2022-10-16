@@ -5,6 +5,9 @@ on:
       - main
       - master
       - 'releases/*'
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 env:
   CI: true
 jobs:
@@ -25,7 +28,7 @@ jobs:
       - name: install dependencies
         run: pnpm install --frozen-lockfile=false
       - name: create and publish versions
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
           version: pnpm ci:version
           commit: "chore: update versions"
