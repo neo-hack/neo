@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - prerelease
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 env:
   CI: true
 jobs:
