@@ -14,6 +14,17 @@ const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
 }
 
+// fix: https://github.com/neo-hack/neo/issues/371
+const compareVersion = (v1?: string, v2?: string) => {
+  if (!v1) {
+    return 1
+  }
+  if (!v2) {
+    return -1
+  }
+  return compare(v1, v2)
+}
+
 let lockFile: ReturnType<typeof createLockFile>
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
@@ -65,7 +76,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       const cachedTemplates = new Map<string, Partial<Package>>()
       // latest version should be last one
       Object.values(templates)
-        .sort((a, b) => compare(a.version, b.version))
+        .sort((a, b) => compareVersion(a.version, b.version))
         .forEach((tpl) => {
           cachedTemplates.set(makeUniqId(tpl), {
             ...tpl,
