@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 2.0.2
+
+### Patch Changes
+
+- d8df326: upgrade changeset action version
+
 ## 2.0.1
 
 ### Patch Changes
