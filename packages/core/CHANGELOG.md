@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.6
+
+### Patch Changes
+
+- fbe24a1: list github repo template failed
+
 ## 3.5.5
 
 ### Patch Changes
