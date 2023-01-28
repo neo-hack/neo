@@ -52,7 +52,7 @@ jobs:
           pairs:
             - path: "lint-staged"
               value:
-                "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
+                "**/**/*.{js,ts,tsx,vue,json,yml,yaml}": ["eslint --fix"]
 
       - name: Add lint pkgs
         uses: json-editor
