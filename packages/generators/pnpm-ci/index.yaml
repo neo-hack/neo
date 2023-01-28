@@ -59,29 +59,27 @@ jobs:
         with:
           pairs:
             - path: "devDependencies.typescript"
-              value: "^4"
+              value: "^4.6.4"
             - path: "devDependencies.eslint"
-              value: "^8"
-            - path: "devDependencies.prettier"
-              value: "latest"
+              value: "^8.32.0"
             - path: "devDependencies.@aiou/eslint-config"
-              value: "latest"
+              value: "^0.7.1"
             - path: "devDependencies.lint-staged"
-              value: "latest"
+              value: "^13.1.0"
 
       - name: Add changeset
         uses: json-editor
         with:
           pairs:
             - path: "devDependencies.@changesets/cli"
-              value: "latest"
+              value: "^2.26.0"
 
       - name: Add husky
         uses: json-editor
         with:
           pairs:
             - path: "devDependencies.husky"
-              value: "latest"
+              value: "^8.0.3"
 
       - name: Add lint:fix
         uses: json-editor
