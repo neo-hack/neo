@@ -89,11 +89,12 @@ jobs:
               value: "eslint . --fix"
   Changeset:
     name: Setup Changeset
+    paths: .neo/**/assets/changeset/*
     steps:
       - name: Setup changeset
-        run: pnpx @changesets/cli init
+        uses: copy
         with:
-          quiet: true
+          output: .changeset
 
   Precommit:
     paths: .git
