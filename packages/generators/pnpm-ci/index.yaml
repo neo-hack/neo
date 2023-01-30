@@ -105,3 +105,22 @@ jobs:
         continue-on-error: true
         with:
           quiet: true
+  Commitizen:
+    paths: .git
+    name: Setup Commitizen
+    steps:
+      - name: Add cz-emoji
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.cz-emoji"
+              value: "^1.3.1"
+  Config Commitizen:
+    paths: .neo/**/assets/cz-emoji
+    name: Setup Commitizen
+    steps:
+      - name: Config Commitizen
+        uses: copy
+        with:
+          output: .
+          
