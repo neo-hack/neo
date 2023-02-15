@@ -2,7 +2,8 @@ import path from 'path'
 import inquirer from 'inquirer'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
-import Listr, { ListrTask } from 'listr'
+import type { ListrTask } from 'listr'
+import Listr from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
 import pc from 'picocolors'
@@ -11,7 +12,7 @@ import { merge } from 'lodash-es'
 
 import { isMonorepo, isYaml } from '../utils'
 import logger, { debug } from '../utils/logger'
-import { CommonOptions, AsyncReturnType, Package } from '../interface'
+import type { AsyncReturnType, CommonOptions, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
 import { findPrefPackageByPk } from '../utils/find-pref-package'
@@ -30,7 +31,7 @@ type CreateOptions = Pick<Package, 'name' | 'pref'> & {
 /**
  * @description generate template files
  */
-const generate = async({
+const generate = async ({
   project,
   templateResponse,
   store,
@@ -44,7 +45,7 @@ const generate = async({
  * @description del files after generate
  * @todo move to @aiou/generator-aiou
  */
-const postgenerate = async({
+const postgenerate = async ({
   project,
   isMono = false,
 }: Pick<CreateOptions, 'project' | 'isMono'>) => {
@@ -72,7 +73,7 @@ const postgenerate = async({
 /**
  * @description apply @aiou/mario based on project `.neo`
  */
-const runTemplateMario = async({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
+const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project' | 'store'>) => {
   const root = path.join(process.cwd(), project)
   const neoTempDir = path.join(root, '.neo')
   const config = await loadConfig(neoTempDir)
@@ -94,7 +95,7 @@ const runTemplateMario = async({ project, store }: Pick<CreateOptions, 'project'
     const prepare = new Listr([
       {
         title: `Download mario generator ${alias}`,
-        task: async() => {
+        task: async () => {
           const response = await store.pm.request({ alias, latest: true })
           await store.pm.import(target, await response.files?.())
           return true
@@ -121,24 +122,23 @@ const createTask = ({
     validate: {
       title: 'Validate template',
       task: () => {
-        if (!project)
+        if (!project) {
           throw new Error('<project> is required')
+        }
       },
     },
     download: {
       title: 'Download template',
-      task: async(ctx, task) => {
+      task: async (ctx, task) => {
         const offline = await isOffline()
         if (offline) {
           debug.create('offline')
           task.skip('Ops, is offline, try create project from local store')
-        }
- else {
+        } else {
           if (!latest && version) {
             debug.create('download from local')
             task.output = 'Create project from local store'
-          }
- else {
+          } else {
             task.output = 'Fetching template...'
           }
         }
@@ -153,9 +153,10 @@ const createTask = ({
     },
     generate: {
       title: 'Generate project',
-      task: async(ctx) => {
-        if (!ctx.templateResponse)
+      task: async (ctx) => {
+        if (!ctx.templateResponse) {
           throw new Error('template not found')
+        }
 
         return generate({ project, store, templateResponse: ctx.templateResponse })
       },
@@ -163,7 +164,7 @@ const createTask = ({
     // postgenerate
     postgenerate: {
       title: 'Clean Up',
-      task: async() => {
+      task: async () => {
         return postgenerate({ project, isMono })
       },
     },
@@ -176,14 +177,14 @@ inquirer.registerPrompt('search-list', InquirerSearchList)
 /**
  * @description create project from template
  */
-export const create = async(
+export const create = async (
   template: string,
   project: string,
   options: CommonOptions &
-    Pick<CreateOptions, 'latest'> & {
-      preset: string[]
-      mono?: boolean
-    },
+  Pick<CreateOptions, 'latest'> & {
+    preset: string[]
+    mono?: boolean
+  },
 ) => {
   const store = await createStore(options)
   const choices = await store.lockFile.readTemplates({ presetNames: options.preset })
@@ -203,8 +204,7 @@ export const create = async(
     await runTemplateMario({ project, store })
     console.log()
     logger.success(`  🎉 ${project} created, Happy hacking!`)
-  }
- else {
+  } else {
     if (choices.length === 0) {
       logger.log('No templates found, use follow commands load remote template or preset first')
       console.log(usage.add())
@@ -218,7 +218,9 @@ export const create = async(
           message: 'Please select template',
           choices,
           validate(answer: { template: string; project: string }) {
-            if (!answer) return 'You must choose template.'
+            if (!answer) {
+              return 'You must choose template.'
+            }
 
             return true
           },
@@ -228,13 +230,15 @@ export const create = async(
           name: 'project',
           message: 'Please enter project name',
           validate(answer: { template: string; project: string }) {
-            if (!answer) return 'You must enter project name.'
+            if (!answer) {
+              return 'You must enter project name.'
+            }
 
             return true
           },
         },
       ])
-      .then(async(answers) => {
+      .then(async (answers) => {
         const pkg = findPrefPackageByPk(choices, { input: answers.template })
         const task = createTask({
           alias: pkg.alias!,
