@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.5.7
+
+### Patch Changes
+
+- 9fe3a6e: normalize package.json
+
 ## 3.5.6
 
 ### Patch Changes
