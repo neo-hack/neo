@@ -2,7 +2,8 @@ import path from 'path'
 import inquirer from 'inquirer'
 import fsExtra from 'fs-extra'
 import InquirerSearchList from 'inquirer-search-list'
-import Listr, { ListrTask } from 'listr'
+import type { ListrTask } from 'listr'
+import Listr from 'listr'
 import type { PackageResponse } from '@pnpm/package-store'
 import isOffline from 'is-offline-node'
 import pc from 'picocolors'
@@ -11,7 +12,7 @@ import { merge } from 'lodash-es'
 
 import { isMonorepo, isYaml } from '../utils'
 import logger, { debug } from '../utils/logger'
-import { CommonOptions, AsyncReturnType, Package } from '../interface'
+import type { AsyncReturnType, CommonOptions, Package } from '../interface'
 import createStore from '../store'
 import { usage } from '../utils/show-usage'
 import { findPrefPackageByPk } from '../utils/find-pref-package'
@@ -61,7 +62,7 @@ const postgenerate = async ({
   if (fsExtra.existsSync(path.join(process.cwd(), project, 'package.json'))) {
     const pkg = fsExtra.readJSONSync(path.join(process.cwd(), project, 'package.json'))
     pkg.readme = undefined
-    fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg)
+    fsExtra.outputJSONSync(path.join(process.cwd(), project, 'package.json'), pkg, { spaces: 2 })
   }
   // clear up
   common.forEach((filename) => {
@@ -122,7 +123,7 @@ const createTask = ({
       title: 'Validate template',
       task: () => {
         if (!project) {
-          throw new Error(`<project> is required`)
+          throw new Error('<project> is required')
         }
       },
     },
@@ -156,6 +157,7 @@ const createTask = ({
         if (!ctx.templateResponse) {
           throw new Error('template not found')
         }
+
         return generate({ project, store, templateResponse: ctx.templateResponse })
       },
     },
@@ -179,10 +181,10 @@ export const create = async (
   template: string,
   project: string,
   options: CommonOptions &
-    Pick<CreateOptions, 'latest'> & {
-      preset: string[]
-      mono?: boolean
-    },
+  Pick<CreateOptions, 'latest'> & {
+    preset: string[]
+    mono?: boolean
+  },
 ) => {
   const store = await createStore(options)
   const choices = await store.lockFile.readTemplates({ presetNames: options.preset })
@@ -216,7 +218,9 @@ export const create = async (
           message: 'Please select template',
           choices,
           validate(answer: { template: string; project: string }) {
-            if (!answer) return 'You must choose template.'
+            if (!answer) {
+              return 'You must choose template.'
+            }
 
             return true
           },
@@ -226,7 +230,9 @@ export const create = async (
           name: 'project',
           message: 'Please enter project name',
           validate(answer: { template: string; project: string }) {
-            if (!answer) return 'You must enter project name.'
+            if (!answer) {
+              return 'You must enter project name.'
+            }
 
             return true
           },
