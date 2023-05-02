@@ -1,7 +1,7 @@
 {
   "name": "@aiou/generator-pnpm-ci",
   "version": "2.0.2",
-  "description": "demo generator design for basic pnpm project",
+  "description": "best developer practice for pnpm project",
   "keywords": ["aiou", "mario", "pnpm", "dx"],
   "license": "MIT",
   "homepage": "https://github.com/neo-hack/neo#readme",
@@ -19,24 +19,5 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
-  "main": "lib/index.yaml",
-  "scripts": {
-    "ci:version": "pnpm changeset version",
-    "ci:publish": "pnpm run build && pnpm changeset publish",
-    "ci:snapshot": "pnpm changeset version --snapshot beta",
-    "ci:prerelease": "pnpm run build && pnpm changeset publish --tag beta",
-    "lint:fix": "eslint . --fix",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "**/**/*.{js,ts,tsx,vue,json,yml,yaml}": ["eslint --fix"]
-  },
-  "devDependencies": {
-    "@aiou/eslint-config": "^0.10.0",
-    "@changesets/cli": "^2.26.0",
-    "eslint": "^8.32.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.0",
-    "typescript": "^4.6.4"
-  }
+  "main": "lib/index.yaml"
 }
