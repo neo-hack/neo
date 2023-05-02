@@ -1,5 +1,12 @@
 # @aiou/preset-aiou
 
+## 1.1.1
+
+### Patch Changes
+
+- 64f8c30: pin pnpm version
+- 64f8c30: github workflows require permissions https://github.com/changesets/action/issues/220#issuecomment-1396656742
+
 ## 1.1.0
 
 ### Minor Changes
