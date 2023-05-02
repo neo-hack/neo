@@ -1,5 +1,5 @@
 jobs:
-  Issue template:
+  issue template:
     name: Setup github issue templates
     paths: .neo/**/assets/templates/ISSUE_TEMPLATE/*.md
     steps:
@@ -7,7 +7,7 @@ jobs:
         uses: copy
         with:
           output: .github/ISSUE_TEMPLATE
-  PR template:
+  pr template:
     name: Setup github pr templates
     paths: .neo/**/assets/templates/*.md
     steps:
@@ -15,22 +15,22 @@ jobs:
         uses: copy
         with:
           output: .github
-  CI:
-    name: Setup ci workflow
+  workflows:
+    name: Setup workflow
     paths: .neo/**/assets/workflows/*
     steps:
       - name: CI Workflows
         uses: copy
         with:
           output: .github/workflows
-  Lint:
+  lint:
     name: Setup eslint
     paths: .neo/**/assets/eslint/.*
     steps:
       - name: ESLint
         uses: copy
           
-  Setup Pkg:
+  setup package:
     paths: package.json
     name: Setup lint config
     steps:
@@ -87,7 +87,7 @@ jobs:
           pairs:
             - path: "scripts.lint:fix"
               value: "eslint . --fix"
-  Changeset:
+  changeset:
     name: Setup Changeset
     paths: .neo/**/assets/changeset/*
     steps:
@@ -96,16 +96,25 @@ jobs:
         with:
           output: .changeset
 
-  Precommit:
-    paths: .git
-    name: Setup precommit
+  husky:
+    paths: .neo/**/assets/husky
+    name: Copy husky scripts
     steps:
       - name: Setup Husky
-        run: pnpx husky-init --yes
-        continue-on-error: true
+        uses: copy
         with:
-          quiet: true
-  Commitizen:
+          output: .husky
+  prepare husky:
+    paths: package.json
+    name: Prepare husky script
+    steps:
+      - name: Add husky prepare scripts
+        uses: json-editor
+        with:
+          pairs:
+            - path: "scripts.prepare"
+              value: "husky install"
+  commitizen:
     paths: .git
     name: Setup Commitizen
     steps:
@@ -115,7 +124,7 @@ jobs:
           pairs:
             - path: "devDependencies.cz-emoji"
               value: "^1.3.1"
-  Config Commitizen:
+  config commitizen:
     paths: .neo/**/assets/cz-emoji
     name: Setup Commitizen
     steps:
