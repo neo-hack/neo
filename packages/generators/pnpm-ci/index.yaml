@@ -63,7 +63,7 @@ jobs:
             - path: "devDependencies.eslint"
               value: "^8.32.0"
             - path: "devDependencies.@aiou/eslint-config"
-              value: "^0.7.1"
+              value: "^0.10.0"
             - path: "devDependencies.lint-staged"
               value: "^13.1.0"
 
