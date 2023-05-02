@@ -1,8 +1,13 @@
 {
   "name": "@aiou/generator-pnpm-ci",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "best developer practice for pnpm project",
-  "keywords": ["aiou", "mario", "pnpm", "dx"],
+  "keywords": [
+    "aiou",
+    "mario",
+    "pnpm",
+    "dx"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {

@@ -1,5 +1,16 @@
 # @aiou/generator-pnpm-ci
 
+## 2.1.0
+
+### Minor Changes
+
+- 7ba9a5b: not use latest version package & upgrade eslint
+- 7ba9a5b: add yaml files into lint-staged
+
+### Patch Changes
+
+- 7ba9a5b: copy changeset assets
+
 ## 2.0.2
 
 ### Patch Changes
