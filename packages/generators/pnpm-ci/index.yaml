@@ -27,7 +27,7 @@ jobs:
     name: Setup eslint
     paths: .neo/**/assets/eslint/.*
     steps:
-      - name: ESLint
+      - name: copy eslint config
         uses: copy
           
   setup package:
