@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 14
       - name: install pnpm
-        run: npm i pnpm -g
+        run: npm i pnpm@7.23.0 -g
       - name: install dependencies
         run: pnpm install --frozen-lockfile=false
       - name: create and publish versions
