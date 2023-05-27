@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x]
 
     steps:
       - name: checkout code repository
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install pnpm
-        run: npm i pnpm@latest -g
+        run: npm i pnpm@7.32.1 -g
       - name: Install 
         run: |
           pnpm install --frozen-lockfile=false

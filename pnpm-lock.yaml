@@ -84,7 +84,7 @@ importers:
       terminal-link: ^3.0.0
       typescript: 4.5.4
       vitest: ^0.7.7
-      vitest-extra: ^0.0.2
+      vitest-extra: ^0.0.4
       write-yaml-file: ^4.2.0
       zen-observable: ^0.8.15
     dependencies:
@@ -92,7 +92,7 @@ importers:
     devDependencies:
       '@aiou/mario': link:../mario
       '@aiou/schema': link:../schema
-      '@changesets/cli': 2.26.0
+      '@changesets/cli': 2.26.1
       '@pnpm/client': 6.1.0_@pnpm+logger@4.0.0
       '@pnpm/logger': 4.0.0
       '@pnpm/package-store': 12.1.7_@pnpm+logger@4.0.0
@@ -142,7 +142,7 @@ importers:
       terminal-link: 3.0.0
       typescript: 4.5.4
       vitest: 0.7.7_c8@7.11.0
-      vitest-extra: 0.0.2_vitest@0.7.7
+      vitest-extra: 0.0.4_vitest@0.7.7
       write-yaml-file: 4.2.0
       zen-observable: 0.8.15
 
@@ -501,8 +501,8 @@ packages:
       tty-table: 2.8.13
     dev: true
 
-  /@changesets/cli/2.26.0:
-    resolution: {integrity: sha512-0cbTiDms+ICTVtEwAFLNW0jBNex9f5+fFv3I771nBvdnV/mOjd1QJ4+f8KtVSOrwD9SJkk9xbDkWFb0oXd8d1Q==}
+  /@changesets/cli/2.26.1:
+    resolution: {integrity: sha512-XnTa+b51vt057fyAudvDKGB0Sh72xutQZNAdXkCqPBKO2zvs2yYZx5hFZj1u9cbtpwM6Sxtcr02/FQJfZOzemQ==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.20.13
@@ -2144,15 +2144,6 @@ packages:
     resolution: {integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=}
     engines: {node: '>=0.10.0'}
     dev: false
-
-  /array.prototype.flat/1.2.5:
-    resolution: {integrity: sha512-KaYU+S+ndVqyUnignHftkwc58o3uVU1jzczILJ1tN2YaIZpFIKBiP/x/j97E5MVPsaCloPbqWLB/8qCTVvT2qg==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      call-bind: 1.0.2
-      define-properties: 1.1.3
-      es-abstract: 1.19.1
-    dev: true
 
   /array.prototype.flat/1.3.1:
     resolution: {integrity: sha512-roTU0KWIOmJ4DRLmwKd19Otg0/mT3qPNt0Qb3GWW8iObuZXxrjB/pzn0R3hqpRSWg4HCwqx+0vwOnWnvlOyeIA==}
@@ -4338,7 +4329,7 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.3
       eslint: 8.12.0
       lodash: 4.17.21
       natural-compare: 1.4.0
@@ -8669,7 +8660,7 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
     dependencies:
-      array.prototype.flat: 1.2.5
+      array.prototype.flat: 1.3.1
       breakword: 1.0.5
       grapheme-splitter: 1.0.4
       strip-ansi: 6.0.1
@@ -9751,6 +9742,19 @@ packages:
     dev: true
     bundledDependencies:
       - lodash-es
+
+  /vitest-extra/0.0.4_vitest@0.7.7:
+    resolution: {integrity: sha512-7T8ES01B8qLkvSySmuDf5Rgxfnb/1rH7dZsAN1GWvnzSetv6L4M0yWEu4ejL1rmnhfJuOVczU2JK+uDJLcbgPQ==}
+    peerDependencies:
+      vitest: '>=0.7.7'
+    dependencies:
+      debug: 4.3.4
+      fs-extra: 10.0.1
+      globby: 13.1.1
+      vitest: 0.7.7_c8@7.11.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /vitest/0.7.7:
     resolution: {integrity: sha512-xU7BTB7T7GbcjFBdbZAAp/dIQUwn8bygI+cbw6Yq1oXj60oGRJ+nJ7AXvSOJyaHMTmglEoaqazyDGnCHJBXftw==}
