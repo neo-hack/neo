@@ -1,12 +1,15 @@
-import { AsyncReturnType, CommonOptions } from '../interface'
+import path from 'node:path'
+
+import fs from 'fs-extra'
+import tempy from 'tempy'
+
+import { parseWantedPackage } from '../utils/find-pref-package'
 import { debug } from '../utils/logger'
 import createLockFile from './lock-file'
-import createTemplatePM, { RequestOptions } from './pm'
+import createTemplatePM from './pm'
 
-import tempy from 'tempy'
-import fs from 'fs-extra'
-import path from 'path'
-import { parseWantedPackage } from '../utils/find-pref-package'
+import type { AsyncReturnType, CommonOptions } from '../interface'
+import type { RequestOptions } from './pm'
 
 let store: AsyncReturnType<typeof createStore>
 
@@ -50,7 +53,7 @@ const createStore = async (params: CommonOptions) => {
       const files = await response?.files?.()
       await pm.import(dir, files)
       if (!fs.existsSync(path.join(dir, 'index.json'))) {
-        throw new Error(`preset not found`)
+        throw new Error('preset not found')
       }
       const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
       debug.store('preset templates list: %O', pkgs)

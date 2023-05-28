@@ -1,4 +1,9 @@
-import { isMonorepo, isMatchPreset, isYaml, makeUniqId } from '../src/utils'
+import {
+  isMatchPreset,
+  isMonorepo,
+  isYaml,
+  makeUniqId,
+} from '../src/utils'
 import { findPrefPackageByPk, parseWantedPackage } from '../src/utils/find-pref-package'
 
 it('is monorepo', async () => {

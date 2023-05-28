@@ -1,6 +1,7 @@
-import { format } from 'util'
-import pc from 'picocolors'
+import { format } from 'node:util'
+
 import Debug from 'debug'
+import pc from 'picocolors'
 
 /**
  * Log a `message` to the console.
@@ -19,7 +20,9 @@ const log = (...args: [any, ...any[]]) => {
  */
 
 const fatal = (...args: [any, ...any[]]) => {
-  if (args[0] instanceof Error) args[0] = args[0].message.trim()
+  if (args[0] instanceof Error) {
+    args[0] = args[0].message.trim()
+  }
   const msg = format.apply(format, args)
   console.error(msg)
   process.exit(1)

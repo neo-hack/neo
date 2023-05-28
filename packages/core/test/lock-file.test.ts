@@ -1,7 +1,8 @@
-import createLockFile from '../src/store/lock-file'
+import path from 'node:path'
 
-import path from 'path'
 import tempy from 'tempy'
+
+import createLockFile from '../src/store/lock-file'
 import { mockLockFile } from './helpers'
 
 const storeDir = path.join(tempy.directory(), '.store')
@@ -46,7 +47,7 @@ describe('read lock file', () => {
   })
   it('should contain latest version template', async () => {
     const tpls: any[] = await complexLockFile.readTemplates()
-    const rts = tpls.find((tpl) => tpl.name === 'bin-template#unbundle')
+    const rts = tpls.find(tpl => tpl.name === 'bin-template#unbundle')
     expect(rts.version).toBe('2.10.0')
   })
   it('read with preset filter should work', async () => {

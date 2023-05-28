@@ -1,9 +1,9 @@
+import type { Preset, PresetTemplate } from '@aiou/schema'
 import type { ResolveResult } from '@pnpm/package-store'
-import type { PresetTemplate, Preset } from '@aiou/schema'
 
 export type { Config } from '@aiou/schema'
 
-export type CommonOptions = {
+export interface CommonOptions {
   storeDir?: string
 }
 
@@ -26,7 +26,7 @@ export interface Package extends PresetTemplate {
   _name?: string
 }
 
-export type LockFile = {
+export interface LockFile {
   templates?: Record<string, Package>
   presets?: Record<string, Preset>
 }
@@ -37,6 +37,6 @@ export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extend
   ? R
   : any
 
-export type AppConfig = {
+export interface AppConfig {
   mario: string
 }

@@ -1,12 +1,13 @@
-import pc from 'picocolors'
 import cols from 'cli-columns'
-import { groupBy, countBy } from 'lodash-es'
+import { countBy, groupBy } from 'lodash-es'
+import pc from 'picocolors'
 
-import { ListOptions } from '../../interface'
-import logger, { debug } from '../../utils/logger'
 import createStore from '../../store'
-import { listConfigs } from './list-configs'
 import { colorify } from '../../utils'
+import logger, { debug } from '../../utils/logger'
+import { listConfigs } from './list-configs'
+
+import type { ListOptions } from '../../interface'
 
 /**
  * @description List all templates
@@ -24,7 +25,7 @@ export const list = async (config: string, params: ListOptions) => {
   const templates = await store.lockFile.readTemplates({ presetNames: params.preset })
   const counters = countBy(templates, 'name')
   if (!templates.length) {
-    logger.log(`No templates...`)
+    logger.log('No templates...')
     return
   }
   logger.log(`${pc.cyan('Note:')} ${pc.green('cached')}, ${pc.gray('uncached')}\n`)

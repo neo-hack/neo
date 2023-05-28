@@ -1,6 +1,6 @@
-import { Package } from '../interface'
-
 import parseWantedDependency from '@pnpm/parse-wanted-dependency'
+
+import type { Package } from '../interface'
 
 export const parseWantedPackage = (input: string) => {
   const { alias, pref } = parseWantedDependency(input)

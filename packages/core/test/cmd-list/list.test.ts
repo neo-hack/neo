@@ -1,4 +1,8 @@
-import { execNeo, mockLockFile, storeDir } from '../helpers'
+import {
+  execNeo,
+  mockLockFile,
+  storeDir,
+} from '../helpers'
 
 beforeAll(async () => {
   await mockLockFile()

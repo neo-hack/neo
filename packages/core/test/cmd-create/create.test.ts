@@ -1,4 +1,5 @@
-import path from 'path'
+import path from 'node:path'
+
 import fs from 'fs-extra'
 import tempy from 'tempy'
 
@@ -75,8 +76,8 @@ describe('command create postcreate', () => {
       },
     )
     const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
-    const checkresult = mono.map((file) => !fs.existsSync(path.join(destDir, './target', file)))
-    expect(checkresult.every((v) => v)).toBe(true)
+    const checkresult = mono.map(file => !fs.existsSync(path.join(destDir, './target', file)))
+    expect(checkresult.every(v => v)).toBe(true)
   }, 10000)
 })
 

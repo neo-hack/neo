@@ -1,6 +1,10 @@
-import { createTemplatePM } from '../src/store/pm'
 import createStore from '../src/store'
-import { clearLockFile, readLockFile, storeDir } from './helpers'
+import { createTemplatePM } from '../src/store/pm'
+import {
+  clearLockFile,
+  readLockFile,
+  storeDir,
+} from './helpers'
 
 describe('pm', () => {
   afterEach(() => {

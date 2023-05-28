@@ -1,14 +1,21 @@
-import writeYamlFile from 'write-yaml-file'
-import readYamlFile from 'read-yaml-file'
-import path from 'path'
+import path from 'node:path'
+
 import fs from 'fs-extra'
 import { countBy } from 'lodash-es'
+import readYamlFile from 'read-yaml-file'
 import { compare } from 'semver'
+import writeYamlFile from 'write-yaml-file'
 
-import { LOCK_FILE, STORE_PATH } from '../utils/constants'
-import { CommonOptions, LockFile, Package, Config } from '../interface'
-import { debug } from '../utils/logger'
 import { isMatchPreset, makeUniqId } from '../utils'
+import { LOCK_FILE, STORE_PATH } from '../utils/constants'
+import { debug } from '../utils/logger'
+
+import type {
+  CommonOptions,
+  Config,
+  LockFile,
+  Package,
+} from '../interface'
 
 const getLockFilePath = (storeDir = STORE_PATH) => {
   return path.join(storeDir, LOCK_FILE)
@@ -92,7 +99,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       Object.keys(presets)
         .reduce((acc, cur) => {
           return acc.concat(
-            presets[cur].templates.map((tpl) => ({
+            presets[cur].templates.map(tpl => ({
               ...tpl,
               preset: cur,
               _name: tpl.name,
@@ -112,7 +119,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       debug.lockfile('read templates with %O', presetNames)
 
       if (presetNames) {
-        const filterTemplates = [...presetTemplates.values()].filter((tpl) =>
+        const filterTemplates = [...presetTemplates.values()].filter(tpl =>
           isMatchPreset(tpl.preset, presetNames),
         )
         const counters = countBy(filterTemplates, 'name')
@@ -148,10 +155,10 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       let configs = Object.keys(presets).reduce((acc, cur) => {
         // inject original preset
         const configs = presets[cur]?.configs || []
-        return acc.concat(configs.map((config) => ({ ...config, preset: cur })))
+        return acc.concat(configs.map(config => ({ ...config, preset: cur })))
       }, [] as Partial<Config & { preset: string }>[])
       if (presetNames) {
-        configs = configs.filter((tpl) => isMatchPreset(tpl.preset, presetNames))
+        configs = configs.filter(tpl => isMatchPreset(tpl.preset, presetNames))
         return configs
       }
       return configs

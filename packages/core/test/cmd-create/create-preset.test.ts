@@ -1,8 +1,13 @@
-import { execNeo, mockLockFile, storeDir } from '../helpers'
+import path from 'node:path'
 
-import tempy from 'tempy'
 import fs from 'fs-extra'
-import path from 'path'
+import tempy from 'tempy'
+
+import {
+  execNeo,
+  mockLockFile,
+  storeDir,
+} from '../helpers'
 
 beforeAll(async () => {
   await mockLockFile()

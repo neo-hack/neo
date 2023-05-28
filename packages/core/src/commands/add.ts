@@ -1,10 +1,11 @@
-import logger, { debug } from '../utils/logger'
-import createStore from '../store'
-import { STORE_PATH } from '../utils/constants'
-import { CommonOptions } from '../interface'
-
 import Listr from 'listr'
 import pc from 'picocolors'
+
+import createStore from '../store'
+import { STORE_PATH } from '../utils/constants'
+import logger, { debug } from '../utils/logger'
+
+import type { CommonOptions } from '../interface'
 
 type AddOptions = CommonOptions & {
   preset?: boolean
