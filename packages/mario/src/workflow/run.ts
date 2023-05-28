@@ -1,7 +1,8 @@
 import Shell from 'gulp-shell'
-import { Action } from '../interface'
 
-export type RunOptions = {
+import type { Action } from '../interface'
+
+export interface RunOptions {
   commands?: string[] | string
   quiet?: boolean
   ignoreErrors?: boolean

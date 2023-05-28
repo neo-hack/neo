@@ -1,9 +1,9 @@
 import JsonEditor from 'gulp-json-editor'
 import { set } from 'lodash-es'
 
-import { Action } from '../../interface'
+import type { Action } from '../../interface'
 
-type JsonEditorOptions = {
+interface JsonEditorOptions {
   content: Record<string, any>
   pairs: {
     path: string
@@ -12,7 +12,7 @@ type JsonEditorOptions = {
 }
 
 export const jsonEditor: Action<JsonEditorOptions> = (options) => {
-  return JsonEditor(function (json: Record<string, any>) {
+  return JsonEditor((json: Record<string, any>) => {
     const next = Object.assign(json, options.content)
     if (options.pairs) {
       options.pairs.forEach((pair) => {

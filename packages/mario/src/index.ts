@@ -1,6 +1,9 @@
-import { createWorkflow, readWorkflowSchema, CreateWorkflowOptions } from './workflow'
 import { pick } from 'lodash-es'
-import { Workflow } from './interface'
+
+import { createWorkflow, readWorkflowSchema } from './workflow'
+
+import type { Workflow } from './interface'
+import type { CreateWorkflowOptions } from './workflow'
 
 export { hooks } from './utils/hooks'
 // export { LogLevel } from 'consola'

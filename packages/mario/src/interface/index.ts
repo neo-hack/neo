@@ -2,7 +2,7 @@ import type Debug from 'debug'
 
 export type WebhookEvent = string
 
-export type Step = {
+export interface Step {
   /**
    * A name for your step to display on GitHub.
    */
@@ -52,7 +52,7 @@ export type Step = {
 /**
  * Each job must have an id to associate with the job. The key job_id is a string and its value is a map of the job's configuration data. You must replace <job_id> with a string that is unique to the jobs object. The <job_id> must start with a letter or _ and contain only alphanumeric characters, -, or _.
  */
-export type Job = {
+export interface Job {
   /**
    * The name of the job displayed on GitHub.
    */
@@ -81,7 +81,7 @@ export interface Workflow {
   jobs?: Record<string, Job>
 }
 
-export type Context = {
+export interface Context {
   cwd: string
   debug: Debug.Debugger
   variables?: Record<string, any>
