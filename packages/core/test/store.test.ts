@@ -1,6 +1,10 @@
-import { createTemplatePM } from '../src/store/pm'
 import createStore from '../src/store'
-import { clearLockFile, readLockFile, storeDir } from './helpers'
+import { createTemplatePM } from '../src/store/pm'
+import {
+  clearLockFile,
+  readLockFile,
+  storeDir,
+} from './helpers'
 
 describe('pm', () => {
   afterEach(() => {
@@ -23,6 +27,7 @@ describe('store', () => {
   afterEach(() => {
     clearLockFile()
   })
+  // FIXME: latest option not working
   it('add template', async () => {
     const store = await createStore({ storeDir })
     await store.addTemplate({
@@ -55,7 +60,7 @@ describe('store', () => {
     const store = await createStore({ storeDir })
     await store.add({
       type: 'template',
-      pref: '@aiou/bin-template',
+      pref: '@aiou/bin-template@3.0.1',
     })
     expect(readLockFile()).toMatchSnapshot()
   })

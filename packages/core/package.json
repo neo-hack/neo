@@ -3,6 +3,9 @@
   "version": "3.5.7",
   "description": "templates cli",
   "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
   "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {
     "directory": "packages/core",
@@ -12,16 +15,13 @@
   "author": {
     "name": "JW"
   },
-  "bin": {
-    "neo": "bin/index.mjs"
-  },
   "files": [
     "bin",
     "lib",
     "assets"
   ],
-  "engines": {
-    "node": ">=12"
+  "bin": {
+    "neo": "bin/index.mjs"
   },
   "scripts": {
     "clean": "rimraf lib compiled",
@@ -95,7 +95,7 @@
     "terminal-link": "^3.0.0",
     "typescript": "4.5.4",
     "vitest": "^0.7.7",
-    "vitest-extra": "^0.0.2",
+    "vitest-extra": "^0.0.4",
     "write-yaml-file": "^4.2.0",
     "zen-observable": "^0.8.15"
   }

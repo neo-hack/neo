@@ -1,22 +1,30 @@
+import consola from 'consola'
 import gulp from 'gulp'
-import consola, { Consola } from 'consola'
-import filter from 'gulp-filter'
 import gulpDebug from 'gulp-debug'
+import filter from 'gulp-filter'
 import readYaml from 'read-yaml-file'
 
-import { hooks } from '../utils/hooks'
-import { Workflow, Job, Context, Step } from '../interface'
 import { LIFE_CYCLES } from '../constants'
-import { builtInUses } from './uses'
-import { run, RunOptions } from './run'
+import { hooks } from '../utils/hooks'
 import { debug, prefix } from '../utils/logger'
+import { run } from './run'
+import { builtInUses } from './uses'
+
+import type { Consola } from 'consola'
+import type {
+  Context,
+  Job,
+  Step,
+  Workflow,
+} from '../interface'
+import type { RunOptions } from './run'
 
 export const readWorkflowSchema = async (filepath: string) => {
   const workflow = await readYaml<Workflow>(filepath)
   return workflow
 }
 
-type CreateJobOptions = {
+interface CreateJobOptions {
   runAction: (id: string, args: any, options: Step, ctx: Context) => any
   runShell: (args: RunOptions, options: Step, ctx: Context) => any
   // job name fallback
@@ -66,7 +74,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
             }
             const cbs = Array.isArray(cb) ? cb : [cb]
             cbs.forEach((cb) => {
-              stream = stream.pipe(cb).on('error', function (this: any, error: Error) {
+              stream = stream.pipe(cb).on('error', (error: Error) => {
                 if (!extra['continue-on-error']) {
                   hooks.callHook(taskName, { job: taskName, error })
                   stream.emit('error')
@@ -126,7 +134,7 @@ const runShell: CreateJobOptions['runShell'] = (args, options, ctx) => {
   return run({ ...args, ignoreErrors: options['continue-on-error'] }, ctx)
 }
 
-export type CreateWorkflowOptions = {
+export interface CreateWorkflowOptions {
   schema: Workflow
   cwd?: CreateJobOptions['cwd']
   logLevel?: Consola['level']

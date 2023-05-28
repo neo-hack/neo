@@ -1,5 +1,5 @@
-import os from 'os'
-import path from 'path'
+import os from 'node:os'
+import path from 'node:path'
 
 export const STORE_PATH = path.join(os.homedir(), '.neo-store')
 export const LOCK_FILE = 'neo-lock.yml'

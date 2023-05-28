@@ -1,7 +1,8 @@
 import del from 'del'
-import { Action } from '../../interface'
 
-type CleanOptions = {
+import type { Action } from '../../interface'
+
+export interface CleanOptions {
   paths?: string[]
 }
 

@@ -1,11 +1,12 @@
-import CopyTo from 'gulp-copy'
+import path from 'node:path'
+
 import gulp from 'gulp'
+import CopyTo from 'gulp-copy'
 import rename from 'gulp-rename'
-import path from 'path'
 
-import { Action } from '../../interface'
+import type { Action } from '../../interface'
 
-type CopyOptions = {
+export interface CopyOptions {
   output: string
   'keep-depth'?: boolean
 }

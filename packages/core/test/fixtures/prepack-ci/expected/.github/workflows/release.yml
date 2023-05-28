@@ -5,12 +5,19 @@ on:
       - main
       - master
       - 'releases/*'
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 env:
   CI: true
 jobs:
   version:
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
     steps:
       - name: checkout code repository
         uses: actions/checkout@v2
@@ -21,7 +28,7 @@ jobs:
         with:
           node-version: 14
       - name: install pnpm
-        run: npm i pnpm@latest -g
+        run: npm i pnpm@7.32.1 -g
       - name: install dependencies
         run: pnpm install --frozen-lockfile=false
       - name: create and publish versions

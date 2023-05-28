@@ -1,9 +1,11 @@
+import path from 'node:path'
+
 import { cosmiconfig } from 'cosmiconfig'
 import { existsSync } from 'fs-extra'
-import path from 'path'
 
-import { AppConfig } from '../interface'
 import { CONFIG_FILE } from './constants'
+
+import type { AppConfig } from '../interface'
 
 const app = cosmiconfig('neo')
 

@@ -1,20 +1,22 @@
 /**
  * @fileoverview select and copy rc file
  */
+import path from 'node:path'
+
+import cols from 'cli-columns'
+import copy from 'clipboardy'
+import fs from 'fs-extra'
 import inquirer from 'inquirer'
 import InquirerSearchList from 'inquirer-search-list'
-import path from 'path'
-import tempy from 'tempy'
-import fs from 'fs-extra'
-import copy from 'clipboardy'
-import pc from 'picocolors'
-import cols from 'cli-columns'
-
-import { AsyncReturnType, ListOptions } from '../../interface'
-import type createStore from '../../store'
-import logger, { debug } from '../../utils/logger'
-import { colorify } from '../../utils'
 import { groupBy } from 'lodash-es'
+import pc from 'picocolors'
+import tempy from 'tempy'
+
+import { colorify } from '../../utils'
+import logger, { debug } from '../../utils/logger'
+
+import type { AsyncReturnType, ListOptions } from '../../interface'
+import type createStore from '../../store'
 
 inquirer.registerPrompt('search-list', InquirerSearchList)
 
@@ -25,7 +27,7 @@ export const listConfigs = async (
   // read all config files
   const configs = await store.lockFile.readConfigs({ presetNames: params.preset })
   if (!configs.length) {
-    logger.log(`  No configs...`)
+    logger.log('  No configs...')
     return
   }
   if (!params.interactive) {
@@ -49,12 +51,12 @@ export const listConfigs = async (
       type: 'search-list',
       name: 'config',
       message: 'Please select config',
-      choices: configs.map((c) => ({
+      choices: configs.map(c => ({
         name: c.name,
       })),
     },
   ])
-  const pref = configs.find((choice) => choice.name === answers.config)
+  const pref = configs.find(choice => choice.name === answers.config)
   if (!pref) {
     debug.list('config not found in preset')
     return

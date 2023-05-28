@@ -1,13 +1,20 @@
-import createStore, { PackageFilesResponse, PackageResponse } from '@pnpm/package-store'
-import createClient from '@pnpm/client'
-import path from 'path'
+import path from 'node:path'
 
-import { CommonOptions } from '../interface'
-import { STORE_PATH, NPM_REGISTRY, CACHE_DIRNAME } from '../utils/constants'
+import createClient from '@pnpm/client'
+import createStore from '@pnpm/package-store'
+
+import {
+  CACHE_DIRNAME,
+  NPM_REGISTRY,
+  STORE_PATH,
+} from '../utils/constants'
 import { debug } from '../utils/logger'
 
+import type { PackageFilesResponse, PackageResponse } from '@pnpm/package-store'
+import type { CommonOptions } from '../interface'
+
 const authConfig = { registry: NPM_REGISTRY }
-export type RequestOptions = {
+export interface RequestOptions {
   alias?: string
   pref?: string
   latest?: boolean
@@ -61,7 +68,7 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       const latest = params.latest
       const pref = params.pref
       const alias = params.alias
-      debug.pm(`request %s with %s`, alias, pref)
+      debug.pm('request %s with %s', alias, pref)
       // try download as npm package
       let fetchResponse = await this.fetch({ alias, pref, latest }).catch(() => undefined)
       // try download as remote url

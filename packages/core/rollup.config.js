@@ -1,11 +1,11 @@
-import commonjs from '@rollup/plugin-commonjs'
 import alias from '@rollup/plugin-alias'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import size from 'rollup-plugin-size'
-import ts from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
+import ts from 'rollup-plugin-typescript2'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.

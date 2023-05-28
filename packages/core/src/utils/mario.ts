@@ -1,7 +1,9 @@
-import { create, CreateOptions } from '@aiou/mario'
+import { create } from '@aiou/mario'
 import { toListr } from '@aiou/mario/helpers'
-import Listr from 'listr'
 import { LogLevel } from 'consola'
+import Listr from 'listr'
+
+import type { CreateOptions } from '@aiou/mario'
 
 export const runMario = async (
   filepath: string,

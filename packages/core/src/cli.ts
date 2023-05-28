@@ -1,13 +1,14 @@
+import { fileURLToPath } from 'node:url'
+
 import { program } from 'commander'
-import tl from 'terminal-link'
 import consola from 'consola'
-import { fileURLToPath } from 'url'
+import tl from 'terminal-link'
 
 import { readPkg } from './utils'
-import { getBanner } from './utils/show-brand'
-import { usage } from './utils/show-usage'
 import { HOMEPAGE } from './utils/constants'
 import logger from './utils/logger'
+import { getBanner } from './utils/show-brand'
+import { usage } from './utils/show-usage'
 
 // polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
@@ -23,12 +24,12 @@ const cli = program
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
 const commands = {
-  create: async () => await import('./commands/create').then((res) => res.create),
-  list: async () => await import('./commands/list').then((res) => res.list),
-  add: async () => await import('./commands/add').then((res) => res.add),
-  run: async () => await import('./commands/run').then((res) => res.run),
-  prepack: async () => await import('./commands/prepack').then((res) => res.prepack),
-  whoami: async () => await import('./commands/whoami').then((res) => res.whoami),
+  create: async () => await import('./commands/create').then(res => res.create),
+  list: async () => await import('./commands/list').then(res => res.list),
+  add: async () => await import('./commands/add').then(res => res.add),
+  run: async () => await import('./commands/run').then(res => res.run),
+  prepack: async () => await import('./commands/prepack').then(res => res.prepack),
+  whoami: async () => await import('./commands/whoami').then(res => res.whoami),
 }
 
 const handler = (cmdName: string) => {
@@ -80,6 +81,7 @@ cli
     )} generator`,
   )
   .option('-m, --module [modules...]', 'Partial modules of workflow will run')
+  .option('--store-dir [storeDir]', 'Set store dir')
   .action(handler('run'))
   .addHelpText('after', usage.run())
 
@@ -100,7 +102,7 @@ cli
 program.parse(process.argv)
 
 consola.wrapConsole()
-process.on('unhandledRejection', (err) => consola.error('[unhandledRejection]', err))
-process.on('uncaughtException', (err) => consola.error('[uncaughtException]', err))
-// @ts-ignore http://nodejs.cn/api/process/process_nodeprecation.html
+process.on('unhandledRejection', err => consola.error('[unhandledRejection]', err))
+process.on('uncaughtException', err => consola.error('[uncaughtException]', err))
+// @ts-expect-error http://nodejs.cn/api/process/process_nodeprecation.html
 process.noDeprecation = true

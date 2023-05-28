@@ -1,9 +1,10 @@
-import { Workflow } from '../interface'
+import Observable from 'zen-observable'
+
+import { LIFE_CYCLES } from '../constants'
 import { hooks } from './hooks'
 
-import Observable from 'zen-observable'
 import type Listr from 'listr'
-import { LIFE_CYCLES } from '../constants'
+import type { Workflow } from '../interface'
 
 /**
  * @description convert schema to listr
@@ -14,7 +15,7 @@ export const toListr = (schema: Workflow) => {
     return {
       title: taskName,
       task: () => {
-        let ob: ZenObservable.SubscriptionObserver<any>
+        let ob: Observable.SubscriptionObserver<any>
         const OB = new Observable<any>((observer) => {
           ob = observer
         })

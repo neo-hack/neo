@@ -1,12 +1,13 @@
 import Replace from 'gulp-replace'
-import { Action } from '../../interface'
 
-type Pattern = {
+import type { Action } from '../../interface'
+
+interface Pattern {
   match: string
   replacement: string
 }
 
-type ReplaceOptions = {
+interface ReplaceOptions {
   match: string
   replacement: string
   pairs?: Pattern[]

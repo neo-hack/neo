@@ -1,10 +1,12 @@
-import { fileURLToPath } from 'url'
-import path, { dirname } from 'path'
+import path, { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { findUp } from 'find-up'
 import minimatch from 'minimatch'
 import pc from 'picocolors'
 import { readPackageUpSync } from 'read-pkg-up'
-import { Package } from '../interface'
+
+import type { Package } from '../interface'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -21,7 +23,7 @@ export const isMatchPreset = (preset?: string, names?: string[]) => {
   if (!preset || !names) {
     return
   }
-  return names.some((name) => name === preset || minimatch(preset, name))
+  return names.some(name => name === preset || minimatch(preset, name))
 }
 
 export const readPkg = () => {
