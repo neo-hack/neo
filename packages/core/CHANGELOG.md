@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.6.0
+
+### Minor Changes
+
+- c058758: support run generator with version `neo run generator@version`
+
 ## 3.5.7
 
 ### Patch Changes
