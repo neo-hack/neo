@@ -3,6 +3,9 @@
   "version": "3.6.0",
   "description": "templates cli",
   "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
   "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {
     "directory": "packages/core",
@@ -19,9 +22,6 @@
   ],
   "bin": {
     "neo": "bin/index.mjs"
-  },
-  "engines": {
-    "node": ">=14"
   },
   "scripts": {
     "clean": "rimraf lib compiled",
@@ -70,7 +70,7 @@
     "consola": "^2.15.3",
     "cosmiconfig": "^7.0.1",
     "debug": "4.3.3",
-    "esbuild": "^0.14.53",
+    "esbuild": "^0.18.13",
     "esno": "^0.13.0",
     "execa": "^6.0.0",
     "find-up": "^6.2.0",
@@ -88,9 +88,8 @@
     "read-yaml-file": "^2.1.0",
     "rimraf": "3.0.2",
     "rollup": "^2.64.0",
-    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-size": "^0.2.2",
-    "rollup-plugin-terser": "^7.0.2",
     "semver": "^7.3.7",
     "tempy": "^2.0.0",
     "terminal-link": "^3.0.0",
