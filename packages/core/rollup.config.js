@@ -3,9 +3,8 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
+import esbuild from 'rollup-plugin-esbuild'
 import size from 'rollup-plugin-size'
-import { terser } from 'rollup-plugin-terser'
-import ts from 'rollup-plugin-typescript2'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -19,9 +18,9 @@ export default defineConfig([
     preserveEntrySignatures: 'strict',
     external: ['readable-stream'],
     plugins: [
-      ts({
-        check: false,
-        tsconfig: './tsconfig.build.json',
+      esbuild({
+        target: 'es2020',
+        minify: false,
       }),
       // TODO: external or include
       // fix: https://github.com/rollup/rollup/issues/1507
@@ -50,7 +49,6 @@ export default defineConfig([
       }),
       commonjs(),
       json(),
-      terser(),
       size(),
     ],
     output: [

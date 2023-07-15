@@ -27,7 +27,7 @@ describe('store', () => {
   afterEach(() => {
     clearLockFile()
   })
-  // FIXME: latest option not working
+  // FIXME: latest option not working, will always install latest
   it('add template', async () => {
     const store = await createStore({ storeDir })
     await store.addTemplate({
