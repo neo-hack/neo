@@ -10,6 +10,9 @@ neo run @aiou/generator-pnpm-ci
 
 prepack follow parts into your project
 
+> **💡 NOTE**  
+CI workflows will automatic choose pnpm version and cache `.pnpm-store` via <https://github.com/pnpm/action-setup>.
+
 - `release.yml` - publish package with `changeset`
 - `snapshot-release.yml` - publish prerelease package with `changeset`
 - `husky`
