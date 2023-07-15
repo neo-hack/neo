@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 3.6.1
+
+### Patch Changes
+
+- d33ff1f: bundle with esbuild
+
 ## 3.6.0
 
 ### Minor Changes
