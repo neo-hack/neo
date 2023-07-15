@@ -1,9 +1,9 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
+import esbuild from 'rollup-plugin-esbuild'
 import multiple from 'rollup-plugin-multi-input'
 import { externals } from 'rollup-plugin-node-externals'
 import bundleSize from 'rollup-plugin-size'
-import typescript from 'rollup-plugin-typescript2'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -19,9 +19,9 @@ export default defineConfig([
         devDeps: false,
       }),
       multiple(),
-      typescript({
-        check: false,
-        tsconfig: './tsconfig.build.json',
+      esbuild({
+        target: 'es2020',
+        minify: false,
       }), // so Rollup can convert TypeScript to JavaScript
       nodeResolve({ preferBuiltins: true }),
       bundleSize(),
