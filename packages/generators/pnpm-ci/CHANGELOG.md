@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 2.2.0
+
+### Minor Changes
+
+- 236e74c: add pnpm ci cache
+
 ## 2.1.1
 
 ### Patch Changes
