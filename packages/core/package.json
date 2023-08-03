@@ -82,7 +82,7 @@
     "is-offline-node": "^1.0.0",
     "listr": "^0.14.3",
     "lodash-es": "^4.17.21",
-    "minimatch": "^3.0.4",
+    "minimatch": "^3.0.5",
     "picocolors": "^1.0.0",
     "read-pkg-up": "^9.0.0",
     "read-yaml-file": "^2.1.0",
