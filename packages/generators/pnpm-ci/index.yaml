@@ -43,16 +43,16 @@ jobs:
             - path: "scripts.ci:publish"
               value: "pnpm run build && pnpm changeset publish"
             - path: "scripts.ci:snapshot"
-              value: "pnpm changeset version --snapshot beta"
+              value: "pnpm changeset version --snapshot snapshot"
             - path: "scripts.ci:prerelease"
-              value: "pnpm run build && pnpm changeset publish --tag beta"
+              value: "pnpm run build && pnpm changeset publish --no-git-tag --snapshot"
       - name: Add lint-staged
         uses: json-editor
         with:
           pairs:
             - path: "lint-staged"
               value:
-                "**/**/*.{js,ts,tsx,vue,json,yml,yaml}": ["eslint --fix"]
+                "**/**/*.{js,ts,tsx,json,yml,yaml,md}": ["eslint --fix"]
 
       - name: Add lint pkgs
         uses: json-editor
