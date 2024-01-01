@@ -1,5 +1,13 @@
 # @aiou/generator-pnpm-ci
 
+## 2.3.0
+
+### Minor Changes
+
+- 8134609: use flat eslint config
+- 8134609: update snapshot release script
+- 8134609: snapshot release on pr and upgrade actions
+
 ## 2.2.0
 
 ### Minor Changes

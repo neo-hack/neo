@@ -1,5 +1,11 @@
 # @aiou/preset-aiou
 
+## 2.0.0
+
+### Major Changes
+
+- 8134609: snapshot-release on pull_request and add swc plugin workflows
+
 ## 1.1.1
 
 ### Patch Changes

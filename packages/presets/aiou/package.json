@@ -1,6 +1,6 @@
 {
   "name": "@aiou/preset-aiou",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "preset aiou",
   "keywords": [
     "preset",
@@ -23,11 +23,11 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
-  "main": "index.json",
   "files": [
     "assets",
     "index.json"
   ],
+  "main": "index.json",
   "scripts": {
     "build": "echo build",
     "test": "echo test"
