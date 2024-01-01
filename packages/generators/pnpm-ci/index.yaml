@@ -61,9 +61,9 @@ jobs:
             - path: "devDependencies.typescript"
               value: "^4.6.4"
             - path: "devDependencies.eslint"
-              value: "^8.32.0"
+              value: "^8.56.0"
             - path: "devDependencies.@aiou/eslint-config"
-              value: "^0.10.0"
+              value: "^1.2.1"
             - path: "devDependencies.lint-staged"
               value: "^13.1.0"
 
