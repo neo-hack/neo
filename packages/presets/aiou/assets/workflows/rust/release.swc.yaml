@@ -4,46 +4,50 @@ on:
     branches:
       - main
       - master
-      - 'releases/*'
+      - "releases/*"
 env:
   CI: true
 jobs:
   release:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-      pull-requests: write
     steps:
-      - name: Checkout code repository
+      - name: checkout code repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Setup Node.js
+      - name: setup node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      # Install pnpm depends on package.json packageManager field
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
           run_install: false
-      - name: Get pnpm store directory
+      - name: get pnpm store directory
+        id: pnpm-cache
         shell: bash
         run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      - name: Install
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile=false
+      - name: install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+      - name: install wasm target
+        shell: bash
+        # or rustup target add wasm32-unknown-unknown
         run: |
-          pnpm install --frozen-lockfile=false
+          rustup target add wasm32-wasi
       - name: create and publish versions
         uses: changesets/action@v1
         with:

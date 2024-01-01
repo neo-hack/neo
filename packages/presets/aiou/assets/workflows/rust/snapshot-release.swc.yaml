@@ -8,12 +8,11 @@ on:
   pull_request:
     paths:
       - ".changeset/**"
-    branches: [master, main, release]
+    branches: [master, main]
 env:
   CI: true
 jobs:
   snapshot-release:
-    # Only repo owner can publish snapshot version when create pr target master
     if: ${{ github.triggering_actor == github.repository_owner }}
     runs-on: ubuntu-latest
     steps:
@@ -51,15 +50,15 @@ jobs:
           EOF
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # enable it if develop swc plugin
-      # - name: install Rust
-      #   uses: actions-rs/toolchain@v1
-      #   with:
-      #     profile: minimal
-      # - name: install wasm target
-      #   shell: bash
-      #   run: |
-      #     rustup target add wasm32-wasi
+      - name: install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+      - name: install wasm target
+        shell: bash
+        # or rustup target add wasm32-unknown-unknown
+        run: |
+          rustup target add wasm32-wasi
       - name: create and publish versions
         run: |
           pnpm ci:snapshot
