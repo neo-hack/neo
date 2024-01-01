@@ -13,6 +13,11 @@ prepack follow parts into your project
 > **💡 NOTE**  
 CI workflows will automatic choose pnpm version and cache `.pnpm-store` via <https://github.com/pnpm/action-setup>.
 
+> **💡 NOTE**  
+Changesets release required `settings > actions > Workflow permissions`:
+- Read and write permissions
+- Allow Github Actions to create and approve all pull request
+
 - `release.yml` - publish package with `changeset`
 - `snapshot-release.yml` - publish prerelease package with `changeset`
 - `husky`

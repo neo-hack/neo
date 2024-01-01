@@ -17,8 +17,16 @@
       "pref": "./assets/workflows/rust/ci.yaml"
     },
     {
-      "name": "Rust Release workflow",
-      "pref": "./assets/workflows/rust/release.yaml"
+      "name": "Rust Homebrew Release workflow",
+      "pref": "./assets/workflows/rust/release.homebrew.yaml"
+    },
+    {
+      "name": "SWC plugin Release workflow",
+      "pref": "./assets/workflows/rust/release.swc.yaml"
+    },
+    {
+      "name": "SWC plugin Snapshot-Release workflow",
+      "pref": "./assets/workflows/rust/snapshot-release.swc.yaml"
     }
   ],
   "templates": [
