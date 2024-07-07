@@ -25,7 +25,7 @@ jobs:
           output: .github/workflows
   lint:
     name: Setup eslint
-    paths: .neo/**/assets/eslint/.*
+    paths: .neo/**/assets/eslint/eslint.config.js
     steps:
       - name: ESLint
         uses: copy
