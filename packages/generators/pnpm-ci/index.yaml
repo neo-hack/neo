@@ -25,7 +25,7 @@ jobs:
           output: .github/workflows
   lint:
     name: Setup eslint
-    paths: .neo/**/assets/eslint/.*
+    paths: .neo/**/assets/eslint/eslint.config.js
     steps:
       - name: ESLint
         uses: copy
@@ -114,16 +114,6 @@ jobs:
           pairs:
             - path: "scripts.prepare"
               value: "husky install"
-  commitizen:
-    paths: .git
-    name: Setup Commitizen
-    steps:
-      - name: Add cz-emoji
-        uses: json-editor
-        with:
-          pairs:
-            - path: "devDependencies.cz-emoji"
-              value: "^1.3.1"
   config commitizen:
     paths: .neo/**/assets/cz-emoji/.czrc
     name: Setup Commitizen
@@ -132,4 +122,13 @@ jobs:
         uses: copy
         with:
           output: .
-          
+  cz-emoji:
+    paths: package.json
+    name: Install cz-emoji
+    steps:
+      - name: Add cz-emoji
+        uses: json-editor
+        with:
+          pairs:
+            - path: "devDependencies.cz-emoji"
+              value: "^1.3.1"
