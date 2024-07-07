@@ -1,5 +1,12 @@
 # @aiou/generator-pnpm-ci
 
+## 2.3.1
+
+### Patch Changes
+
+- c0bc3d1: failed copy eslint.config.js
+- c0bc3d1: config package.json install cz-emoji
+
 ## 2.3.0
 
 ### Minor Changes
