@@ -20,7 +20,7 @@ export default defineConfig([
       }),
       multiple(),
       esbuild({
-        target: 'es2020',
+        target: 'es2022',
         minify: false,
       }), // so Rollup can convert TypeScript to JavaScript
       nodeResolve({ preferBuiltins: true }),

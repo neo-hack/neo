@@ -19,7 +19,7 @@ export default defineConfig([
     external: ['readable-stream'],
     plugins: [
       esbuild({
-        target: 'es2020',
+        target: 'es2022',
         minify: false,
       }),
       // TODO: external or include
