@@ -41,7 +41,7 @@ export interface PackageFilesResponse {
   filesIndex: Map<string, string>
 }
 
-let pm: ReturnType<typeof createTemplatePM>
+const pm: ReturnType<typeof createTemplatePM> | undefined = undefined
 
 const createPacoteOptions = ({
   storeDir = STORE_PATH,

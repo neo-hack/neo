@@ -11,7 +11,7 @@ import createTemplatePM from './pm'
 import type { AsyncReturnType, CommonOptions } from '../interface'
 import type { RequestOptions } from './pm'
 
-let store: AsyncReturnType<typeof createStore>
+let store: AsyncReturnType<typeof createStore> | undefined
 
 type Options = RequestOptions & {
   name: string
@@ -48,6 +48,7 @@ const createStore = async (params: CommonOptions) => {
       const response = await pm.request({
         alias: params.alias,
         pref: params.version,
+        latest: params.latest,
       })
       const dir = tempy.directory()
       const importedPath = await pm.import(dir, response)
@@ -66,6 +67,7 @@ const createStore = async (params: CommonOptions) => {
       const response = await pm.request({
         alias: params.alias,
         pref: params.version,
+        latest: params.latest,
       })
       if (!response) {
         debug.store('template not found')
@@ -89,7 +91,8 @@ const create = async (params: CommonOptions) => {
   if (store) {
     return store
   }
-  return createStore(params)
+  store = await createStore(params)
+  return store
 }
 
 export default create
