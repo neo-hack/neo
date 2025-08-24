@@ -47,7 +47,7 @@ const createStore = async (params: CommonOptions) => {
       debug.store('add preset with params %O', params)
       const response = await pm.request({
         alias: params.alias,
-        pref: params.version,
+        pref: params.pref,
         latest: params.latest,
       })
       const dir = tempy.directory()
@@ -66,7 +66,7 @@ const createStore = async (params: CommonOptions) => {
       debug.store('add template with params %O', params)
       const response = await pm.request({
         alias: params.alias,
-        pref: params.version,
+        pref: params.pref,
         latest: params.latest,
       })
       if (!response) {

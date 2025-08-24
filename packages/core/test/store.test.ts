@@ -18,7 +18,7 @@ describe('pm', () => {
   })
   it('request with version should work', async () => {
     const pm = await createTemplatePM({ storeDir })
-    const response = await pm.request({ alias: '@aiou/bin-template', pref: '2.1.1' })
+    const response = await pm.request({ pref: '@aiou/bin-template@2.1.1' })
     expect(response.body.manifest?.version).toBe('2.1.1')
   })
 })
@@ -34,7 +34,7 @@ describe('store', () => {
       alias: '@aiou/bin-template',
       latest: false,
       name: 'bin',
-      pref: 'bin-template#bundle',
+      pref: '@aiou/bin-template',
     })
     expect(readLockFile()).toMatchSnapshot()
   })

@@ -16,7 +16,7 @@ export default defineConfig([
   {
     input: 'src/cli.ts',
     preserveEntrySignatures: 'strict',
-    external: ['readable-stream'],
+    external: ['readable-stream', 'source-map-support/register.js'],
     plugins: [
       esbuild({
         target: 'es2022',
@@ -53,7 +53,7 @@ export default defineConfig([
     ],
     output: [
       {
-        sourcemap: false,
+        sourcemap: true,
         entryFileNames: '[name].mjs',
         manualChunks: (id) => {
           if (id.includes('listr')) {

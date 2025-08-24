@@ -12,8 +12,12 @@ exports[`store > add preset 1`] = `
         pref: ./assets/workflows/pnpm/snapshot-release.yaml
       - name: Rust CI workflow
         pref: ./assets/workflows/rust/ci.yaml
-      - name: Rust Release workflow
-        pref: ./assets/workflows/rust/release.yaml
+      - name: Rust Homebrew Release workflow
+        pref: ./assets/workflows/rust/release.homebrew.yaml
+      - name: SWC plugin Release workflow
+        pref: ./assets/workflows/rust/release.swc.yaml
+      - name: SWC plugin Snapshot-Release workflow
+        pref: ./assets/workflows/rust/snapshot-release.swc.yaml
     templates:
       - name: '@aiou/ts-lib-template'
       - name: '@aiou/actions-template'
@@ -33,12 +37,11 @@ exports[`store > add preset 1`] = `
 
 exports[`store > add template 1`] = `
 "templates:
-  registry.npmjs.org/@aiou/bin-template/4.0.0:
+  '@aiou/bin-template/4.0.0':
     name: bin
     version: 4.0.0
-    resolvedVia: npm-registry
-    id: registry.npmjs.org/@aiou/bin-template/4.0.0
-    pref: bin-template#bundle
+    id: '@aiou/bin-template/4.0.0'
+    pref: '@aiou/bin-template'
 "
 `;
 
@@ -54,8 +57,12 @@ exports[`store > add(type=preset) 1`] = `
         pref: ./assets/workflows/pnpm/snapshot-release.yaml
       - name: Rust CI workflow
         pref: ./assets/workflows/rust/ci.yaml
-      - name: Rust Release workflow
-        pref: ./assets/workflows/rust/release.yaml
+      - name: Rust Homebrew Release workflow
+        pref: ./assets/workflows/rust/release.homebrew.yaml
+      - name: SWC plugin Release workflow
+        pref: ./assets/workflows/rust/release.swc.yaml
+      - name: SWC plugin Snapshot-Release workflow
+        pref: ./assets/workflows/rust/snapshot-release.swc.yaml
     templates:
       - name: '@aiou/ts-lib-template'
       - name: '@aiou/actions-template'
@@ -75,11 +82,10 @@ exports[`store > add(type=preset) 1`] = `
 
 exports[`store > add(type=template) 1`] = `
 "templates:
-  registry.npmjs.org/@aiou/bin-template/3.0.1:
+  '@aiou/bin-template/3.0.1':
     name: '@aiou/bin-template'
     version: 3.0.1
-    resolvedVia: npm-registry
-    id: registry.npmjs.org/@aiou/bin-template/3.0.1
+    id: '@aiou/bin-template/3.0.1'
     pref: '@aiou/bin-template@3.0.1'
 "
 `;

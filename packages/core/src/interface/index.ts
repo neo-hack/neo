@@ -1,5 +1,4 @@
 import type { Preset, PresetTemplate } from '@aiou/schema'
-import type { ResolveResult } from '@pnpm/package-store'
 import type { PacoteOptions } from 'pacote'
 
 export type { Config } from '@aiou/schema'
@@ -15,7 +14,6 @@ export type ListOptions = CommonOptions & {
 }
 
 export interface Package extends PresetTemplate {
-  resolvedVia?: ResolveResult['resolvedVia']
   version: string
   pref: string
   id: string

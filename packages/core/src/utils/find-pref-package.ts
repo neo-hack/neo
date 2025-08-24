@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 import type { Package } from '../interface'
@@ -17,7 +19,19 @@ export const parseWantedPackage = (input: string) => {
  * @description find perf package in store
  * @params input: `npm` `npm@version` `url`
  */
-export const findPrefPackageByPk = (packages: Partial<Package>[], options: { input: string }) => {
+export const findPrefPackageByPk = (packages: Partial<Package>[], options: { input: string; latest?: boolean }) => {
+  if (options.latest) {
+    const resolved = parseWantedDependency(options.input)
+    return {
+      alias: resolved.alias,
+      pref: options.input,
+      name: options.input,
+      cached: false,
+      id: randomUUID(),
+      version: 'latest',
+      _name: options.input,
+    }
+  }
   const prefPackage = packages.find((pkg) => {
     return pkg.name === options.input
   })

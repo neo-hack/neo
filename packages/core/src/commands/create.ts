@@ -44,6 +44,7 @@ const generate = async ({
 }: Omit<CreateOptions, 'name' | 'pref'> & {
   templateResponse: PackageResponse
 }) => {
+  debug.create('import project into %s', project)
   await store.pm.import(project, templateResponse)
 }
 
@@ -195,7 +196,8 @@ export const create = async (
   const store = await createStore(options)
   const choices = await store.lockFile.readTemplates({ presetNames: options.preset })
   if (template && project) {
-    const pkg = findPrefPackageByPk(choices, { input: template })
+    const pkg = findPrefPackageByPk(choices, { input: template, latest: options.latest })
+    debug.create('create project with %O directly', pkg)
     const task = createTask({
       alias: pkg?.alias,
       project,

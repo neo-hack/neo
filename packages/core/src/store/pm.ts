@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import path from 'node:path'
-
-import * as pacote from 'pacote'
 
 import {
   CACHE_DIRNAME,
@@ -10,14 +9,16 @@ import {
 } from '../utils/constants'
 import { debug } from '../utils/logger'
 
-import type { PacoteOptions } from 'pacote'
+import type { Options } from 'pacote'
 import type { CommonOptions, PackageResponse } from '../interface'
+
+const require = createRequire(import.meta.url)
 
 /**
  * Options for package requests
  * @example
  * // Request latest version from registry
- * { alias: 'react', pref: '18.2.0', latest: true }
+ * { alias: 'react', pref: 'react@18.2.0', latest: true }
  *
  * @example
  * // Request from git repository
@@ -28,9 +29,9 @@ import type { CommonOptions, PackageResponse } from '../interface'
  * { pref: 'file:../my-package', latest: false }
  */
 export interface RequestOptions {
-  /** Package alias name */
+  /** Package name from package.json */
   alias?: string
-  /** Package specifier (name@version, git url, etc.) */
+  /** Package specifier with version (name@version, git url, etc.) */
   pref?: string
   /** Whether to prefer online registry over cache */
   latest?: boolean
@@ -46,27 +47,29 @@ const pm: ReturnType<typeof createTemplatePM> | undefined = undefined
 const createPacoteOptions = ({
   storeDir = STORE_PATH,
   latest,
-}: CommonOptions): PacoteOptions => {
+}: CommonOptions): Options => {
   return {
     registry: NPM_REGISTRY,
     cache: path.join(storeDir, CACHE_DIRNAME),
-    preferOnline: !!latest,
+    preferOnline: latest,
     fullMetadata: true,
   }
 }
+
+const pacote = require('pacote')
 
 export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
   return {
     async fetch({ alias, pref, latest = true }: RequestOptions): Promise<PackageResponse> {
       const opts = createPacoteOptions({ storeDir, latest })
-      const spec = alias || pref!
+      const spec = pref || alias!
 
       const manifest = await pacote.manifest(spec, opts)
       const resolved = await pacote.resolve(spec, opts)
 
       return {
         body: {
-          id: `${manifest.name}@${manifest.version}`,
+          id: `${manifest.name}/${manifest.version}`,
           latest: manifest.version,
           manifest,
           resolution: {
@@ -83,16 +86,20 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       debug.pm('request %s with %s', alias, pref)
 
       try {
-        // try download as npm package
+        // try download with provided specifier
         return await this.fetch({ alias, pref, latest })
       } catch (error) {
-        // try download as remote url
-        try {
-          return await this.fetch({ pref: alias, latest })
-        } catch (fallbackError) {
-          debug.pm('request failed for both %s and %s', alias, pref)
-          throw fallbackError
+        // try download using alias as specifier if pref failed
+        if (pref && alias && pref !== alias) {
+          try {
+            return await this.fetch({ pref: alias, latest })
+          } catch (fallbackError) {
+            debug.pm('request failed for both %s and %s', pref, alias)
+            throw fallbackError
+          }
         }
+        debug.pm('request failed for %s', pref || alias)
+        throw error
       }
     },
     async import(
