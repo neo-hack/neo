@@ -41,7 +41,7 @@ describe('command create', () => {
   //   expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   // }, 30000)
 
-  it('create project from local store in default #debug', async () => {
+  it('create project from local store in default', async () => {
     const dest = destDir()
     await execNeo(['add', '@aiou/webext-template@0.1.0', '--store-dir', storeDir], {
       cwd: dest,
@@ -53,7 +53,7 @@ describe('command create', () => {
     expect(pkg.version).toBe('0.1.0')
   }, 10000)
 
-  it('create project with latest #debug', async () => {
+  it('create project with latest', async () => {
     const dest = destDir()
     const { stdout, stderr } = await execNeo(
       ['create', '@aiou/webext-template', 'target', '--store-dir', storeDir, '--latest'],
