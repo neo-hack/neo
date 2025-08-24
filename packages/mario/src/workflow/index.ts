@@ -120,7 +120,7 @@ export const createJob = async ({ job, key, ...options }: CreateJobOptions) => {
 
 const runAction: CreateJobOptions['runAction'] = async (id, args, _options, ctx) => {
   debug.uses('run uses %s with %O', id, args)
-  const action = builtInUses[id]
+  const action = builtInUses[id as keyof typeof builtInUses]
   if (!action) {
     consola.error(`${action} not found, dynamic import not support now!`)
     return false

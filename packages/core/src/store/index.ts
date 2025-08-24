@@ -50,12 +50,11 @@ const createStore = async (params: CommonOptions) => {
         pref: params.version,
       })
       const dir = tempy.directory()
-      const files = await response?.files?.()
-      await pm.import(dir, files)
-      if (!fs.existsSync(path.join(dir, 'index.json'))) {
+      const importedPath = await pm.import(dir, response)
+      if (!fs.existsSync(path.join(importedPath, 'index.json'))) {
         throw new Error('preset not found')
       }
-      const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
+      const pkgs = fs.readJsonSync(path.join(importedPath, 'index.json'))
       debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
@@ -72,12 +71,11 @@ const createStore = async (params: CommonOptions) => {
         debug.store('template not found')
         return
       }
-      const { id, resolvedVia } = response.body
+      const { id } = response.body
       await lockFile.updateTemplates({
         [id]: {
           name: params.name,
           version: response.body.manifest?.version,
-          resolvedVia,
           id,
           pref: params.pref,
         },

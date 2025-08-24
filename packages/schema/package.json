@@ -23,17 +23,15 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
+  "files": ["lib"],
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
   "scripts": {
     "build": "ttsc",
     "test": "echo test"
   },
   "devDependencies": {
     "ttypescript": "^1.5.13",
-    "typescript": "^4.5.4"
+    "typescript": "^5.6.3"
   }
 }

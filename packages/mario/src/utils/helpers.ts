@@ -15,7 +15,7 @@ export const toListr = (schema: Workflow) => {
     return {
       title: taskName,
       task: () => {
-        let ob: Observable.SubscriptionObserver<any>
+        let ob: ZenObservable.SubscriptionObserver<any>
         const OB = new Observable<any>((observer) => {
           ob = observer
         })

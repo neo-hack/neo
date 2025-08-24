@@ -15,11 +15,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "outDir": "lib",
     "baseUrl": "./",
-    "types": ["vitest/globals", "vitest-extra/types"]
+    "types": ["vitest/globals", "vitest-extra/types", "zen-observable"]
   },
   "include": ["src", "test"]
 }

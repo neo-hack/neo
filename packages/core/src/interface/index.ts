@@ -1,10 +1,12 @@
 import type { Preset, PresetTemplate } from '@aiou/schema'
 import type { ResolveResult } from '@pnpm/package-store'
+import type { PacoteOptions } from 'pacote'
 
 export type { Config } from '@aiou/schema'
 
-export interface CommonOptions {
+export interface CommonOptions extends PacoteOptions {
   storeDir?: string
+  latest?: boolean
 }
 
 export type ListOptions = CommonOptions & {
@@ -39,4 +41,16 @@ export type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extend
 
 export interface AppConfig {
   mario: string
+}
+
+export interface PackageResponse {
+  body: {
+    id: string
+    latest?: string
+    manifest: any
+    resolution: {
+      integrity?: string
+      tarball?: string
+    }
+  }
 }
