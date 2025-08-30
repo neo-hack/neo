@@ -7,3 +7,5 @@ export const main = async () => {
   })
   await workflow.start()
 }
+
+main()

@@ -1,11 +1,11 @@
 import { create } from '../../../src'
 import { r } from '../../helpers'
 
-const uses = async () => {
-  const workflow = await create(r('test/uses/uses/uses.yaml'), {
+const continueOnError = async () => {
+  const workflow = await create(r('test/uses/uses/continue-on-error.yaml'), {
     cwd: r('test/uses/uses'),
   })
   await workflow.start()
 }
 
-uses()
+continueOnError()
