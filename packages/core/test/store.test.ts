@@ -37,7 +37,7 @@ describe('store', () => {
     })
     expect(await readLockFile(storeDir)).toMatchSnapshot()
   })
-  it('add preset #debug', async () => {
+  it('add preset', async () => {
     const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.addPreset({
@@ -46,7 +46,7 @@ describe('store', () => {
       name: 'aiou',
       pref: '@aiou/preset-aiou',
     })
-    expect(await (storeDir)).toMatchSnapshot()
+    expect(await readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=preset)', async () => {
     const storeDir = randomStoreDir()

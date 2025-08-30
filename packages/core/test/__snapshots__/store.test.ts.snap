@@ -2,6 +2,87 @@
 
 exports[`store > add preset #debug 1`] = `"/Volumes/ORICO/Users/jiangwei/projects/neo/packages/core/.store/9de2a988-ff04-4571-85a5-0e9b753ddf35"`;
 
+exports[`store > add preset 1`] = `
+{
+  "presets": {
+    "aiou": {
+      "configs": [
+        {
+          "name": "PNPM CI workflow",
+          "pref": "./assets/workflows/pnpm/ci.yaml",
+        },
+        {
+          "name": "PNPM Release workflow",
+          "pref": "./assets/workflows/pnpm/release.yaml",
+        },
+        {
+          "name": "PNPM Snapshot Release workflow",
+          "pref": "./assets/workflows/pnpm/snapshot-release.yaml",
+        },
+        {
+          "name": "Rust CI workflow",
+          "pref": "./assets/workflows/rust/ci.yaml",
+        },
+        {
+          "name": "Rust Homebrew Release workflow",
+          "pref": "./assets/workflows/rust/release.homebrew.yaml",
+        },
+        {
+          "name": "SWC plugin Release workflow",
+          "pref": "./assets/workflows/rust/release.swc.yaml",
+        },
+        {
+          "name": "SWC plugin Snapshot-Release workflow",
+          "pref": "./assets/workflows/rust/snapshot-release.swc.yaml",
+        },
+      ],
+      "templates": [
+        {
+          "name": "@aiou/ts-lib-template",
+        },
+        {
+          "name": "@aiou/actions-template",
+        },
+        {
+          "name": "@aiou/rollup-plugin-template",
+        },
+        {
+          "name": "@aiou/rollup-template",
+        },
+        {
+          "name": "@aiou/dayjs-plugin-template",
+        },
+        {
+          "name": "@aiou/bin-template",
+        },
+        {
+          "name": "@aiou/webext-template",
+        },
+        {
+          "name": "@aiou/eslint-config-template",
+        },
+        {
+          "name": "@aiou/webpack-loader-template",
+        },
+        {
+          "name": "@aiou/react-template",
+        },
+        {
+          "name": "@aiou/react-components-lib-template",
+        },
+        {
+          "name": "@aiou/original-html-template",
+        },
+        {
+          "name": "@aiou/chrome-extenstion-template",
+        },
+      ],
+    },
+  },
+  "version": undefined,
+}
+`;
+
 exports[`store > add template 1`] = `
 {
   "templates": {
