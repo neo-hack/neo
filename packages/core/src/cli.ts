@@ -6,7 +6,7 @@ import { program } from 'commander'
 import consola from 'consola'
 import tl from 'terminal-link'
 
-import { readPkg } from './utils'
+import { version } from '../package.json'
 import { HOMEPAGE } from './utils/constants'
 import logger from './utils/logger'
 import { getBanner } from './utils/show-brand'
@@ -15,13 +15,11 @@ import { usage } from './utils/show-usage'
 // polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
 
-const pkg = readPkg()
-
 const cli = program
-  .version(pkg?.version || '', '-v, --version')
+  .version(version, '-v, --version')
   .hook('preAction', () => {
     // disable display version during vitest https://vitest.dev/config/#configuring-vitest
-    !process.env.VITEST && logger.log(`${tl(`NEO v${pkg?.version}`, HOMEPAGE)}\n`)
+    !process.env.VITEST && logger.log(`${tl(`NEO v${version}`, HOMEPAGE)}\n`)
   })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
@@ -32,6 +30,7 @@ const commands = {
   run: async () => await import('./commands/run').then(res => res.run),
   prepack: async () => await import('./commands/prepack').then(res => res.prepack),
   whoami: async () => await import('./commands/whoami').then(res => res.whoami),
+  cleanup: async () => await import('./commands/cleanup').then(res => res.cleanup),
 }
 
 const handler = (cmdName: string) => {
@@ -100,6 +99,11 @@ cli
   .option('--preset', 'If true, load `alias` as preset')
   .action(handler('add'))
   .addHelpText('after', usage.add())
+
+cli.command('cleanup')
+  .description('Clean up the store')
+  .option('--store-dir [storeDir]', 'Set store dir')
+  .action(handler('cleanup'))
 
 program.parse(process.argv)
 

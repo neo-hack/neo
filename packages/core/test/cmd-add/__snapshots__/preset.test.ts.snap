@@ -1,36 +1,82 @@
 // Vitest Snapshot v1
 
 exports[`load preset > load preset from npm package should work 1`] = `
-"presets:
-  '@aiou/preset-aiou':
-    configs:
-      - name: PNPM CI workflow
-        pref: ./assets/workflows/pnpm/ci.yaml
-      - name: PNPM Release workflow
-        pref: ./assets/workflows/pnpm/release.yaml
-      - name: PNPM Snapshot Release workflow
-        pref: ./assets/workflows/pnpm/snapshot-release.yaml
-      - name: Rust CI workflow
-        pref: ./assets/workflows/rust/ci.yaml
-      - name: Rust Homebrew Release workflow
-        pref: ./assets/workflows/rust/release.homebrew.yaml
-      - name: SWC plugin Release workflow
-        pref: ./assets/workflows/rust/release.swc.yaml
-      - name: SWC plugin Snapshot-Release workflow
-        pref: ./assets/workflows/rust/snapshot-release.swc.yaml
-    templates:
-      - name: '@aiou/ts-lib-template'
-      - name: '@aiou/actions-template'
-      - name: '@aiou/rollup-plugin-template'
-      - name: '@aiou/rollup-template'
-      - name: '@aiou/dayjs-plugin-template'
-      - name: '@aiou/bin-template'
-      - name: '@aiou/webext-template'
-      - name: '@aiou/eslint-config-template'
-      - name: '@aiou/webpack-loader-template'
-      - name: '@aiou/react-template'
-      - name: '@aiou/react-components-lib-template'
-      - name: '@aiou/original-html-template'
-      - name: '@aiou/chrome-extenstion-template'
-"
+{
+  "presets": {
+    "@aiou/preset-aiou": {
+      "configs": [
+        {
+          "name": "PNPM CI workflow",
+          "pref": "./assets/workflows/pnpm/ci.yaml",
+        },
+        {
+          "name": "PNPM Release workflow",
+          "pref": "./assets/workflows/pnpm/release.yaml",
+        },
+        {
+          "name": "PNPM Snapshot Release workflow",
+          "pref": "./assets/workflows/pnpm/snapshot-release.yaml",
+        },
+        {
+          "name": "Rust CI workflow",
+          "pref": "./assets/workflows/rust/ci.yaml",
+        },
+        {
+          "name": "Rust Homebrew Release workflow",
+          "pref": "./assets/workflows/rust/release.homebrew.yaml",
+        },
+        {
+          "name": "SWC plugin Release workflow",
+          "pref": "./assets/workflows/rust/release.swc.yaml",
+        },
+        {
+          "name": "SWC plugin Snapshot-Release workflow",
+          "pref": "./assets/workflows/rust/snapshot-release.swc.yaml",
+        },
+      ],
+      "templates": [
+        {
+          "name": "@aiou/ts-lib-template",
+        },
+        {
+          "name": "@aiou/actions-template",
+        },
+        {
+          "name": "@aiou/rollup-plugin-template",
+        },
+        {
+          "name": "@aiou/rollup-template",
+        },
+        {
+          "name": "@aiou/dayjs-plugin-template",
+        },
+        {
+          "name": "@aiou/bin-template",
+        },
+        {
+          "name": "@aiou/webext-template",
+        },
+        {
+          "name": "@aiou/eslint-config-template",
+        },
+        {
+          "name": "@aiou/webpack-loader-template",
+        },
+        {
+          "name": "@aiou/react-template",
+        },
+        {
+          "name": "@aiou/react-components-lib-template",
+        },
+        {
+          "name": "@aiou/original-html-template",
+        },
+        {
+          "name": "@aiou/chrome-extenstion-template",
+        },
+      ],
+    },
+  },
+  "version": undefined,
+}
 `;

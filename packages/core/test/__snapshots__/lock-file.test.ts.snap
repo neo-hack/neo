@@ -100,6 +100,7 @@ exports[`write lock file > update preset should work 1`] = `
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -119,5 +120,6 @@ exports[`write lock file > update templates should work 1`] = `
       "name": "@aiou/ts-lib-template",
     },
   },
+  "version": undefined,
 }
 `;

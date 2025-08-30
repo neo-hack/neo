@@ -1,11 +1,15 @@
 // Vitest Snapshot v1
 
 exports[`load template from npm should work 1`] = `
-"templates:
-  '@aiou/ts-lib-template':
-    name: '@aiou/ts-lib-template'
-    version: 0.6.0
-    id: '@aiou/ts-lib-template/0.6.0'
-    pref: '@aiou/ts-lib-template'
-"
+{
+  "templates": {
+    "@aiou/ts-lib-template": {
+      "id": "@aiou/ts-lib-template/0.6.0",
+      "name": "@aiou/ts-lib-template",
+      "pref": "@aiou/ts-lib-template",
+      "version": "0.6.0",
+    },
+  },
+  "version": undefined,
+}
 `;

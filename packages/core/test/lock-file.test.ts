@@ -20,7 +20,7 @@ describe('write lock file', () => {
         ],
       },
     })
-    expect(await lockFile.read()).toMatchSnapshot()
+    expect({ ...await lockFile.read(), version: undefined }).toMatchSnapshot()
   })
   it('update templates should work', async () => {
     await lockFile.updateTemplates({
@@ -28,7 +28,7 @@ describe('write lock file', () => {
         name: '@aiou/ts-lib-template',
       },
     })
-    expect(await lockFile.read()).toMatchSnapshot()
+    expect({ ...await lockFile.read(), version: undefined }).toMatchSnapshot()
   })
 })
 

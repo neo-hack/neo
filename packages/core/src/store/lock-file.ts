@@ -6,6 +6,7 @@ import readYamlFile from 'read-yaml-file'
 import { compare } from 'semver'
 import writeYamlFile from 'write-yaml-file'
 
+import { version } from '../../package.json'
 import { isMatchPreset, makeUniqId } from '../utils'
 import { LOCK_FILE, STORE_PATH } from '../utils/constants'
 import { debug } from '../utils/logger'
@@ -48,7 +49,7 @@ export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
       return readYamlFile(lockFilePath)
     },
     async write(data: LockFile) {
-      return writeYamlFile(lockFilePath, data)
+      return writeYamlFile(lockFilePath, { ...data, version })
     },
     async updatePreset(data: any) {
       const lockfile: LockFile = await this.read()
