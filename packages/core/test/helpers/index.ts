@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { randomUUID } from 'node:crypto'
 import path from 'node:path'
 
 import { execa } from 'execa'
@@ -31,6 +32,7 @@ export const clearLockFile = () => {
 }
 
 export const mockLockFile = async () => {
+  const storeDir = path.join(root, '.store', randomUUID())
   const lockFile = createLockFile({ storeDir })
   await lockFile.write({
     presets: {

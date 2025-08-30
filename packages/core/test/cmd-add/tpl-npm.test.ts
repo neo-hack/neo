@@ -11,5 +11,6 @@ afterEach(() => {
 
 it('load template from npm should work', async () => {
   await execNeo(['add', '@aiou/ts-lib-template', '--store-dir', storeDir])
+  console.log('readLockFilereadLockFile()', readLockFile())
   expect(readLockFile()).toMatchSnapshot()
 }, 10000)

@@ -16,6 +16,7 @@ describe('load preset', () => {
         DEBUG: 'neo:*',
       },
     })
+    console.log('readLockFilereadLockFile()', readLockFile())
     expect(readLockFile()).toMatchSnapshot()
   }, 10000)
 })
