@@ -1,17 +1,18 @@
 import {
   execNeo,
-  mockLockFile,
+  randomStoreDir,
   readLockFile,
-  storeDir as defaultStoreDir,
 } from '../helpers'
 
-let storeDir: string = defaultStoreDir
-beforeAll(async () => {
-  const { storeDir: mockedStoreDir } = await mockLockFile()
-  storeDir = mockedStoreDir
-})
+const storeDir: string = randomStoreDir()
 
 it('load template from npm should work', async () => {
-  await execNeo(['add', '@aiou/ts-lib-template', '--store-dir', storeDir])
+  await execNeo(['add', '@aiou/ts-lib-template', '--store-dir', storeDir], {
+    env: {
+      DEBUG: 'neo:*',
+    },
+    stderr: 'inherit',
+    stdout: 'inherit',
+  })
   expect(readLockFile(storeDir)).toMatchSnapshot()
 }, 10000)

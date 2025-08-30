@@ -2,8 +2,9 @@ import createStore from '../src/store'
 import { createTemplatePM } from '../src/store/pm'
 import {
   clearLockFile,
+  randomStoreDir,
   readLockFile,
-  storeDir,
+  storeDir as defaultStoreDir,
 } from './helpers'
 
 describe('pm', () => {
@@ -12,18 +13,22 @@ describe('pm', () => {
   })
   it.todo('import github:neo-hack/actions-template should from store')
   it('request should work', async () => {
-    const pm = await createTemplatePM({ storeDir })
+    const pm = await createTemplatePM({ storeDir: defaultStoreDir })
     const response = await pm.request({ alias: '@aiou/ts-lib-template' })
     expect(response).toBeDefined()
   })
   it('request with version should work', async () => {
-    const pm = await createTemplatePM({ storeDir })
+    const pm = await createTemplatePM({ storeDir: defaultStoreDir })
     const response = await pm.request({ pref: '@aiou/bin-template@2.1.1' })
     expect(response.body.manifest?.version).toBe('2.1.1')
   })
 })
 
 describe('store', () => {
+  let storeDir: string = defaultStoreDir
+  beforeEach(() => {
+    storeDir = randomStoreDir()
+  })
   afterEach(() => {
     clearLockFile()
   })
