@@ -1,9 +1,9 @@
 import type { Preset, PresetTemplate } from '@aiou/schema'
-import type { PacoteOptions } from 'pacote'
+import type { Options } from 'pacote'
 
 export type { Config } from '@aiou/schema'
 
-export interface CommonOptions extends PacoteOptions {
+export interface CommonOptions extends Options {
   storeDir?: string
   latest?: boolean
 }

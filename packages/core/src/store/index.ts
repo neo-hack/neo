@@ -75,7 +75,7 @@ const createStore = async (params: CommonOptions) => {
       }
       const { id } = response.body
       await lockFile.updateTemplates({
-        [id]: {
+        [params.name]: {
           name: params.name,
           version: response.body.manifest?.version,
           id,

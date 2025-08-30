@@ -6,10 +6,10 @@ import fs from 'fs-extra'
 import {
   destDir as destDirHelper,
   execNeo,
-  storeDir as storeDirHelper,
+  randomStoreDir,
 } from '../helpers'
 
-const storeDir = path.join(storeDirHelper, randomUUID(), '.store')
+const storeDir = randomStoreDir()
 const destDir = () => {
   const dir = path.join(destDirHelper, randomUUID())
   fs.ensureDirSync(dir)
@@ -48,6 +48,11 @@ describe('command create', () => {
     })
     await execNeo(['create', '@aiou/webext-template', 'target', '--store-dir', storeDir], {
       cwd: dest,
+      env: {
+        DEBUG: 'neo:*',
+      },
+      stderr: 'inherit',
+      stdout: 'inherit',
     })
     const pkg = fs.readJsonSync(path.join(dest, './target/package.json'))
     expect(pkg.version).toBe('0.1.0')
@@ -55,7 +60,7 @@ describe('command create', () => {
 
   it('create project with latest', async () => {
     const dest = destDir()
-    const { stdout, stderr } = await execNeo(
+    await execNeo(
       ['create', '@aiou/webext-template', 'target', '--store-dir', storeDir, '--latest'],
       {
         cwd: dest,
@@ -64,8 +69,8 @@ describe('command create', () => {
         },
       },
     )
-    console.log(stdout, stderr)
     const pkg = fs.readJsonSync(path.join(dest, './target/package.json'))
+    console.log('create project with latest aiou/webext-template@version', pkg.version)
     expect(pkg.version).not.toBe('0.1.0')
   })
 })

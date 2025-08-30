@@ -15,16 +15,19 @@ const cli = r('bin/index.mjs')
 const root = path.resolve(__dirname, '..', '..')
 export const storeDir = path.join(root, '.store')
 export const destDir = path.join(root, '.dest')
+export const randomStoreDir = () => {
+  return path.join(root, '.store', randomUUID())
+}
 
 export const execNeo = (args: any[], options: CommonOptions<any> = {}) =>
   execa('node', [cli].concat(args || []), options)
 
-export const readLockFile = () => {
-  if (!fs.existsSync(path.join(storeDir, LOCK_FILE))) {
-    console.log('lock file not found', path.join(storeDir, LOCK_FILE))
+export const readLockFile = (_storeDir: string = storeDir) => {
+  if (!fs.existsSync(path.join(_storeDir, LOCK_FILE))) {
+    console.log('lock file not found', path.join(_storeDir, LOCK_FILE))
     return ''
   }
-  return fs.readFileSync(path.join(storeDir, LOCK_FILE)).toString()
+  return fs.readFileSync(path.join(_storeDir, LOCK_FILE)).toString()
 }
 
 export const clearLockFile = () => {
@@ -32,7 +35,7 @@ export const clearLockFile = () => {
 }
 
 export const mockLockFile = async () => {
-  const storeDir = path.join(root, '.store', randomUUID())
+  const storeDir = randomStoreDir()
   const lockFile = createLockFile({ storeDir })
   await lockFile.write({
     presets: {

@@ -1,16 +1,14 @@
 import {
-  clearLockFile,
   execNeo,
+  mockLockFile,
   readLockFile,
-  storeDir,
+  storeDir as defaultStoreDir,
 } from '../helpers'
 
-beforeEach(() => {
-  clearLockFile()
-})
-
-afterEach(() => {
-  clearLockFile()
+let storeDir: string = defaultStoreDir
+afterEach(async () => {
+  const { storeDir: mockedStoreDir } = await mockLockFile()
+  storeDir = mockedStoreDir
 })
 
 describe('load preset', () => {

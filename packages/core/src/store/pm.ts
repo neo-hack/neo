@@ -47,20 +47,37 @@ const pm: ReturnType<typeof createTemplatePM> | undefined = undefined
 const createPacoteOptions = ({
   storeDir = STORE_PATH,
   latest,
+  offline,
 }: CommonOptions): Options => {
-  return {
+  debug.pm('create pacote with options %o', { storeDir, latest })
+  const options: Options = {
     registry: NPM_REGISTRY,
     cache: path.join(storeDir, CACHE_DIRNAME),
-    preferOnline: latest,
-    fullMetadata: true,
+    // only work when make sure the cache is valid
+    offline,
+    preferOffline: !latest,
+    preferOnline: !!latest,
+    // [NOTE] fullMetadata will always run in online mode
+    fullMetadata: !!latest,
   }
+  debug.pm('resolved pacote options %o', options)
+  return options
 }
 
 const pacote = require('pacote')
 
 export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions) => {
   return {
-    async fetch({ alias, pref, latest = true }: RequestOptions): Promise<PackageResponse> {
+    async hasCache({ pref }: RequestOptions) {
+      try {
+        const opts = createPacoteOptions({ storeDir, offline: true })
+        await pacote.manifest(pref, opts)
+        return true
+      } catch (error) {
+        return false
+      }
+    },
+    async fetch({ alias, pref, latest = false }: RequestOptions): Promise<PackageResponse> {
       const opts = createPacoteOptions({ storeDir, latest })
       const spec = pref || alias!
 
@@ -83,18 +100,19 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
       const latest = params.latest
       const pref = params.pref
       const alias = params.alias
-      debug.pm('request %s with %s', alias, pref)
+      debug.pm('request %s with %s, is latest', alias, pref, latest)
 
       try {
         // try download with provided specifier
         return await this.fetch({ alias, pref, latest })
       } catch (error) {
-        // try download using alias as specifier if pref failed
-        if (pref && alias && pref !== alias) {
+        // try download using alias or perf with online mode
+        if (!latest) {
+          debug.pm('trying download with online mode')
           try {
-            return await this.fetch({ pref: alias, latest })
+            return await this.fetch({ pref, alias, latest: true })
           } catch (fallbackError) {
-            debug.pm('request failed for both %s and %s', pref, alias)
+            debug.pm('request failed for both %s and %s in online mode', pref, alias)
             throw fallbackError
           }
         }
