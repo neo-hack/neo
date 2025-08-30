@@ -40,7 +40,6 @@
     "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
   },
   "dependencies": {
-    "pacote": "^21.0.0",
     "readable-stream": "^3.6.0",
     "source-map-support": "^0.5.21"
   },
@@ -48,9 +47,6 @@
     "@aiou/mario": "workspace:^0.2.1",
     "@aiou/schema": "workspace:^1.1.0",
     "@changesets/cli": "latest",
-    "@pnpm/client": "^6.1.0",
-    "@pnpm/logger": "^4.0.0",
-    "@pnpm/package-store": "^12.1.7",
     "@pnpm/parse-wanted-dependency": "^2.0.0",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "21.0.1",
@@ -86,6 +82,7 @@
     "listr": "^0.14.3",
     "lodash-es": "^4.17.21",
     "minimatch": "^3.0.4",
+    "pacote": "^21.0.0",
     "picocolors": "^1.0.0",
     "read-pkg-up": "^9.0.0",
     "read-yaml-file": "^2.1.0",
