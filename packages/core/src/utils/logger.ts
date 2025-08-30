@@ -47,6 +47,7 @@ export const debug = {
   create: Debug('neo:cmd:create'),
   list: Debug('neo:cmd:list'),
   run: Debug('neo:cmd:run'),
+  cleanup: Debug('neo:cmd:cleanup'),
 }
 
 export default {

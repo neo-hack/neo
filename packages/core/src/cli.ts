@@ -32,6 +32,7 @@ const commands = {
   run: async () => await import('./commands/run').then(res => res.run),
   prepack: async () => await import('./commands/prepack').then(res => res.prepack),
   whoami: async () => await import('./commands/whoami').then(res => res.whoami),
+  cleanup: async () => await import('./commands/cleanup').then(res => res.cleanup),
 }
 
 const handler = (cmdName: string) => {
@@ -100,6 +101,11 @@ cli
   .option('--preset', 'If true, load `alias` as preset')
   .action(handler('add'))
   .addHelpText('after', usage.add())
+
+cli.command('cleanup')
+  .description('Clean up the store')
+  .option('--store-dir [storeDir]', 'Set store dir')
+  .action(handler('cleanup'))
 
 program.parse(process.argv)
 
