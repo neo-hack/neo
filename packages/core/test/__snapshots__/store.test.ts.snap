@@ -1,7 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`store > add preset #debug 1`] = `"/Volumes/ORICO/Users/jiangwei/projects/neo/packages/core/.store/9de2a988-ff04-4571-85a5-0e9b753ddf35"`;
-
 exports[`store > add preset 1`] = `
 {
   "presets": {
