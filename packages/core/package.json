@@ -1,6 +1,6 @@
 {
   "name": "@aiou/neo",
-  "version": "3.6.1",
+  "version": "4.0.0",
   "description": "templates cli",
   "license": "MIT",
   "engines": {
@@ -46,7 +46,7 @@
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "@aiou/mario": "workspace:^0.2.1",
+    "@aiou/mario": "workspace:^0.3.0",
     "@aiou/schema": "workspace:^1.1.0",
     "@changesets/cli": "latest",
     "@pnpm/parse-wanted-dependency": "^2.0.0",
