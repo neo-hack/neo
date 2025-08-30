@@ -42,8 +42,6 @@ export interface PackageFilesResponse {
   filesIndex: Map<string, string>
 }
 
-const pm: ReturnType<typeof createTemplatePM> | undefined = undefined
-
 const createPacoteOptions = ({
   storeDir = STORE_PATH,
   latest,
@@ -152,9 +150,6 @@ export const createTemplatePM = async ({ storeDir = STORE_PATH }: CommonOptions)
 }
 
 const create = (params: CommonOptions) => {
-  if (pm) {
-    return pm
-  }
   return createTemplatePM(params)
 }
 

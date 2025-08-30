@@ -8,10 +8,8 @@ import { debug } from '../utils/logger'
 import createLockFile from './lock-file'
 import createTemplatePM from './pm'
 
-import type { AsyncReturnType, CommonOptions } from '../interface'
+import type { CommonOptions } from '../interface'
 import type { RequestOptions } from './pm'
-
-let store: AsyncReturnType<typeof createStore> | undefined
 
 type Options = RequestOptions & {
   name: string
@@ -88,10 +86,7 @@ const createStore = async (params: CommonOptions) => {
 }
 
 const create = async (params: CommonOptions) => {
-  if (store) {
-    return store
-  }
-  store = await createStore(params)
+  const store = await createStore(params)
   return store
 }
 

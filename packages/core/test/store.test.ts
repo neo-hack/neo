@@ -25,48 +25,45 @@ describe('pm', () => {
 })
 
 describe('store', () => {
-  let storeDir: string = defaultStoreDir
-  beforeEach(() => {
-    storeDir = randomStoreDir()
-  })
-  afterEach(() => {
-    clearLockFile()
-  })
   // FIXME: latest option not working, will always install latest
   it('add template', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.addTemplate({
       alias: '@aiou/bin-template',
-      latest: false,
+      latest: true,
       name: 'bin',
       pref: '@aiou/bin-template',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
-  it('add preset', async () => {
+  it('add preset #debug', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.addPreset({
       alias: '@aiou/preset-aiou',
-      latest: false,
+      latest: true,
       name: 'aiou',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=preset)', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.add({
       type: 'preset',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=template)', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.add({
       type: 'template',
       pref: '@aiou/bin-template@3.0.1',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
 })
