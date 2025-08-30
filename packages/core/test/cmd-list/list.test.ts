@@ -1,11 +1,13 @@
 import {
   execNeo,
   mockLockFile,
-  storeDir,
+  storeDir as defaultStoreDir,
 } from '../helpers'
 
+let storeDir: string = defaultStoreDir
 beforeAll(async () => {
-  await mockLockFile()
+  const { storeDir: mockedStoreDir } = await mockLockFile()
+  storeDir = mockedStoreDir
 })
 
 describe('command list', () => {

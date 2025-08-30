@@ -101,5 +101,5 @@ export const mockLockFile = async () => {
       },
     },
   })
-  return lockFile
+  return { lockFile, storeDir }
 }

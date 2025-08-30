@@ -39,7 +39,8 @@ it('read non exit lockfile should return empty', async () => {
 describe('read lock file', () => {
   let complexLockFile: any
   beforeAll(async () => {
-    complexLockFile = await mockLockFile()
+    const { lockFile } = await mockLockFile()
+    complexLockFile = lockFile
   })
   it('read templates should work', async () => {
     const tpls = await complexLockFile.readTemplates()
