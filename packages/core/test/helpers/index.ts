@@ -1,21 +1,33 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { r } from '../../src/utils'
-import createLockFile from '../../src/store/lock-file'
-import { LOCK_FILE } from '../../src/utils/constants'
+import { randomUUID } from 'node:crypto'
+import path from 'node:path'
 
-import tempy from 'tempy'
-import path from 'path'
+import { execa } from 'execa'
 import fs from 'fs-extra'
 
-import { CommonOptions, execa } from 'execa'
+import createLockFile from '../../src/store/lock-file'
+import { r } from '../../src/utils'
+import { LOCK_FILE } from '../../src/utils/constants'
+
+import type { CommonOptions } from 'execa'
+
 const cli = r('bin/index.mjs')
-export const storeDir = path.join(tempy.directory(), '.store')
+const root = path.resolve(__dirname, '..', '..')
+export const storeDir = path.join(root, '.store')
+export const destDir = path.join(root, '.dest')
+export const randomStoreDir = () => {
+  return path.join(root, '.store', randomUUID())
+}
 
 export const execNeo = (args: any[], options: CommonOptions<any> = {}) =>
   execa('node', [cli].concat(args || []), options)
 
-export const readLockFile = () => {
-  return fs.readFileSync(path.join(storeDir, LOCK_FILE)).toString()
+export const readLockFile = (_storeDir: string = storeDir) => {
+  if (!fs.existsSync(path.join(_storeDir, LOCK_FILE))) {
+    console.log('lock file not found', path.join(_storeDir, LOCK_FILE))
+    return ''
+  }
+  return fs.readFileSync(path.join(_storeDir, LOCK_FILE)).toString()
 }
 
 export const clearLockFile = () => {
@@ -23,6 +35,7 @@ export const clearLockFile = () => {
 }
 
 export const mockLockFile = async () => {
+  const storeDir = randomStoreDir()
   const lockFile = createLockFile({ storeDir })
   await lockFile.write({
     presets: {
@@ -68,32 +81,28 @@ export const mockLockFile = async () => {
       id: {
         name: 'bin-template#unbundle',
         version: '2.9.0',
-        resolvedVia: 'npm-registry',
         id: 'id',
         pref: '@aiou/bin-template@2.x',
       },
       id3: {
         name: 'bin-template#unbundle',
         version: '2.10.0',
-        resolvedVia: 'npm-registry',
         id: 'id3',
         pref: '@aiou/bin-template@2.x',
       },
       id2: {
         name: 'bin-template#bundle',
         version: '1.0.0',
-        resolvedVia: 'npm-registry',
         id: 'id2',
         pref: '@aiou/bin-template',
       },
       id4: {
         name: 'react-template',
         version: '1.0.0',
-        resolvedVia: 'npm-registry',
         id: 'id4',
         pref: '@aiou/react-template',
       },
     },
   })
-  return lockFile
+  return { lockFile, storeDir }
 }

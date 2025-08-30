@@ -16,7 +16,6 @@
     "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
   "include": ["src"]

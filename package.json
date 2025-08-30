@@ -1,10 +1,13 @@
 {
   "name": "aiou",
   "version": "1.0.0",
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@10.15.0",
   "description": "The neo for side projects manager",
   "keywords": ["neo"],
   "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "homepage": "https://github.com/neo-hack/neo#readme",
   "repository": {
     "type": "git",
@@ -41,7 +44,7 @@
     "glob": "7.2.0",
     "husky": "^8.0.0",
     "lint-staged": "^12.1.7",
-    "typescript": "^4.5.4"
+    "typescript": "^5.6.3"
   },
   "pnpm": {
     "patchedDependencies": {

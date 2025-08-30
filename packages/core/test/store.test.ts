@@ -2,8 +2,9 @@ import createStore from '../src/store'
 import { createTemplatePM } from '../src/store/pm'
 import {
   clearLockFile,
+  randomStoreDir,
   readLockFile,
-  storeDir,
+  storeDir as defaultStoreDir,
 } from './helpers'
 
 describe('pm', () => {
@@ -12,56 +13,57 @@ describe('pm', () => {
   })
   it.todo('import github:neo-hack/actions-template should from store')
   it('request should work', async () => {
-    const pm = await createTemplatePM({ storeDir })
+    const pm = await createTemplatePM({ storeDir: defaultStoreDir })
     const response = await pm.request({ alias: '@aiou/ts-lib-template' })
     expect(response).toBeDefined()
   })
   it('request with version should work', async () => {
-    const pm = await createTemplatePM({ storeDir })
-    const response = await pm.request({ alias: '@aiou/bin-template', pref: '2.1.1' })
+    const pm = await createTemplatePM({ storeDir: defaultStoreDir })
+    const response = await pm.request({ pref: '@aiou/bin-template@2.1.1' })
     expect(response.body.manifest?.version).toBe('2.1.1')
   })
 })
 
 describe('store', () => {
-  afterEach(() => {
-    clearLockFile()
-  })
   // FIXME: latest option not working, will always install latest
   it('add template', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.addTemplate({
       alias: '@aiou/bin-template',
-      latest: false,
+      latest: true,
       name: 'bin',
-      pref: 'bin-template#bundle',
+      pref: '@aiou/bin-template',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
-  it('add preset', async () => {
+  it('add preset #debug', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.addPreset({
       alias: '@aiou/preset-aiou',
-      latest: false,
+      latest: true,
       name: 'aiou',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=preset)', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.add({
       type: 'preset',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=template)', async () => {
+    const storeDir = randomStoreDir()
     const store = await createStore({ storeDir })
     await store.add({
       type: 'template',
       pref: '@aiou/bin-template@3.0.1',
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(readLockFile(storeDir)).toMatchSnapshot()
   })
 })

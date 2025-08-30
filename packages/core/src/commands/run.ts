@@ -35,7 +35,7 @@ export const run = async (alias: string, params: RunOptions) => {
       task: async () => {
         const result = parseWantedDependency(alias)
         const response = await store.pm.request({ alias: result.alias, pref: result.pref })
-        await store.pm.import(target, await response.files?.())
+        await store.pm.import(target, response)
         return true
       },
     },

@@ -2,3 +2,5 @@ node_modules
 lib
 .lib
 test/fixtures/preset/temp-neo-store
+.store
+.dest

@@ -32,7 +32,7 @@ const compareVersion = (v1?: string, v2?: string) => {
   return compare(v1, v2)
 }
 
-let lockFile: ReturnType<typeof createLockFile>
+const lockFile: ReturnType<typeof createLockFile> | undefined = undefined
 
 export const createLockFile = ({ lockFilePath }: { lockFilePath: string }) => {
   debug.lockfile('lockfilepath at %s', lockFilePath)

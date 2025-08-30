@@ -1,15 +1,18 @@
 import {
-  clearLockFile,
   execNeo,
+  randomStoreDir,
   readLockFile,
-  storeDir,
 } from '../helpers'
 
-afterEach(() => {
-  clearLockFile()
-})
+const storeDir: string = randomStoreDir()
 
 it('load template from npm should work', async () => {
-  await execNeo(['add', '@aiou/ts-lib-template', '--store-dir', storeDir])
-  expect(readLockFile()).toMatchSnapshot()
+  await execNeo(['add', '@aiou/ts-lib-template', '--store-dir', storeDir], {
+    env: {
+      DEBUG: 'neo:*',
+    },
+    stderr: 'inherit',
+    stdout: 'inherit',
+  })
+  expect(readLockFile(storeDir)).toMatchSnapshot()
 }, 10000)

@@ -17,12 +17,12 @@ import logger, { debug } from '../utils/logger'
 import { runMario } from '../utils/mario'
 import { usage } from '../utils/show-usage'
 
-import type { PackageResponse } from '@pnpm/package-store'
 import type { ListrTask } from 'listr'
 import type {
   AsyncReturnType,
   CommonOptions,
   Package,
+  PackageResponse,
 } from '../interface'
 
 type CreateOptions = Pick<Package, 'name' | 'pref'> & {
@@ -44,7 +44,8 @@ const generate = async ({
 }: Omit<CreateOptions, 'name' | 'pref'> & {
   templateResponse: PackageResponse
 }) => {
-  await store.pm.import(project, await templateResponse.files?.())
+  debug.create('import project into %s', project)
+  await store.pm.import(project, templateResponse)
 }
 
 /**
@@ -103,7 +104,7 @@ const runTemplateMario = async ({ project, store }: Pick<CreateOptions, 'project
         title: `Download mario generator ${alias}`,
         task: async () => {
           const response = await store.pm.request({ alias, latest: true })
-          await store.pm.import(target, await response.files?.())
+          await store.pm.import(target, response)
           return true
         },
       },
@@ -195,7 +196,8 @@ export const create = async (
   const store = await createStore(options)
   const choices = await store.lockFile.readTemplates({ presetNames: options.preset })
   if (template && project) {
-    const pkg = findPrefPackageByPk(choices, { input: template })
+    const pkg = findPrefPackageByPk(choices, { input: template, latest: options.latest })
+    debug.create('create project with %O directly', pkg)
     const task = createTask({
       alias: pkg?.alias,
       project,

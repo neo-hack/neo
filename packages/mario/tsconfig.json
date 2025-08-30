@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2019",
+    "target": "ES2022",
     "module": "ESNext",
-    "lib": ["ES2019", "ESNext"],
+    "lib": ["ES2022", "ESNext"],
     "moduleResolution": "node",
     "importHelpers": true,
     "esModuleInterop": true,
@@ -15,11 +15,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "outDir": "lib",
     "baseUrl": "./",
-    "types": ["vitest/globals", "vitest-extra/types"]
+    "types": ["vitest/globals", "vitest-extra/types", "zen-observable"]
   },
   "include": ["src", "test"]
 }

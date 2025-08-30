@@ -6,11 +6,13 @@ import tempy from 'tempy'
 import {
   execNeo,
   mockLockFile,
-  storeDir,
+  storeDir as defaultStoreDir,
 } from '../helpers'
 
+let storeDir: string = defaultStoreDir
 beforeAll(async () => {
-  await mockLockFile()
+  const { storeDir: mockedStoreDir } = await mockLockFile()
+  storeDir = mockedStoreDir
 })
 
 describe('create from preset', () => {
@@ -18,6 +20,11 @@ describe('create from preset', () => {
     const destDir = tempy.directory()
     await execNeo(['create', 'ts-lib-template', 'target', '--store-dir', storeDir], {
       cwd: destDir,
+      env: {
+        DEBUG: 'neo:*',
+      },
+      stdout: 'inherit',
+      stderr: 'inherit',
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   })
@@ -26,6 +33,11 @@ describe('create from preset', () => {
     const destDir = tempy.directory()
     await execNeo(['create', '@aiou/ts-lib-template', 'target', '--store-dir', storeDir], {
       cwd: destDir,
+      env: {
+        DEBUG: 'neo:*',
+      },
+      stdout: 'inherit',
+      stderr: 'inherit',
     })
     expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
   })

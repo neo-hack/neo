@@ -1,27 +1,35 @@
+import { randomUUID } from 'node:crypto'
 import path from 'node:path'
 
 import fs from 'fs-extra'
-import tempy from 'tempy'
 
-import { execNeo } from '../helpers'
+import {
+  destDir as destDirHelper,
+  execNeo,
+  randomStoreDir,
+} from '../helpers'
 
-const storeDir = path.join(tempy.directory(), '.store')
+const storeDir = randomStoreDir()
+const destDir = () => {
+  const dir = path.join(destDirHelper, randomUUID())
+  fs.ensureDirSync(dir)
+  return dir
+}
 
 describe('command create', () => {
   it('create on empty store', async () => {
-    const destDir = tempy.directory()
     const { stdout } = await execNeo(['create', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: destDir(),
     })
     expect(stdout).toMatchSnapshot()
   }, 30000)
 
   it('create project from npm', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(['create', '@aiou/bin-template', 'target', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: dest,
     })
-    expect(fs.existsSync(path.join(destDir, './target/README.md'))).toBe(true)
+    expect(fs.existsSync(path.join(dest, './target/README.md'))).toBe(true)
   }, 10000)
 
   // it('create package from github should work', async () => {
@@ -34,62 +42,71 @@ describe('command create', () => {
   // }, 30000)
 
   it('create project from local store in default', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(['add', '@aiou/webext-template@0.1.0', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: dest,
     })
     await execNeo(['create', '@aiou/webext-template', 'target', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: dest,
+      env: {
+        DEBUG: 'neo:*',
+      },
+      stderr: 'inherit',
+      stdout: 'inherit',
     })
-    const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
+    const pkg = fs.readJsonSync(path.join(dest, './target/package.json'))
     expect(pkg.version).toBe('0.1.0')
   }, 10000)
 
   it('create project with latest', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(
       ['create', '@aiou/webext-template', 'target', '--store-dir', storeDir, '--latest'],
       {
-        cwd: destDir,
+        cwd: dest,
+        env: {
+          DEBUG: 'neo:*',
+        },
       },
     )
-    const pkg = fs.readJsonSync(path.join(destDir, './target/package.json'))
+    const pkg = fs.readJsonSync(path.join(dest, './target/package.json'))
+    console.log('create project with latest aiou/webext-template@version', pkg.version)
     expect(pkg.version).not.toBe('0.1.0')
   })
 })
 
 describe('command create postcreate', () => {
   it('postcreate clean up changelog file', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(['create', '@aiou/bin-template', 'target', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: dest,
     })
-    expect(!fs.existsSync(path.join(destDir, './target/CHANGELOG.md'))).toBe(true)
+    expect(!fs.existsSync(path.join(dest, './target/CHANGELOG.md'))).toBe(true)
   }, 10000)
 
   it('postcreate in monorepo clean up changelog, .eslintignore etc...', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(
       ['create', '@aiou/bin-template', 'target', '--store-dir', storeDir, '--mono', true],
       {
-        cwd: destDir,
+        cwd: dest,
       },
     )
     const mono = ['.eslintignore', '.eslintrc', '.changeset', '.github', '.husky']
-    const checkresult = mono.map(file => !fs.existsSync(path.join(destDir, './target', file)))
+    const checkresult = mono.map(file => !fs.existsSync(path.join(dest, './target', file)))
     expect(checkresult.every(v => v)).toBe(true)
   }, 10000)
 })
 
 describe('command create with template contain .neo', () => {
   it('should del after create', async () => {
-    const destDir = tempy.directory()
+    const dest = destDir()
     await execNeo(['create', '@aiou/rollup-template', 'target', '--store-dir', storeDir], {
-      cwd: destDir,
+      cwd: dest,
     })
     // :( sync expect failed on ci
     setTimeout(() => {
-      expect(fs.existsSync(path.join(destDir, './target/.neo'))).toBe(false)
+      expect(fs.existsSync(path.join(dest, './target/.neo'))).toBe(false)
     }, 1000)
   })
 })

@@ -8,10 +8,8 @@ import { debug } from '../utils/logger'
 import createLockFile from './lock-file'
 import createTemplatePM from './pm'
 
-import type { AsyncReturnType, CommonOptions } from '../interface'
+import type { CommonOptions } from '../interface'
 import type { RequestOptions } from './pm'
-
-let store: AsyncReturnType<typeof createStore>
 
 type Options = RequestOptions & {
   name: string
@@ -47,15 +45,15 @@ const createStore = async (params: CommonOptions) => {
       debug.store('add preset with params %O', params)
       const response = await pm.request({
         alias: params.alias,
-        pref: params.version,
+        pref: params.pref,
+        latest: params.latest,
       })
       const dir = tempy.directory()
-      const files = await response?.files?.()
-      await pm.import(dir, files)
-      if (!fs.existsSync(path.join(dir, 'index.json'))) {
+      const importedPath = await pm.import(dir, response)
+      if (!fs.existsSync(path.join(importedPath, 'index.json'))) {
         throw new Error('preset not found')
       }
-      const pkgs = fs.readJsonSync(path.join(dir, 'index.json'))
+      const pkgs = fs.readJsonSync(path.join(importedPath, 'index.json'))
       debug.store('preset templates list: %O', pkgs)
       // always update latest alias preset
       await lockFile.updatePreset({
@@ -66,18 +64,18 @@ const createStore = async (params: CommonOptions) => {
       debug.store('add template with params %O', params)
       const response = await pm.request({
         alias: params.alias,
-        pref: params.version,
+        pref: params.pref,
+        latest: params.latest,
       })
       if (!response) {
         debug.store('template not found')
         return
       }
-      const { id, resolvedVia } = response.body
+      const { id } = response.body
       await lockFile.updateTemplates({
-        [id]: {
+        [params.name]: {
           name: params.name,
           version: response.body.manifest?.version,
-          resolvedVia,
           id,
           pref: params.pref,
         },
@@ -88,10 +86,8 @@ const createStore = async (params: CommonOptions) => {
 }
 
 const create = async (params: CommonOptions) => {
-  if (store) {
-    return store
-  }
-  return createStore(params)
+  const store = await createStore(params)
+  return store
 }
 
 export default create

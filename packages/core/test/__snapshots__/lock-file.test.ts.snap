@@ -30,7 +30,6 @@ exports[`read lock file > read templates should work 1`] = `
     "name": "bin-template#unbundle",
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
-    "resolvedVia": "npm-registry",
     "version": "2.10.0",
   },
   {
@@ -40,7 +39,6 @@ exports[`read lock file > read templates should work 1`] = `
     "name": "bin-template#bundle",
     "pref": "@aiou/bin-template",
     "preset": "neo",
-    "resolvedVia": "npm-registry",
     "version": "1.0.0",
   },
   {
@@ -49,7 +47,6 @@ exports[`read lock file > read templates should work 1`] = `
     "id": "id4",
     "name": "react-template",
     "pref": "@aiou/react-template",
-    "resolvedVia": "npm-registry",
     "version": "1.0.0",
   },
 ]
@@ -78,7 +75,6 @@ exports[`read lock file > read with preset filter should work 1`] = `
     "name": "bin-template#unbundle",
     "pref": "@aiou/bin-template@2.x",
     "preset": "neo",
-    "resolvedVia": "npm-registry",
     "version": "2.10.0",
   },
   {
@@ -88,7 +84,6 @@ exports[`read lock file > read with preset filter should work 1`] = `
     "name": "bin-template#bundle",
     "pref": "@aiou/bin-template",
     "preset": "neo",
-    "resolvedVia": "npm-registry",
     "version": "1.0.0",
   },
 ]
