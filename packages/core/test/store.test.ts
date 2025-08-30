@@ -35,7 +35,7 @@ describe('store', () => {
       name: 'bin',
       pref: '@aiou/bin-template',
     })
-    expect(readLockFile(storeDir)).toMatchSnapshot()
+    expect(await readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add preset #debug', async () => {
     const storeDir = randomStoreDir()
@@ -46,7 +46,7 @@ describe('store', () => {
       name: 'aiou',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile(storeDir)).toMatchSnapshot()
+    expect(await (storeDir)).toMatchSnapshot()
   })
   it('add(type=preset)', async () => {
     const storeDir = randomStoreDir()
@@ -55,7 +55,7 @@ describe('store', () => {
       type: 'preset',
       pref: '@aiou/preset-aiou',
     })
-    expect(readLockFile(storeDir)).toMatchSnapshot()
+    expect(await readLockFile(storeDir)).toMatchSnapshot()
   })
   it('add(type=template)', async () => {
     const storeDir = randomStoreDir()
@@ -64,6 +64,6 @@ describe('store', () => {
       type: 'template',
       pref: '@aiou/bin-template@3.0.1',
     })
-    expect(readLockFile(storeDir)).toMatchSnapshot()
+    expect(await readLockFile(storeDir)).toMatchSnapshot()
   })
 })

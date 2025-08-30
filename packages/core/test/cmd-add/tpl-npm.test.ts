@@ -14,5 +14,5 @@ it('load template from npm should work', async () => {
     stderr: 'inherit',
     stdout: 'inherit',
   })
-  expect(readLockFile(storeDir)).toMatchSnapshot()
+  expect(await readLockFile(storeDir)).toMatchSnapshot()
 }, 10000)

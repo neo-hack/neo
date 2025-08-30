@@ -27,6 +27,7 @@ export interface Package extends PresetTemplate {
 }
 
 export interface LockFile {
+  version?: string
   templates?: Record<string, Package>
   presets?: Record<string, Preset>
 }

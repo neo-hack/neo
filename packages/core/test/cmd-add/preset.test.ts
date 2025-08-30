@@ -18,6 +18,6 @@ describe('load preset', () => {
         DEBUG: 'neo:*',
       },
     })
-    expect(readLockFile()).toMatchSnapshot()
+    expect(await readLockFile()).toMatchSnapshot()
   }, 10000)
 })

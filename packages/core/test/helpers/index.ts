@@ -4,6 +4,7 @@ import path from 'node:path'
 
 import { execa } from 'execa'
 import fs from 'fs-extra'
+import readYamlFile from 'read-yaml-file'
 
 import createLockFile from '../../src/store/lock-file'
 import { r } from '../../src/utils'
@@ -22,12 +23,12 @@ export const randomStoreDir = () => {
 export const execNeo = (args: any[], options: CommonOptions<any> = {}) =>
   execa('node', [cli].concat(args || []), options)
 
-export const readLockFile = (_storeDir: string = storeDir) => {
+export const readLockFile = async (_storeDir: string = storeDir) => {
   if (!fs.existsSync(path.join(_storeDir, LOCK_FILE))) {
     console.log('lock file not found', path.join(_storeDir, LOCK_FILE))
     return ''
   }
-  return fs.readFileSync(path.join(_storeDir, LOCK_FILE)).toString()
+  return { ...await readYamlFile<object>(path.join(_storeDir, LOCK_FILE)), version: undefined }
 }
 
 export const clearLockFile = () => {

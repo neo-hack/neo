@@ -6,7 +6,7 @@ import { program } from 'commander'
 import consola from 'consola'
 import tl from 'terminal-link'
 
-import { readPkg } from './utils'
+import { version } from '../package.json'
 import { HOMEPAGE } from './utils/constants'
 import logger from './utils/logger'
 import { getBanner } from './utils/show-brand'
@@ -15,13 +15,11 @@ import { usage } from './utils/show-usage'
 // polyfill node12 & 14 global variable
 global.__filename = fileURLToPath(import.meta.url)
 
-const pkg = readPkg()
-
 const cli = program
-  .version(pkg?.version || '', '-v, --version')
+  .version(version, '-v, --version')
   .hook('preAction', () => {
     // disable display version during vitest https://vitest.dev/config/#configuring-vitest
-    !process.env.VITEST && logger.log(`${tl(`NEO v${pkg?.version}`, HOMEPAGE)}\n`)
+    !process.env.VITEST && logger.log(`${tl(`NEO v${version}`, HOMEPAGE)}\n`)
   })
   .addHelpText('beforeAll', () => `${getBanner()}\n`)
 
