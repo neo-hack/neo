@@ -1,5 +1,12 @@
 # @aiou/neo
 
+## 4.0.2
+
+### Patch Changes
+
+- c3f174e: remove debug console
+- c3f174e: upgrade build scripts
+
 ## 4.0.1
 
 ### Patch Changes
