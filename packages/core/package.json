@@ -69,6 +69,7 @@
     "cli-columns": "^4.0.0",
     "clipboardy": "^3.0.0",
     "commander": "8.3.0",
+    "consola": "^2.15.3",
     "cosmiconfig": "^7.0.1",
     "debug": "4.4.1",
     "esbuild": "^0.25.0",

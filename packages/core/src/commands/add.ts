@@ -29,7 +29,6 @@ export const add = async (
 ) => {
   try {
     const { storeDir, preset } = options
-    console.log('storeDir', storeDir)
     debug.add('options is alias %s / options %O', pref, options)
     // init store
     const store = await createStore({ storeDir })
