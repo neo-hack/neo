@@ -17,7 +17,6 @@ export default defineConfig([
     plugins: [
       externals({
         devDeps: false,
-        include: ['readable-stream'],
       }),
       multiple(),
       esbuild({

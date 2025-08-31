@@ -5,7 +5,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import size from 'rollup-plugin-size'
-import { nodeExternals as externals } from 'rollup-plugin-node-externals'
 import replace from '@rollup/plugin-replace'
 
 export default defineConfig([
@@ -17,13 +16,8 @@ export default defineConfig([
   // `file` and `format` for each target)
   {
     input: 'src/cli.ts',
-    preserveEntrySignatures: 'strict',
     external: ['readable-stream', 'source-map-support/register.js'],
     plugins: [
-      externals({
-        devDeps: false,
-        include: ['readable-stream', 'source-map-support/register.js'],
-      }),
       esbuild({
         target: 'es2022',
         minify: false,
