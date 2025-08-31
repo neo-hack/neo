@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 4.0.1
+
+### Patch Changes
+
+- 8b4009f: add pacote to deps
+
 ## 4.0.0
 
 ### Major Changes
