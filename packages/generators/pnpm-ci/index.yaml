@@ -59,11 +59,11 @@ jobs:
         with:
           pairs:
             - path: "devDependencies.typescript"
-              value: "^4.6.4"
+              value: "^5.9.0"
             - path: "devDependencies.eslint"
               value: "^8.56.0"
             - path: "devDependencies.@aiou/eslint-config"
-              value: "^1.2.1"
+              value: "^1.5.1"
             - path: "devDependencies.lint-staged"
               value: "^13.1.0"
 

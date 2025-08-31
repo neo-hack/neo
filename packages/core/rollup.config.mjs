@@ -5,6 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import size from 'rollup-plugin-size'
+import replace from '@rollup/plugin-replace'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -21,6 +22,14 @@ export default defineConfig([
       esbuild({
         target: 'es2022',
         minify: false,
+      }),
+      replace({
+        delimiters: ['', ''],
+        preventAssignment: true,
+        values: {
+          'readable-stream/readable': 'readable-stream/readable.js',
+          'readable-stream/readable.js': 'readable-stream/readable.js',
+        },
       }),
       // TODO: external or include
       // fix: https://github.com/rollup/rollup/issues/1507
@@ -39,8 +48,6 @@ export default defineConfig([
           { find: '@/', replacement: './src/' },
           // fix: https://github.com/SamVerschueren/stream-to-observable/issues/2
           { find: 'any-observable', replacement: 'zen-observable' },
-          // TODO: in next major version, use rollup-plugin-node-externals
-          { find: /^node:(.+)$/, replacement: '$1' },
         ],
       }),
       nodeResolve({
