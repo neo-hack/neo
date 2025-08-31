@@ -2,7 +2,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import multiple from 'rollup-plugin-multi-input'
-import { externals } from 'rollup-plugin-node-externals'
+import { nodeExternals as externals } from 'rollup-plugin-node-externals'
 import bundleSize from 'rollup-plugin-size'
 
 export default defineConfig([
