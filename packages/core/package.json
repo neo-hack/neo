@@ -42,6 +42,7 @@
     "**/**/*.{js,ts,tsx,vue,json}": ["eslint --fix"]
   },
   "dependencies": {
+    "pacote": "^21.0.0",
     "readable-stream": "^3.6.0",
     "source-map-support": "^0.5.21"
   },
