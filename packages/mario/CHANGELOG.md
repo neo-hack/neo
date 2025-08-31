@@ -1,5 +1,11 @@
 # @aiou/mario
 
+## 0.3.0
+
+### Minor Changes
+
+- c50550a: replace ttypescript with tspc
+
 ## 0.2.1
 
 ### Patch Changes

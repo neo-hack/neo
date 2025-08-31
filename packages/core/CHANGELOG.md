@@ -1,5 +1,17 @@
 # @aiou/neo
 
+## 4.0.0
+
+### Major Changes
+
+- c50550a: require node20
+- c50550a: drop pnpm/packagestore into pacote
+
+### Minor Changes
+
+- c50550a: replace ttypescript with tspc
+- 6b9c63c: add neo cleanup to cleanup store dir
+
 ## 3.6.1
 
 ### Patch Changes
