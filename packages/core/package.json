@@ -23,6 +23,9 @@
   "bin": {
     "neo": "bin/index.mjs"
   },
+  "exports": {
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "clean": "rimraf lib compiled",
     "build": "pnpm run clean && rollup -c --environment BUILD:production --compact",

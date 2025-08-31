@@ -16,6 +16,7 @@ export default defineConfig([
   // `file` and `format` for each target)
   {
     input: 'src/cli.ts',
+    preserveEntrySignatures: 'strict',
     external: ['readable-stream', 'source-map-support/register.js'],
     plugins: [
       esbuild({
