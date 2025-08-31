@@ -1,5 +1,11 @@
 # @aiou/generator-pnpm-ci
 
+## 3.0.0
+
+### Major Changes
+
+- c3f174e: upgrade to latest version(node@20, typescript@5.9.0, @aiou/eslint-config@1.5.1)
+
 ## 2.3.1
 
 ### Patch Changes

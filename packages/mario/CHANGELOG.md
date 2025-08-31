@@ -1,5 +1,11 @@
 # @aiou/mario
 
+## 0.3.1
+
+### Patch Changes
+
+- c3f174e: upgrade build scripts
+
 ## 0.3.0
 
 ### Minor Changes
