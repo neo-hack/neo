@@ -3,10 +3,10 @@
 exports[`load template from npm should work 1`] = `
 {
   "templates": {
-    "@aiou/ts-lib-template": {
+    "@aiou/ts-lib-template/0.6.0": {
       "id": "@aiou/ts-lib-template/0.6.0",
       "name": "@aiou/ts-lib-template",
-      "pref": "@aiou/ts-lib-template",
+      "pref": "@aiou/ts-lib-template@0.6.0",
       "version": "0.6.0",
     },
   },

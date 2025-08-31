@@ -9,19 +9,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ci:publish": "pnpm run build && pnpm changeset publish",
     "ci:version": "pnpm changeset version",
-    "ci:snapshot": "pnpm changeset version --snapshot snapshot",
-    "ci:prerelease": "pnpm run build && pnpm changeset publish --no-git-tag --snapshot",
+    "ci:snapshot": "pnpm changeset version --snapshot beta",
+    "ci:prerelease": "pnpm run build && pnpm changeset publish --tag beta",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/**/*.{js,ts,tsx,json,yml,yaml,md}": ["eslint --fix"]
+    "**/**/*.{js,ts,tsx,vue,json,yml,yaml}": ["eslint --fix"]
   },
   "devDependencies": {
-    "@aiou/eslint-config": "^1.2.1",
+    "@aiou/eslint-config": "^0.10.0",
     "@changesets/cli": "^2.26.0",
     "comparedir-test": "^1.0.1",
-    "eslint": "^8.56.0",
+    "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "typescript": "^4.6.4",

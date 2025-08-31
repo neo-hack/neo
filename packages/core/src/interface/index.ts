@@ -17,6 +17,10 @@ export interface Package extends PresetTemplate {
   version: string
   pref: string
   id: string
+  // will be selected in create command(inquirer.search-list), if duplicated in lockfile
+  // name will be uniq by Lockfile, create uniq name by makeUniqId, format: <original-name>(<pref>)
+  // however, package store in .neo-lock.yaml can be duplicated
+  name: string
   cached?: boolean
   // package from which preset
   preset?: string
@@ -27,8 +31,17 @@ export interface Package extends PresetTemplate {
 }
 
 export interface LockFile {
+  // neo version
   version?: string
+  /**
+   * @description cached templates
+   * 1. once cmd-add with type=template, the template will be cached
+   * 2. once cmd-create from store(preset), the template will be cached
+   */
   templates?: Record<string, Package>
+  /**
+   * @description presets
+   */
   presets?: Record<string, Preset>
 }
 

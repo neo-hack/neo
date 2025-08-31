@@ -1,6 +1,5 @@
 import path from 'node:path'
 
-import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 import fs from 'fs-extra'
 import Listr from 'listr'
 
@@ -9,7 +8,7 @@ import { isYaml } from '../utils'
 import { debug } from '../utils/logger'
 import { runMario } from '../utils/mario'
 import { usage } from '../utils/show-usage'
-
+import { parseWantedPackage } from '../utils/find-pref-package'
 import type { CommonOptions } from '../interface'
 
 export type RunOptions = CommonOptions & { module?: string[] }
@@ -33,9 +32,9 @@ export const run = async (alias: string, params: RunOptions) => {
     {
       title: `Download mario generator ${alias}`,
       task: async () => {
-        const result = parseWantedDependency(alias)
-        const response = await store.pm.request({ alias: result.alias, pref: result.pref })
-        await store.pm.import(target, response)
+        const result = parseWantedPackage(alias)
+        const response = await store.pm.request({ alias: result.alias, pref: result.pref, latest: result.version === 'latest' })
+        await store.pm.import(target, response, { latest: result.version === 'latest' })
         return true
       },
     },

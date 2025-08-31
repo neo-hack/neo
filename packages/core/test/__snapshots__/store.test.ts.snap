@@ -84,7 +84,7 @@ exports[`store > add preset 1`] = `
 exports[`store > add template 1`] = `
 {
   "templates": {
-    "bin": {
+    "@aiou/bin-template/4.0.0": {
       "id": "@aiou/bin-template/4.0.0",
       "name": "bin",
       "pref": "@aiou/bin-template",
@@ -179,10 +179,10 @@ exports[`store > add(type=preset) 1`] = `
 exports[`store > add(type=template) 1`] = `
 {
   "templates": {
-    "@aiou/bin-template": {
+    "@aiou/bin-template/3.0.1": {
       "id": "@aiou/bin-template/3.0.1",
       "name": "@aiou/bin-template",
-      "pref": "@aiou/bin-template@3.0.1",
+      "pref": "@aiou/bin-template",
       "version": "3.0.1",
     },
   },

@@ -26,8 +26,18 @@ it('make uniq id', () => {
 })
 
 describe('parse wanted pkg', () => {
-  it('default', () => {
+  it('url', () => {
     console.log(parseWantedPackage('https://github.com/pnpm/pnpm'))
+  })
+
+  it('latest', () => {
+    console.log(parseWantedPackage('@aiou/generator-pnpm-ci@latest'))
+    expect(parseWantedPackage('@aiou/generator-pnpm-ci@latest')).toMatchObject({
+      alias: '@aiou/generator-pnpm-ci',
+      name: '@aiou/generator-pnpm-ci',
+      pref: '@aiou/generator-pnpm-ci@latest',
+      version: 'latest',
+    })
   })
 })
 
@@ -110,7 +120,7 @@ describe('find perf package by uniq pk name', () => {
     const item = findPrefPackageByPk(packages, { input: '@aiou/react-template@2.x' })
     expect(item).toMatchObject({
       name: '@aiou/react-template',
-      pref: '@aiou/react-template',
+      pref: '@aiou/react-template@2.x',
       version: '2.x',
       alias: '@aiou/react-template',
     })
