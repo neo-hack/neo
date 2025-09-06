@@ -1,5 +1,11 @@
 # @aiou/neo
 
+## 4.0.3
+
+### Patch Changes
+
+- 4a6a55c: pref should be original user-input
+
 ## 4.0.2
 
 ### Patch Changes
