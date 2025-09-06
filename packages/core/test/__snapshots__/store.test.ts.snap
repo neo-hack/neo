@@ -182,7 +182,7 @@ exports[`store > add(type=template) 1`] = `
     "@aiou/bin-template/3.0.1": {
       "id": "@aiou/bin-template/3.0.1",
       "name": "@aiou/bin-template",
-      "pref": "@aiou/bin-template",
+      "pref": "@aiou/bin-template@3.0.1",
       "version": "3.0.1",
     },
   },

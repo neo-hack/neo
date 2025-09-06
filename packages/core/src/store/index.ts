@@ -74,6 +74,7 @@ const createStore = async (params: CommonOptions) => {
       const { id } = response.body
       console.log('response.body', response.body)
       // templates pkgs maybe has same name, use id as key
+      // name and pref parsed from user-input
       await lockFile.updateTemplates({
         [id]: {
           name: params.name,
