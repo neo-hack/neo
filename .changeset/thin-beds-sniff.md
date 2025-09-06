@@ -2,4 +2,4 @@
 "@aiou/neo": patch
 ---
 
-pref should not be name@version format
+pref should be original user-input
