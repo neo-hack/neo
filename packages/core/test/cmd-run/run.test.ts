@@ -26,10 +26,13 @@ describe('command run', () => {
     )
   })
 
-  it('run ci part should work', async () => {
+  it('run ci part should work #debug', async () => {
     fs.removeSync(r('test/fixtures/prepack-ci/output/.github'))
-    await execNeo(['run', '@aiou/generator-pnpm-ci', '--module', 'workflows'], {
+    await execNeo(['run', '@aiou/generator-pnpm-ci', '--module', 'workflows', '--store-dir', storeDir], {
       cwd: path.resolve(r('test/fixtures/prepack-ci/output')),
+      env: {
+        DEBUG: 'neo:*',
+      },
     })
     expect(r('test/fixtures/prepack-ci/output')).toMatchDir(r('test/fixtures/prepack-ci/expected'))
   })
