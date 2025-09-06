@@ -54,7 +54,7 @@ importers:
         version: 0.5.21
     devDependencies:
       '@aiou/mario':
-        specifier: workspace:^0.3.0
+        specifier: workspace:^0.3.1
         version: link:../mario
       '@aiou/schema':
         specifier: workspace:^1.1.0
@@ -207,8 +207,8 @@ importers:
         specifier: ^0.7.7
         version: 0.7.13(c8@7.14.0)
       vitest-extra:
-        specifier: ^0.0.4
-        version: 0.0.4(vitest@0.7.13(c8@7.14.0))
+        specifier: ^0.1.0
+        version: 0.1.0(vitest@0.7.13(c8@7.14.0))
       write-yaml-file:
         specifier: ^5.0.0
         version: 5.0.0
@@ -5496,8 +5496,8 @@ packages:
     bundledDependencies:
       - lodash-es
 
-  vitest-extra@0.0.4:
-    resolution: {integrity: sha512-7T8ES01B8qLkvSySmuDf5Rgxfnb/1rH7dZsAN1GWvnzSetv6L4M0yWEu4ejL1rmnhfJuOVczU2JK+uDJLcbgPQ==}
+  vitest-extra@0.1.0:
+    resolution: {integrity: sha512-CGt3CvrHWDCd2QxlLiooiSL6630NoWC0tMuBNpmarF2qmlVckTQH4OlKNewZyNfMbKOx1ZtpfU0C8jhIQoqaNw==}
     peerDependencies:
       vitest: '>=0.7.7'
 
@@ -11580,7 +11580,7 @@ snapshots:
       globby: 13.1.1
       vitest: 0.7.13(c8@7.14.0)
 
-  vitest-extra@0.0.4(vitest@0.7.13(c8@7.14.0)):
+  vitest-extra@0.1.0(vitest@0.7.13(c8@7.14.0)):
     dependencies:
       debug: 4.4.1(supports-color@9.4.0)
       fs-extra: 10.0.1

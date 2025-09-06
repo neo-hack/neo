@@ -3,16 +3,19 @@ import { randomUUID } from 'node:crypto'
 import parseWantedDependency from '@pnpm/parse-wanted-dependency'
 
 import type { Package } from '../interface'
+import { debug } from './logger'
 
 export const parseWantedPackage = (input: string) => {
   const { alias, pref } = parseWantedDependency(input)
-  return {
+  const options = {
     _name: alias || input,
     name: alias || input,
     alias,
     version: pref,
-    pref: alias || input,
+    pref: input,
   }
+  debug.utils('parse input %s into %O', input, options)
+  return options
 }
 
 /**

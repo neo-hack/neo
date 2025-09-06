@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`load template from github should work 1`] = `
+{
+  "templates": {
+    "@aiou/actions-template/0.3.0": {
+      "id": "@aiou/actions-template/0.3.0",
+      "name": "https://github.com/neo-hack/actions-template",
+      "pref": "https://github.com/neo-hack/actions-template",
+      "version": "0.3.0",
+    },
+  },
+  "version": undefined,
+}
+`;
